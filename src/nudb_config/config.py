@@ -1,7 +1,7 @@
-from pathlib import Path
 import importlib.resources as impres
+from pathlib import Path
 
-from dynaconf import Dynaconf # type: ignore
+from dynaconf import Dynaconf  # type: ignore
 from dynaconf import Validator
 
 config_paths = list(Path(str(impres.files("nudb_config"))).glob("config_tomls/*.toml"))
