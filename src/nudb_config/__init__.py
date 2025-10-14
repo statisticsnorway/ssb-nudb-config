@@ -1,1 +1,1 @@
-"""Nudb_Config."""
+from .config import settings

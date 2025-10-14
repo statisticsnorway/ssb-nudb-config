@@ -1,0 +1,651 @@
+variables_sort_unit = [
+    "enhet",
+    "person",
+    "data",
+    "tid",
+    "fag",
+    "skole",
+    "vgs",
+    "uh",
+    "karakter",
+    "land",
+    "utdatert",
+]
+
+[variables]
+
+    [variables.utd_hendelse_id]
+        unit = "enhet"
+        dtype = "INTEGER"
+
+	# 0: Personvariabler
+	[variables.snr]
+		unit = "person"
+		dtype = "STRING"
+		length = [7, 19, 22]
+
+	[variables.snr_mrk]
+		unit = "person"
+		dtype = "BOOLEAN"
+
+    [variables.snr_mrk_freg] # kobler snr mot folkeregisteret?
+		unit = "person"
+		dtype = "BOOLEAN"
+
+	[variables.snr_nudb]
+		unit = "person"
+		dtype = "STRING"
+		length = [8]
+
+	[variables.fnr]
+		unit = "person"
+		dtype = "STRING"
+		length = [11, 8]
+
+	[variables.kjoenn]
+		unit = "person"
+		dtype = "STRING"
+		length = [1]
+		klass_codelist = 2
+
+    
+	[variables.kilde]
+		unit = "data"
+		dtype = "STRING"
+		length = [2]
+		klass_codelist = 792
+
+	[variables.utfall]
+		unit = "data"
+		dtype = "STRING"
+		length = [1]
+
+	[variables.utfallu]
+		unit = "data"
+		dtype = "STRING"
+		length = [1]
+
+	[variables.mrk_dl]
+		unit = "data"
+		dtype = "STRING"
+
+	[variables.mrk_dl1]
+		unit = "data"
+		dtype = "STRING"
+
+	[variables.mrk_dl2]
+		unit = "data"
+		dtype = "STRING"
+
+	[variables.mrk_dl3]
+		unit = "data"
+		dtype = "STRING"
+
+	[variables.mrk_per]
+		unit = "data"
+		dtype = "STRING"
+
+	[variables.mrk_end]
+		unit = "data"
+		dtype = "STRING"
+
+	[variables.mrk_grskole]
+		unit = "data"
+		dtype = "STRING"
+
+	[variables.spesund]
+		unit = "data"
+		dtype = "STRING"
+		length = [1]
+
+	[variables.morsmal]
+		unit = "data"
+		dtype = "STRING"
+		length = [1]
+
+
+	# 2: Tidskolonner        
+
+
+    [variables.kurs_start]
+        unit = "tid"
+        dtype = "DATETIME"
+        renamed_from = ["startd"]
+    
+    [variables.kurs_slutt]
+        unit = "tid"
+        dtype = "DATETIME"
+        renamed_from = ["sluttd"]
+
+    [variables.kurs_start_orig]
+        unit = "tid"
+        dtype = "DATETIME"
+        renamed_from = ["estart", "kstart"]
+
+    [variables.kurs_slutt_orig]
+        unit = "tid"
+        dtype = "DATETIME"
+        renamed_from = ["eavsl"]
+
+
+    [variables.kurs_start_mrk_kilde]
+        unit = "tid"
+        dtype = "STRING"
+        renamed_from = "mrk_dl"
+
+    [variables.kilde_start]
+        unit = "tid"
+        dtype = "DATETIME"
+
+    [variables.kilde_slutt]
+        unit = "tid"
+        dtype = "DATETIME"
+
+    [variables.skoleaar_start]
+        unit = "tid"
+        dtype = "DATETIME"
+        renamed_from = ["skolear", "skoleaar"]
+
+    [variables.skoleaar_slutt]
+        unit = "tid"
+        dtype = "DATETIME"
+        renamed_from = "avgdato"
+
+    [variables.kilde_dato]
+        unit = "tid"
+        dtype = "DATETIME"
+    
+    # Bør slettes i produksjonsløp til fordel for fodt_dato?
+	[variables.foedselsaar]
+		unit = "tid"
+		dtype = "STRING"
+
+	[variables.fodt_dato]
+		unit = "tid"
+		dtype = "DATETIME"
+
+    [variables.eksamen_dato]
+        unit = "tid"
+        dtype = "DATETIME"
+    [variables.eksamen_dato_orig]
+        unit = "tid"
+        dtype = "DATETIME"
+
+    [variables.aartimer]
+        unit = "tid"
+        dtype = "INTEGER"
+
+
+	# 3: Fagvariabler / nuskatalog
+	[variables.nus2000]
+		unit = "fag"
+		dtype = "STRING"
+		length = [6]
+		klass_codelist = 36
+
+	[variables.nus89]
+		unit = "fag"
+		dtype = "STRING"
+		length = [6]
+
+	[variables.kodetype]
+		unit = "fag"
+		dtype = "STRING"
+		length = [1]
+
+	[variables.kltrinn2000]
+		unit = "fag"
+		dtype = "INTEGER"
+
+	[variables.ktrinn]
+		unit = "fag"
+		dtype = "STRING"
+		length = [2]
+
+	[variables.heldel]
+		unit = "fag"
+		dtype = "BOOLEAN"
+
+	[variables.realkomp]
+		unit = "fag"
+		dtype = "STRING"
+		length = [1]
+		klass_codelist = 795
+
+	[variables.realkompetansevurdert_dato]
+		unit = "fag"
+		dtype = "DATETIME"
+		renamed_from = "dato_dokrealkomp"
+
+	[variables.rett]
+		unit = "fag"
+		dtype = "STRING"
+		length = [1]
+		klass_codelist = 764
+
+	[variables.ftype]
+		unit = "fag"
+		dtype = "STRING"
+		length = [1]
+		klass_variant = 2942
+
+    [variables.ftypef] # Samme som `ftype`?
+        unit = "fag"
+        dtype = "STRING"
+        length = [1]
+        klass_variant = 2942
+
+	[variables.evufjern]
+		unit = "fag"
+		dtype = "STRING"
+		length = [1]
+		klass_codelist = 794
+
+	[variables.organisering]
+		unit = "fag"
+		dtype = "STRING"
+		length = [1]
+		klass_codelist = 796
+
+	[variables.utd]
+		unit = "fag"
+		dtype = "STRING"
+		length = [3]
+		klass_codelist = 798
+
+    [variables.fagkode]
+		unit = "fag"
+		dtype = "STRING"
+		length = [3, 6, 7]
+
+	[variables.i97isced]
+		unit = "fag"
+		dtype = "STRING"
+
+	[variables.i97destn]
+		unit = "fag"
+		dtype = "STRING"
+
+	[variables.i97orien]
+		unit = "fag"
+		dtype = "STRING"
+
+	[variables.i97grads]
+		unit = "fag"
+		dtype = "STRING"
+
+	[variables.i97varig]
+		unit = "fag"
+		dtype = "STRING"
+    
+    [variables.termrapp]
+        unit = "fag"
+        dtype = "STRING"
+
+    [variables.studprog]
+        unit = "fag"
+        dtype = "STRING"
+
+    [variables.karakter_eks]
+        unit = "fag"
+        dtype = "STRING"
+
+    [variables.emnekode]
+        unit = "fag"
+        dtype = "STRING"
+        
+    [variables.studnivaa]
+        unit = "fag"
+        dtype = "STRING"
+        
+    [variables.studprog_navn]
+        unit = "fag"
+        dtype = "STRING"
+        
+    [variables.emnekode_navn]
+        unit = "fag"
+        dtype = "STRING"
+
+
+    [variables.doktype]
+        unit = "fag"
+        dtype = "STRING"
+        length = [2]
+
+	# 4: Skolevariabler
+    [variables.orgnrbed]
+		unit = "skole"
+		dtype = "STRING"
+		length = [9]
+        
+    [variables.orgnr]
+		unit = "skole"
+		dtype = "STRING"
+		length = [9]
+        
+	[variables.skolekom]
+		unit = "skole"
+		dtype = "STRING"
+		length = [4]
+        klass_codelist = 131
+        klass_codelist_from_date = "1960-01-01"
+
+	[variables.eierf]
+		unit = "skole"
+		dtype = "STRING"
+		length = [1]
+		klass_codelist = 793
+
+	[variables.hskode]
+		unit = "skole"
+		dtype = "STRING"
+		length = [3]
+		klass_codelist = 790
+
+
+
+	[variables.sn72]
+		unit = "skole"
+		dtype = "STRING"
+		length = [2]
+
+	[variables.sn78]
+		unit = "skole"
+		dtype = "STRING"
+		length = [2]
+
+	[variables.sn94]
+		unit = "skole"
+		dtype = "STRING"
+		length = [6]
+
+    [variables.sn07]
+		unit = "skole"
+		dtype = "STRING"
+		length = [6]
+
+    [variables.sn25]
+		unit = "skole"
+		dtype = "STRING"
+		length = [6]
+
+	[variables.inr]
+		unit = "skole"
+		dtype = "STRING"
+		length = [7]
+
+	[variables.sslag]
+		unit = "skole"
+		dtype = "STRING"
+
+	[variables.univ]
+		unit = "skole"
+		dtype = "STRING"
+
+	[variables.hoved]
+		unit = "skole"
+		dtype = "STRING"
+
+
+    # 4.5 Grunnskole
+    [variables.grunnskolepoeng]
+        unit = "grunnskole"
+        dtype = "FLOAT"
+
+	# 5: VGS‑variabler
+	[variables.komp]
+		unit = "vgs"
+		dtype = "STRING"
+		length = [1]
+
+	[variables.delpros]
+		unit = "vgs"
+		dtype = "FLOAT"
+
+	[variables.fkurskod]
+		unit = "vgs"
+		dtype = "STRING"
+		length = [10]
+
+	[variables.kontraktstype]
+		unit = "vgs"
+		dtype = "STRING"
+		length = [1]
+		klass_codelist = 769
+
+	[variables.elevstatus]
+		unit = "vgs"
+		dtype = "STRING"
+		length = [1]
+		klass_codelist = 765
+
+	[variables.taf]
+		unit = "vgs"
+		dtype = "STRING"
+		length = [1]
+		klass_codelist = 797
+
+	[variables.fagskoleutd]
+		unit = "vgs"
+		dtype = "BOOLEAN"
+
+    [variables.provekandtype]
+        unit = "vgs"
+        dtype = "STRING"
+        length = [1]
+        # Burde lages KLASS-kodeliste? MetaDB:
+        # 9 	Uoppgitt 	
+        # B 	Praksisbrevkandidat 	
+        # E 	Fagopplæring i skole 	
+        # F 	Fagbrev på jobb 	
+        # K 	Lærekandidat (opplæringskontrakt) 	
+        # L 	Lærling 	
+        # P 	Praksiskandidater
+    [variables.fskolenr]
+        unit = "vgs"
+        dtype = "STRING"
+        length = [5]
+
+	# 6: Høyere utdanningsvariabler
+    [variables.campus_sted]
+        unit = "uh" # I think...
+        dtype = "STRING"
+        
+	[variables.utveks]
+		unit = "uh"
+		dtype = "STRING"
+		length = [1]
+		klass_codelist = 791
+
+	[variables.utveksavtale]
+		unit = "uh"
+		dtype = "STRING"
+		length = [3,4,5,6,7,8,9,10,11,12,13]
+		#klass_codelist = 792  # Denne er foreldet etter vi gikk over til å bruke kodelisten slik den kommer inn til oss?
+
+	[variables.studpoeng_eks]
+		unit = "uh"
+		dtype = "FLOAT"
+
+    [variables.studpoeng_grad]
+        unit = "uh"
+        dtype = "FLOAT"
+
+	[variables.gjentak]
+		unit = "uh"
+		dtype = "STRING"
+		length = [1]
+
+	[variables.antall_deleks]
+		unit = "uh"
+        dtype = "INTEGER"
+		# dtype = "STRING"
+		# length = [1]
+
+	[variables.antall_deleks_bestaatt]
+		unit = "uh"
+        dtype = "INTEGER"
+		# dtype = "STRING"
+		# length = [1]
+
+	[variables.studrett]
+		unit = "uh"
+		dtype = "BOOLEAN"
+
+	[variables.studieprogresjon]
+		unit = "uh"
+		dtype = "FLOAT"
+
+	[variables.studieprogresjon_h]
+		unit = "uh"
+		dtype = "FLOAT"
+
+	[variables.voksen]
+		unit = "uh"
+		dtype = "BOOLEAN"
+
+	[variables.studretn]
+		unit = "uh"
+		dtype = "STRING"
+		length = [2]
+
+	[variables.uhgruppe]
+		unit = "uh"
+		dtype = "STRING"
+		length = [3]
+
+	[variables.vektgrad]
+		unit = "uh"
+		dtype = "FLOAT"
+
+	[variables.vekteks]
+		unit = "uh"
+		dtype = "FLOAT"
+
+    [variables.avgdato]
+        dtype = "STRING"
+
+    [variables.utdplan]
+        dtype = "STRING"
+
+    [variables.uhstudretn]
+        unit = "uh"
+        dtype = "STRING"
+
+    [variables.utdkode]
+        unit = "uh"
+        dtype = "STRING"
+
+    [variables.fakultet]
+        unit = "uh"
+        dtype = "STRING"
+        length = [2]
+
+    [variables.kildebhu]
+        unit = "uh"
+        dtype = "STRING"
+    
+    # Karakterer
+    [variables.stp]
+        unit = "karakter"
+        dtype = "STRING"
+        length = [1, 2]
+    
+    [variables.skr]
+        unit = "karakter"
+        dtype = "STRING"
+        length = [1, 2]
+
+    [variables.mun]
+        unit = "karakter"
+        dtype = "STRING"
+        length = [1, 2]
+
+    [variables.annen]
+        unit = "karakter"
+        dtype = "STRING"
+        length = [1, 2]
+
+    [variables.termin1]
+        unit = "karakter"
+        dtype = "STRING"
+        length = [1, 2]
+    
+    [variables.termin2]
+        unit = "karakter"
+        dtype = "STRING"
+        length = [1, 2]
+    
+    [variables.kar_annen]
+        unit = "karakter"
+        dtype = "STRING"
+        length = [1, 2]
+
+	# 7: land
+	[variables.utland]
+		unit = "land"
+		dtype = "BOOLEAN"
+
+	[variables.studieland]
+		unit = "land"
+		dtype = "STRING"
+		length = [3]
+		klass_codelist = 91
+
+	[variables.utveksland]
+		unit = "land"
+		dtype = "STRING"
+		length = [3]
+		klass_codelist = 91
+
+	[variables.studgrland]
+		unit = "land"
+		dtype = "STRING"
+		length = [3]
+		klass_codelist = 91
+
+	[variables.statb_meldt]
+		unit = "land"
+		dtype = "STRING"
+		length = [3]
+		klass_codelist = 91
+
+	# 8: Utdaterte/arkiv
+	[variables.aargang]
+		unit = "utdatert"
+		dtype = "STRING"
+		length = [4]
+
+	[variables.rectype]
+		unit = "utdatert"
+		dtype = "STRING"
+		length = [1]
+
+    [variables.fulldato]
+        unit = "utdatert"
+        dtype = "STRING"
+
+    # 9: Ukjent
+    [variables.f_dager]
+        unit = "ukjent"
+        dtype = "INTEGER"
+
+    [variables.f_timer]
+        unit = "ukjent"
+        dtype = "INTEGER"
+
+    [variables.provnr]
+        unit = "ukjent"
+        dtype = "INTEGER"
+
+    [variables.pedsem]
+        unit = "ukjent"
+        dtype = "STRING"
+
+    [variables.mrk_dl_bhu]
+        unit = "ukjent"
+        dtype = "STRING"
+
+    [variables.endret_utfall]
+        unit = "ukjent"
+        dtype = "STRING"
