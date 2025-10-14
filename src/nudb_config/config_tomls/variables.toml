@@ -48,7 +48,7 @@ variables_sort_unit = [
 		length = [1]
 		klass_codelist = 2
 
-    
+
 	[variables.kilde]
 		unit = "data"
 		dtype = "STRING"
@@ -104,14 +104,14 @@ variables_sort_unit = [
 		length = [1]
 
 
-	# 2: Tidskolonner        
+	# 2: Tidskolonner
 
 
     [variables.kurs_start]
         unit = "tid"
         dtype = "DATETIME"
         renamed_from = ["startd"]
-    
+
     [variables.kurs_slutt]
         unit = "tid"
         dtype = "DATETIME"
@@ -154,7 +154,7 @@ variables_sort_unit = [
     [variables.kilde_dato]
         unit = "tid"
         dtype = "DATETIME"
-    
+
     # Bør slettes i produksjonsløp til fordel for fodt_dato?
 	[variables.foedselsaar]
 		unit = "tid"
@@ -277,7 +277,7 @@ variables_sort_unit = [
 	[variables.i97varig]
 		unit = "fag"
 		dtype = "STRING"
-    
+
     [variables.termrapp]
         unit = "fag"
         dtype = "STRING"
@@ -293,15 +293,15 @@ variables_sort_unit = [
     [variables.emnekode]
         unit = "fag"
         dtype = "STRING"
-        
+
     [variables.studnivaa]
         unit = "fag"
         dtype = "STRING"
-        
+
     [variables.studprog_navn]
         unit = "fag"
         dtype = "STRING"
-        
+
     [variables.emnekode_navn]
         unit = "fag"
         dtype = "STRING"
@@ -317,12 +317,12 @@ variables_sort_unit = [
 		unit = "skole"
 		dtype = "STRING"
 		length = [9]
-        
+
     [variables.orgnr]
 		unit = "skole"
 		dtype = "STRING"
 		length = [9]
-        
+
 	[variables.skolekom]
 		unit = "skole"
 		dtype = "STRING"
@@ -434,12 +434,12 @@ variables_sort_unit = [
         dtype = "STRING"
         length = [1]
         # Burde lages KLASS-kodeliste? MetaDB:
-        # 9 	Uoppgitt 	
-        # B 	Praksisbrevkandidat 	
-        # E 	Fagopplæring i skole 	
-        # F 	Fagbrev på jobb 	
-        # K 	Lærekandidat (opplæringskontrakt) 	
-        # L 	Lærling 	
+        # 9 	Uoppgitt
+        # B 	Praksisbrevkandidat
+        # E 	Fagopplæring i skole
+        # F 	Fagbrev på jobb
+        # K 	Lærekandidat (opplæringskontrakt)
+        # L 	Lærling
         # P 	Praksiskandidater
     [variables.fskolenr]
         unit = "vgs"
@@ -450,7 +450,7 @@ variables_sort_unit = [
     [variables.campus_sted]
         unit = "uh" # I think...
         dtype = "STRING"
-        
+
 	[variables.utveks]
 		unit = "uh"
 		dtype = "STRING"
@@ -544,13 +544,13 @@ variables_sort_unit = [
     [variables.kildebhu]
         unit = "uh"
         dtype = "STRING"
-    
+
     # Karakterer
     [variables.stp]
         unit = "karakter"
         dtype = "STRING"
         length = [1, 2]
-    
+
     [variables.skr]
         unit = "karakter"
         dtype = "STRING"
@@ -570,12 +570,12 @@ variables_sort_unit = [
         unit = "karakter"
         dtype = "STRING"
         length = [1, 2]
-    
+
     [variables.termin2]
         unit = "karakter"
         dtype = "STRING"
         length = [1, 2]
-    
+
     [variables.kar_annen]
         unit = "karakter"
         dtype = "STRING"

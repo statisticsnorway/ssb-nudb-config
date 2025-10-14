@@ -10,4 +10,3 @@ delt_utdanning = "/ssb/stamme03/nudbut/nyeste"
 
 [paths.url_gcs]
 delt_utdanning = "ssb-utd-nudb-data-delt-utdanning-prod/nudb-data"
-
