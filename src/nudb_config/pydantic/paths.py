@@ -1,0 +1,25 @@
+from __future__ import annotations
+
+from pydantic import BaseModel
+
+
+class PathEntry(BaseModel):
+    """Path configuration for a named environment under ``[paths]``.
+
+    Attributes:
+        katalog: Base catalog path for configuration artifacts.
+        delt_utdanning: Location of shared education data.
+    """
+
+    katalog: str | None = None
+    delt_utdanning: str | None = None
+
+
+class PathsFile(BaseModel):
+    """Root schema of ``paths.toml``.
+
+    Attributes:
+        paths: Mapping of environment name to its paths configuration.
+    """
+
+    paths: dict[str, PathEntry]
