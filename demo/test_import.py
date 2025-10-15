@@ -1,10 +1,10 @@
 from nudb_config.config import settings
 
-settings.paths.local_daplalab.delt_utdanning
+print(settings.paths)
+print(settings["paths"])
 
-import importlib.resources as impres
-from pathlib import Path
+print(settings.paths.local_daplalab)
+print(settings.paths["local_daplalab"])
 
-Path(str(impres.files("nudb_config")))
-
-type(impres.files("nudb_config"))
+print(settings.paths.local_daplalab.katalog)
+print(settings.paths.local_daplalab["katalog"])

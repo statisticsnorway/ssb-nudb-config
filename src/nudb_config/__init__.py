@@ -1,4 +1,4 @@
-"""Config of metadata for functions used in nudb_build and nudb_use."""
+"""Config of metadata for functions used in ssb-nudb-use."""
 
 from .config import settings
 

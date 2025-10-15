@@ -175,6 +175,10 @@ variables_sort_unit = [
         unit = "tid"
         dtype = "INTEGER"
 
+	[variables.avgdato]
+		unit = "tid"
+        dtype = "STRING"
+
 
 	# 3: Fagvariabler / nuskatalog
 	[variables.nus2000]
@@ -522,10 +526,10 @@ variables_sort_unit = [
 		unit = "uh"
 		dtype = "FLOAT"
 
-    [variables.avgdato]
-        dtype = "STRING"
+
 
     [variables.utdplan]
+		unit = "uh"
         dtype = "STRING"
 
     [variables.uhstudretn]

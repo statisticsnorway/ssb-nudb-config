@@ -6,9 +6,12 @@ authors = [{ name = "Markus Storeide", email = "rku@ssb.no" }]
 maintainers = [{ name = "Statistics Norway, Education statistics Department (360)" }]
 license = "MIT"
 readme = "README.md"
-requires-python = ">=3.10,<4.0"
+requires-python = ">=3.11,<4.0"
 dynamic = ["classifiers"]
-dependencies = ["dynaconf >=3.2.12", "ipykernel >=7.0.0"]
+dependencies = [
+    "ipykernel >=7.0.0",
+    "pydantic >=2.5",
+]
 
 [project.urls]
 homepage = "https://github.com/statisticsnorway/nudb_config"
