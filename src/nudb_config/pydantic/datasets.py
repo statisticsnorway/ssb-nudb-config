@@ -2,8 +2,10 @@ from __future__ import annotations
 
 from pydantic import BaseModel
 
+from .mixins import SubscriptableModel
 
-class Dataset(BaseModel):
+
+class Dataset(SubscriptableModel, BaseModel):
     """Dataset configuration entry under ``[datasets]``.
 
     Attributes:

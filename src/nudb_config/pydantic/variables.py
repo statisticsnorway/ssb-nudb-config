@@ -2,8 +2,10 @@ from __future__ import annotations
 
 from pydantic import BaseModel
 
+from .mixins import SubscriptableModel
 
-class Variable(BaseModel):
+
+class Variable(SubscriptableModel, BaseModel):
     """Definition of a single variable from ``variables.toml``.
 
     Attributes:

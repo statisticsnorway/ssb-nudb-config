@@ -9,7 +9,9 @@ from collections.abc import Mapping
 from collections.abc import ValuesView
 from pathlib import Path
 from typing import Generic
+from typing import Literal
 from typing import TypeVar
+from typing import overload
 
 from pydantic import BaseModel
 from pydantic import ConfigDict
@@ -154,6 +156,48 @@ class NudbConfig(BaseModel):
     datasets: DotMap[Dataset]
 
     paths: DotMap[PathEntry]
+
+    # Precise typing for subscription access to satisfy static checkers
+    @overload
+    def __getitem__(self, key: Literal["dapla_team"]) -> str: ...
+
+    @overload
+    def __getitem__(self, key: Literal["short_name"]) -> str: ...
+
+    @overload
+    def __getitem__(self, key: Literal["utd_nacekoder"]) -> list[str]: ...
+
+    @overload
+    def __getitem__(self, key: Literal["variables_sort_unit"]) -> list[str] | None: ...
+
+    @overload
+    def __getitem__(self, key: Literal["variables"]) -> DotMap[Variable]: ...
+
+    @overload
+    def __getitem__(self, key: Literal["datasets"]) -> DotMap[Dataset]: ...
+
+    @overload
+    def __getitem__(self, key: Literal["paths"]) -> DotMap[PathEntry]: ...
+
+    def __getitem__(self, key: str) -> object:
+        """Return a top-level value by key.
+
+        Supports subscription access like ``settings["paths"]`` to mirror
+        Dynaconf behavior, in addition to attribute access.
+
+        Args:
+            key (str): Top-level attribute name.
+
+        Returns:
+            object: The corresponding attribute value.
+
+        Raises:
+            KeyError: If ``key`` is not a top-level attribute.
+        """
+        try:
+            return getattr(self, key)
+        except AttributeError as exc:
+            raise KeyError(key) from exc
 
 
 # Ensure forward refs are resolved for Pydantic

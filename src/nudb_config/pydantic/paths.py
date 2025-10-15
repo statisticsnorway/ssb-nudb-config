@@ -2,8 +2,10 @@ from __future__ import annotations
 
 from pydantic import BaseModel
 
+from .mixins import SubscriptableModel
 
-class PathEntry(BaseModel):
+
+class PathEntry(SubscriptableModel, BaseModel):
     """Path configuration for a named environment under ``[paths]``.
 
     Attributes:
@@ -13,6 +15,8 @@ class PathEntry(BaseModel):
 
     katalog: str = ""
     delt_utdanning: str = ""
+
+    # __getitem__ provided by SubscriptableModel
 
 
 class PathsFile(BaseModel):

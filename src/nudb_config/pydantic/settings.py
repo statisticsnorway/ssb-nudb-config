@@ -2,8 +2,10 @@ from __future__ import annotations
 
 from pydantic import BaseModel
 
+from .mixins import SubscriptableModel
 
-class SettingsFile(BaseModel):
+
+class SettingsFile(SubscriptableModel, BaseModel):
     """Root schema of ``settings.toml``.
 
     Attributes:
