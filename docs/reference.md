@@ -13,14 +13,23 @@ delete the .rst file afterwards.
 
 ```{eval-rst}
 nudb\_config package
-=============================================================================
+====================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   nudb_config.pydantic
 
 
-nudb\_config.functions module
------------------------------------------------------------------------------
+nudb\_config.config module
+--------------------------
 
-.. automodule:: nudb_config.functions
+.. automodule:: nudb_config.config
    :members:
    :undoc-members:
    :show-inheritance:
+
 ```
