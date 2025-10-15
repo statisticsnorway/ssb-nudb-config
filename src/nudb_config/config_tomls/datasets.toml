@@ -1,0 +1,155 @@
+[datasets]
+    [datasets.igang]
+        variables = [
+            "snr",
+            "snr_mrk",
+            "aargang",
+            "nus2000",
+            "kltrinn2000",
+            "heldel",
+            "startd",
+            "voksen",
+            "realkomp",
+            "kilde",
+            "rett",
+            "ftype",
+            "evufjern",
+            "studrett",
+            "utd",
+            "skolekom",
+            "eierf",
+            "hskode",
+            "inr",
+            "orgnr",
+            "studieland",
+            "univ",
+            "mrk_dl",
+            "utland",
+            "delpros",
+            "aartimer",
+            "elevstatus",
+            "dato_dokrealkomp",
+            "orgnrbed",
+            "fagskoleutd",
+            "taf",
+            "utveks",
+            "utveksland",
+            "studgrland",
+            "utdplan",
+            "sn07",
+            "kjoenn",
+            "foedselsaar",
+            "utveksavtale",
+            "studieprogresjon_h",
+            "statb_meldt",
+            "organisering",
+            "fkurskod",
+            "kontraktstype",
+            "studieprogram"
+    ]
+    [datasets.eksamen_uh]
+        variables = [
+            "snr",
+            "snr_mrk",
+            #"snr_mrk_freg",
+            "kjoenn",
+            "fodt_dato",
+            "nus2000",   # Personvariabler ?
+            # "estart",
+            # "kstart",
+            # "startd",
+            # "mrk_dl",  # Tidsvariabler ?
+            # "kilde",
+            # 'snr_nudb',
+            'kilde',
+            'studpoeng_eks',
+            'gjentak',
+            'skolekom',
+            'antall_deleks',
+            'antall_deleks_bestaatt',
+            # 'studieprogresjon',
+            # 'studieprogresjon_h',
+            'termrapp',
+            'karakter_eks',
+            # 'eavsl',
+            'studprog',
+            'emnekode',
+            'studnivaa',
+            'studprog_navn',
+            'emnekode_navn',
+            # 'foedselsdato',
+            # 'start_dato',
+            # 'slutt_dato',
+            # 'start_dato_kilde',
+            # 'slutt_dato_kilde',
+            'eksamen_dato',
+            'eksamen_dato_orig',
+            #"kilde_dato",
+            'skoleaar_start',
+            'skoleaar_slutt',
+            "utd",
+            "univ", # kan egt bare utledes...
+            #"heldel",  # Hvordan kan en eksamen "være heltid"? Mellom 2003 og 2012 så er ALLE eksamener "heltid"...
+            "orgnr",
+            "orgnrbed",
+            "eierf",
+            # "skolekom",
+            # "rett",
+            "evufjern",
+            "organisering", # Skolevariabler?
+            "hskode",
+            # "utdplan",
+            "studrett",
+            # "studgrland",
+            # "utland",
+            # "utveks",
+            # "utveksavtale",
+            # "utveksland",
+            # "studieland",
+            # "statb_meldt",  # UH-variabler?
+            # "studieprogresjon_h",
+            # "fagskoleutd",
+            # "taf",
+            # "delpros",
+            # "aartimer",
+            # "elevstatus",
+            # "realkomp",
+            # "dato_dokrealkomp",
+            # "ftype",
+            # "fkurskod",
+            # "kontraktstype", ikke relevant??
+            # "voksen",
+    ]
+    [datasets.eksamen_uh.min_values]
+        nus2000 = "500000"
+
+    [datasets.eksamen_uh.max_values]
+        nus2000 = "799999"
+
+    [datasets.grunnskolekarakterer]
+        variables = [
+            'snr',
+            'snr_mrk',
+            'orgnr',
+            'skolekom',
+            'fagkode',
+            'stp',
+            'skr',
+            'mun',
+            'skoleaar_slutt',
+            'termin1',
+            'termin2',
+            'kar_annen',
+        ]
+
+        [datasets.grunnskolekarakterer.thresholds_empty]
+            snr = 0.1
+            orgnr = 0.1
+            skolekom = 0.05
+            fagkode = 0.0
+            stp = 3.0
+            skr = 93.0
+            mun = 96.0
+            termin1 = 15.0
+            termin2 = 99.93
+            kar_annen = 99.99

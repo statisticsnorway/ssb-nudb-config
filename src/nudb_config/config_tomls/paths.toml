@@ -1,0 +1,12 @@
+[paths]
+
+[paths.local_daplalab]
+
+katalog = "/buckets/produkt/nudb-data/konfigurasjon/kat/"
+delt_utdanning = "/buckets/shared/utd-nudb/utdanning/"
+
+[paths.on_prem]
+delt_utdanning = "/ssb/stamme03/nudbut/nyeste"
+
+[paths.url_gcs]
+delt_utdanning = "ssb-utd-nudb-data-delt-utdanning-prod/nudb-data"
