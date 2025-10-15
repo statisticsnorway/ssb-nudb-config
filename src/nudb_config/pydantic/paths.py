@@ -11,8 +11,8 @@ class PathEntry(BaseModel):
         delt_utdanning: Location of shared education data.
     """
 
-    katalog: str | None = None
-    delt_utdanning: str | None = None
+    katalog: str = ""
+    delt_utdanning: str = ""
 
 
 class PathsFile(BaseModel):

@@ -2,9 +2,17 @@ from __future__ import annotations
 
 import importlib.resources as impres
 import tomllib
+from collections.abc import ItemsView
+from collections.abc import Iterator
+from collections.abc import KeysView
+from collections.abc import Mapping
+from collections.abc import ValuesView
 from pathlib import Path
+from typing import Generic
+from typing import TypeVar
 
 from pydantic import BaseModel
+from pydantic import ConfigDict
 
 from .datasets import Dataset
 from .datasets import DatasetsFile
@@ -13,6 +21,106 @@ from .paths import PathsFile
 from .settings import SettingsFile
 from .variables import Variable
 from .variables import VariablesFile
+
+T = TypeVar("T")
+
+
+class DotMap(Mapping[str, T], Generic[T]):
+    """Read-only mapping that also exposes keys via dot-notation.
+
+    Example: for a mapping ``{"env": PathEntry(...)}``, ``dot.env`` returns the
+    same as ``dot["env"]``. Unknown attributes raise ``AttributeError``.
+    """
+
+    __slots__ = ("_data",)
+
+    def __init__(self, data: dict[str, T]) -> None:
+        """Initialize the dot-accessible mapping.
+
+        Args:
+            data: Underlying mapping providing storage and lookups.
+        """
+        self._data = data
+
+    def __getattr__(self, name: str) -> T:  # for mypy attr access
+        """Return value using attribute-style access.
+
+        Mirrors ``self[name]``.
+
+        Args:
+            name: Key to access within the mapping.
+
+        Returns:
+            T: Value associated with ``name``.
+
+        Raises:
+            AttributeError: If ``name`` is not present in the mapping.
+        """
+        try:
+            return self._data[name]
+        except KeyError as exc:  # pragma: no cover - defensive
+            raise AttributeError(name) from exc
+
+    # Mapping interface
+    def __getitem__(self, key: str) -> T:
+        """Retrieve an item by key.
+
+        Args:
+            key: Mapping key.
+
+        Returns:
+            T: Value associated with ``key``.
+        """
+        return self._data[key]
+
+    def __iter__(self) -> Iterator[str]:
+        """Iterate over keys in insertion order.
+
+        Returns:
+            Iterator[str]: Iterator over the mapping's keys.
+        """
+        return iter(self._data)
+
+    def __len__(self) -> int:
+        """Return number of items in the mapping.
+
+        Returns:
+            int: Count of items.
+        """
+        return len(self._data)
+
+    # Convenience
+    def keys(self) -> KeysView[str]:
+        """Return a dynamic view of the mapping's keys.
+
+        Returns:
+            KeysView[str]: Dynamic view of keys.
+        """
+        return self._data.keys()
+
+    def items(self) -> ItemsView[str, T]:
+        """Return a dynamic view of the mapping's key/value pairs.
+
+        Returns:
+            ItemsView[str, T]: Dynamic view of key/value pairs.
+        """
+        return self._data.items()
+
+    def values(self) -> ValuesView[T]:
+        """Return a dynamic view of the mapping's values.
+
+        Returns:
+            ValuesView[T]: Dynamic view of values.
+        """
+        return self._data.values()
+
+    def __repr__(self) -> str:  # pragma: no cover - trivial
+        """Return a concise string representation.
+
+        Returns:
+            str: Debug-friendly representation of the mapping.
+        """
+        return f"DotMap({self._data!r})"
 
 
 class NudbConfig(BaseModel):
@@ -34,16 +142,18 @@ class NudbConfig(BaseModel):
         paths: Mapping of environment name to paths configuration.
     """
 
+    model_config = ConfigDict(arbitrary_types_allowed=True)
+
     dapla_team: str
     short_name: str
     utd_nacekoder: list[str]
 
     variables_sort_unit: list[str] | None = None
-    variables: dict[str, Variable]
+    variables: DotMap[Variable]
 
-    datasets: dict[str, Dataset]
+    datasets: DotMap[Dataset]
 
-    paths: dict[str, PathEntry]
+    paths: DotMap[PathEntry]
 
 
 # Ensure forward refs are resolved for Pydantic
@@ -105,7 +215,7 @@ def load_pydantic_settings() -> NudbConfig:
         short_name=settings_file.short_name,
         utd_nacekoder=settings_file.utd_nacekoder,
         variables_sort_unit=variables_file.variables_sort_unit,
-        variables=variables_file.variables,
-        datasets=datasets_file.datasets,
-        paths=paths_file.paths,
+        variables=DotMap(variables_file.variables),
+        datasets=DotMap(datasets_file.datasets),
+        paths=DotMap(paths_file.paths),
     )

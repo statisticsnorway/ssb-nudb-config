@@ -24,23 +24,23 @@
 [black]: https://github.com/psf/black
 [poetry]: https://python-poetry.org/
 
-## Features
-
-- TODO
-
-## Requirements
-
-- TODO
 
 ## Installation
-
 You can install _Nudb_Config_ via [pip] from [PyPI]:
 
 ```console
-pip install nudb_config
+poetry add ssb-nudb-config
 ```
 
+
 ## Usage
+The most important object in the package are the "settings":
+```python
+from nudb_config import settings
+
+print(nudb_config.paths)
+```
+
 
 Please see the [Reference Guide] for details.
 
