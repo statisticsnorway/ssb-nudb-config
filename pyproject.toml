@@ -6,7 +6,7 @@ authors = [{ name = "Markus Storeide", email = "rku@ssb.no" }]
 maintainers = [{ name = "Statistics Norway, Education statistics Department (360)" }]
 license = "MIT"
 readme = "README.md"
-requires-python = ">=3.10,<4.0"
+requires-python = ">=3.11,<4.0"
 dynamic = ["classifiers"]
 dependencies = [
     "ipykernel >=7.0.0",
