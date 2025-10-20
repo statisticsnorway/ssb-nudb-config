@@ -74,7 +74,7 @@ You can now run an interactive Python session, or your app:
 
 ```console
 poetry run python
-poetry run nudb_config
+poetry run ssb-nudb-config
 ```
 
 ## How to test the project
@@ -123,15 +123,15 @@ It is recommended to open an issue before starting work on anything.
 This will allow a chance to talk it over with the owners and validate your approach.
 
 [mit license]: https://opensource.org/licenses/MIT
-[source code]: https://github.com/statisticsnorway/nudb_config
-[documentation]: https://statisticsnorway.github.io/nudb_config
-[issue tracker]: https://github.com/statisticsnorway/nudb_config/issues
+[source code]: https://github.com/statisticsnorway/ssb-nudb-config
+[documentation]: https://statisticsnorway.github.io/ssb-nudb-config
+[issue tracker]: https://github.com/statisticsnorway/ssb-nudb-config/issues
 [pipx]: https://pipx.pypa.io/
 [poetry]: https://python-poetry.org/
 [nox]: https://nox.thea.codes/
 [nox-poetry]: https://nox-poetry.readthedocs.io/
 [pytest]: https://pytest.readthedocs.io/
-[pull request]: https://github.com/statisticsnorway/nudb_config/pulls
+[pull request]: https://github.com/statisticsnorway/ssb-nudb-config/pulls
 
 <!-- github-only -->
 

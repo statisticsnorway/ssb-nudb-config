@@ -20,6 +20,6 @@
   "github_organization": "statisticsnorway",
   "license": "MIT",
   "package_name": "nudb_config",
-  "project_name": "nudb_config",
+  "project_name": "ssb-nudb-config",
   "version": "0.0.0"
 }
