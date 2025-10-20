@@ -4,7 +4,7 @@
   "checkout": null,
   "context": {
     "cookiecutter": {
-      "project_name": "nudb_config",
+      "project_name": "ssb-nudb-config",
       "package_name": "nudb_config",
       "friendly_name": "Nudb_Config",
       "copyright_owner": "Statistics Norway",

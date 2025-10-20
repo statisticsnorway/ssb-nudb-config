@@ -1,5 +1,5 @@
 [project]
-name = "nudb_config"
+name = "ssb-nudb-config"
 version = "2025.10.0"
 description = "The config for NUDB - Nasjonal utdanningsdatabase"
 authors = [{ name = "Markus Storeide", email = "rku@ssb.no" }]
@@ -14,15 +14,13 @@ dependencies = [
 ]
 
 [project.urls]
-homepage = "https://github.com/statisticsnorway/nudb_config"
-repository = "https://github.com/statisticsnorway/nudb_config"
-documentation = "https://statisticsnorway.github.io/nudb_config"
-Changelog = "https://github.com/statisticsnorway/nudb_config/releases"
-
-[project.scripts]
-nudb_config = "nudb_config.__main__:main"
+homepage = "https://github.com/statisticsnorway/ssb-nudb-config"
+repository = "https://github.com/statisticsnorway/ssb-nudb-config"
+documentation = "https://statisticsnorway.github.io/ssb-nudb-config"
+Changelog = "https://github.com/statisticsnorway/ssb-nudb-config/releases"
 
 [tool.poetry]
+packages = [{ include = "nudb_config", from = "src" }]
 classifiers = ["Development Status :: 3 - Alpha"]
 requires-poetry = ">=2.0"
 

@@ -1,25 +1,25 @@
 # Nudb_Config
 
-[![PyPI](https://img.shields.io/pypi/v/nudb_config.svg)][pypi status]
-[![Status](https://img.shields.io/pypi/status/nudb_config.svg)][pypi status]
-[![Python Version](https://img.shields.io/pypi/pyversions/nudb_config)][pypi status]
-[![License](https://img.shields.io/pypi/l/nudb_config)][license]
+[![PyPI](https://img.shields.io/pypi/v/ssb-nudb-config.svg)][pypi status]
+[![Status](https://img.shields.io/pypi/status/ssb-nudb-config.svg)][pypi status]
+[![Python Version](https://img.shields.io/pypi/pyversions/ssb-nudb-config)][pypi status]
+[![License](https://img.shields.io/pypi/l/ssb-nudb-config)][license]
 
-[![Documentation](https://github.com/statisticsnorway/nudb_config/actions/workflows/docs.yml/badge.svg)][documentation]
-[![Tests](https://github.com/statisticsnorway/nudb_config/actions/workflows/tests.yml/badge.svg)][tests]
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=statisticsnorway_nudb_config&metric=coverage)][sonarcov]
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=statisticsnorway_nudb_config&metric=alert_status)][sonarquality]
+[![Documentation](https://github.com/statisticsnorway/ssb-nudb-config/actions/workflows/docs.yml/badge.svg)][documentation]
+[![Tests](https://github.com/statisticsnorway/ssb-nudb-config/actions/workflows/tests.yml/badge.svg)][tests]
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=statisticsnorway_ssb-nudb-config&metric=coverage)][sonarcov]
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=statisticsnorway_ssb-nudb-config&metric=alert_status)][sonarquality]
 
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)][pre-commit]
 [![Black](https://img.shields.io/badge/code%20style-black-000000.svg)][black]
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 [![Poetry](https://img.shields.io/endpoint?url=https://python-poetry.org/badge/v0.json)][poetry]
 
-[pypi status]: https://pypi.org/project/nudb_config/
-[documentation]: https://statisticsnorway.github.io/nudb_config
-[tests]: https://github.com/statisticsnorway/nudb_config/actions?workflow=Tests
-[sonarcov]: https://sonarcloud.io/summary/overall?id=statisticsnorway_nudb_config
-[sonarquality]: https://sonarcloud.io/summary/overall?id=statisticsnorway_nudb_config
+[pypi status]: https://pypi.org/project/ssb-nudb-config/
+[documentation]: https://statisticsnorway.github.io/ssb-nudb-config
+[tests]: https://github.com/statisticsnorway/ssb-nudb-config/actions?workflow=Tests
+[sonarcov]: https://sonarcloud.io/summary/overall?id=statisticsnorway_ssb-nudb-config
+[sonarquality]: https://sonarcloud.io/summary/overall?id=statisticsnorway_ssb-nudb-config
 [pre-commit]: https://github.com/pre-commit/pre-commit
 [black]: https://github.com/psf/black
 [poetry]: https://python-poetry.org/
@@ -38,7 +38,7 @@ The most important object in the package are the "settings":
 ```python
 from nudb_config import settings
 
-print(nudb_config.paths)
+print(settings.paths)
 ```
 
 
@@ -66,11 +66,11 @@ This project was generated from [Statistics Norway]'s [SSB PyPI Template].
 [statistics norway]: https://www.ssb.no/en
 [pypi]: https://pypi.org/
 [ssb pypi template]: https://github.com/statisticsnorway/ssb-pypitemplate
-[file an issue]: https://github.com/statisticsnorway/nudb_config/issues
+[file an issue]: https://github.com/statisticsnorway/ssb-nudb-config/issues
 [pip]: https://pip.pypa.io/
 
 <!-- github-only -->
 
-[license]: https://github.com/statisticsnorway/nudb_config/blob/main/LICENSE
-[contributor guide]: https://github.com/statisticsnorway/nudb_config/blob/main/CONTRIBUTING.md
-[reference guide]: https://statisticsnorway.github.io/nudb_config/reference.html
+[license]: https://github.com/statisticsnorway/ssb-nudb-config/blob/main/LICENSE
+[contributor guide]: https://github.com/statisticsnorway/ssb-nudb-config/blob/main/CONTRIBUTING.md
+[reference guide]: https://statisticsnorway.github.io/ssb-nudb-config/reference.html
