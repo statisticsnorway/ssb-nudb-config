@@ -116,6 +116,20 @@ class DotMap(Mapping[str, T], Generic[T]):
         """
         return self._data.values()
 
+    def get(self, key: str, default: T | None = None) -> T | None:
+        """Return value for ``key`` if present, else ``default``.
+
+        Mirrors ``dict.get`` semantics for convenience and compatibility.
+
+        Args:
+            key: Mapping key to look up.
+            default: Value to return if ``key`` is absent (defaults to ``None``).
+
+        Returns:
+            The value associated with ``key`` if it exists, otherwise ``default``.
+        """
+        return self._data.get(key, default)
+
     def __repr__(self) -> str:  # pragma: no cover - trivial
         """Return a concise string representation.
 
