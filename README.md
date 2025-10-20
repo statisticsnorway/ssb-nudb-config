@@ -38,7 +38,7 @@ The most important object in the package are the "settings":
 ```python
 from nudb_config import settings
 
-print(nudb_config.paths)
+print(settings.paths)
 ```
 
 
