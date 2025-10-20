@@ -25,6 +25,7 @@ from .variables import Variable
 from .variables import VariablesFile
 
 T = TypeVar("T")
+D = TypeVar("D")
 
 
 class DotMap(Mapping[str, T], Generic[T]):
@@ -116,17 +117,16 @@ class DotMap(Mapping[str, T], Generic[T]):
         """
         return self._data.values()
 
-    def get(self, key: str, default: T | None = None) -> T | None:
+    @overload
+    def get(self, key: str) -> T | None: ...
+
+    @overload
+    def get(self, key: str, default: D) -> T | D: ...
+
+    def get(self, key: str, default: object | None = None) -> object:
         """Return value for ``key`` if present, else ``default``.
 
-        Mirrors ``dict.get`` semantics for convenience and compatibility.
-
-        Args:
-            key: Mapping key to look up.
-            default: Value to return if ``key`` is absent (defaults to ``None``).
-
-        Returns:
-            The value associated with ``key`` if it exists, otherwise ``default``.
+        Mirrors ``Mapping.get``/``dict.get`` semantics.
         """
         return self._data.get(key, default)
 
