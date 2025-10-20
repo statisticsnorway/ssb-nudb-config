@@ -22,7 +22,7 @@ except ImportError:
     {sys.executable} -m pip install nox-poetry"""
     raise SystemExit(dedent(message)) from None
 
-package = "ssb-nudb-config"
+package = "nudb_config"
 python_versions = ["3.11", "3.12", "3.13"]
 python_versions_for_test = python_versions  # + ["3.10"]
 nox.needs_version = ">= 2021.6.6"

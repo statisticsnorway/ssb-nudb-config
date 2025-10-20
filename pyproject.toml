@@ -20,6 +20,7 @@ documentation = "https://statisticsnorway.github.io/ssb-nudb-config"
 Changelog = "https://github.com/statisticsnorway/ssb-nudb-config/releases"
 
 [tool.poetry]
+packages = [{ include = "nudb_config", from = "src" }]
 classifiers = ["Development Status :: 3 - Alpha"]
 requires-poetry = ">=2.0"
 
