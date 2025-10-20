@@ -13,4 +13,3 @@ def test_dotmap_get_basic() -> None:
 
     # missing with default -> default
     assert dm.get("missing", 42) == 42
-
