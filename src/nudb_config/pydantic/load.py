@@ -25,6 +25,7 @@ from .variables import Variable
 from .variables import VariablesFile
 
 T = TypeVar("T")
+D = TypeVar("D")
 
 
 class DotMap(Mapping[str, T], Generic[T]):
@@ -115,6 +116,19 @@ class DotMap(Mapping[str, T], Generic[T]):
             ValuesView[T]: Dynamic view of values.
         """
         return self._data.values()
+
+    @overload
+    def get(self, key: str) -> T | None: ...
+
+    @overload
+    def get(self, key: str, default: D) -> T | D: ...
+
+    def get(self, key: str, default: object | None = None) -> object:
+        """Return value for ``key`` if present, else ``default``.
+
+        Mirrors ``Mapping.get``/``dict.get`` semantics.
+        """
+        return self._data.get(key, default)
 
     def __repr__(self) -> str:  # pragma: no cover - trivial
         """Return a concise string representation.
