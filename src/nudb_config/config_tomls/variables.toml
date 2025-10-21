@@ -619,6 +619,7 @@ variables_sort_unit = [
 		unit = "utdatert"
 		dtype = "STRING"
 		length = [4]
+		renamed_from = ["aargang"]
 
 	[variables.rectype]
 		unit = "utdatert"

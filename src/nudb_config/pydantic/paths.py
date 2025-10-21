@@ -2,10 +2,10 @@ from __future__ import annotations
 
 from pydantic import BaseModel
 
-from .mixins import SubscriptableModel
+from .dotmap import DotMap
 
 
-class PathEntry(SubscriptableModel, BaseModel):
+class PathEntry(DotMap, BaseModel):
     """Path configuration for a named environment under ``[paths]``.
 
     Attributes:
@@ -16,10 +16,10 @@ class PathEntry(SubscriptableModel, BaseModel):
     katalog: str = ""
     delt_utdanning: str = ""
 
-    # __getitem__ provided by SubscriptableModel
+    # __getitem__ provided by DotMap
 
 
-class PathsFile(BaseModel):
+class PathsFile(DotMap, BaseModel):
     """Root schema of ``paths.toml``.
 
     Attributes:

@@ -1,4 +1,4 @@
-from nudb_config.pydantic.load import DotMap
+from nudb_config.pydantic.dotmap import DotMap
 
 
 def test_dotmap_get_basic() -> None:

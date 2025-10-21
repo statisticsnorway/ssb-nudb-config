@@ -2,10 +2,10 @@ from __future__ import annotations
 
 from pydantic import BaseModel
 
-from .mixins import SubscriptableModel
+from .dotmap import DotMap
 
 
-class Dataset(SubscriptableModel, BaseModel):
+class Dataset(DotMap, BaseModel):
     """Dataset configuration entry under ``[datasets]``.
 
     Attributes:
@@ -21,7 +21,7 @@ class Dataset(SubscriptableModel, BaseModel):
     max_values: dict[str, str] | None = None
 
 
-class DatasetsFile(BaseModel):
+class DatasetsFile(DotMap, BaseModel):
     """Root schema of ``datasets.toml``.
 
     Attributes:
