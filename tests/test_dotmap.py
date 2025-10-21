@@ -1,5 +1,7 @@
-from nudb_config.pydantic.dotmap import DotMap
 import pytest
+
+from nudb_config.pydantic.dotmap import DotMap
+
 
 def test_dotmap_get_basic() -> None:
     """Test the get convenience method on the Dotmap class."""
@@ -16,9 +18,7 @@ def test_dotmap_get_basic() -> None:
 
     # Testing __contains__()
     assert "a" in dm
-    
+
     # Should raise an error if the element is not there
     with pytest.raises(KeyError):
         dm["c"]
-
-
