@@ -5,7 +5,7 @@ from pydantic import BaseModel
 from .dotmap import DotMap
 
 
-class Variable(DotMap, BaseModel):
+class Variable(BaseModel, DotMap):
     """Definition of a single variable from ``variables.toml``.
 
     Attributes:
@@ -28,7 +28,7 @@ class Variable(DotMap, BaseModel):
     codelist_extras: dict[str, str] | None = None
 
 
-class VariablesFile(DotMap, BaseModel):
+class VariablesFile(BaseModel, DotMap):
     """Root schema of ``variables.toml``.
 
     Attributes:

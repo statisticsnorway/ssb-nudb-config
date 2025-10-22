@@ -5,7 +5,7 @@ from pydantic import BaseModel
 from .dotmap import DotMap
 
 
-class PathEntry(DotMap, BaseModel):
+class PathEntry(BaseModel, DotMap):
     """Path configuration for a named environment under ``[paths]``.
 
     Attributes:
@@ -19,7 +19,7 @@ class PathEntry(DotMap, BaseModel):
     # __getitem__ provided by DotMap
 
 
-class PathsFile(DotMap, BaseModel):
+class PathsFile(BaseModel, DotMap):
     """Root schema of ``paths.toml``.
 
     Attributes:

@@ -64,7 +64,7 @@ class DotMap:
             return mapping[name]
         raise AttributeError(name)
 
-    def __getitem__(self, key: str) -> Any:
+    def __getitem__(self, key: str | int) -> Any:
         """Return a value via dict-style indexing.
 
         Prefers attribute access (e.g., Pydantic field) and falls back to the
@@ -79,14 +79,21 @@ class DotMap:
         Raises:
           KeyError: If ``key`` is not found.
         """
+        if isinstance(key, int):
+            key_str: str = list(self.keys())[key]
+        elif isinstance(key, str):
+            key_str = key
+        else:
+            raise TypeError("Unrecognized key datatype")
+
         try:
-            return getattr(self, key)
+            return getattr(self, key_str)
         except AttributeError:
             mapping = self._as_mapping()
             try:
-                return mapping[key]
+                return mapping[key_str]
             except KeyError as exc:
-                raise KeyError(key) from exc
+                raise KeyError(key_str) from exc
 
     def __contains__(self, key: object) -> bool:
         """Return True if ``key`` exists as a field or mapping entry.
@@ -99,7 +106,7 @@ class DotMap:
         """
         if not isinstance(key, str):
             return False
-        fields = getattr(self, "model_fields", None)
+        fields = getattr(type(self), "model_fields", None)
         if isinstance(fields, dict):
             return key in fields
         mapping = getattr(self, "_data", None)

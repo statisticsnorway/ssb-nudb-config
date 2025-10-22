@@ -615,7 +615,8 @@ variables_sort_unit = [
 		klass_codelist = 91
 
 	# 8: Utdaterte/arkiv
-	[variables.aargang]
+	[variables.aargang_start]
+	# Should be reset from the path of the file (always the first year?)
 		unit = "utdatert"
 		dtype = "STRING"
 		length = [4]
