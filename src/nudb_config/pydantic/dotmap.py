@@ -99,7 +99,7 @@ class DotMap:
         """
         if not isinstance(key, str):
             return False
-        fields = getattr(self, "model_fields", None)
+        fields = getattr(type(self), "model_fields", None)
         if isinstance(fields, dict):
             return key in fields
         mapping = getattr(self, "_data", None)
