@@ -4,7 +4,6 @@ import importlib.resources as impres
 import tomllib
 from collections.abc import Mapping
 from pathlib import Path
-from typing import cast
 
 from pydantic import BaseModel
 from pydantic import ConfigDict
@@ -109,7 +108,7 @@ def load_pydantic_settings() -> NudbConfig:
         short_name=settings_file.short_name,
         utd_nacekoder=settings_file.utd_nacekoder,
         variables_sort_unit=variables_file.variables_sort_unit,
-        variables=cast(Mapping[str, Variable], DotMap(variables_file.variables)),
+        variables=variables_file.variables,
         datasets=DotMap(datasets_file.datasets),
         paths=DotMap(paths_file.paths),
     )
