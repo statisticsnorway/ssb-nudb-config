@@ -2,10 +2,10 @@ from __future__ import annotations
 
 from pydantic import BaseModel
 
-from .mixins import SubscriptableModel
+from .dotmap import DotMap
 
 
-class Variable(SubscriptableModel, BaseModel):
+class Variable(DotMap, BaseModel):
     """Definition of a single variable from ``variables.toml``.
 
     Attributes:
@@ -28,7 +28,7 @@ class Variable(SubscriptableModel, BaseModel):
     codelist_extras: dict[str, str] | None = None
 
 
-class VariablesFile(BaseModel):
+class VariablesFile(DotMap, BaseModel):
     """Root schema of ``variables.toml``.
 
     Attributes:

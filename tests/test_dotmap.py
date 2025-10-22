@@ -1,4 +1,6 @@
-from nudb_config.pydantic.load import DotMap
+import pytest
+
+from nudb_config.pydantic.dotmap import DotMap
 
 
 def test_dotmap_get_basic() -> None:
@@ -13,3 +15,10 @@ def test_dotmap_get_basic() -> None:
 
     # missing with default -> default
     assert dm.get("missing", 42) == 42
+
+    # Testing __contains__()
+    assert "a" in dm
+
+    # Should raise an error if the element is not there
+    with pytest.raises(KeyError):
+        dm["c"]

@@ -2,144 +2,20 @@ from __future__ import annotations
 
 import importlib.resources as impres
 import tomllib
-from collections.abc import ItemsView
-from collections.abc import Iterator
-from collections.abc import KeysView
-from collections.abc import Mapping
-from collections.abc import ValuesView
 from pathlib import Path
-from typing import Generic
-from typing import Literal
-from typing import TypeVar
-from typing import overload
 
 from pydantic import BaseModel
 from pydantic import ConfigDict
 
-from .datasets import Dataset
 from .datasets import DatasetsFile
-from .paths import PathEntry
+from .dotmap import DotMap
 from .paths import PathsFile
 from .settings import SettingsFile
 from .variables import Variable
 from .variables import VariablesFile
 
-T = TypeVar("T")
-D = TypeVar("D")
 
-
-class DotMap(Mapping[str, T], Generic[T]):
-    """Read-only mapping that also exposes keys via dot-notation.
-
-    Example: for a mapping ``{"env": PathEntry(...)}``, ``dot.env`` returns the
-    same as ``dot["env"]``. Unknown attributes raise ``AttributeError``.
-    """
-
-    __slots__ = ("_data",)
-
-    def __init__(self, data: dict[str, T]) -> None:
-        """Initialize the dot-accessible mapping.
-
-        Args:
-            data: Underlying mapping providing storage and lookups.
-        """
-        self._data = data
-
-    def __getattr__(self, name: str) -> T:  # for mypy attr access
-        """Return value using attribute-style access.
-
-        Mirrors ``self[name]``.
-
-        Args:
-            name: Key to access within the mapping.
-
-        Returns:
-            T: Value associated with ``name``.
-
-        Raises:
-            AttributeError: If ``name`` is not present in the mapping.
-        """
-        try:
-            return self._data[name]
-        except KeyError as exc:  # pragma: no cover - defensive
-            raise AttributeError(name) from exc
-
-    # Mapping interface
-    def __getitem__(self, key: str) -> T:
-        """Retrieve an item by key.
-
-        Args:
-            key: Mapping key.
-
-        Returns:
-            T: Value associated with ``key``.
-        """
-        return self._data[key]
-
-    def __iter__(self) -> Iterator[str]:
-        """Iterate over keys in insertion order.
-
-        Returns:
-            Iterator[str]: Iterator over the mapping's keys.
-        """
-        return iter(self._data)
-
-    def __len__(self) -> int:
-        """Return number of items in the mapping.
-
-        Returns:
-            int: Count of items.
-        """
-        return len(self._data)
-
-    # Convenience
-    def keys(self) -> KeysView[str]:
-        """Return a dynamic view of the mapping's keys.
-
-        Returns:
-            KeysView[str]: Dynamic view of keys.
-        """
-        return self._data.keys()
-
-    def items(self) -> ItemsView[str, T]:
-        """Return a dynamic view of the mapping's key/value pairs.
-
-        Returns:
-            ItemsView[str, T]: Dynamic view of key/value pairs.
-        """
-        return self._data.items()
-
-    def values(self) -> ValuesView[T]:
-        """Return a dynamic view of the mapping's values.
-
-        Returns:
-            ValuesView[T]: Dynamic view of values.
-        """
-        return self._data.values()
-
-    @overload
-    def get(self, key: str) -> T | None: ...
-
-    @overload
-    def get(self, key: str, default: D) -> T | D: ...
-
-    def get(self, key: str, default: object | None = None) -> object:
-        """Return value for ``key`` if present, else ``default``.
-
-        Mirrors ``Mapping.get``/``dict.get`` semantics.
-        """
-        return self._data.get(key, default)
-
-    def __repr__(self) -> str:  # pragma: no cover - trivial
-        """Return a concise string representation.
-
-        Returns:
-            str: Debug-friendly representation of the mapping.
-        """
-        return f"DotMap({self._data!r})"
-
-
-class NudbConfig(BaseModel):
+class NudbConfig(BaseModel, DotMap):
     """Unified configuration built from the TOML files.
 
     This model aggregates values from ``settings.toml``, ``variables.toml``,
@@ -165,53 +41,11 @@ class NudbConfig(BaseModel):
     utd_nacekoder: list[str]
 
     variables_sort_unit: list[str] | None = None
-    variables: DotMap[Variable]
+    variables: DotMap
 
-    datasets: DotMap[Dataset]
+    datasets: DotMap
 
-    paths: DotMap[PathEntry]
-
-    # Precise typing for subscription access to satisfy static checkers
-    @overload
-    def __getitem__(self, key: Literal["dapla_team"]) -> str: ...
-
-    @overload
-    def __getitem__(self, key: Literal["short_name"]) -> str: ...
-
-    @overload
-    def __getitem__(self, key: Literal["utd_nacekoder"]) -> list[str]: ...
-
-    @overload
-    def __getitem__(self, key: Literal["variables_sort_unit"]) -> list[str] | None: ...
-
-    @overload
-    def __getitem__(self, key: Literal["variables"]) -> DotMap[Variable]: ...
-
-    @overload
-    def __getitem__(self, key: Literal["datasets"]) -> DotMap[Dataset]: ...
-
-    @overload
-    def __getitem__(self, key: Literal["paths"]) -> DotMap[PathEntry]: ...
-
-    def __getitem__(self, key: str) -> object:
-        """Return a top-level value by key.
-
-        Supports subscription access like ``settings["paths"]`` to mirror
-        Dynaconf behavior, in addition to attribute access.
-
-        Args:
-            key (str): Top-level attribute name.
-
-        Returns:
-            object: The corresponding attribute value.
-
-        Raises:
-            KeyError: If ``key`` is not a top-level attribute.
-        """
-        try:
-            return getattr(self, key)
-        except AttributeError as exc:
-            raise KeyError(key) from exc
+    paths: DotMap
 
 
 # Ensure forward refs are resolved for Pydantic
