@@ -7,3 +7,8 @@ def test_keys_on_single_variable() -> None:
     assert len(var.values())
     assert len(var.items())
     assert var.get("dtype")
+
+
+def test_iteration() -> None:
+    for elem in settings.variables:
+        assert elem

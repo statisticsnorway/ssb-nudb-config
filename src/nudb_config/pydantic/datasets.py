@@ -5,7 +5,7 @@ from pydantic import BaseModel
 from .dotmap import DotMap
 
 
-class Dataset(DotMap, BaseModel):
+class Dataset(BaseModel, DotMap):
     """Dataset configuration entry under ``[datasets]``.
 
     Attributes:
@@ -21,7 +21,7 @@ class Dataset(DotMap, BaseModel):
     max_values: dict[str, str] | None = None
 
 
-class DatasetsFile(DotMap, BaseModel):
+class DatasetsFile(BaseModel, DotMap):
     """Root schema of ``datasets.toml``.
 
     Attributes:
