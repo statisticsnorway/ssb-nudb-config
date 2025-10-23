@@ -44,4 +44,4 @@ def test_missing_attr_on_pydantic_model_triggers_dotmap_getattr() -> None:
     # Access a missing attribute; DotMap.__getattr__ should run and, since
     # no internal mapping exists on a BaseModel mixin, raise AttributeError.
     with pytest.raises(AttributeError):
-        _ = m.missing_attribute
+        _ = m.missing_attribute  # type: ignore[attr-defined]
