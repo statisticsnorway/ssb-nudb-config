@@ -18,6 +18,7 @@ def test_dotmap_get_basic() -> None:
 
     # Testing __contains__()
     assert "a" in dm
+    assert "c" not in dm
 
     # Should raise an error if the element is not there
     with pytest.raises(KeyError):

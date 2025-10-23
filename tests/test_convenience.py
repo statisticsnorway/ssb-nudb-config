@@ -13,6 +13,7 @@ def test_fetch_variable_different() -> None:
     assert settings.variables.fnr
     assert settings.variables["fnr"]
     assert settings.variables.get("fnr")
+    assert settings.variables.fnr
 
 
 def test_iteration() -> None:
