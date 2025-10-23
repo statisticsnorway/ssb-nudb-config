@@ -115,7 +115,7 @@ variables_sort_unit = [
     [variables.kurs_slutt]
         unit = "tid"
         dtype = "DATETIME"
-        renamed_from = ["sluttd"]
+        renamed_from = ["sluttd", "fulldato"]
 
     [variables.kurs_start_orig]
         unit = "tid"
