@@ -41,6 +41,13 @@ from nudb_config import settings
 print(settings.paths)
 ```
 
+Indexing into the config should be possible with dot-notation AND common dict-convenience methods, these should all return the same value:
+```python
+settings.variables.fnr
+settings.variables["fnr"]
+settings.variables.get("fnr")
+```
+
 
 Please see the [Reference Guide] for details.
 

@@ -2,8 +2,8 @@ from __future__ import annotations
 
 import importlib.resources as impres
 import tomllib
-from collections.abc import Mapping
 from pathlib import Path
+from typing import Any
 
 from pydantic import BaseModel
 from pydantic import ConfigDict
@@ -42,7 +42,7 @@ class NudbConfig(BaseModel, DotMap):
     utd_nacekoder: list[str]
 
     variables_sort_unit: list[str] | None = None
-    variables: Mapping[str, Variable]
+    variables: Any
 
     datasets: DotMap
 
@@ -108,7 +108,7 @@ def load_pydantic_settings() -> NudbConfig:
         short_name=settings_file.short_name,
         utd_nacekoder=settings_file.utd_nacekoder,
         variables_sort_unit=variables_file.variables_sort_unit,
-        variables=variables_file.variables,
+        variables=DotMap(variables_file.variables),
         datasets=DotMap(datasets_file.datasets),
         paths=DotMap(paths_file.paths),
     )

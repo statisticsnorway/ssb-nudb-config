@@ -59,7 +59,10 @@ class DotMap:
         Raises:
           AttributeError: If ``name`` is not present in the mapping.
         """
-        mapping = getattr(self, "_data", None)
+        try:
+            mapping = object.__getattribute__(self, "_data")
+        except AttributeError:
+            mapping = None
         if isinstance(mapping, dict) and name in mapping:
             return mapping[name]
         raise AttributeError(name)
