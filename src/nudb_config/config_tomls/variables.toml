@@ -141,7 +141,7 @@ variables_sort_unit = [
     [variables.utd_aktivitet_slutt_inn]
         unit = "tid"
         dtype = "DATETIME"
-        renamed_from = ["eavsl", "kurs_slutt_orig"]
+        renamed_from = ["eslutt", "eavsl", "kurs_slutt_orig"]
 
     [variables.utd_skoleaar_start]
         unit = "tid"
