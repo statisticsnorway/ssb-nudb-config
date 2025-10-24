@@ -20,12 +20,15 @@ class Variable(BaseModel, DotMap):
 
     unit: str
     dtype: str
+    description_short: str | None = None
     length: list[int] | None = None
     klass_codelist: int | None = None
+    klass_codelist_from_date: str | None = None
     klass_variant: int | None = None
     renamed_from: str | list[str] | None = None
     # Populated programmatically to mirror Dynaconf expansion
     codelist_extras: dict[str, str] | None = None
+    outdated_comment: str | None = None
 
 
 class VariablesFile(BaseModel, DotMap):
