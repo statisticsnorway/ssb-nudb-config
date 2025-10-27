@@ -151,7 +151,7 @@ variables_sort_unit = [
     [variables.utd_skoleaar_slutt]
         unit = "tid"
         dtype = "DATETIME"
-        renamed_from = ["avgdato", "skoleaar_slutt"]
+        renamed_from = ["skoleaar_slutt"]
 
     [variables.uh_eksamen_dato]
         unit = "tid"
