@@ -785,6 +785,11 @@ variables_sort_unit = [
         dtype = "DATETIME"
 		outdated_comment = "Blir denne benyttet? Vi trenger bedre config om hva den skal være"
 
+	[variables.utd_aktivitet_start_mrk_kilde]
+		unit = "utdatert"
+		dtype = "STRING"
+		outdated_comment = "Not needed in final product?"
+
 	[variables.avgdato]
 		unit = "utdatert"
         dtype = "STRING"
