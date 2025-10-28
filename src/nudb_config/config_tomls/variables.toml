@@ -73,12 +73,6 @@ variables_sort_unit = [
 		length = [1]
 		renamed_from = ["utfallu"]
 
-	[variables.kurs_start_mrk_kilde]
-        unit = "data"
-        dtype = "STRING"
-        renamed_from = "mrk_dl"
-
-
 	# Mangler omdøping, skal flyttes til "utdatert"?
 	[variables.mrk_dl1]
 		unit = "data"
@@ -141,7 +135,7 @@ variables_sort_unit = [
     [variables.utd_aktivitet_slutt_inn]
         unit = "tid"
         dtype = "DATETIME"
-        renamed_from = ["eavsl", "kurs_slutt_orig"]
+        renamed_from = ["eslutt", "eavsl", "kurs_slutt_orig"]
 
     [variables.utd_skoleaar_start]
         unit = "tid"
@@ -151,7 +145,7 @@ variables_sort_unit = [
     [variables.utd_skoleaar_slutt]
         unit = "tid"
         dtype = "DATETIME"
-        renamed_from = ["avgdato", "skoleaar_slutt"]
+        renamed_from = ["skoleaar_slutt"]
 
     [variables.uh_eksamen_dato]
         unit = "tid"
@@ -784,6 +778,12 @@ variables_sort_unit = [
         unit = "utdatert"
         dtype = "DATETIME"
 		outdated_comment = "Blir denne benyttet? Vi trenger bedre config om hva den skal være"
+
+	[variables.utd_aktivitet_start_mrk_kilde]
+		unit = "utdatert"
+		dtype = "STRING"
+		renamed_from = ["mrk_dl", "kurs_start_mrk_kilde"]
+		outdated_comment = "Not needed in final product?"
 
 	[variables.avgdato]
 		unit = "utdatert"
