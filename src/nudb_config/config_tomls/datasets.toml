@@ -1,26 +1,27 @@
 [datasets]
+
     [datasets.igang]
         variables = [
             "fnr",
             "pers_id",  # old_name: snr
             #"snr_mrk",
-            "aargang_start",  # old_name: aargang
+            "utd_skoleaar_start",  # old_name: aargang
             "nus2000",
             "utd_klassetrinn",  # old_name: kltrinn2000
             "utd_aktivitetsnivaa_heltid_deltid",  # old_name: heldel
             "utd_aktivitet_start",  # old_name: startd
-            "voksen",
+            # "voksen",
             "uh_realkompetanse",  # old_name: realkomp
             "utd_datakilde",  # old_name: kilde
             "vg_rettstype_inntak",  # old_name: rett
-            "ftype",
+            # "ftype",
             "utd_viderutd_nettbasert",  # old_name: evufjern
             "uh_studierett",  # old_name: studrett
             "utd_utdanningstype",  # old_name: utd
             "utd_skolekom",  # old_name: skolekom
-            "eierf",
+            # "eierf",
             "uh_institusjon_id",  # old_name: hskode
-            "inr",
+            #"inr",
             "utd_orgnr",  # old_name: orgnr
             "uh_studieland",  # old_name: studieland
             "uh_univ_eller_hogskole",  # old_name: univ
@@ -29,7 +30,7 @@
             "vg_kursprosent",  # old_name: delpros
             "vg_antall_aarstimer_elevkurs",  # old_name: aartimer
             "gro_elevstatus",  # old_name: elevstatus
-            "realkompetansevurdert_dato",  # old_name: dato_dokrealkomp
+            # "realkompetansevurdert_dato",  # old_name: dato_dokrealkomp
             "bof_orgnr_bed",  # old_name: orgnrbed
             "fa_godkjent_fagskoleutd",  # old_name: fagskoleutd
             "vg_yrkes_og_studiekompetanse",  # old_name: taf
@@ -37,16 +38,17 @@
             "uh_utvekslingsland",  # old_name: utveksland
             "uh_studgrunnlagsland",  # old_name: studgrland
             "uh_utdplan",  # old_name: utdplan
-            "sn07",
+            # "sn07",
             "pers_kjoenn",  # old_name: kjoenn
-            "foedselsaar",
+            "pers_foedselsdato",
+            #"foedselsaar",
             "uh_utvekslingsavtale",  # old_name: utveksavtale
             "uh_studieprogresjon_hoest",  # old_name: studieprogresjon_h
             "uh_statsborgerskap_inn",  # old_name: statb_meldt
-            "utd_nett_eller_stedbasert",  # old_name: organisering
+            "fuh_nett_eller_stedbasert",  # old_name: organisering
             "vg_vedtak_saerskilt_spraak",  # old_name: fkurskod
             "vg_kontraktstype",  # old_name: kontraktstype
-            "studieprogram"
+            "uh_studieprogram",
     ]
     [datasets.eksamen_uh]
         variables = [
@@ -84,8 +86,8 @@
             # 'slutt_dato',
             # 'start_dato_kilde',
             # 'slutt_dato_kilde',
-            'eksamen_dato',
-            'eksamen_dato_orig',
+            'uh_eksamen_dato',
+            'uh_eksamen_dato_inn',
             #"kilde_dato",
             'utd_skoleaar_start',  # old_name: skoleaar_start
             'utd_skoleaar_slutt',  # old_name: skoleaar_slutt
@@ -94,11 +96,11 @@
             #"heldel",  # Hvordan kan en eksamen "være heltid"? Mellom 2003 og 2012 så er ALLE eksamener "heltid"...
             "utd_orgnr",  # old_name: orgnr
             "bof_orgnr_bed",  # old_name: orgnrbed
-            "eierf",
+            # "eierf",
             # "skolekom",
             # "rett",
             "utd_viderutd_nettbasert",  # old_name: evufjern
-            "utd_nett_eller_stedbasert", # old_name: organisering
+            "fuh_nett_eller_stedbasert", # old_name: organisering
             "uh_institusjon_id",  # old_name: hskode
             # "utdplan",
             "uh_studierett",  # old_name: studrett
@@ -130,22 +132,23 @@
 
 [datasets.avslutta]
         variables = [
-            "pers_id",  # old_name: snr
+            "utd_hendelse_id",
             "fnr",
+            "pers_id",  # old_name: snr
             #"snr_mrk",
             "pers_kjoenn",  # old_name: kjoenn
             "utd_datakilde",  # old_name: kilde
             "utd_fullfoertkode",  # old_name: utfall
             "utd_fullfoertkode_inn",  # old_name: utfallu
-            "mrk_grskole",
+            # "mrk_grskole", Trengs ikke 
             "vg_bevistype",  # old_name: doktype
             "vg_rettstype_inntak",  # old_name: rett
-            "realkompetansevurdert_dato",
+            # "realkompetansevurdert_dato", skal ikke være med? 
             "utd_aktivitetsnivaa_heltid_deltid",  # old_name: heldel
             "utd_klassetrinn",  # old_name: kltrinn2000
             "nus2000",
             "utd_viderutd_nettbasert",  # old_name: evufjern
-            "utd_nett_eller_stedbasert",  # old_name: organisering
+            "fuh_nett_eller_stedbasert",  # old_name: organisering
             "uh_studieprogram",  # old_name: studprog
             "uh_studienivaa",  # old_name: studnivaa
             "utd_utdanningstype",  # old_name: utd
@@ -155,9 +158,11 @@
             "uh_statsborgerskap_inn",  # old_name: statb_meldt
             "bof_orgnr_bed",  # old_name: orgnrbed
             "utd_orgnr",  # old_name: orgnr
+            "utd_orgnr_navn_inn", 
             "utd_skolekom",  # old_name: skolekom
-            "eierf",
+            #"eierf",  # Koble på fra BOF isteden for å ligge på filen
             "uh_institusjon_id",  # old_name: hskode
+            "uh_univ_eller_hogskole",
             "pers_foedselsdato",  # old_name: fodt_dato
             "utd_aktivitet_slutt_inn",  # old_name: kurs_slutt_orig
             "utd_aktivitet_start",  # old_name: kurs_start
@@ -168,15 +173,20 @@
             "uh_fakultet",  # old_name: fakultet
             "gro_fravaer_timer",  # old_name: f_timer
             "gro_fravaer_dager",  # old_name: f_dager
-            "pedsem",
+            # "pedsem", Skal ikke være med fordi den bør utledes fra NUS
             "vg_provenr",  # old_name: provnr
-            "endret_utfall",
-            "mrk_dl_bhu",
-            "aargang_start",  # old_name: aargang
+            # "endret_utfall", Hvor kommer den fra? Avslutta?
+            # "mrk_dl_bhu", Kommer fra eldre filer
+            "utd_skoleaar_start",  # old_name: aargang
+            "utd_skoleaar_slutt",
             "fa_godkjent_fagskoleutd",  # old_name: fagskoleutd
             "gro_elevstatus",  # old_name: elevstatus
             "vg_vedtak_saerskilt_spraak",  # old_name: fkurskod
             "vg_kursprosent",  # old_name: delpros
+            "vg_programomraade",  # Gamle fkurskod?
+            "vg_karakterpoeng",  
+            "vg_prove_dato",
+            "fuh_nett_eller_stedbasert",
             "gro_skolenr_inn",  # old_name: fskolenr
             "vg_provekandtype",  # old_name: provekandtype
             ]

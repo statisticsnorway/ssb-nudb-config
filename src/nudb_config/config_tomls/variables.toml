@@ -39,10 +39,6 @@ variables_sort_unit = [
 		dtype = "STRING"
 		length = [11]
 
-	[variables.fnr_mrk_freg] # kobler fnr mot folkeregisteret?
-		unit = "pers"
-		dtype = "BOOLEAN"
-
 	[variables.pers_kjoenn]
 		unit = "pers"
 		dtype = "STRING"
@@ -73,40 +69,7 @@ variables_sort_unit = [
 		length = [1]
 		renamed_from = ["utfallu"]
 
-	# Mangler omdøping, skal flyttes til "utdatert"?
-	[variables.mrk_dl1]
-		unit = "data"
-		dtype = "STRING"
 
-	[variables.mrk_dl2]
-		unit = "data"
-		dtype = "STRING"
-
-	[variables.mrk_dl3]
-		unit = "data"
-		dtype = "STRING"
-
-	[variables.mrk_per]
-		unit = "data"
-		dtype = "STRING"
-
-	[variables.mrk_end]
-		unit = "data"
-		dtype = "STRING"
-
-	[variables.mrk_grskole]
-		unit = "data"
-		dtype = "STRING"
-
-	[variables.spesund]
-		unit = "data"
-		dtype = "STRING"
-		length = [1]
-
-	[variables.morsmal]
-		unit = "data"
-		dtype = "STRING"
-		length = [1]
 
 ################
 # Tidskolonner #
@@ -150,6 +113,8 @@ variables_sort_unit = [
     [variables.uh_eksamen_dato]
         unit = "tid"
         dtype = "DATETIME"
+
+
     [variables.uh_eksamen_dato_inn]
         unit = "tid"
         dtype = "DATETIME"
@@ -167,41 +132,7 @@ variables_sort_unit = [
 
 
 
-	# Mangler omdøping, skal flyttes til "utdatert"?
-	[variables.nus89]
-		unit = "fag"
-		dtype = "STRING"
-		length = [6]
 
-    [variables.fagkode]
-		unit = "fag"
-		dtype = "STRING"
-		length = [3, 6, 7]
-
-	[variables.i97isced]
-		unit = "fag"
-		dtype = "STRING"
-
-	[variables.i97destn]
-		unit = "fag"
-		dtype = "STRING"
-
-	[variables.i97orien]
-		unit = "fag"
-		dtype = "STRING"
-
-	[variables.i97grads]
-		unit = "fag"
-		dtype = "STRING"
-
-	[variables.i97varig]
-		unit = "fag"
-		dtype = "STRING"
-
-	[variables.kodetype]
-		unit = "fag"
-		dtype = "STRING"
-		length = [1]
 
 
 
@@ -238,45 +169,7 @@ variables_sort_unit = [
 
 
 
-	# Mangler omdøping, skal flyttes til "utdatert"?
-	[variables.eierf]
-		unit = "skole"
-		dtype = "STRING"
-		length = [1]
-		klass_codelist = 793
 
-	[variables.sn72]
-		unit = "skole"
-		dtype = "STRING"
-		length = [2]
-
-	[variables.sn78]
-		unit = "skole"
-		dtype = "STRING"
-		length = [2]
-
-	[variables.sn94]
-		unit = "skole"
-		dtype = "STRING"
-		length = [6]
-
-    [variables.sn07]
-		unit = "skole"
-		dtype = "STRING"
-		length = [6]
-
-    [variables.sn25]
-		unit = "skole"
-		dtype = "STRING"
-		length = [6]
-
-	[variables.sslag]
-		unit = "skole"
-		dtype = "STRING"
-
-	[variables.hoved]
-		unit = "skole"
-		dtype = "STRING"
 
 ############################
 # "utd" - Alle utdanninger #
@@ -299,12 +192,12 @@ variables_sort_unit = [
 		klass_codelist = 794
 		renamed_from = ["evufjern"]
 
-	[variables.utd_nett_eller_stedbasert]
+	[variables.fuh_nett_eller_stedbasert]
 		unit = "fag"
 		dtype = "STRING"
 		length = [1]
 		klass_codelist = 796
-		renamed_from = ["organisering"]
+		renamed_from = ["organisering", "utd_nett_eller_stedbasert"]
 
 	[variables.utd_utdanningstype]
 		unit = "fag"
@@ -444,6 +337,10 @@ variables_sort_unit = [
         # L 	Lærling
         # P 	Praksiskandidater
 
+	[variables.studretn]  # Carl snakker med Daniel om denne
+		unit = "vg"
+		dtype = "STRING"
+		length = [2]
 
 ####################
 # "fa" - Fagskoler #
@@ -502,7 +399,7 @@ variables_sort_unit = [
     [variables.uh_studieprogram]
         unit = "fag"
         dtype = "STRING"
-        renamed_from = ["studprog"]
+        renamed_from = ["studprog", "studieprogram"]
 
     [variables.uh_eksamen_karakter]
         unit = "fag"
@@ -611,27 +508,20 @@ variables_sort_unit = [
 		unit = "uh"
 		dtype = "FLOAT"
 
-	[variables.voksen]
-		unit = "uh"
-		dtype = "BOOLEAN"
-
-	[variables.studretn]
-		unit = "uh"
-		dtype = "STRING"
-		length = [2]
-
 	[variables.uhgruppe]
 		unit = "uh"
 		dtype = "STRING"
 		length = [3]
 
 	[variables.vektgrad]
-		unit = "uh"
+		unit = "utdatert"
 		dtype = "FLOAT"
+		outdated_comment = "Vi benytter nå studiepoeng, denne er utdatert."
 
 	[variables.vekteks]
-		unit = "uh"
+		unit = "utdatert"
 		dtype = "FLOAT"
+		outdated_comment = "Vi benytter nå studiepoeng, denne er utdatert."
 
 	[variables.uhstudretn]
         unit = "uh"
@@ -727,6 +617,11 @@ variables_sort_unit = [
 # Utdaterte/arkiv #
 ###################
 
+	[variables.fnr_mrk_freg] # kobler fnr mot folkeregisteret?
+		unit = "utdatert"
+		dtype = "BOOLEAN"
+		outdated_comment = "Bør holde med mangel på utfylt pers_id, kan bli nødvendig senere om vi fyller falsk pers_id"
+
 	[variables.komp]
 		unit = "utdatert"
 		dtype = "STRING"
@@ -815,7 +710,7 @@ variables_sort_unit = [
 		unit = "utdatert"
 		dtype = "DATETIME"
 		renamed_from = "dato_dokrealkomp"
-		outdated_comment = "Denne skal ut fordi hvorfor?"
+		outdated_comment = "Kommer på vg-dataene (resultatfag), hører til fag. Viser ikke det som er relevant, som er om realkompetansevurderingen har konsekvens for opptak til UH."
 
 	[variables.uh_univ_eller_hogskole]
 		unit = "utdatert"
@@ -827,16 +722,163 @@ variables_sort_unit = [
         unit = "utdatert"
         dtype = "STRING"
 
+    [variables.pedsem]
+        unit = "utdatert"
+        dtype = "STRING"
+		outdated_comment = "Kan utledes fra NUS2000 isteden via gamle UHGRUPPE."
 
+	[variables.voksen]
+		unit = "utdatert"
+		dtype = "BOOLEAN"
+		outdated_comment = "Brukes kun for aldersavgrensning, alder bør regnes fra beviss refdato."
+
+
+
+	[variables.sn72]
+		unit = "utdatert"
+		dtype = "STRING"
+		length = [2]
+		outdated_comment = "Bør kobles på fra BOF på nytt på orgnr, hom nødvendig."
+
+
+	[variables.sn78]
+		unit = "utdatert"
+		dtype = "STRING"
+		length = [2]
+		outdated_comment = "Bør kobles på fra BOF på nytt på orgnr, hom nødvendig."
+
+	[variables.sn94]
+		unit = "utdatert"
+		dtype = "STRING"
+		length = [6]
+		outdated_comment = "Bør kobles på fra BOF på nytt på orgnr, hom nødvendig."
+
+    [variables.sn07]
+		unit = "utdatert"
+		dtype = "STRING"
+		length = [6]
+		outdated_comment = "Bør kobles på fra BOF på nytt på orgnr, hom nødvendig."
+
+    [variables.sn25]
+		unit = "utdatert"
+		dtype = "STRING"
+		length = [6]
+		outdated_comment = "Bør kobles på fra BOF på nytt på orgnr, hom nødvendig."
+
+	# Mangler omdøping, skal flyttes til "utdatert"?
+	[variables.mrk_dl1]
+		unit = "utdatert"
+		dtype = "STRING"
+		outdated_comment = "Eldre merkevariabler, dårlig utfylt og lite tatt i bruk."
+
+	[variables.mrk_dl2]
+		unit = "utdatert"
+		dtype = "STRING"
+		outdated_comment = "Eldre merkevariabler, dårlig utfylt og lite tatt i bruk."
+
+	[variables.mrk_dl3]
+		unit = "utdatert"
+		dtype = "STRING"
+		outdated_comment = "Eldre merkevariabler, dårlig utfylt og lite tatt i bruk."
+
+	[variables.mrk_per]
+		unit = "utdatert"
+		dtype = "STRING"
+		outdated_comment = "Eldre merkevariabler, dårlig utfylt og lite tatt i bruk."
+
+	[variables.mrk_end]
+		unit = "utdatert"
+		dtype = "STRING"
+		outdated_comment = "Eldre merkevariabler, dårlig utfylt og lite tatt i bruk."
+
+	[variables.mrk_grskole]
+		unit = "utdatert"
+		dtype = "STRING"
+		outdated_comment = "Eldre merkevariabler, dårlig utfylt og lite tatt i bruk."
+
+
+	# SKal sjekkes av AM
+	[variables.spesund]
+		unit = "utdatert"
+		dtype = "STRING"
+		length = [1]
+		outdated_comment = "Usikker kvalitet - videregående opplæring"
+
+	[variables.morsmal]
+		unit = "utdatert"
+		dtype = "STRING"
+		length = [1]
+		outdated_comment = "Usikker kvalitet - videregående opplæring"
+
+	# Mangler omdøping, skal flyttes til "utdatert"?
+	[variables.nus89]
+		unit = "utdatert"
+		dtype = "STRING"
+		length = [6]
+		outdated_comment = "Utdatert standard, korresponderer til nu standard?"
+
+    [variables.fagkode]
+		unit = "utdatert"
+		dtype = "STRING"
+		length = [3, 6, 7]
+		outdated_comment = "Tilhører uavhengig tabell grunnskolekarakterer. Ikke nødvendig i NUDB?"
+
+	[variables.i97isced]
+		unit = "utdatert"
+		dtype = "STRING"
+		outdated_comment = "Kan kobles på NUS, ellers utdatert standard."
+
+	[variables.i97destn]
+		unit = "utdatert"
+		dtype = "STRING"
+		outdated_comment = "Kan kobles på NUS, ellers utdatert standard."
+
+	[variables.i97orien]
+		unit = "utdatert"
+		dtype = "STRING"
+		outdated_comment = "Kan kobles på NUS, ellers utdatert standard."
+
+	[variables.i97grads]
+		unit = "utdatert"
+		dtype = "STRING"
+		outdated_comment = "Kan kobles på NUS, ellers utdatert standard."
+
+	[variables.i97varig]
+		unit = "utdatert"
+		dtype = "STRING"
+		outdated_comment = "Kan kobles på NUS, ellers utdatert standard."
+
+	[variables.kodetype]
+		unit = "utdatert"
+		dtype = "STRING"
+		length = [1]
+		outdated_comment = "Kan kobler på NUS"
+
+	# Mangler omdøping, skal flyttes til "utdatert"?
+	[variables.eierf]
+		unit = "utdatert"
+		dtype = "STRING"
+		length = [1]
+		klass_codelist = 793
+		outdated_comment = "Bør kobles på fra BOF"
+
+
+	[variables.sslag]
+		unit = "utdatert"
+		dtype = "STRING"
+		outdated_comment = "Skoleslag? Mangler kodeliste?"
+
+	[variables.hoved]
+		unit = "utdatert"
+		dtype = "STRING"
+		outdated_comment = "Lite bruk, bør kunne bruke NUS isteden?"
 
 
 #########################################
 # Ukjent: har enda igjen å bli plassert #
 #########################################
 
-    [variables.pedsem]
-        unit = "ukjent"
-        dtype = "STRING"
+
 
     [variables.mrk_dl_bhu]
         unit = "ukjent"
