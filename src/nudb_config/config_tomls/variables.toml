@@ -73,12 +73,6 @@ variables_sort_unit = [
 		length = [1]
 		renamed_from = ["utfallu"]
 
-	[variables.utd_aktivitet_start_mrk_kilde]
-        unit = "data"
-        dtype = "STRING"
-        renamed_from = ["mrk_dl", "kurs_start_mrk_kilde"]
-
-
 	# Mangler omdøping, skal flyttes til "utdatert"?
 	[variables.mrk_dl1]
 		unit = "data"
@@ -788,6 +782,7 @@ variables_sort_unit = [
 	[variables.utd_aktivitet_start_mrk_kilde]
 		unit = "utdatert"
 		dtype = "STRING"
+		renamed_from = ["mrk_dl", "kurs_start_mrk_kilde"]
 		outdated_comment = "Not needed in final product?"
 
 	[variables.avgdato]
