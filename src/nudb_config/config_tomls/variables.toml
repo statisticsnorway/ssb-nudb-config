@@ -153,10 +153,10 @@ variables_sort_unit = [
 		length = [9]
         renamed_from = ["orgnr"]
 
-    [variables.utd_orgnr_navn_inn]
+    [variables.gro_skolenavn_inn]
         unit = "skole"
         dtype = "STRING"
-        renamed_from = ["skolenavn"]
+        renamed_from = ["skolenavn", "utd_orgnr_navn_inn"]
 
 	[variables.utd_skolekom]
 		unit = "skole"
@@ -705,6 +705,7 @@ variables_sort_unit = [
     [variables.fulldato]
         unit = "utdatert"
         dtype = "STRING"
+		outdated_comment = "Tidsetting flyttet til andre tidskolonner. Se feks. utd_aktivitet_slutt"
 
     [variables.pedsem]
         unit = "utdatert"
@@ -715,8 +716,6 @@ variables_sort_unit = [
 		unit = "utdatert"
 		dtype = "BOOLEAN"
 		outdated_comment = "Brukes kun for aldersavgrensning, alder bør regnes fra beviss refdato."
-
-
 
 	[variables.sn72]
 		unit = "utdatert"

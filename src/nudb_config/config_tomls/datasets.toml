@@ -158,7 +158,7 @@
             "uh_statsborgerskap_inn",  # old_name: statb_meldt
             "bof_orgnr_bed",  # old_name: orgnrbed
             "utd_orgnr",  # old_name: orgnr
-            "utd_orgnr_navn_inn",
+            "gro_skolenavn_inn",
             "utd_skolekom",  # old_name: skolekom
             #"eierf",  # Koble på fra BOF isteden for å ligge på filen
             "uh_institusjon_id",  # old_name: hskode
