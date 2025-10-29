@@ -55,7 +55,7 @@ variables_sort_unit = [
 		dtype = "STRING"
 		length = [2]
 		klass_codelist = 792
-		renamed_from = ["kilde"]
+		renamed_from = ["kilde", "kildebhu"]
 
 	[variables.utd_fullfoertkode]
 		unit = "data"
@@ -872,12 +872,6 @@ variables_sort_unit = [
 		unit = "utdatert"
 		dtype = "FLOAT"
 		outdated_comment = "Vi benytter nå studiepoeng, denne er utdatert."
-
-	[variables.kildebhu]
-        unit = "utdatert"
-        dtype = "STRING"
-		outdated_comment = "Datakilde pre 2000 på BHU-filer. Bør slås sammen med utd_datakilde"
-
 
     [variables.mrk_dl_bhu]
         unit = "utdatert"
