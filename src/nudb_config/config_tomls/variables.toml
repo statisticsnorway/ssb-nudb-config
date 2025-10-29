@@ -479,7 +479,7 @@ variables_sort_unit = [
 		unit = "uh"
 		dtype = "FLOAT"
 		renamed_from = ["studieprogresjon_h"]
-	
+
 	[variables.uh_studieprogresjon_vaar]
 		unit = "uh"
 		dtype = "FLOAT"

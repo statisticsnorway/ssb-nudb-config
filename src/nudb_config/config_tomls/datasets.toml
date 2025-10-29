@@ -140,10 +140,10 @@
             "utd_datakilde",  # old_name: kilde
             "utd_fullfoertkode",  # old_name: utfall
             "utd_fullfoertkode_inn",  # old_name: utfallu
-            # "mrk_grskole", Trengs ikke 
+            # "mrk_grskole", Trengs ikke
             "vg_bevistype",  # old_name: doktype
             "vg_rettstype_inntak",  # old_name: rett
-            # "realkompetansevurdert_dato", skal ikke være med? 
+            # "realkompetansevurdert_dato", skal ikke være med?
             "utd_aktivitetsnivaa_heltid_deltid",  # old_name: heldel
             "utd_klassetrinn",  # old_name: kltrinn2000
             "nus2000",
@@ -158,7 +158,7 @@
             "uh_statsborgerskap_inn",  # old_name: statb_meldt
             "bof_orgnr_bed",  # old_name: orgnrbed
             "utd_orgnr",  # old_name: orgnr
-            "utd_orgnr_navn_inn", 
+            "utd_orgnr_navn_inn",
             "utd_skolekom",  # old_name: skolekom
             #"eierf",  # Koble på fra BOF isteden for å ligge på filen
             "uh_institusjon_id",  # old_name: hskode
@@ -184,7 +184,7 @@
             "vg_vedtak_saerskilt_spraak",  # old_name: fkurskod
             "vg_kursprosent",  # old_name: delpros
             "vg_programomraade",  # Gamle fkurskod?
-            "vg_karakterpoeng",  
+            "vg_karakterpoeng",
             "vg_prove_dato",
             "fuh_nett_eller_stedbasert",
             "gro_skolenr_inn",  # old_name: fskolenr
