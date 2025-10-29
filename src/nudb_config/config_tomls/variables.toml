@@ -479,6 +479,11 @@ variables_sort_unit = [
 		unit = "uh"
 		dtype = "FLOAT"
 		renamed_from = ["studieprogresjon_h"]
+	
+	[variables.uh_studieprogresjon_vaar]
+		unit = "uh"
+		dtype = "FLOAT"
+		renamed_from = ["studieprogresjon"]
 
     [variables.uh_utdplan]
 		unit = "uh"
@@ -504,25 +509,6 @@ variables_sort_unit = [
 
 
 	# Skal potensielt fjernes? (Ikke omdøpt)
-	[variables.studieprogresjon]
-		unit = "uh"
-		dtype = "FLOAT"
-
-	[variables.uhgruppe]
-		unit = "uh"
-		dtype = "STRING"
-		length = [3]
-
-	[variables.vektgrad]
-		unit = "utdatert"
-		dtype = "FLOAT"
-		outdated_comment = "Vi benytter nå studiepoeng, denne er utdatert."
-
-	[variables.vekteks]
-		unit = "utdatert"
-		dtype = "FLOAT"
-		outdated_comment = "Vi benytter nå studiepoeng, denne er utdatert."
-
 	[variables.uhstudretn]
         unit = "uh"
         dtype = "STRING"
@@ -531,9 +517,7 @@ variables_sort_unit = [
         unit = "uh"
         dtype = "STRING"
 
-    [variables.kildebhu]
-        unit = "uh"
-        dtype = "STRING"
+
 
 
 ########
@@ -873,17 +857,35 @@ variables_sort_unit = [
 		dtype = "STRING"
 		outdated_comment = "Lite bruk, bør kunne bruke NUS isteden?"
 
+	[variables.uhgruppe]
+		unit = "utdatert"
+		dtype = "STRING"
+		length = [3]
+		outdated_comment = "Bør heller kobles på fra nus2000 enn ligge på datasettet?"
 
-#########################################
-# Ukjent: har enda igjen å bli plassert #
-#########################################
+	[variables.vektgrad]
+		unit = "utdatert"
+		dtype = "FLOAT"
+		outdated_comment = "Vi benytter nå studiepoeng, denne er utdatert."
 
+	[variables.vekteks]
+		unit = "utdatert"
+		dtype = "FLOAT"
+		outdated_comment = "Vi benytter nå studiepoeng, denne er utdatert."
+
+	[variables.kildebhu]
+        unit = "utdatert"
+        dtype = "STRING"
+		outdated_comment = "Datakilde pre 2000 på BHU-filer. Bør slås sammen med utd_datakilde"
 
 
     [variables.mrk_dl_bhu]
-        unit = "ukjent"
+        unit = "utdatert"
         dtype = "STRING"
+		outdated_comment = "Forteller om gyldigheten på tidsettingen på de eldre BHU-filene. 0: uendret tid, 1: juni dataens periode, 2: Ugyldig måned, men gyldig år, måned settes til juni, 3: tidsetting utenfor/etter range, settes til september dataens period, 4: Tidspunkt mangler, settes til 197011"
+
 
     [variables.endret_utfall]
-        unit = "ukjent"
+        unit = "utdatert"
         dtype = "STRING"
+		outdated_comment = "Variabel benyttet under bygging av Avslutta? Bør ikke ligge i endelig fil"
