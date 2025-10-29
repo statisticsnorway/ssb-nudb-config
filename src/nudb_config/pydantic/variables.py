@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from pydantic import BaseModel
+from pydantic import model_validator
 
 from .dotmap import DotMap
 
@@ -29,6 +30,19 @@ class Variable(BaseModel, DotMap):
     # Populated programmatically to mirror Dynaconf expansion
     codelist_extras: dict[str, str] | None = None
     outdated_comment: str | None = None
+
+    @model_validator(mode="after")
+    def _require_outdated_comment_when_utdatert(self) -> Variable:
+        """Ensure ``outdated_comment`` is set when ``unit`` is ``utdatert``.
+
+        Treats ``None``, empty, and whitespace-only strings as invalid.
+        """
+        if self.unit == "utdatert":
+            if self.outdated_comment is None or not str(self.outdated_comment).strip():
+                raise ValueError(
+                    'outdated_comment is required when unit="utdatert" and cannot be blank'
+                )
+        return self
 
 
 class VariablesFile(BaseModel, DotMap):
