@@ -19,6 +19,7 @@ class Dataset(BaseModel, DotMap):
     thresholds_empty: dict[str, float] | None = None
     min_values: dict[str, str] | None = None
     max_values: dict[str, str] | None = None
+    dataset_specific_renames: dict[str, str] | None = None
 
 
 class DatasetsFile(BaseModel, DotMap):

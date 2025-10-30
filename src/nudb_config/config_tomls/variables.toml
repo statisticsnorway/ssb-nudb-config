@@ -288,7 +288,7 @@ variables_sort_unit = [
 		dtype = "STRING"
 		length = [1]
 		klass_codelist = 769
-		renamed_from = ["kontraktstype"]
+		renamed_from = ["kontraktstype"]  # Ikke legg til ftype, vi håndtrerer den med overrides
 
 	[variables.vg_provenr]
         unit = "vg"
@@ -327,15 +327,7 @@ variables_sort_unit = [
         unit = "vg"
         dtype = "STRING"
         length = [1]
-        renamed_from = ["provekandtype"]
-        # Burde lages KLASS-kodeliste? MetaDB:
-        # 9 	Uoppgitt
-        # B 	Praksisbrevkandidat
-        # E 	Fagopplæring i skole
-        # F 	Fagbrev på jobb
-        # K 	Lærekandidat (opplæringskontrakt)
-        # L 	Lærling
-        # P 	Praksiskandidater
+        renamed_from = ["provekandtype"]  # Ikke legg til ftype, vi håndtrerer den med overrides
 
 	[variables.studretn]  # Carl snakker med Daniel om denne
 		unit = "vg"
@@ -674,14 +666,14 @@ variables_sort_unit = [
 		dtype = "STRING"
 		length = [1]
 		klass_variant = 2942
-		outdated_comment = "Splittes i kontraktstype og provekandtype avhengig av innfil den ligger på."
+		outdated_comment = "Splittes i kontraktstype og provekandtype avhengig av innfil den ligger på. En datasett-avhengig rename i datasets.toml bør konfigureres isteden."
 
     [variables.ftypef] # Samme som `ftype`?
         unit = "utdatert"
         dtype = "STRING"
         length = [1]
         klass_variant = 2942
-		outdated_comment = "Splittes i kontraktstype og provekandtype avhengig av innfil den ligger på."
+		outdated_comment = "Splittes i kontraktstype og provekandtype avhengig av innfil den ligger på. En datasett-avhengig rename i datasets.toml bør konfigureres isteden."
 
 
 	[variables.ktrinn]

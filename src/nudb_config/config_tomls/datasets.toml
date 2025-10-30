@@ -50,6 +50,11 @@
             "vg_kontraktstype",  # old_name: kontraktstype
             "uh_studieprogram",
     ]
+
+    [datasets.igang.dataset_specific_renames]
+            ftype = "vg_kontraktstype"
+            ftypef = "vg_kontraktstype"
+
     [datasets.eksamen_uh]
         variables = [
             "fnr",
@@ -190,6 +195,9 @@
             "gro_skolenr_inn",  # old_name: fskolenr
             "vg_provekandtype",  # old_name: provekandtype
             ]
+        [datasets.avslutta.dataset_specific_renames]
+            ftype = "vg_provekandtype"
+            ftypef = "vg_provekandtype"
 
 
     [datasets.grunnskolekarakterer]
