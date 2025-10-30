@@ -2,6 +2,7 @@
 
     [datasets.igang]
         variables = [
+            "utd_hendelse_id",
             "fnr",
             "pers_id",  # old_name: snr
             #"snr_mrk",
@@ -10,6 +11,7 @@
             "utd_klassetrinn",  # old_name: kltrinn2000
             "utd_aktivitetsnivaa_heltid_deltid",  # old_name: heldel
             "utd_aktivitet_start",  # old_name: startd
+            "utd_aktivitet_start_inn",  # old_name: kurs_start_orig
             # "voksen",
             "uh_realkompetanse",  # old_name: realkomp
             "utd_datakilde",  # old_name: kilde
@@ -24,8 +26,8 @@
             #"inr",
             "utd_orgnr",  # old_name: orgnr
             "uh_studieland",  # old_name: studieland
-            "uh_univ_eller_hogskole",  # old_name: univ
-            "utd_aktivitet_start_mrk_kilde",  # old_name: mrk_dl
+            "",  # old_name: univ
+            #"utd_aktivitet_start_mrk_kilde",  # old_name: mrk_dl - trengs ikke på utdatasett?
             "uh_utland",  # old_name: utland
             "vg_kursprosent",  # old_name: delpros
             "vg_antall_aarstimer_elevkurs",  # old_name: aartimer
@@ -49,6 +51,7 @@
             "vg_vedtak_saerskilt_spraak",  # old_name: fkurskod
             "vg_kontraktstype",  # old_name: kontraktstype
             "uh_studieprogram",
+            "vg_programomraade",  # Gamle fkurskod?
     ]
 
     [datasets.igang.dataset_specific_renames]
@@ -57,6 +60,7 @@
 
     [datasets.eksamen_uh]
         variables = [
+            "utd_hendelse_id",
             "fnr",
             "pers_id",  # old_name: snr
             #"snr_mrk",
@@ -97,7 +101,7 @@
             'utd_skoleaar_start',  # old_name: skoleaar_start
             'utd_skoleaar_slutt',  # old_name: skoleaar_slutt
             "utd_utdanningstype",  # old_name: utd
-            "uh_univ_eller_hogskole", # old_name: univ
+            "", # old_name: univ
             #"heldel",  # Hvordan kan en eksamen "være heltid"? Mellom 2003 og 2012 så er ALLE eksamener "heltid"...
             "utd_orgnr",  # old_name: orgnr
             "bof_orgnr_bed",  # old_name: orgnrbed
