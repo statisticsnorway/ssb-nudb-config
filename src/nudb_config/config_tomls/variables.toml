@@ -713,32 +713,32 @@ variables_sort_unit = [
 		unit = "utdatert"
 		dtype = "STRING"
 		length = [2]
-		outdated_comment = "Bør kobles på fra BOF på nytt på orgnr, hom nødvendig."
+		outdated_comment = "Bør kobles på fra BOF på nytt på orgnr, om nødvendig."
 
 
 	[variables.sn78]
 		unit = "utdatert"
 		dtype = "STRING"
 		length = [2]
-		outdated_comment = "Bør kobles på fra BOF på nytt på orgnr, hom nødvendig."
+		outdated_comment = "Bør kobles på fra BOF på nytt på orgnr, om nødvendig."
 
 	[variables.sn94]
 		unit = "utdatert"
 		dtype = "STRING"
 		length = [6]
-		outdated_comment = "Bør kobles på fra BOF på nytt på orgnr, hom nødvendig."
+		outdated_comment = "Bør kobles på fra BOF på nytt på orgnr, om nødvendig."
 
     [variables.sn07]
 		unit = "utdatert"
 		dtype = "STRING"
 		length = [6]
-		outdated_comment = "Bør kobles på fra BOF på nytt på orgnr, hom nødvendig."
+		outdated_comment = "Bør kobles på fra BOF på nytt på orgnr, om nødvendig."
 
     [variables.sn25]
 		unit = "utdatert"
 		dtype = "STRING"
 		length = [6]
-		outdated_comment = "Bør kobles på fra BOF på nytt på orgnr, hom nødvendig."
+		outdated_comment = "Bør kobles på fra BOF på nytt på orgnr, om nødvendig."
 
 	# Mangler omdøping, skal flyttes til "utdatert"?
 	[variables.mrk_dl1]
