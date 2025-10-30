@@ -102,12 +102,12 @@ variables_sort_unit = [
 
     [variables.utd_skoleaar_start]
         unit = "tid"
-        dtype = "DATETIME"
+        dtype = "STRING"
         renamed_from = ["skolear", "skoleaar", "skoleaar_start"]
 
     [variables.utd_skoleaar_slutt]
         unit = "tid"
-        dtype = "DATETIME"
+        dtype = "STRING"
         renamed_from = ["skoleaar_slutt"]
 
     [variables.uh_eksamen_dato]
