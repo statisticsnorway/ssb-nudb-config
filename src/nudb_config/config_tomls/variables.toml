@@ -158,13 +158,13 @@ variables_sort_unit = [
         dtype = "STRING"
         renamed_from = ["skolenavn", "utd_orgnr_navn_inn"]
 
-	[variables.utd_orgnr_skolekom]
+	[variables.utd_skolekom]
 		unit = "skole"
 		dtype = "STRING"
 		length = [4]
         klass_codelist = 131
         klass_codelist_from_date = "1960-01-01"
-        renamed_from = ["skolekom", "utd_skolekom"]
+        renamed_from = ["skolekom"]
 
 
 
@@ -183,7 +183,7 @@ variables_sort_unit = [
 	[variables.utd_aktivitetsnivaa_heltid_deltid]
 		unit = "fag"
 		dtype = "BOOLEAN"
-		renamed_from = ["heldel"]
+		renamed_from = ["heldel", "utd_heltid_deltid_aktivitetsnivaa"]
 
 	[variables.utd_viderutd_nettbasert]
 		unit = "fag"
@@ -329,14 +329,16 @@ variables_sort_unit = [
         length = [1]
         renamed_from = ["provekandtype"]  # Ikke legg til ftype, vi håndtrerer den med overrides
 
-	[variables.vg_hovedaktivitet]
+	[variables.vg_hovedaktivitet]  # merkevariabel som prioriterer en record per person, per skoleår, per fil, innenfor vg
         unit = "vg"
         dtype = "STRING"  # Har lite info om denne! C 2025-10-31
 
-	[variables.studretn]  # Carl snakker med Daniel om denne
+	[variables.vg_utdprogram]
 		unit = "vg"
 		dtype = "STRING"
 		length = [2]
+		renamed_from = ["studretn"]
+
 
 ####################
 # "fa" - Fagskoler #
@@ -348,7 +350,7 @@ variables_sort_unit = [
 		dtype = "BOOLEAN"
 		renamed_from = ["fagskoleutd"]
 
-	[variables.fa_hovedaktivitet]
+	[variables.fa_hovedaktivitet]    # merkevariabel som prioriterer en record per person, per skoleår, per fil, innenfor fa
 		unit = "fa"
 		dtype = "STRING"  # I have no info at current time, so I dont know? C 2025-10-31
 
@@ -496,7 +498,7 @@ variables_sort_unit = [
         dtype = "STRING"
         renamed_from = ["utdplan"]
 
-    [variables.uh_hovedaktivitet]
+    [variables.uh_hovedaktivitet]   # merkevariabel som prioriterer en record per person, per skoleår, per fil, innenfor uh
         unit = "uh"
         dtype = "STRING"
         renamed_from = ["hovedprogram"]
