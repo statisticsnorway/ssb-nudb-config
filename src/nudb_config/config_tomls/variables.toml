@@ -158,13 +158,13 @@ variables_sort_unit = [
         dtype = "STRING"
         renamed_from = ["skolenavn", "utd_orgnr_navn_inn"]
 
-	[variables.utd_skolekom]
+	[variables.utd_orgnr_skolekom]
 		unit = "skole"
 		dtype = "STRING"
 		length = [4]
         klass_codelist = 131
         klass_codelist_from_date = "1960-01-01"
-        renamed_from = ["skolekom"]
+        renamed_from = ["skolekom", "utd_skolekom"]
 
 
 
@@ -312,7 +312,7 @@ variables_sort_unit = [
 		klass_codelist = 764
 		renamed_from = ["rett"]
 
-	[variables.vg_ny_laerling]
+	[variables.vg_nylaerling]
 		unit = "vg"
 		dtype = "BOOLEAN"
 		renamed_from = ["nylaerl"]
@@ -329,6 +329,10 @@ variables_sort_unit = [
         length = [1]
         renamed_from = ["provekandtype"]  # Ikke legg til ftype, vi håndtrerer den med overrides
 
+	[variables.vg_hovedaktivitet]
+        unit = "vg"
+        dtype = "STRING"  # Har lite info om denne! C 2025-10-31
+
 	[variables.studretn]  # Carl snakker med Daniel om denne
 		unit = "vg"
 		dtype = "STRING"
@@ -344,6 +348,9 @@ variables_sort_unit = [
 		dtype = "BOOLEAN"
 		renamed_from = ["fagskoleutd"]
 
+	[variables.fa_hovedaktivitet]
+		unit = "fa"
+		dtype = "STRING"  # I have no info at current time, so I dont know? C 2025-10-31
 
 #########################################################
 # "fah" - Fagskoler + Universitet og Høgskole-Utdanning #
@@ -361,6 +368,13 @@ variables_sort_unit = [
 		length = [3]
 		klass_codelist = 790
         renamed_from = ["hskode"]
+
+
+	[variables.uh_univ_eller_hogskole]
+		unit = "uh"
+		dtype = "STRING"
+        renamed_from = ["univ"]
+		#outdated_comment = "Kan vi utlede denne istedenfor å ha den lagret på data?"
 
 
 	[variables.uh_realkompetanse]
@@ -688,11 +702,7 @@ variables_sort_unit = [
 		renamed_from = "dato_dokrealkomp"
 		outdated_comment = "Kommer på vg-dataene (resultatfag), hører til fag. Viser ikke det som er relevant, som er om realkompetansevurderingen har konsekvens for opptak til UH."
 
-	[variables.uh_univ_eller_hogskole]
-		unit = "utdatert"
-		dtype = "STRING"
-        renamed_from = ["univ"]
-		outdated_comment = "Kan vi utlede denne istedenfor å ha den lagret på data?"
+
 
     [variables.fulldato]
         unit = "utdatert"
