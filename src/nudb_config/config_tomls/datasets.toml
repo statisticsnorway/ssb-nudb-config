@@ -20,18 +20,26 @@
             "utd_viderutd_nettbasert",  # old_name: evufjern
             "uh_studierett",  # old_name: studrett
             "utd_utdanningstype",  # old_name: utd
-            "utd_skolekom",  # old_name: skolekom
+            "utd_orgnr_skolekom",  # old_name: skolekom
             # "eierf",
             "uh_institusjon_id",  # old_name: hskode
+            "uh_campus_kommune",  # old_name: campus_kom
+            "uh_campus_sted",  # old_name: campus_sted
+            "uh_hovedaktivitet",  # old_name: hovedprogram
+            "uh_permisjon", # old_name: permisjon
+            "uh_studienivaa",  # old_name: studieniva
+            "uh_undervisningsspraak",  # undervisningssprak
+            "uh_univ_eller_hogskole",  # old_name: univ
             #"inr",
             "utd_orgnr",  # old_name: orgnr
             "uh_studieland",  # old_name: studieland
-            "",  # old_name: univ
             #"utd_aktivitet_start_mrk_kilde",  # old_name: mrk_dl - trengs ikke på utdatasett?
             "uh_utland",  # old_name: utland
             "vg_kursprosent",  # old_name: delpros
             "vg_antall_aarstimer_elevkurs",  # old_name: aartimer
             "gro_elevstatus",  # old_name: elevstatus
+            "gro_skolenr_inn",  # old_name: fskolenr
+            "gro_skolenavn_inn",  # old_name: skolenavn
             # "realkompetansevurdert_dato",  # old_name: dato_dokrealkomp
             "bof_orgnr_bed",  # old_name: orgnrbed
             "fa_godkjent_fagskoleutd",  # old_name: fagskoleutd
@@ -47,11 +55,15 @@
             "uh_utvekslingsavtale",  # old_name: utveksavtale
             "uh_studieprogresjon_hoest",  # old_name: studieprogresjon_h
             "uh_statsborgerskap_inn",  # old_name: statb_meldt
+            "fa_hovedaktivitet",
             "fuh_nett_eller_stedbasert",  # old_name: organisering
-            "vg_vedtak_saerskilt_spraak",  # old_name: fkurskod
+            #"vg_vedtak_saerskilt_spraak",  # old_name:   - skal ikke være på igang?
             "vg_kontraktstype",  # old_name: kontraktstype
             "uh_studieprogram",
             "vg_programomraade",  # Gamle fkurskod?
+            "vg_antall_fag_elevkurs",
+            "vg_hovedaktivitet",
+            "vg_nylaerling",  # old_name: nylaerl
     ]
 
     [datasets.igang.dataset_specific_renames]
@@ -77,7 +89,7 @@
             'utd_datakilde',  # old_name: kilde
             'uh_eksamen_studpoeng',  # old_name: studpoeng_eks
             'uh_eksamen_er_gjentak',  # old_name: gjentak
-            'utd_skolekom',  # old_name: skolekom
+            'utd_orgnr_skolekom',  # old_name: skolekom
             'uh_antall_deleksamener',  # old_name: antall_deleks
             'uh_antall_deleksamener_bestatt',  # old_name: antall_deleks_bestaatt
             # 'studieprogresjon',
@@ -101,7 +113,7 @@
             'utd_skoleaar_start',  # old_name: skoleaar_start
             'utd_skoleaar_slutt',  # old_name: skoleaar_slutt
             "utd_utdanningstype",  # old_name: utd
-            "", # old_name: univ
+            "uh_univ_eller_hogskole", # old_name: univ
             #"heldel",  # Hvordan kan en eksamen "være heltid"? Mellom 2003 og 2012 så er ALLE eksamener "heltid"...
             "utd_orgnr",  # old_name: orgnr
             "bof_orgnr_bed",  # old_name: orgnrbed
@@ -168,10 +180,10 @@
             "bof_orgnr_bed",  # old_name: orgnrbed
             "utd_orgnr",  # old_name: orgnr
             "gro_skolenavn_inn",
-            "utd_skolekom",  # old_name: skolekom
+            "utd_orgnr_skolekom",  # old_name: skolekom
             #"eierf",  # Koble på fra BOF isteden for å ligge på filen
             "uh_institusjon_id",  # old_name: hskode
-            "uh_univ_eller_hogskole",
+            "uh_univ_eller_hogskole",  # old_name: univ
             "pers_foedselsdato",  # old_name: fodt_dato
             "utd_aktivitet_slutt_inn",  # old_name: kurs_slutt_orig
             "utd_aktivitet_start",  # old_name: kurs_start
@@ -209,7 +221,7 @@
             'pers_id',  # old_name: snr
             #'snr_mrk',
             'utd_orgnr',  # old_name: orgnr
-            'utd_skolekom',  # old_name: skolekom
+            'utd_orgnr_skolekom',  # old_name: skolekom
             'fagkode',
             'stp',
             'skr',
@@ -221,9 +233,9 @@
         ]
 
         [datasets.grunnskolekarakterer.thresholds_empty]
-            snr = 0.1
-            orgnr = 0.1
-            skolekom = 0.05
+            pers_id = 0.1
+            utd_orgnr = 0.1
+            utd_orgnr_skolekom = 0.05
             fagkode = 0.0
             stp = 3.0
             skr = 93.0
