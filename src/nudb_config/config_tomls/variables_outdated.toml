@@ -7,10 +7,12 @@
 	[variables.uhstudretn]
         unit = "utdatert"
         dtype = "STRING"
+		outdated_comment = "Venter på avgjørelse fra UH - Skal potensielt fjernes / være utdatert"
 
     [variables.utdkode]
         unit = "utdatert"
         dtype = "STRING"
+		outdated_comment = "Venter på avgjørelse fra UH - Skal potensielt fjernes / være utdatert"
 
 
 
