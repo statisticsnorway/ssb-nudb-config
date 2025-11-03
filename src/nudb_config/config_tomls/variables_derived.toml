@@ -1,0 +1,4 @@
+    [variables.pers_foreldres_hoyeste_utd_16aar]
+        unit = "pers"
+        dtype = "STRING"
+		renamed_from = ["sosbak"]
