@@ -59,8 +59,15 @@ def _load_toml(path: Path) -> dict[str, object]:
         return tomllib.load(fh)
 
 
-def _expand_codelist_extras(variables: dict[str, Variable]) -> None:
-    # Mirror expand_codelist() logic from dynaconf-based config
+def _expand_codelist_extras(variables: dict[str, Variable]) -> dict[str, Variable]:
+    """Expands codelists from KLASS that we have no direct control over, but 360 has their own values for...
+
+    Args:
+        variables: The dict that will be placed as variables under the settings-object.
+
+    Returns:
+        dict[str, Variable]: The modified variables-settings part after adding the codelist_extras field.
+    """
     for _name, var in variables.items():
         if var.klass_codelist == 91:
             var.codelist_extras = {
@@ -72,6 +79,7 @@ def _expand_codelist_extras(variables: dict[str, Variable]) -> None:
                 "2580": "360s definerte Utland",
                 "2111": "Longyearbyen arealplanområde",
             }
+    return variables
 
 
 def load_pydantic_settings() -> NudbConfig:
@@ -91,41 +99,32 @@ def load_pydantic_settings() -> NudbConfig:
     cfg_dir = base / "config_tomls"
 
     # Read individual toml files
-    variables_toml = _load_toml(cfg_dir / "variables.toml")
     datasets_toml = _load_toml(cfg_dir / "datasets.toml")
     paths_toml = _load_toml(cfg_dir / "paths.toml")
     settings_toml = _load_toml(cfg_dir / "settings.toml")
 
-    # Parse with Pydantic
-    variables_file = VariablesFile.model_validate(variables_toml)
-    # Optionally load additional variables flagged as outdated
-    outdated_path = cfg_dir / "variables_outdated.toml"
-    outdated_file: VariablesFile | None = None
-    if outdated_path.exists():
-        outdated_toml = _load_toml(outdated_path)
-        outdated_file = VariablesFile.model_validate(outdated_toml)
+    # Variable-toml was getting too big so we split the variables across different tomls
+    variables_paths = cfg_dir.glob("variables*.toml")
+
+    merged_variables: dict[str, Variable] = dict()
+    for path in variables_paths:
+        var_toml = _load_toml(path)
+        var_file: VariablesFile = VariablesFile.model_validate(var_toml)
+        merged_variables |= dict(var_file.variables)
+        if "variables_sort_unit" in var_file:
+            variables_sort_unit = var_file["variables_sort_unit"]
+
+    merged_variables = _expand_codelist_extras(merged_variables)
+
     datasets_file = DatasetsFile.model_validate(datasets_toml)
     paths_file = PathsFile.model_validate(paths_toml)
     settings_file = SettingsFile.model_validate(settings_toml)
-
-    # Apply the same codelist expansions as Dynaconf variant
-    _expand_codelist_extras(variables_file.variables)
-    if outdated_file is not None:
-        _expand_codelist_extras(outdated_file.variables)
-
-    # Merge variables from both files; main file takes precedence on conflicts
-    # Let entries from variables_outdated.toml override duplicates to ensure
-    # the new file is the authoritative source for outdated variables.
-    merged_variables: dict[str, Variable] = dict(variables_file.variables)
-    if outdated_file is not None:
-        for k, v in outdated_file.variables.items():
-            merged_variables[k] = v
 
     return NudbConfig(
         dapla_team=settings_file.dapla_team,
         short_name=settings_file.short_name,
         utd_nacekoder=settings_file.utd_nacekoder,
-        variables_sort_unit=variables_file.variables_sort_unit,
+        variables_sort_unit=variables_sort_unit,
         variables=DotMap(merged_variables),
         datasets=DotMap(datasets_file.datasets),
         paths=DotMap(paths_file.paths),
