@@ -511,14 +511,6 @@ variables_sort_unit = [
 
 
 
-	# Skal potensielt fjernes? (Ikke omdøpt)
-	[variables.uhstudretn]
-        unit = "uh"
-        dtype = "STRING"
-
-    [variables.utdkode]
-        unit = "uh"
-        dtype = "STRING"
 
 
 

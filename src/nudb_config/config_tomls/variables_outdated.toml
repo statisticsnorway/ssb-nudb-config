@@ -2,6 +2,18 @@
 # Utdaterte/arkiv #
 ###################
 
+
+	# Skal potensielt fjernes? (Ikke omdøpt - venter på avklaring)
+	[variables.uhstudretn]
+        unit = "utdatert"
+        dtype = "STRING"
+
+    [variables.utdkode]
+        unit = "utdatert"
+        dtype = "STRING"
+
+
+
 	[variables.fnr_mrk_freg] # kobler fnr mot folkeregisteret?
 		unit = "utdatert"
 		dtype = "BOOLEAN"
