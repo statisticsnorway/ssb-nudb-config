@@ -119,9 +119,6 @@ def load_pydantic_settings() -> NudbConfig:
             variables_sort_unit_list = var_file.variables_sort_unit
 
     merged_variables = _expand_codelist_extras(merged_variables)
-    variables = VariablesFile(
-        variables=merged_variables, variables_sort_unit=variables_sort_unit_list
-    )
 
     datasets_file = DatasetsFile.model_validate(datasets_toml)
     paths_file = PathsFile.model_validate(paths_toml)
@@ -131,7 +128,8 @@ def load_pydantic_settings() -> NudbConfig:
         dapla_team=settings_file.dapla_team,
         short_name=settings_file.short_name,
         utd_nacekoder=settings_file.utd_nacekoder,
-        variables=variables,
+        variables_sort_unit=variables_sort_unit_list,
+        variables=DotMap(merged_variables),
         datasets=DotMap(datasets_file.datasets),
         paths=DotMap(paths_file.paths),
     )
