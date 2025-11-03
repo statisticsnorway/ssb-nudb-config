@@ -42,7 +42,7 @@
 		unit = "utdatert"
 		dtype = "STRING"
 		length = [7]
-		outdated_comment = "INR ligger på eldre filer, bør koble på orgnr isteden, så fjerne INR."
+		outdated_comment = "“institusjonskode”? Identifiserer skoler før vi hadde tilgang på orgnr. INR ligger på eldre filer, bør koble på orgnr isteden, så fjerne INR."
 
     [variables.kilde_start]
         unit = "utdatert"
@@ -63,7 +63,7 @@
 		unit = "utdatert"
 		dtype = "STRING"
 		renamed_from = ["mrk_dl", "kurs_start_mrk_kilde"]
-		outdated_comment = "Not needed in final product?"
+		outdated_comment = "“Merking av startdato” finnes kodeliste i gamle datadok-igang. Bør kunne hentes frem om det etterspørres, men vi lager nå datoer etter andre regler?"
 
 	[variables.avgdato]
 		unit = "utdatert"
@@ -93,13 +93,14 @@
 	[variables.realkompetansevurdert_dato]
 		unit = "utdatert"
 		dtype = "DATETIME"
-		renamed_from = "dato_dokrealkomp"
+		renamed_from = ["dato_dokrealkomp"]
 		outdated_comment = "Kommer på vg-dataene (resultatfag), hører til fag. Viser ikke det som er relevant, som er om realkompetansevurderingen har konsekvens for opptak til UH."
 
-    [variables.fulldato]
-        unit = "utdatert"
-        dtype = "STRING"
-		outdated_comment = "Tidsetting flyttet til andre tidskolonner. Se feks. utd_aktivitet_slutt"
+	# Ligger i rename av "utd_aktivitet_slutt" - isteden
+    #[variables.fulldato]
+    #    unit = "utdatert"
+    #    dtype = "STRING"
+	#	outdated_comment = "Tidsetting flyttet til andre tidskolonner. Se feks. utd_aktivitet_slutt. Stemmer best overens med 'sluttd'?"
 
     [variables.pedsem]
         unit = "utdatert"
@@ -179,13 +180,13 @@
 		unit = "utdatert"
 		dtype = "STRING"
 		length = [1]
-		outdated_comment = "Usikker kvalitet - videregående opplæring"
+		outdated_comment = "Usikker kvalitet blankt på de fleste årgangene - videregående opplæring"
 
 	[variables.morsmal]
 		unit = "utdatert"
 		dtype = "STRING"
 		length = [1]
-		outdated_comment = "Usikker kvalitet - videregående opplæring"
+		outdated_comment = "Usikker kvalitet blankt på de fleste årgangene - videregående opplæring"
 
 	# Mangler omdøping, skal flyttes til "utdatert"?
 	[variables.nus89]
@@ -242,12 +243,12 @@
 	[variables.sslag]
 		unit = "utdatert"
 		dtype = "STRING"
-		outdated_comment = "Skoleslag? Mangler kodeliste?"
+		outdated_comment = "Skoleslag? Mangler kodeliste? Kan heller bruke første siffer av nus2000. For øvrig inngår fagsole under videregående skole. Opprettes i samlingen"
 
 	[variables.hoved]
 		unit = "utdatert"
 		dtype = "STRING"
-		outdated_comment = "Lite bruk, bør kunne bruke NUS isteden?"
+		outdated_comment = "Lite bruk, bør kunne bruke NUS isteden? Bør denne heller ligge i NUSkatalogen, evt bare lage en en variant i klass under NUSkatalogen."
 
 	[variables.uhgruppe]
 		unit = "utdatert"
@@ -273,4 +274,4 @@
     [variables.endret_utfall]
         unit = "utdatert"
         dtype = "STRING"
-		outdated_comment = "Variabel benyttet under bygging av Avslutta? Bør ikke ligge i endelig fil"
+		outdated_comment = "“Har fått endret utfallskode på avsluttadataene” - Tomt i alle årganger? Variabel benyttet under bygging av Avslutta? Bør ikke ligge i endelig fil"
