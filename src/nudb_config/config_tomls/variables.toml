@@ -333,7 +333,7 @@ variables_sort_unit = [
         unit = "vg"
         dtype = "STRING"  # Har lite info om denne! C 2025-10-31
 
-	[variables.vg_utdprogram]
+	[variables.vg_utdprogram]  # Kan kanskje kobles på fra nuskatalogen, men vi skal beholde den fra innfilene?
 		unit = "vg"
 		dtype = "STRING"
 		length = [2]
