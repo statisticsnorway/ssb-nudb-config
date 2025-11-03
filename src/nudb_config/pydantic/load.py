@@ -106,13 +106,17 @@ def load_pydantic_settings() -> NudbConfig:
     # Variable-toml was getting too big so we split the variables across different tomls
     variables_paths = cfg_dir.glob("variables*.toml")
 
-    merged_variables: dict[str, Variable] = dict()
+    merged_variables: dict[str, Variable] = {}
+    variables_sort_unit_list: None | list[str] = None
+
     for path in variables_paths:
         var_toml = _load_toml(path)
         var_file: VariablesFile = VariablesFile.model_validate(var_toml)
+        # Merge variable definitions
         merged_variables |= dict(var_file.variables)
-        if "variables_sort_unit" in var_file:
-            variables_sort_unit = var_file["variables_sort_unit"]
+        # Capture the sort order if present on this file
+        if getattr(var_file, "variables_sort_unit", None) is not None:
+            variables_sort_unit_list = var_file.variables_sort_unit
 
     merged_variables = _expand_codelist_extras(merged_variables)
 
@@ -124,7 +128,7 @@ def load_pydantic_settings() -> NudbConfig:
         dapla_team=settings_file.dapla_team,
         short_name=settings_file.short_name,
         utd_nacekoder=settings_file.utd_nacekoder,
-        variables_sort_unit=variables_sort_unit,
+        variables_sort_unit=variables_sort_unit_list,
         variables=DotMap(merged_variables),
         datasets=DotMap(datasets_file.datasets),
         paths=DotMap(paths_file.paths),
