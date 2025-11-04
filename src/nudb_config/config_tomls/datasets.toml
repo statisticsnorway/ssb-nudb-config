@@ -147,10 +147,25 @@
             # "voksen",
     ]
     [datasets.eksamen_uh.min_values]
-        nus2000 = "500000"
+        nus2000 = "600000"  # Triple-checked with AM
 
     [datasets.eksamen_uh.max_values]
         nus2000 = "799999"
+
+    [datasets.eksamen_uh.thresholds_empty]
+            fnr = 60.0  # Dette er ganske lavt ass...
+            pers_id = 4.0
+
+            nus2000 = 0.0
+
+            utd_datakilde = 0.0
+            utd_orgnr = 0.5
+            utd_skolekom = 0.1
+            uh_institusjon_id = 0.01
+            
+
+
+
 
 [datasets.avslutta]
         variables = [
