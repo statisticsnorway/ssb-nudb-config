@@ -44,15 +44,18 @@ class Variable(BaseModel, DotMap):
                     'outdated_comment is required when unit="utdatert" and cannot be blank'
                 )
         return self
-    
+
     @model_validator(mode="after")
     def _require_klass_codelist_to_be_positive_int(self) -> Variable:
-        if self.klass_codelist is not None:  # Wont raise error if it is the default None
+        if (
+            self.klass_codelist is not None
+        ):  # Wont raise error if it is the default None
             if not isinstance(self.klass_codelist, int) or self.klass_codelist < 0:
                 raise ValueError(
-                    'If klass_codelist is filled, it must be an int of 0 or above. 0 means the variable is never supposed to have a codelist, variant or similar in klass.'
+                    "If klass_codelist is filled, it must be an int of 0 or above. 0 means the variable is never supposed to have a codelist, variant or similar in klass."
                 )
         return self
+
 
 class VariablesFile(BaseModel, DotMap):
     """Root schema of ``variables.toml``.
