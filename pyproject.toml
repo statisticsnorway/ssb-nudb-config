@@ -1,6 +1,6 @@
 [project]
 name = "ssb-nudb-config"
-version = "2025.11.2"
+version = "2025.11.3"
 description = "The config for NUDB - Nasjonal utdanningsdatabase"
 authors = [{ name = "Markus Storeide", email = "rku@ssb.no" }]
 maintainers = [{ name = "Statistics Norway, Education statistics Department (360)" }]

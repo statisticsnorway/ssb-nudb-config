@@ -23,6 +23,7 @@ variables_sort_unit = [
     [variables.utd_hendelse_id]
         unit = "enhet"
         dtype = "INTEGER"
+		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
 
 #################
 # Persvariabler #
@@ -33,11 +34,14 @@ variables_sort_unit = [
 		dtype = "STRING"
 		length = [7]
 		renamed_from = ["snr"]
+		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
 
 	[variables.fnr]
 		unit = "pers"
 		dtype = "STRING"
 		length = [11]
+		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
+
 
 	[variables.pers_kjoenn]
 		unit = "pers"
@@ -78,46 +82,64 @@ variables_sort_unit = [
 		unit = "tid"
 		dtype = "DATETIME"
 		renamed_from = ["fodt_dato", "fodtdato", "fodselsdato", "foedselsdato"]
+		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
+
 
 
     [variables.utd_aktivitet_start]
         unit = "tid"
         dtype = "DATETIME"
         renamed_from = ["startd", "kurs_start"]
+		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
+
 
     [variables.utd_aktivitet_slutt]
         unit = "tid"
         dtype = "DATETIME"
         renamed_from = ["sluttd", "fulldato", "kurs_slutt"]
+		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
+
 
     [variables.utd_aktivitet_start_inn]
         unit = "tid"
         dtype = "DATETIME"
         renamed_from = ["estart", "kstart", "kurs_start_orig"]
+		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
+
 
     [variables.utd_aktivitet_slutt_inn]
         unit = "tid"
         dtype = "DATETIME"
         renamed_from = ["eslutt", "eavsl", "kurs_slutt_orig"]
+		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
+
 
     [variables.utd_skoleaar_start]
         unit = "tid"
         dtype = "STRING"
         renamed_from = ["skolear", "skoleaar", "skoleaar_start"]
+		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
+
 
     [variables.utd_skoleaar_slutt]
         unit = "tid"
         dtype = "STRING"
         renamed_from = ["skoleaar_slutt"]
+		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
+
 
     [variables.uh_eksamen_dato]
         unit = "tid"
         dtype = "DATETIME"
+		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
+
 
 
     [variables.uh_eksamen_dato_inn]
         unit = "tid"
         dtype = "DATETIME"
+		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
+
 
 
 #############################
@@ -146,17 +168,23 @@ variables_sort_unit = [
 		dtype = "STRING"
 		length = [9]
         renamed_from = ["orgnrbed"]
+		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
+
 
     [variables.utd_orgnr]
 		unit = "skole"
 		dtype = "STRING"
 		length = [9]
         renamed_from = ["orgnr"]
+		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
+
 
     [variables.gro_skolenavn_inn]
         unit = "skole"
         dtype = "STRING"
         renamed_from = ["skolenavn", "utd_orgnr_navn_inn"]
+		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
+
 
 	[variables.utd_skolekom]
 		unit = "skole"
@@ -223,6 +251,7 @@ variables_sort_unit = [
         unit = "gr"
         dtype = "FLOAT"
         renamed_from = ["grunnskolepoeng"]
+		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
 
 ####################################
 # "gro" - Grunnopplæring (gr + vg) #
@@ -244,11 +273,13 @@ variables_sort_unit = [
         unit = "gro"
         dtype = "INTEGER"
         renamed_from = ["f_dager"]
+		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
 
     [variables.gro_fravaer_timer]
         unit = "gro"
         dtype = "INTEGER"
         renamed_from = ["f_timer"]
+		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
 
 
 ################################
@@ -264,19 +295,23 @@ variables_sort_unit = [
         unit = "vg"
         dtype = "INTEGER"
         renamed_from = ["aartimer"]
+		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
 
 	[variables.vg_kursprosent]
 		unit = "vg"
 		dtype = "FLOAT"
 		renamed_from = ["delpros"]
+		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
 
 	[variables.vg_antall_fag_elevkurs]
 		unit = "vg"
 		dtype = "INTEGER"
+		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
 
 	[variables.vg_karakterpoeng]
 		unit = "vg"
 		dtype = "FLOAT"
+		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
 
 	[variables.vg_vedtak_saerskilt_spraak]
 		unit = "vg"
@@ -294,10 +329,12 @@ variables_sort_unit = [
         unit = "vg"
         dtype = "INTEGER"
         renamed_from = ["provnr"]
+		klass_codelist = 0  # Is this correct? Does a codelist exist?
 
 	[variables.vg_prove_dato]
         unit = "vg"
         dtype = "DATETIME"
+		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
 
 	[variables.vg_yrkes_og_studiekompetanse]
 		unit = "vg"
@@ -447,11 +484,13 @@ variables_sort_unit = [
 		unit = "uh"
 		dtype = "FLOAT"
 		renamed_from = ["studpoeng_eks"]
+		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
 
     [variables.uh_studiepoeng_grad]
         unit = "uh"
         dtype = "FLOAT"
         renamed_from = ["studpoeng_grad"]
+		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
 
 	[variables.uh_eksamen_er_gjentak]
 		unit = "uh"
@@ -465,6 +504,7 @@ variables_sort_unit = [
 		# dtype = "STRING"
 		# length = [1]
 		renamed_from = ["antall_deleks"]
+		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
 
 	[variables.uh_antall_deleksamener_bestatt]
 		unit = "uh"
@@ -472,6 +512,7 @@ variables_sort_unit = [
 		# dtype = "STRING"
 		# length = [1]
 		renamed_from = ["antall_deleks_bestaatt"]
+		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
 
 	[variables.uh_studierett]
 		unit = "uh"
@@ -487,6 +528,7 @@ variables_sort_unit = [
 		unit = "uh"
 		dtype = "FLOAT"
 		renamed_from = ["studieprogresjon_h", "studieprogresjon"]
+		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
 
     [variables.uh_utdplan]
 		unit = "uh"

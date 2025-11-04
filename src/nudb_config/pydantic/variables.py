@@ -27,6 +27,7 @@ class Variable(BaseModel, DotMap):
     klass_codelist_from_date: str | None = None
     klass_variant: int | None = None
     renamed_from: list[str] | None = None
+    derived_from: list[str] | None = None
     # Populated programmatically to mirror Dynaconf expansion
     codelist_extras: dict[str, str] | None = None
     outdated_comment: str | None = None
@@ -41,6 +42,17 @@ class Variable(BaseModel, DotMap):
             if self.outdated_comment is None or not str(self.outdated_comment).strip():
                 raise ValueError(
                     'outdated_comment is required when unit="utdatert" and cannot be blank'
+                )
+        return self
+
+    @model_validator(mode="after")
+    def _require_klass_codelist_to_be_positive_int(self) -> Variable:
+        if (
+            self.klass_codelist is not None
+        ):  # Wont raise error if it is the default None
+            if not isinstance(self.klass_codelist, int) or self.klass_codelist < 0:
+                raise ValueError(
+                    "If klass_codelist is filled, it must be an int of 0 or above. 0 means the variable is never supposed to have a codelist, variant or similar in klass."
                 )
         return self
 
