@@ -3,3 +3,10 @@
     dtype = "STRING"
     renamed_from = ["sosbak"]
     derived_from = ["nus2000", "pers_foedselsdato", "pers_id_far", "pers_id_mor"]
+
+[variables.utd_skoleaar_slutt]
+    unit = "tid"
+    dtype = "STRING"
+    renamed_from = ["skoleaar_slutt"]
+    klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
+    derived_from = ["utd_skoleaar_start"]

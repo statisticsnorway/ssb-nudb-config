@@ -121,13 +121,6 @@ variables_sort_unit = [
 		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
 
 
-    [variables.utd_skoleaar_slutt]
-        unit = "tid"
-        dtype = "STRING"
-        renamed_from = ["skoleaar_slutt"]
-		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
-
-
     [variables.uh_eksamen_dato]
         unit = "tid"
         dtype = "DATETIME"

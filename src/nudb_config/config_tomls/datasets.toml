@@ -112,7 +112,7 @@
             'uh_eksamen_dato_inn',
             #"kilde_dato",
             'utd_skoleaar_start',  # old_name: skoleaar_start
-            'utd_skoleaar_slutt',  # old_name: skoleaar_slutt
+            #'utd_skoleaar_slutt',  # Vi trenger kun skoleaar_start # old_name: skoleaar_slutt
             "utd_utdanningstype",  # old_name: utd
             "uh_univ_eller_hogskole", # old_name: univ
             #"heldel",  # Hvordan kan en eksamen "være heltid"? Mellom 2003 og 2012 så er ALLE eksamener "heltid"...
@@ -162,6 +162,8 @@
             utd_orgnr = 0.5
             utd_skolekom = 0.1
             uh_institusjon_id = 0.01
+
+            uh_eksamen_dato = 0.0
 
 
 
@@ -215,7 +217,7 @@
             # "endret_utfall", Hvor kommer den fra? Avslutta?
             # "mrk_dl_bhu", Kommer fra eldre filer
             "utd_skoleaar_start",  # old_name: aargang
-            "utd_skoleaar_slutt",
+            #"utd_skoleaar_slutt", # Vi trenger kun skoleaar_start
             "fa_godkjent_fagskoleutd",  # old_name: fagskoleutd
             "gro_elevstatus",  # old_name: elevstatus
             "vg_vedtak_saerskilt_spraak",  # old_name: fkurskod
@@ -243,7 +245,7 @@
             'stp',
             'skr',
             'mun',
-            'utd_skoleaar_slutt',  # old_name: skoleaar_slutt
+            'utd_skoleaar_start',  # old_name: skoleaar_slutt
             'termin1',
             'termin2',
             'kar_annen',
