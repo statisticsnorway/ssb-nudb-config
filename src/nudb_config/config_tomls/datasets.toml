@@ -71,6 +71,51 @@
             ftype = "vg_kontraktstype"
             ftypef = "vg_kontraktstype"
 
+    [datasets.igang.thresholds_empty]
+            fnr = 0.0  # Vi vil ha fnr på alle takk.
+            pers_id = 4.0
+            utd_aktivitet_start = 0.0
+            utd_skoleaar_start = 0.0
+            nus2000 = 0.0
+            utd_skolekom = 0.0
+
+
+            # Measured from igang build and rounded up slightly
+            pers_kjoenn = 1.1
+            utd_datakilde = 40.0
+            pers_foedselsdato = 0.5
+            utd_aktivitet_start_inn = 50.0
+            bof_orgnr_bed = 30.0
+            utd_orgnr = 17.0
+            utd_klassetrinn = 0.1
+            utd_aktivitetsnivaa_heltid_deltid = 0.0
+            utd_viderutd_nettbasert = 50.0
+            fuh_nett_eller_stedbasert = 90.0
+            utd_utdanningstype = 20.0
+            utd_utveksling = 99.5
+            gro_elevstatus = 85.0
+            vg_programomraade = 98.0
+            vg_antall_aarstimer_elevkurs = 85.0
+            vg_kursprosent = 75.0
+            vg_kontraktstype = 98.0
+            vg_yrkes_og_studiekompetanse = 99.9
+            vg_rettstype_inntak = 75.0
+            vg_utdprogram = 60.0
+            fa_godkjent_fagskoleutd = 99.0
+            uh_institusjon_id = 70.0
+            uh_univ_eller_hogskole = 75.0
+            uh_realkompetanse = 80.0
+            uh_utvekslingsavtale = 99.9
+            uh_studierett = 90.0
+            uh_studieprogresjon_hoest = 90.0
+            uh_utdplan = 90.0
+            uh_utland = 99.0
+            uh_studieland = 99.0
+            uh_utvekslingsland = 99.9
+            uh_studgrunnlagsland = 99.9
+            uh_statsborgerskap_inn = 98.0
+
+
     [datasets.eksamen_uh]
         variables = [
             "utd_hendelse_id",
@@ -153,19 +198,35 @@
         nus2000 = "799999"
 
     [datasets.eksamen_uh.thresholds_empty]
-            fnr = 60.0  # Dette er ganske lavt ass...
+            utd_hendelse_id = 0.0
+            fnr = 0.0  # Dette er ganske lavt ass...
             pers_id = 4.0
-
+            pers_kjoenn = 2.6
+            pers_foedselsdato = 0.3
             nus2000 = 0.0
-
             utd_datakilde = 0.0
             utd_orgnr = 0.5
-            utd_skolekom = 0.1
+            bof_orgnr_bed = 9.0
+            utd_skolekom = 0.05
             uh_institusjon_id = 0.01
-
             uh_eksamen_dato = 0.0
 
-
+            # Målte verdier
+            utd_viderutd_nettbasert = 0.0
+            uh_eksamen_studpoeng = 0.0
+            uh_eksamen_er_gjentak = 0.0
+            uh_studierett = 0.0
+            utd_utdanningstype = 0.04
+            utd_skoleaar_start = 0.0
+            uh_termin_rapportert = 35.0  # Ny variabel fom 2014, utfylling bør gå opp
+            uh_studieprogram = 32.0 # Ny variabel fom 2014, utfylling bør gå opp
+            uh_eksamen_karakter = 32.0 # Ny variabel fom 2014, utfylling bør gå opp
+            uh_eksamen_dato_inn = 32.0 # Ny variabel fom 2014, butfylling ør gå opp
+            uh_emnekode = 32.0 # Ny variabel fom 2014, utfylling bør gå opp
+            fuh_nett_eller_stedbasert = 38.0 # Ny variabel fom 2015, utfylling bør gå opp
+            uh_studienivaa = 60.0 # Ny variabel fom 2018, utfylling bør gå opp
+            uh_studieprogram_navn = 93.0 # Ny variabel fom 2023, utfylling bør gå opp
+            uh_emnekode_navn = 93.0 # Ny variabel fom 2023, utfylling bør gå opp
 
 
 
@@ -233,6 +294,11 @@
         [datasets.avslutta.dataset_specific_renames]
             ftype = "vg_provekandtype"
             ftypef = "vg_provekandtype"
+
+        [datasets.avslutta.thresholds_empty]
+            fnr = 0.0  # Vi vil ha fnr på alle takk
+            pers_id = 4.0
+            nus2000 = 0.0
 
 
     [datasets.grunnskolekarakterer]
