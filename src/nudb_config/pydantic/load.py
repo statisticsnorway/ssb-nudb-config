@@ -73,6 +73,8 @@ def _expand_codelist_extras(variables: dict[str, Variable]) -> dict[str, Variabl
             var.codelist_extras = {
                 "151": "DDR / Øst-Tyskland",
                 "135": "SSSR / Sovjetunionen",
+                "125": "Jugoslavia (til 2004) / Serbia og Montenegro (fra og med 2004)",
+                "142": "Tsjekkoslovakia",
             }
         if var.klass_codelist == 131:
             var.codelist_extras = {
