@@ -275,10 +275,10 @@ variables_sort_unit = [
 		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
 
     [variables.gro_programomraade]
-		unit = "vg"
+		unit = "gro"
 		dtype = "STRING"
 		length = [10]
-		renamed_from = ["fkurskod"]
+		renamed_from = ["fkurskod", "vg_programomraade"]
 
 ################################
 # "vg" - Videregåendeutdanning #
