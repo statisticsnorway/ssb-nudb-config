@@ -273,7 +273,7 @@ variables_sort_unit = [
         dtype = "INTEGER"
         renamed_from = ["f_timer"]
 		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
-	
+
     [variables.gro_programomraade]
 		unit = "vg"
 		dtype = "STRING"
