@@ -156,11 +156,11 @@ variables_sort_unit = [
 # Skolevariabler #
 ##################
 
-    [variables.bof_orgnr_bed]
+    [variables.bof_orgnrbed]
 		unit = "skole"
 		dtype = "STRING"
 		length = [9]
-        renamed_from = ["orgnrbed"]
+        renamed_from = ["orgnrbed", "bof_orgnr_bed"]
 		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
 
 
@@ -274,15 +274,15 @@ variables_sort_unit = [
         renamed_from = ["f_timer"]
 		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
 
+    [variables.gro_programomraade]
+		unit = "gro"
+		dtype = "STRING"
+		length = [10]
+		renamed_from = ["fkurskod", "vg_programomraade"]
 
 ################################
 # "vg" - Videregåendeutdanning #
 ################################
-	[variables.vg_programomraade]
-		unit = "vg"
-		dtype = "STRING"
-		length = [10]
-		renamed_from = ["fkurskod"]
 
 	[variables.vg_antall_aarstimer_elevkurs]
         unit = "vg"
