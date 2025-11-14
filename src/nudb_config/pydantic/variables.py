@@ -1,6 +1,8 @@
 from __future__ import annotations
 
+import klass
 from pydantic import BaseModel
+from pydantic import ConfigDict
 from pydantic import model_validator
 
 from .dotmap import DotMap
@@ -31,6 +33,13 @@ class Variable(BaseModel, DotMap):
     # Populated programmatically to mirror Dynaconf expansion
     codelist_extras: dict[str, str] | None = None
     outdated_comment: str | None = None
+
+    # Populated by find_var or similar functions that actually fetch from klass
+    klass_codelist_metadata: klass.KlassClassification | None = None
+    klass_variant_metadata: klass.KlassVariant | None = None
+
+    # klass.* types come from an external package without Pydantic hooks.
+    model_config = ConfigDict(arbitrary_types_allowed=True)
 
     @model_validator(mode="after")
     def _require_outdated_comment_when_utdatert(self) -> Variable:
