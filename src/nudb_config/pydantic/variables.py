@@ -1,8 +1,8 @@
 from __future__ import annotations
 
-import klass
 from typing import Any
 
+import klass
 from pydantic import BaseModel
 from pydantic import ConfigDict
 from pydantic import model_validator
@@ -22,6 +22,7 @@ class Variable(BaseModel, DotMap):
         renamed_from: Previous column name(s) that map to this variable.
         codelist_extras: Additional code mappings injected at load time.
     """
+
     name: str
     unit: str
     dtype: str
@@ -83,8 +84,6 @@ class VariablesFile(BaseModel, DotMap):
     @classmethod
     def _inject_variable_names(cls, data: dict[str, Any]) -> dict[str, Any]:
         """Ensure each Variable inherits its key as the ``name`` attribute."""
-        if not isinstance(data, dict):
-            return data
         variables = data.get("variables")
         if isinstance(variables, dict):
             enriched: dict[str, Any] = {}

@@ -11,13 +11,18 @@ def test_utdatert_with_missing_outdated_comment_raises() -> None:
         Variable(unit="utdatert", dtype="string", name="test_navn")
 
     with pytest.raises(ValidationError):
-        Variable(unit="utdatert", dtype="string", outdated_comment=" ", name="test_navn")
+        Variable(
+            unit="utdatert", dtype="string", outdated_comment=" ", name="test_navn"
+        )
 
 
 def test_utdatert_with_outdated_comment_ok() -> None:
     v = Variable(
-        unit="utdatert", dtype="string", outdated_comment="deprecated due to X", name="test_navn"
-        )
+        unit="utdatert",
+        dtype="string",
+        outdated_comment="deprecated due to X",
+        name="test_navn",
+    )
     assert v.outdated_comment == "deprecated due to X"
 
 
