@@ -83,7 +83,6 @@ def _expand_codelist_extras(variables: dict[str, Variable]) -> dict[str, Variabl
             }
     return variables
 
-
 def load_pydantic_settings() -> NudbConfig:
     """Load and assemble configuration using Pydantic models.
 
