@@ -11,6 +11,7 @@ dynamic = ["classifiers"]
 dependencies = [
     "ipykernel >=7.0.0",
     "pydantic >=2.5",
+    "ssb-klass-python (>=1.0.4,<2.0.0)",
 ]
 
 [project.urls]
