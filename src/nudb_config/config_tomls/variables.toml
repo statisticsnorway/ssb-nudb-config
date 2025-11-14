@@ -406,6 +406,7 @@ variables_sort_unit = [
 		unit = "uh"
 		dtype = "STRING"
         renamed_from = ["univ"]
+        derived_from = ["utd_utdanningstype", "utd_datakilde"]
 		#outdated_comment = "Kan vi utlede denne istedenfor å ha den lagret på data?"
 
 
