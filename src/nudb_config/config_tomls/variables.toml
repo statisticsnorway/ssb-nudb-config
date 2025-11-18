@@ -572,7 +572,7 @@ variables_sort_unit = [
 		dtype = "STRING"
 		length = [3]
 		klass_codelist = 91
-		renamed_from = ["utveksland","uh_utvekslingsland]
+		renamed_from = ["utveksland","uh_utvekslingsland"]
 
 	[variables.uh_studgrunnlagsland]
 		unit = "land"
