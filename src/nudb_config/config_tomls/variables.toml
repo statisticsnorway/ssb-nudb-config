@@ -567,12 +567,12 @@ variables_sort_unit = [
 		klass_codelist = 91
 		renamed_from = ["studieland"]
 
-	[variables.uh_utvekslingsland]
+	[variables.fuh_utvekslingsland]
 		unit = "land"
 		dtype = "STRING"
 		length = [3]
 		klass_codelist = 91
-		renamed_from = ["utveksland"]
+		renamed_from = ["utveksland","uh_utvekslingsland"]
 
 	[variables.uh_studgrunnlagsland]
 		unit = "land"
