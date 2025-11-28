@@ -45,7 +45,7 @@
             "fa_godkjent_fagskoleutd",  # old_name: fagskoleutd
             "vg_yrkes_og_studiekompetanse",  # old_name: taf
             "utd_utveksling",  # old_name: utveks
-            "uh_utvekslingsland",  # old_name: utveksland
+            "fuh_utvekslingsland",  # old_name: utveksland
             "uh_studgrunnlagsland",  # old_name: studgrland
             "uh_utdplan",  # old_name: utdplan
             # "sn07",
@@ -111,12 +111,12 @@
             uh_utdplan = 90.0
             uh_utland = 99.0
             uh_studieland = 99.0
-            uh_utvekslingsland = 99.9
+            fuh_utvekslingsland = 99.9
             uh_studgrunnlagsland = 99.9
             uh_statsborgerskap_inn = 98.0
 
 
-    [datasets.eksamen_uh]
+    [datasets.eksamen]
         variables = [
             "utd_hendelse_id",
             "fnr",
@@ -191,13 +191,13 @@
             # "kontraktstype", ikke relevant??
             # "voksen",
     ]
-    [datasets.eksamen_uh.min_values]
+    [datasets.eksamen.min_values]
         nus2000 = "600000"  # Triple-checked with AM
 
-    [datasets.eksamen_uh.max_values]
+    [datasets.eksamen.max_values]
         nus2000 = "799999"
 
-    [datasets.eksamen_uh.thresholds_empty]
+    [datasets.eksamen.thresholds_empty]
             utd_hendelse_id = 0.0
             fnr = 0.0  # Dette er ganske lavt ass...
             pers_id = 4.0
@@ -239,7 +239,7 @@
             "pers_kjoenn",  # old_name: kjoenn
             "utd_datakilde",  # old_name: kilde
             "utd_fullfoertkode",  # old_name: utfall
-            "utd_fullfoertkode_inn",  # old_name: utfallu
+            "vg_fullfoertkode_detaljert",  # old_name: utfallu
             # "mrk_grskole", Trengs ikke
             "vg_bevistype",  # old_name: doktype
             "vg_rettstype_inntak",  # old_name: rett
