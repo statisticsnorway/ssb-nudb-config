@@ -45,7 +45,7 @@
             "fa_godkjent_fagskoleutd",  # old_name: fagskoleutd
             "vg_yrkes_og_studiekompetanse",  # old_name: taf
             "utd_utveksling",  # old_name: utveks
-            "uh_utvekslingsland",  # old_name: utveksland
+            "fuh_utvekslingsland",  # old_name: utveksland
             "uh_studgrunnlagsland",  # old_name: studgrland
             "uh_utdplan",  # old_name: utdplan
             # "sn07",
@@ -111,7 +111,7 @@
             uh_utdplan = 90.0
             uh_utland = 99.0
             uh_studieland = 99.0
-            uh_utvekslingsland = 99.9
+            fuh_utvekslingsland = 99.9
             uh_studgrunnlagsland = 99.9
             uh_statsborgerskap_inn = 98.0
 
