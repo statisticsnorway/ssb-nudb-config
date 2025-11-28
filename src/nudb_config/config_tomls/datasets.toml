@@ -41,7 +41,7 @@
             "gro_skolenr_inn",  # old_name: fskolenr
             "gro_skolenavn_inn",  # old_name: skolenavn
             # "realkompetansevurdert_dato",  # old_name: dato_dokrealkomp
-            "bof_orgnr_bed",  # old_name: orgnrbed
+            "bof_orgnrbed",  # old_name: orgnrbed
             "fa_godkjent_fagskoleutd",  # old_name: fagskoleutd
             "vg_yrkes_og_studiekompetanse",  # old_name: taf
             "utd_utveksling",  # old_name: utveks
@@ -60,7 +60,7 @@
             #"vg_vedtak_saerskilt_spraak",  # old_name:   - vedtak om særskilt språkopplæring blir rapportert på ssbResultat, så skal kun på avslutta
             "vg_kontraktstype",  # old_name: kontraktstype
             "uh_studieprogram",
-            "vg_programomraade",  # Gamle fkurskod?
+            "gro_programomraade",  # Gamle fkurskod?
             "vg_antall_fag_elevkurs",
             "vg_hovedaktivitet",
             "vg_nylaerling",  # old_name: nylaerl
@@ -85,7 +85,7 @@
             utd_datakilde = 40.0
             pers_foedselsdato = 0.5
             utd_aktivitet_start_inn = 50.0
-            bof_orgnr_bed = 30.0
+            bof_orgnrbed = 30.0
             utd_orgnr = 17.0
             utd_klassetrinn = 0.1
             utd_aktivitetsnivaa_heltid_deltid = 0.0
@@ -94,7 +94,7 @@
             utd_utdanningstype = 20.0
             utd_utveksling = 99.5
             gro_elevstatus = 85.0
-            vg_programomraade = 98.0
+            gro_programomraade = 98.0
             vg_antall_aarstimer_elevkurs = 85.0
             vg_kursprosent = 75.0
             vg_kontraktstype = 98.0
@@ -162,7 +162,7 @@
             "uh_univ_eller_hogskole", # old_name: univ
             #"heldel",  # Hvordan kan en eksamen "være heltid"? Mellom 2003 og 2012 så er ALLE eksamener "heltid"...
             "utd_orgnr",  # old_name: orgnr
-            "bof_orgnr_bed",  # old_name: orgnrbed
+            "bof_orgnrbed",  # old_name: orgnrbed
             # "eierf",
             # "skolekom",
             # "rett",
@@ -206,7 +206,7 @@
             nus2000 = 0.0
             utd_datakilde = 0.0
             utd_orgnr = 0.5
-            bof_orgnr_bed = 9.0
+            bof_orgnrbed = 9.0
             utd_skolekom = 0.05
             uh_institusjon_id = 0.01
             uh_eksamen_dato = 0.0
@@ -239,7 +239,7 @@
             "pers_kjoenn",  # old_name: kjoenn
             "utd_datakilde",  # old_name: kilde
             "utd_fullfoertkode",  # old_name: utfall
-            "utd_fullfoertkode_inn",  # old_name: utfallu
+            "vg_fullfoertkode_detaljert",  # old_name: utfallu
             # "mrk_grskole", Trengs ikke
             "vg_bevistype",  # old_name: doktype
             "vg_rettstype_inntak",  # old_name: rett
@@ -256,7 +256,7 @@
             "uh_utland",  # old_name: utland
             "uh_studieland",  # old_name: studieland
             "uh_statsborgerskap_inn",  # old_name: statb_meldt
-            "bof_orgnr_bed",  # old_name: orgnrbed
+            "bof_orgnrbed",  # old_name: orgnrbed
             "utd_orgnr",  # old_name: orgnr
             "gro_skolenavn_inn",
             "utd_skolekom",  # old_name: skolekom
@@ -283,7 +283,7 @@
             "gro_elevstatus",  # old_name: elevstatus
             "vg_vedtak_saerskilt_spraak",  # old_name: fkurskod
             "vg_kursprosent",  # old_name: delpros
-            "vg_programomraade",  # Gamle fkurskod?
+            "gro_programomraade",  # Gamle fkurskod?
             "vg_karakterpoeng",
             "vg_prove_dato",
             "fuh_nett_eller_stedbasert",
