@@ -116,7 +116,7 @@
             uh_statsborgerskap_inn = 98.0
 
 
-    [datasets.eksamen_uh]
+    [datasets.eksamen]
         variables = [
             "utd_hendelse_id",
             "fnr",
@@ -191,13 +191,13 @@
             # "kontraktstype", ikke relevant??
             # "voksen",
     ]
-    [datasets.eksamen_uh.min_values]
+    [datasets.eksamen.min_values]
         nus2000 = "600000"  # Triple-checked with AM
 
-    [datasets.eksamen_uh.max_values]
+    [datasets.eksamen.max_values]
         nus2000 = "799999"
 
-    [datasets.eksamen_uh.thresholds_empty]
+    [datasets.eksamen.thresholds_empty]
             utd_hendelse_id = 0.0
             fnr = 0.0  # Dette er ganske lavt ass...
             pers_id = 4.0
