@@ -67,12 +67,6 @@ variables_sort_unit = [
 		length = [1]
 		renamed_from = ["utfall"]
 
-	[variables.utd_fullfoertkode_inn]
-		unit = "data"
-		dtype = "STRING"
-		length = [1]
-		renamed_from = ["utfallu"]
-
 
 
 ################
@@ -283,6 +277,14 @@ variables_sort_unit = [
 ################################
 # "vg" - Videregåendeutdanning #
 ################################
+
+	# Tidligere ble denne imputert til fra UH ol. men vi ønsker å beholde kodelistene der slik de kommer inn
+	# Derfor blir dette en VG-variabel, som kun bør være utfylt med de som har utd_utdanningstype 211, 212, 220 eller 610
+	[variables.vg_fullfoertkode_detaljert]
+		unit = "vg"
+		dtype = "STRING"
+		length = [1]
+		renamed_from = ["utfallu", "utd_fullfoertkode_inn"]
 
 	[variables.vg_antall_aarstimer_elevkurs]
         unit = "vg"
