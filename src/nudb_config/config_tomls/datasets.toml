@@ -212,10 +212,10 @@
             uh_eksamen_dato = 0.0
 
             # Målte verdier
-            utd_viderutd_nettbasert = 0.0
+            utd_viderutd_nettbasert = 0.001
             uh_eksamen_studpoeng = 0.0
             uh_eksamen_er_gjentak = 0.0
-            uh_studierett = 0.0
+            uh_studierett = 0.001
             utd_utdanningstype = 0.04
             utd_skoleaar_start = 0.0
             uh_termin_rapportert = 35.0  # Ny variabel fom 2014, utfylling bør gå opp
