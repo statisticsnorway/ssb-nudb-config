@@ -134,21 +134,21 @@
     klass_variant_search_term = "Utdanningsprogram"
     derived_from = ["nus2000"]
 
-[variables.utd_programmes_isced2011_nus]
+[variables.utd_isced2011_programmes_nus]
     unit = "utd"
     dtype = "STRING"
     klass_codelist = 36
     klass_variant_search_term = "Standard for ISCED 2011 Programmes"
     derived_from = ["nus2000"]
 
-[variables.utd_attainment_isced2011_nus]
+[variables.utd_isced2011_attainment_nus]
     unit = "utd"
     dtype = "STRING"
     klass_codelist = 36
     klass_variant_search_term = "Standard for ISCED 2011 Attainment"
     derived_from = ["nus2000"]
 
-[variables.utd_fagfelt_isced2013_nus]
+[variables.utd_isced2013_fagfelt_nus]
     unit = "utd"
     dtype = "STRING"
     klass_codelist = 36
