@@ -35,5 +35,122 @@
     dtype = "STRING"
     renamed_from = ["komp"]
     klass_codelist = 36
-    klass_variant = "Kompetanse"
+    klass_variant_search_term = "Kompetanse"
     derived_from = ["nus2000"]  # Kan vi utlede fra programomraadekode heller/ i tillegg?
+
+[variables.vg_kurstrinn_nus]
+    unit = "vg"
+    dtype = "STRING"
+    renamed_from = ["kurstrin"]
+    klass_codelist = 36
+    klass_variant_search_term = "Kurstrinn"
+    derived_from = ["nus2000"]
+
+[variables.fa_erfagskole_nus]
+    unit = "fa"
+    dtype = "BOOL"
+    renamed_from = ["fagskoleutd"]
+    klass_codelist = 36
+    klass_variant_search_term = "Fagskoleutdanning"
+    derived_from = ["nus2000"]
+
+
+[variables.fa_studiepoeng_nus]
+    unit = "fa"
+    dtype = "STRING"
+    klass_codelist = 36
+    klass_variant_search_term = "Studiepoeng ved fagskole"
+    derived_from = ["nus2000"]
+
+
+[variables.uh_studiepoeng_nus]
+    unit = "uh"
+    dtype = "STRING"
+    klass_codelist = 36
+    klass_variant_search_term = "Studiepoeng 2"
+    derived_from = ["nus2000"]
+
+
+[variables.uh_gradmerke_nus]
+    unit = "uh"
+    dtype = "STRING"
+    klass_codelist = 36
+    klass_variant_search_term = "Gradmerke"
+    derived_from = ["nus2000"]
+
+
+[variables.uh_gruppering_nus]
+    unit = "uh"
+    dtype = "STRING"
+    renamed_from = ["uhgruppe"]
+    klass_codelist = 36
+    klass_variant_search_term = "Universitets- og høgskolegruppering"
+    derived_from = ["nus2000"]
+
+
+[variables.utd_klassetrinn_lav_hoy_nus]
+    unit = "utd"
+    dtype = "STRING"
+    #renamed_from = [""]
+    klass_codelist = 36
+    klass_variant_search_term = "Universitets- og høgskolegruppering"
+    derived_from = ["nus2000"]
+# Disse to sekundærutledes fra utd_klassetrinn_lav_hoy_nus
+[variables.utd_klassetrinn_lav_nus]
+    unit = "utd"
+    dtype = "STRING"
+    derived_from = ["utd_klassetrinn_lav_hoy_nus"]
+[variables.utd_klassetrinn_hoy_nus]
+    unit = "utd"
+    dtype = "STRING"
+    derived_from = ["utd_klassetrinn_lav_hoy_nus"]
+
+
+[variables.utd_historisk_foreldet_fag_nus]
+    unit = "utd"
+    dtype = "STRING"
+    klass_codelist = 36
+    klass_variant_search_term = "Historisk kode"
+    derived_from = ["nus2000"]
+
+[variables.utd_samle_eller_enkeltutd_nus]
+    unit = "utd"
+    dtype = "STRING"
+    klass_codelist = 36
+    klass_variant_search_term = "Kodetype"
+    derived_from = ["nus2000"]
+
+[variables.utd_varighet_antall_mnd_nus]
+    unit = "utd"
+    dtype = "STRING"
+    klass_codelist = 36
+    klass_variant_search_term = "Varighet"
+    derived_from = ["nus2000"]
+
+[variables.utd_utdanningsprogram_nus]
+    unit = "utd"
+    dtype = "STRING"
+    klass_codelist = 36
+    klass_variant_search_term = "Utdanningsprogram"
+    derived_from = ["nus2000"]
+
+[variables.utd_programmes_isced2011_nus]
+    unit = "utd"
+    dtype = "STRING"
+    klass_codelist = 36
+    klass_variant_search_term = "Standard for ISCED 2011 Programmes"
+    derived_from = ["nus2000"]
+
+[variables.utd_attainment_isced2011_nus]
+    unit = "utd"
+    dtype = "STRING"
+    klass_codelist = 36
+    klass_variant_search_term = "Standard for ISCED 2011 Attainment"
+    derived_from = ["nus2000"]
+
+[variables.utd_fagfelt_isced2013_nus]
+    unit = "utd"
+    dtype = "STRING"
+    klass_codelist = 36
+    klass_variant_search_term = "Standard for ISCED-F 2013 Fagfelt"
+    derived_from = ["nus2000"]
