@@ -8,6 +8,7 @@ from typing import Any
 from pydantic import BaseModel
 from pydantic import ConfigDict
 
+from .datasets import Dataset
 from .datasets import DatasetsFile
 from .dotmap import DotMap
 from .paths import PathsFile
@@ -101,16 +102,15 @@ def load_pydantic_settings() -> NudbConfig:
     cfg_dir = base / "config_tomls"
 
     # Read individual toml files
-    datasets_toml = _load_toml(cfg_dir / "datasets.toml")
     paths_toml = _load_toml(cfg_dir / "paths.toml")
     settings_toml = _load_toml(cfg_dir / "settings.toml")
+    paths_file = PathsFile.model_validate(paths_toml)
+    settings_file = SettingsFile.model_validate(settings_toml)
 
     # Variable-toml was getting too big so we split the variables across different tomls
     variables_paths = cfg_dir.glob("variables*.toml")
-
     merged_variables: dict[str, Variable] = {}
     variables_sort_unit_list: None | list[str] = None
-
     for path in variables_paths:
         var_toml = _load_toml(path)
         var_file: VariablesFile = VariablesFile.model_validate(var_toml)
@@ -119,12 +119,16 @@ def load_pydantic_settings() -> NudbConfig:
         # Capture the sort order if present on this file
         if getattr(var_file, "variables_sort_unit", None) is not None:
             variables_sort_unit_list = var_file.variables_sort_unit
-
     merged_variables = _expand_codelist_extras(merged_variables)
 
-    datasets_file = DatasetsFile.model_validate(datasets_toml)
-    paths_file = PathsFile.model_validate(paths_toml)
-    settings_file = SettingsFile.model_validate(settings_toml)
+    # Dataset-toml was split
+    merged_datasets: dict[str, Dataset] = {}
+    datasets_paths = cfg_dir.glob("datasets*.toml")
+    for path in datasets_paths:
+        datatoml = _load_toml(path)
+        data_file: DatasetsFile = DatasetsFile.model_validate(datatoml)
+        # Merge variable definitions
+        merged_datasets |= dict(data_file.datasets)
 
     return NudbConfig(
         dapla_team=settings_file.dapla_team,
@@ -132,6 +136,6 @@ def load_pydantic_settings() -> NudbConfig:
         utd_nacekoder=settings_file.utd_nacekoder,
         variables_sort_unit=variables_sort_unit_list,
         variables=DotMap(merged_variables),
-        datasets=DotMap(datasets_file.datasets),
+        datasets=DotMap(merged_datasets),
         paths=DotMap(paths_file.paths),
     )

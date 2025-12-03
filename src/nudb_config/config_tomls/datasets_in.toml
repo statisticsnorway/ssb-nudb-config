@@ -1,0 +1,25 @@
+[datasets]
+
+    [datasets.avslutta_grunnskole]
+
+        variables = [
+	        "fnr",
+            "pers_id",
+            "pers_foedselsdato",
+            "pers_kjoenn",
+            "utd_skoleaar_start",
+            "utd_aktivitet_slutt",
+            "utd_aktivitet_slutt_inn",
+            "bof_orgnrbed",
+            "utd_orgnr",
+            "nus2000",
+            "utd_datakilde",
+            "utd_klassetrinn",
+            "utd_utdanningstype",
+            "gr_grunnskolepoeng",
+            "gro_fravaer_dager",
+            "gro_fravaer_timer",
+        ]
+
+        [datasets.avslutta_grunnskole.thresholds_empty]
+            fnr = 0.0

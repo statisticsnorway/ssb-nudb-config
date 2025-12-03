@@ -31,6 +31,7 @@ class Variable(BaseModel, DotMap):
     klass_codelist: int | None = None
     klass_codelist_from_date: str | None = None
     klass_variant: int | None = None
+    klass_variant_search_term: str | None = None
     renamed_from: list[str] | None = None
     derived_from: list[str] | None = None
     # Populated programmatically to mirror Dynaconf expansion
