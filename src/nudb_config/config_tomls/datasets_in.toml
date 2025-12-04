@@ -4,7 +4,7 @@
 
         variables = [
 	        "fnr",
-            "pers_id",
+            "snr",
             "pers_foedselsdato",
             "pers_kjoenn",
             "utd_skoleaar_start",
