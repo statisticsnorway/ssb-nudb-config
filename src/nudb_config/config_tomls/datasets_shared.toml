@@ -4,7 +4,7 @@
         variables = [
             "utd_hendelse_id",
             "fnr",
-            "pers_id",  # old_name: snr
+            "snr",  # old_name: snr
             #"snr_mrk",
             "utd_skoleaar_start",  # old_name: aargang
             "nus2000",
@@ -73,7 +73,7 @@
 
     [datasets.igang.thresholds_empty]
             fnr = 0.0  # Vi vil ha fnr på alle takk.
-            pers_id = 4.0
+            snr = 4.0
             utd_aktivitet_start = 0.0
             utd_skoleaar_start = 0.0
             nus2000 = 0.0
@@ -120,7 +120,7 @@
         variables = [
             "utd_hendelse_id",
             "fnr",
-            "pers_id",  # old_name: snr
+            "snr",  # old_name: snr
             #"snr_mrk",
             #"snr_mrk_freg",
             "pers_kjoenn",  # old_name: kjoenn
@@ -200,7 +200,7 @@
     [datasets.eksamen.thresholds_empty]
             utd_hendelse_id = 0.0
             fnr = 0.0  # Dette er ganske lavt ass...
-            pers_id = 4.0
+            snr = 4.0
             pers_kjoenn = 2.6
             pers_foedselsdato = 0.3
             nus2000 = 0.0
@@ -234,7 +234,7 @@
         variables = [
             "utd_hendelse_id",
             "fnr",
-            "pers_id",  # old_name: snr
+            "snr",  # old_name: snr
             #"snr_mrk",
             "pers_kjoenn",  # old_name: kjoenn
             "utd_datakilde",  # old_name: kilde
@@ -297,13 +297,13 @@
 
         [datasets.avslutta.thresholds_empty]
             fnr = 0.0  # Vi vil ha fnr på alle takk
-            pers_id = 4.0
+            snr = 4.0
             nus2000 = 0.0
 
 
     [datasets.grunnskolekarakterer]
         variables = [
-            'pers_id',  # old_name: snr
+            'snr',  # old_name: snr
             #'snr_mrk',
             'utd_orgnr',  # old_name: orgnr
             'utd_skolekom',  # old_name: skolekom
@@ -318,7 +318,7 @@
         ]
 
         [datasets.grunnskolekarakterer.thresholds_empty]
-            pers_id = 0.1
+            snr = 0.1
             utd_orgnr = 0.1
             utd_skolekom = 0.05
             fagkode = 0.0

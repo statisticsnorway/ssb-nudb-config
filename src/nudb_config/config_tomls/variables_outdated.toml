@@ -6,7 +6,7 @@
 	[variables.fnr_mrk_freg] # kobler fnr mot folkeregisteret?
 		unit = "utdatert"
 		dtype = "BOOLEAN"
-		outdated_comment = "Bør holde med mangel på utfylt pers_id, kan bli nødvendig senere om vi fyller falsk pers_id"
+		outdated_comment = "Bør holde med mangel på utfylt snr, kan bli nødvendig senere om vi fyller falsk snr"
 
 	[variables.komp]
 		unit = "utdatert"

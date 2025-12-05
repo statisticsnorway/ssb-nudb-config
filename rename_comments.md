@@ -11,7 +11,7 @@ utd_orgnr_navn_inn (unit skole, dtype STRING; renamed_from ['skolenavn'])
 vg_ny_laerling (unit vgs, dtype BOOLEAN; renamed_from ['nylaerl'])
 
 
-## snr_mrk -> pers_id_mrk
+## snr_mrk -> snr_mrk
 > med nytt regime "vi beholder alltid fnr, og snr", så er denne unødvendig.
 > Den kan finnes med `df['snr'].notna()`, og vil slik være enklere å opprettholde.
 > Denne tas derfor ikke med i configgen, da den skal fjernes der den spottes.

@@ -20,7 +20,7 @@
     unit = "pers"
     dtype = "STRING"
     renamed_from = ["sosbak"]
-    derived_from = ["nus2000", "pers_foedselsdato", "pers_id_far", "pers_id_mor"]
+    derived_from = ["nus2000", "pers_foedselsdato", "snr_far", "snr_mor"]
 
 
 
