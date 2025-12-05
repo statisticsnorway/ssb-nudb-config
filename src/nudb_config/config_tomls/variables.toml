@@ -111,6 +111,7 @@ variables_sort_unit = [
     [variables.utd_skoleaar_start]
         unit = "tid"
         dtype = "STRING"
+		length = [4]
         renamed_from = ["skolear", "skoleaar", "skoleaar_start"]
 		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
 
