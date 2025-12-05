@@ -13,7 +13,7 @@
             "gro_fravaer_timer",
             "gro_programomraade",
             "gro_elevstatus",
-            "gro_skolenr_inn", 
+            "gro_skolenr_inn",
             "utd_skoleaar_start",
             "utd_aktivitetsnivaa_heltid_deltid",
             "utd_aktivitet_slutt",
@@ -25,7 +25,7 @@
             "bof_orgnrbed",
             "utd_skolekom",
             "utd_orgnr",
-            
+
 
         ]
 
