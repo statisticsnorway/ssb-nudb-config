@@ -29,7 +29,7 @@
             "uh_permisjon", # old_name: permisjon
             "uh_studienivaa",  # old_name: studieniva
             "uh_undervisningsspraak",  # undervisningssprak
-            "uh_univ_eller_hogskole",  # old_name: univ
+            #"uh_univ_eller_hogskole",  # Should be derived # old_name: univ
             #"inr",
             "utd_orgnr",  # old_name: orgnr
             "uh_studieland",  # old_name: studieland
@@ -103,7 +103,7 @@
             vg_utdprogram = 60.0
             fa_godkjent_fagskoleutd = 99.0
             uh_institusjon_id = 70.0
-            uh_univ_eller_hogskole = 75.0
+            #uh_univ_eller_hogskole = 75.0
             uh_realkompetanse = 80.0
             uh_utvekslingsavtale = 99.9
             uh_studierett = 90.0
@@ -159,7 +159,7 @@
             'utd_skoleaar_start',  # old_name: skoleaar_start
             #'utd_skoleaar_slutt',  # Vi trenger kun skoleaar_start # old_name: skoleaar_slutt
             "utd_utdanningstype",  # old_name: utd
-            "uh_univ_eller_hogskole", # old_name: univ
+            #"uh_univ_eller_hogskole", # Should be derived # old_name: univ
             #"heldel",  # Hvordan kan en eksamen "være heltid"? Mellom 2003 og 2012 så er ALLE eksamener "heltid"...
             "utd_orgnr",  # old_name: orgnr
             "bof_orgnrbed",  # old_name: orgnrbed
@@ -262,7 +262,7 @@
             "utd_skolekom",  # old_name: skolekom
             #"eierf",  # Koble på fra BOF isteden for å ligge på filen
             "uh_institusjon_id",  # old_name: hskode
-            "uh_univ_eller_hogskole",  # old_name: univ
+            #"uh_univ_eller_hogskole",  # old_name: univ should be derived instead from 
             "pers_foedselsdato",  # old_name: fodt_dato
             "utd_aktivitet_slutt_inn",  # old_name: kurs_slutt_orig
             "utd_aktivitet_start",  # old_name: kurs_start
