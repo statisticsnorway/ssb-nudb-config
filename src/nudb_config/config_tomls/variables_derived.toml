@@ -63,6 +63,15 @@
     derived_from = ["nus2000"]
 
 
+[variables.uh_univ_eller_hogskole]
+    unit = "uh"
+    dtype = "STRING"
+    length = [1]
+    klass_codelist = 885
+    renamed_from = ["univ"]
+    derived_from = ["utd_utdanningstype", "utd_datakilde"]
+    #outdated_comment = "Kan vi utlede denne istedenfor å ha den lagret på data?"
+
 [variables.uh_studiepoeng_nus]
     unit = "uh"
     dtype = "STRING"
