@@ -48,7 +48,7 @@
 
 [variables.fa_erfagskole_nus]
     unit = "fa"
-    dtype = "BOOL"
+    dtype = "BOOLEAN"
     renamed_from = ["fagskoleutd"]
     klass_codelist = 36
     klass_variant_search_term = "Fagskoleutdanning"

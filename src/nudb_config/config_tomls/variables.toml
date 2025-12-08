@@ -424,6 +424,7 @@ variables_sort_unit = [
 		dtype = "STRING"
 		length = [1]
 		renamed_from = ["realkomp"]
+		klass_codelist = 795
 
 
 ############################################
