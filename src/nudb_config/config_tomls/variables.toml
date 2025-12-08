@@ -387,15 +387,49 @@ variables_sort_unit = [
 		unit = "fa"
 		dtype = "STRING"  # I have no info at current time, so I dont know? C 2025-10-31
 
+
+	[variables.fa_institusjon_id]
+		unit = "fa"
+		dtype = "STRING"  # missing information...
+		renamed_from = ["skolenr"]
+
+	[variables.fa_karakter]
+		unit = "fa"
+		dtype = "STRING"  # missing information...
+		renamed_from = ["karakterer"]
+
+	[variables.fa_studiestednr_inn]
+		unit = "fa"
+		dtype = "STRING"  # missing information...
+		length = [3]
+		renamed_from = ["studiestednr"]
+
+	[variables.fa_utveksl_varighet_dager]
+		unit = "fa"
+		dtype = "INTEGER"  # HVA ER VARIGHETEN I? Måneder?
+		renamed_from = ["utveksl_varighet"]
+
+
+
+
+
+
 #########################################################
-# "fah" - Fagskoler + Universitet og Høgskole-Utdanning #
+# "fuh" - Fagskoler + Universitet og Høgskole-Utdanning #
 #########################################################
 
+
+	[variables.fuh_opptaksgrunnlag]
+		unit = "fuh"
+		dtype = "STRING"
+		length = [1]
+		renamed_from = ["realkomp"]
 
 
 ############################################
 # "uh" - Universitet og Høgskole-Utdanning #
 ############################################
+
 
 	[variables.uh_institusjon_id]
 		unit = "skole"
@@ -404,10 +438,13 @@ variables_sort_unit = [
 		klass_codelist = 790
         renamed_from = ["hskode"]
 
-
+	[variables.uh_fullfoertkode_inn]
+			unit = "uh"
+			dtype = "STRING"
+			length = [1]
 
 	[variables.uh_realkompetanse]
-		unit = "fag"
+		unit = "uh"
 		dtype = "STRING"
 		length = [1]
 		klass_codelist = 795

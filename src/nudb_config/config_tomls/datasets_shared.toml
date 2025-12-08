@@ -262,7 +262,7 @@
             "utd_skolekom",  # old_name: skolekom
             #"eierf",  # Koble på fra BOF isteden for å ligge på filen
             "uh_institusjon_id",  # old_name: hskode
-            #"uh_univ_eller_hogskole",  # old_name: univ should be derived instead from 
+            #"uh_univ_eller_hogskole",  # old_name: univ should be derived instead from
             "pers_foedselsdato",  # old_name: fodt_dato
             "utd_aktivitet_slutt_inn",  # old_name: kurs_slutt_orig
             "utd_aktivitet_start",  # old_name: kurs_start

@@ -64,7 +64,7 @@
         "utd_utveksling",
         "utd_skolekom",
         "fa_godkjent_fagskoleutd",
-        "fa_utveksl_varighet",
+        "fa_utveksl_varighet_dager",
         "fa_studiestednr_inn",
         "fa_hovedaktivitet",
         "fuh_nett_eller_stedbasert",
@@ -97,7 +97,7 @@
         "utd_utveksling",
         "utd_skolekom",
         "fa_godkjent_fagskoleutd",
-        "fa_utveksl_varighet",
+        "fa_utveksl_varighet_dager",
         "fa_studiestednr_inn",
         "fa_hovedaktivitet",
         "fuh_nett_eller_stedbasert",
@@ -138,8 +138,6 @@
             "utd_skolekom",
             "utd_orgnr",
             "utd_viderutd_nettbasert",
-
-
         ]
 
         [datasets.avslutta_grunnskole.thresholds_empty]
@@ -247,7 +245,7 @@
             "uh_fakultet",
             "uh_studiepoeng_grad",
         ]
-    
+
     [datasets.avslutta_hoyereutdanning.thresholds_empty]
             fnr = 0.0
 
@@ -295,5 +293,3 @@
 
     [datasets.eksamen_hoyereutdanning.thresholds_empty]
             fnr = 0.0
-
-
