@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from typing import Any
+from typing import Literal
 
 import klass
 from pydantic import BaseModel
@@ -8,6 +9,8 @@ from pydantic import ConfigDict
 from pydantic import model_validator
 
 from .dotmap import DotMap
+
+DTYPE_FIELD_TYPE = Literal["INTEGER", "FLOAT", "STRING", "DATETIME", "BOOLEAN"]
 
 
 class Variable(BaseModel, DotMap):
@@ -25,7 +28,7 @@ class Variable(BaseModel, DotMap):
 
     name: str
     unit: str
-    dtype: str
+    dtype: DTYPE_FIELD_TYPE
     description_short: str | None = None
     length: list[int] | None = None
     klass_codelist: int | None = None
