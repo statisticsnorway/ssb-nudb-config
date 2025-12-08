@@ -405,13 +405,6 @@ variables_sort_unit = [
         renamed_from = ["hskode"]
 
 
-	[variables.uh_univ_eller_hogskole]
-		unit = "uh"
-		dtype = "STRING"
-        renamed_from = ["univ"]
-        derived_from = ["utd_utdanningstype", "utd_datakilde"]
-		#outdated_comment = "Kan vi utlede denne istedenfor å ha den lagret på data?"
-
 
 	[variables.uh_realkompetanse]
 		unit = "fag"
