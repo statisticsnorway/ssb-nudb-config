@@ -102,7 +102,7 @@
     dtype = "STRING"
     #renamed_from = [""]
     klass_codelist = 36
-    klass_variant_search_term = "Universitets- og høgskolegruppering"
+    klass_variant_search_term = "Klassetrinn"
     derived_from = ["nus2000"]
 # Disse to sekundærutledes fra utd_klassetrinn_lav_hoy_nus
 [variables.utd_klassetrinn_lav_nus]
