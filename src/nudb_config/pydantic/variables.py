@@ -17,13 +17,22 @@ class Variable(BaseModel, DotMap):
     """Definition of a single variable from ``variables.toml``.
 
     Attributes:
+        name: Variable name injected from its TOML key.
         unit: Logical grouping the variable belongs to.
         dtype: Storage or semantic type of the variable.
+        description_short: Optional short description.
         length: Allowed lengths for string fields, if constrained.
         klass_codelist: KLASS codelist identifier, if applicable.
+        klass_codelist_from_date: Earliest date for the codelist.
         klass_variant: KLASS variant identifier, if applicable.
+        klass_variant_search_term: Search term used to find a variant.
         renamed_from: Previous column name(s) that map to this variable.
+        derived_from: Source variables used to derive this value.
         codelist_extras: Additional code mappings injected at load time.
+        outdated_comment: Explanation when the unit is outdated.
+        klass_codelist_metadata: Metadata fetched from KLASS for the codelist.
+        klass_variant_metadata: Metadata fetched from KLASS for the variant.
+        model_config: Pydantic configuration allowing arbitrary KLASS types.
     """
 
     name: str

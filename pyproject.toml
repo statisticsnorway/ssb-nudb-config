@@ -29,7 +29,6 @@ requires-poetry = ">=2.0"
 pygments = ">=2.10.0"
 black = { extras = ["jupyter"], version = ">=23.1.0" }
 coverage = { extras = ["toml"], version = ">=6.2" }
-darglint = {version= ">=1.8.1", python = ">=3.10, <4.0"}
 furo = ">=2021.11.12"
 mypy = ">=0.930"
 pre-commit = ">=2.16.0"
@@ -44,6 +43,7 @@ typeguard = ">=2.13.3"
 xdoctest = { extras = ["colors"], version = ">=0.15.10" }
 myst-parser = { version = ">=0.16.1" }
 deptry = {version=">=0.23.0", python = ">=3.10, <4.0"}
+pydoclint = ">=0.8.3"
 
 [tool.poetry.requires-plugins]
 poetry-plugin-export = ">=1.9"
@@ -107,6 +107,7 @@ ignore = [
     "ANN202", # Don't require return type annotation for private functions.
     "ANN401", # Allow type annotation with type Any.
     "D100",   # Supress undocumented-public-module. Only doc of public api required.
+    "D107",   # Allow omitted __init__ docstrings when class docstring suffices.
     "FBT001", # Allow boolean positional arguments in a function.
     "FBT002", # Allow boolean default positional arguments in a function.
     "E402",   # Supress module-import-not-at-top-of-file, needed in jupyter notebooks.
@@ -145,6 +146,10 @@ classmethod-decorators = ["classmethod", "validator", "root_validator", "pydanti
     "D103",
     "S101",    # asserts are encouraged in pytest
 ]
+
+[tool.pydoclint]
+style = "google"
+arg-type-hints-in-docstring = false
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

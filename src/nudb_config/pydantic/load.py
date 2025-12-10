@@ -28,6 +28,7 @@ class NudbConfig(BaseModel, DotMap):
     during loading so that downstream behavior matches.
 
     Attributes:
+        model_config: Pydantic configuration allowing arbitrary DotMap content.
         dapla_team: Team identifier from ``settings.toml``.
         short_name: Short project name from ``settings.toml``.
         utd_nacekoder: NACE codes from ``settings.toml``.

@@ -13,6 +13,7 @@ class Dataset(BaseModel, DotMap):
         thresholds_empty: Allowable proportions of emptiness per variable.
         min_values: Minimum inclusive filter values per variable.
         max_values: Maximum inclusive filter values per variable.
+        dataset_specific_renames: Custom renames to apply only for this dataset.
     """
 
     variables: list[str] = []
