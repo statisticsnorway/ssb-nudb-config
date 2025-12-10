@@ -19,24 +19,14 @@ class DotMap:
     - Wrapper: ``DotMap({"a": 1}).a`` and ``DotMap({"a": 1})["a"]``.
     - Base class: ``class M(DotMap, BaseModel): ...`` so ``m.a`` and
       ``m["a"]`` both work, without conflicting with Pydantic's iterator.
+    - When mixed into Pydantic models, initialization defers to Pydantic;
+      otherwise a mapping positional argument or ``data=`` keyword seeds the
+      internal store.
     """
 
     # Avoid __slots__ to stay layout-compatible with Pydantic BaseModel
 
     def __init__(self, *args: Any, **kwargs: Any) -> None:
-        """Initialize a DotMap wrapper or mixin.
-
-        Behavior:
-        - When mixed into a Pydantic model, defers to Pydantic's initializer.
-        - In wrapper mode, accepts a single mapping positional argument or a
-          ``data=`` keyword argument to seed the internal mapping.
-
-        Args:
-          args: Optional positional arguments. In wrapper mode, the first
-            positional argument can be a mapping used as initial data.
-          kwargs: Optional keyword arguments. In wrapper mode, ``data`` can be
-            provided as a mapping used as initial data.
-        """
         if isinstance(self, _PydanticBaseModel):
             super().__init__(*args, **kwargs)
             return
@@ -54,7 +44,7 @@ class DotMap:
           name: Attribute name to resolve.
 
         Returns:
-          The value associated with ``name`` from the internal mapping.
+          Any: The value associated with ``name`` from the internal mapping.
 
         Raises:
           AttributeError: If ``name`` is not present in the mapping.
@@ -77,10 +67,11 @@ class DotMap:
           key: The key to look up.
 
         Returns:
-          The value associated with ``key``.
+          Any: The value associated with ``key``.
 
         Raises:
           KeyError: If ``key`` is not found.
+          TypeError: If ``key`` is not a string or integer index.
         """
         if isinstance(key, int):
             key_str: str = list(self.keys())[key]
@@ -105,7 +96,7 @@ class DotMap:
           key: Candidate key to check. Non-string keys return ``False``.
 
         Returns:
-          Whether the key is present.
+          bool: Whether the key is present.
         """
         if not isinstance(key, str):
             return False
@@ -143,7 +134,7 @@ class DotMap:
           default: Value to return if ``key`` is not found.
 
         Returns:
-          The found value or ``default`` if absent.
+          Any: The found value or ``default`` if absent.
         """
         try:
             return getattr(self, key)
@@ -157,7 +148,7 @@ class DotMap:
         internal ``_data`` mapping or an empty dict.
 
         Returns:
-          A dictionary representation of the current data.
+          dict[str, Any]: A dictionary representation of the current data.
         """
         model_dump = getattr(self, "model_dump", None)
         if callable(model_dump):
