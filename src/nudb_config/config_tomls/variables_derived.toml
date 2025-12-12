@@ -16,11 +16,12 @@
 # Variabler som utledes ved hjelp av FREGs data #
 #################################################
 
-[variables.pers_16aar_foreldres_utdnivaa]
-    unit = "pers"
-    dtype = "STRING"
-    renamed_from = ["sosbak"]
-    derived_from = ["nus2000", "pers_foedselsdato", "snr_far", "snr_mor"]
+# TODO: Enable once sosbak handling is implemented in the other code base.
+# [variables.pers_16aar_foreldres_utdnivaa]
+#     unit = "pers"
+#     dtype = "STRING"
+#     renamed_from = ["sosbak"]
+#     derived_from = ["nus2000", "pers_foedselsdato", "snr_far", "snr_mor"]
 
 
 
