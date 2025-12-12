@@ -16,11 +16,12 @@
 # Variabler som utledes ved hjelp av FREGs data #
 #################################################
 
-[variables.pers_16aar_foreldres_utdnivaa]
-    unit = "pers"
-    dtype = "STRING"
-    renamed_from = ["sosbak"]
-    derived_from = ["nus2000", "pers_foedselsdato", "snr_far", "snr_mor"]
+# TODO: Enable once sosbak handling is implemented in the other code base.
+# [variables.pers_16aar_foreldres_utdnivaa]
+#     unit = "pers"
+#     dtype = "STRING"
+#     renamed_from = ["sosbak"]
+#     derived_from = ["nus2000", "pers_foedselsdato", "snr_far", "snr_mor"]
 
 
 
@@ -33,6 +34,7 @@
 [variables.vg_kompetanse_nus]
     unit = "vg"
     dtype = "STRING"
+    length = [1]
     renamed_from = ["komp"]
     klass_codelist = 36
     klass_variant_search_term = "Kompetanse"
@@ -41,6 +43,7 @@
 [variables.vg_kurstrinn_nus]
     unit = "vg"
     dtype = "STRING"
+    length = [1]
     renamed_from = ["kurstrin"]
     klass_codelist = 36
     klass_variant_search_term = "Kurstrinn"
@@ -49,6 +52,7 @@
 [variables.fa_erfagskole_nus]
     unit = "fa"
     dtype = "BOOLEAN"
+    length = [2]  # A bit stupid cause we are converting it to a bool after getting it from klass, the only code is "10"...
     renamed_from = ["fagskoleutd"]
     klass_codelist = 36
     klass_variant_search_term = "Fagskoleutdanning"
@@ -58,6 +62,7 @@
 [variables.fa_studiepoeng_nus]
     unit = "fa"
     dtype = "STRING"
+    length = [3]
     klass_codelist = 36
     klass_variant_search_term = "Studiepoeng ved fagskole"
     derived_from = ["nus2000"]
@@ -75,6 +80,7 @@
 [variables.uh_studiepoeng_nus]
     unit = "uh"
     dtype = "STRING"
+    length = [3]
     klass_codelist = 36
     klass_variant_search_term = "Studiepoeng 2"
     derived_from = ["nus2000"]
@@ -83,6 +89,7 @@
 [variables.uh_gradmerke_nus]
     unit = "uh"
     dtype = "STRING"
+    length = [1]
     klass_codelist = 36
     klass_variant_search_term = "Gradmerke"
     derived_from = ["nus2000"]
@@ -91,6 +98,7 @@
 [variables.uh_gruppering_nus]
     unit = "uh"
     dtype = "STRING"
+    length = [2]
     renamed_from = ["uhgruppe"]
     klass_codelist = 36
     klass_variant_search_term = "Universitets- og høgskolegruppering"
@@ -100,6 +108,7 @@
 [variables.utd_klassetrinn_lav_hoy_nus]
     unit = "utd"
     dtype = "STRING"
+    length = [5]
     #renamed_from = [""]
     klass_codelist = 36
     klass_variant_search_term = "Klassetrinn"
@@ -108,16 +117,19 @@
 [variables.utd_klassetrinn_lav_nus]
     unit = "utd"
     dtype = "STRING"
+    length = [2]
     derived_from = ["utd_klassetrinn_lav_hoy_nus"]
 [variables.utd_klassetrinn_hoy_nus]
     unit = "utd"
     dtype = "STRING"
+    length = [2]
     derived_from = ["utd_klassetrinn_lav_hoy_nus"]
 
 
-[variables.utd_historisk_foreldet_fag_nus]
+[variables.utd_erhistorisk_foreldet_fag_nus]
     unit = "utd"
-    dtype = "STRING"
+    dtype = "BOOLEAN"  # Only code is '*' and can be converted to a bool
+    length = [1]
     klass_codelist = 36
     klass_variant_search_term = "Historisk kode"
     derived_from = ["nus2000"]
@@ -125,6 +137,7 @@
 [variables.utd_samle_eller_enkeltutd_nus]
     unit = "utd"
     dtype = "STRING"
+    length = [1]
     klass_codelist = 36
     klass_variant_search_term = "Kodetype"
     derived_from = ["nus2000"]
@@ -132,6 +145,7 @@
 [variables.utd_varighet_antall_mnd_nus]
     unit = "utd"
     dtype = "STRING"
+    length = [2]
     klass_codelist = 36
     klass_variant_search_term = "Varighet"
     derived_from = ["nus2000"]
@@ -139,6 +153,7 @@
 [variables.utd_utdanningsprogram_nus]
     unit = "utd"
     dtype = "STRING"
+    length = [2]
     klass_codelist = 36
     klass_variant_search_term = "Utdanningsprogram"
     derived_from = ["nus2000"]
@@ -146,20 +161,23 @@
 [variables.utd_isced2011_programmes_nus]
     unit = "utd"
     dtype = "STRING"
+    length = [3]
     klass_codelist = 36
-    klass_variant_search_term = "Standard for ISCED 2011 Programmes"
+    klass_correspondence_to = 139
     derived_from = ["nus2000"]
 
 [variables.utd_isced2011_attainment_nus]
     unit = "utd"
     dtype = "STRING"
+    length = [3]
     klass_codelist = 36
-    klass_variant_search_term = "Standard for ISCED 2011 Attainment"
+    klass_correspondence_to = 140
     derived_from = ["nus2000"]
 
 [variables.utd_isced2013_fagfelt_nus]
     unit = "utd"
     dtype = "STRING"
+    length = [4]
     klass_codelist = 36
-    klass_variant_search_term = "Standard for ISCED-F 2013 Fagfelt"
+    klass_correspondence_to = 141
     derived_from = ["nus2000"]
