@@ -147,19 +147,19 @@
     unit = "utd"
     dtype = "STRING"
     klass_codelist = 36
-    klass_variant_search_term = "Standard for ISCED 2011 Programmes"
+    klass_correspondence_to = 139
     derived_from = ["nus2000"]
 
 [variables.utd_isced2011_attainment_nus]
     unit = "utd"
     dtype = "STRING"
     klass_codelist = 36
-    klass_variant_search_term = "Standard for ISCED 2011 Attainment"
+    klass_correspondence_to = 140
     derived_from = ["nus2000"]
 
 [variables.utd_isced2013_fagfelt_nus]
     unit = "utd"
     dtype = "STRING"
     klass_codelist = 36
-    klass_variant_search_term = "Standard for ISCED-F 2013 Fagfelt"
+    klass_correspondence_to = 141
     derived_from = ["nus2000"]
