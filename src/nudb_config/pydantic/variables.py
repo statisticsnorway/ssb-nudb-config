@@ -26,6 +26,7 @@ class Variable(BaseModel, DotMap):
         klass_codelist_from_date: Earliest date for the codelist.
         klass_variant: KLASS variant identifier, if applicable.
         klass_variant_search_term: Search term used to find a variant.
+        klass_correspondence_to: The Classification ID for what we are mapping from the klass_codelist to.
         renamed_from: Previous column name(s) that map to this variable.
         derived_from: Source variables used to derive this value.
         codelist_extras: Additional code mappings injected at load time.
@@ -44,6 +45,7 @@ class Variable(BaseModel, DotMap):
     klass_codelist_from_date: str | None = None
     klass_variant: int | None = None
     klass_variant_search_term: str | None = None
+    klass_correspondence_to: int | None = None
     renamed_from: list[str] | None = None
     derived_from: list[str] | None = None
     # Populated programmatically to mirror Dynaconf expansion
