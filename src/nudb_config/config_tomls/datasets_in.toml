@@ -63,7 +63,7 @@
         "utd_utdanningstype",
         "utd_utveksling",
         "utd_skolekom",
-        "fa_godkjent_fagskoleutd",
+        "fa_erfagskole_nus",  # Kan denne utledes fra nus isteden?
         "fa_utveksl_varighet_dager",
         "fa_studiestednr_inn",
         "fa_hovedaktivitet",
@@ -96,7 +96,7 @@
         "utd_utdanningstype",
         "utd_utveksling",
         "utd_skolekom",
-        "fa_godkjent_fagskoleutd",
+        "fa_erfagskole_nus",  # Kan denne utledes fra nus isteden?
         "fa_utveksl_varighet_dager",
         "fa_studiestednr_inn",
         "fa_hovedaktivitet",
@@ -201,7 +201,7 @@
             "utd_skolekom",
             "utd_fullfoertkode",
             "utd_viderutd_nettbasert",
-            "fa_godkjent_fagskoleutd",
+            "fa_erfagskole_nus",  # Kan denne utledes fra nus isteden?
             "fa_studiestednr_inn",
             "fa_institusjon_id",
             "fa_karakter",

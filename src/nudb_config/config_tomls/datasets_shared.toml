@@ -13,7 +13,7 @@
             "utd_aktivitet_start",  # old_name: startd
             "utd_aktivitet_start_inn",  # old_name: kurs_start_orig
             # "voksen",
-            "uh_realkompetanse",  # old_name: realkomp
+            "fuh_opptaksgrunnlag",  # old_name: realkomp
             "utd_datakilde",  # old_name: kilde
             "vg_rettstype_inntak",  # old_name: rett
             # "ftype",
@@ -42,7 +42,7 @@
             "gro_skolenavn_inn",  # old_name: skolenavn
             # "realkompetansevurdert_dato",  # old_name: dato_dokrealkomp
             "bof_orgnrbed",  # old_name: orgnrbed
-            "fa_godkjent_fagskoleutd",  # old_name: fagskoleutd
+            "fa_erfagskole_nus",  # old_name: fagskoleutd  # Kan denne utledes fra nus isteden?
             "vg_yrkes_og_studiekompetanse",  # old_name: taf
             "utd_utveksling",  # old_name: utveks
             "fuh_utvekslingsland",  # old_name: utveksland
@@ -101,10 +101,9 @@
             vg_yrkes_og_studiekompetanse = 99.9
             vg_rettstype_inntak = 75.0
             vg_utdprogram = 60.0
-            fa_godkjent_fagskoleutd = 99.0
             uh_institusjon_id = 70.0
             #uh_univ_eller_hogskole = 75.0
-            uh_realkompetanse = 80.0
+            fuh_opptaksgrunnlag = 80.0
             uh_utvekslingsavtale = 99.9
             uh_studierett = 90.0
             uh_studieprogresjon_hoest = 90.0
@@ -279,7 +278,7 @@
             # "mrk_dl_bhu", Kommer fra eldre filer
             "utd_skoleaar_start",  # old_name: aargang
             #"utd_skoleaar_slutt", # Vi trenger kun skoleaar_start
-            "fa_godkjent_fagskoleutd",  # old_name: fagskoleutd
+            #"fa_erfagskole_nus",  # old_name: fagskoleutd  # Kan denne utledes fra nus isteden?
             "gro_elevstatus",  # old_name: elevstatus
             "vg_vedtak_saerskilt_spraak",  # old_name: fkurskod
             "vg_kursprosent",  # old_name: delpros
