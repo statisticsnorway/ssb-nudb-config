@@ -25,7 +25,7 @@
             "uh_institusjon_id",  # old_name: hskode
             "uh_campus_kommune",  # old_name: campus_kom
             "uh_campus_sted",  # old_name: campus_sted
-            "uh_hovedaktivitet",  # old_name: hovedprogram
+            "uh_hovedaktivitet",
             "uh_permisjon", # old_name: permisjon
             "uh_studienivaa",  # old_name: studieniva
             "uh_undervisningsspraak",  # undervisningssprak
@@ -42,7 +42,7 @@
             "gro_skolenavn_inn",  # old_name: skolenavn
             # "realkompetansevurdert_dato",  # old_name: dato_dokrealkomp
             "bof_orgnrbed",  # old_name: orgnrbed
-            "fa_erfagskole_nus",  # old_name: fagskoleutd  # Kan denne utledes fra nus isteden?
+            "fa_ergodkjent_fagskoleutd",  # old_name: fagskoleutd  # Kan denne utledes fra nus isteden?
             "vg_yrkes_og_studiekompetanse",  # old_name: taf
             "utd_utveksling",  # old_name: utveks
             "fuh_utvekslingsland",  # old_name: utveksland
@@ -278,7 +278,7 @@
             # "mrk_dl_bhu", Kommer fra eldre filer
             "utd_skoleaar_start",  # old_name: aargang
             #"utd_skoleaar_slutt", # Vi trenger kun skoleaar_start
-            #"fa_erfagskole_nus",  # old_name: fagskoleutd  # Kan denne utledes fra nus isteden?
+            "fa_ergodkjent_fagskoleutd",  # old_name: fagskoleutd  # Kan denne utledes fra nus isteden?
             "gro_elevstatus",  # old_name: elevstatus
             "vg_vedtak_saerskilt_spraak",  # old_name: fkurskod
             "vg_kursprosent",  # old_name: delpros

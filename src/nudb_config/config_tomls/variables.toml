@@ -382,6 +382,12 @@ variables_sort_unit = [
 		dtype = "STRING"  # I have no info at current time, so I dont know? C 2025-10-31
 
 
+	[variables.fa_ergodkjent_fagskoleutd]
+		unit = "fa"
+		dtype = "BOOLEAN"
+		renamed_from = ["fagskoleutd"]
+
+
 	[variables.fa_institusjon_id]
 		unit = "fa"
 		dtype = "STRING"  # missing information...
@@ -555,7 +561,7 @@ variables_sort_unit = [
     [variables.uh_hovedaktivitet]   # merkevariabel som prioriterer en record per person, per skoleår, per fil, innenfor uh
         unit = "uh"
         dtype = "STRING"
-        renamed_from = ["hovedprogram"]
+        renamed_from = []
 
     [variables.uh_undervisningsspraak]
         unit = "uh"
