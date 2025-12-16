@@ -67,11 +67,10 @@ variables_sort_unit = [
 		length = [1]
 		renamed_from = ["utfall"]
 
-
-
 ################
 # Tidskolonner #
 ################
+
 	[variables.pers_foedselsdato]
 		unit = "tid"
 		dtype = "DATETIME"
@@ -128,8 +127,6 @@ variables_sort_unit = [
         dtype = "DATETIME"
 		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
 
-
-
 #############################
 # Fagvariabler / nuskatalog #
 #############################
@@ -139,13 +136,6 @@ variables_sort_unit = [
 		dtype = "STRING"
 		length = [6]
 		klass_codelist = 36
-
-
-
-
-
-
-
 
 ##################
 # Skolevariabler #
@@ -181,11 +171,6 @@ variables_sort_unit = [
         klass_codelist = 131
         klass_codelist_from_date = "1960-01-01"
         renamed_from = ["skolekom"]
-
-
-
-
-
 
 ############################
 # "utd" - Alle utdanninger #
@@ -230,7 +215,6 @@ variables_sort_unit = [
 		klass_codelist = 791
 		renamed_from = ["utveks"]
 
-
 #####################
 # "gr" - Grunnskole #
 #####################
@@ -244,6 +228,7 @@ variables_sort_unit = [
 ####################################
 # "gro" - Grunnopplæring (gr + vg) #
 ####################################
+
 	[variables.gro_elevstatus]
 		unit = "gro"
 		dtype = "STRING"
@@ -372,11 +357,9 @@ variables_sort_unit = [
 		length = [2]
 		renamed_from = ["studretn"]
 
-
 ####################
 # "fa" - Fagskoler #
 ####################
-
 
 	[variables.fa_godkjent_fagskoleutd]
 		unit = "fa"
@@ -386,7 +369,6 @@ variables_sort_unit = [
 	[variables.fa_hovedaktivitet]    # merkevariabel som prioriterer en record per person, per skoleår, per fil, innenfor fa
 		unit = "fa"
 		dtype = "STRING"  # I have no info at current time, so I dont know? C 2025-10-31
-
 
 	[variables.fa_institusjon_id]
 		unit = "fa"
@@ -409,15 +391,9 @@ variables_sort_unit = [
 		dtype = "INTEGER"  # HVA ER VARIGHETEN I? Måneder?
 		renamed_from = ["utveksl_varighet"]
 
-
-
-
-
-
 #########################################################
 # "fuh" - Fagskoler + Universitet og Høgskole-Utdanning #
 #########################################################
-
 
 	[variables.fuh_opptaksgrunnlag]
 		unit = "fuh"
@@ -426,11 +402,9 @@ variables_sort_unit = [
 		renamed_from = ["realkomp"]
 		klass_codelist = 795
 
-
 ############################################
 # "uh" - Universitet og Høgskole-Utdanning #
 ############################################
-
 
 	[variables.uh_institusjon_id]
 		unit = "skole"
@@ -440,9 +414,9 @@ variables_sort_unit = [
         renamed_from = ["hskode"]
 
 	[variables.uh_fullfoertkode_inn]
-			unit = "uh"
-			dtype = "STRING"
-			length = [1]
+		unit = "uh"
+		dtype = "STRING"
+		length = [1]
 
 	[variables.uh_realkompetanse]
 		unit = "uh"
@@ -462,7 +436,6 @@ variables_sort_unit = [
         length = [4]
         klass_codelist = 131
         renamed_from = ["campus_kom"]
-
 
     [variables.uh_termin_rapportert]
         unit = "fag"
@@ -498,8 +471,6 @@ variables_sort_unit = [
         unit = "fag"
         dtype = "STRING"
         renamed_from = ["emnekode_navn"]
-
-
 
 	[variables.uh_utvekslingsavtale]
 		unit = "uh"
@@ -578,12 +549,6 @@ variables_sort_unit = [
         dtype = "STRING"
         length = [2]
         renamed_from = ["fakultet"]
-
-
-
-
-
-
 
 ########
 # Land #
