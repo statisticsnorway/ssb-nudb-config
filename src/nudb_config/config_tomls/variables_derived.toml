@@ -49,14 +49,15 @@
     klass_variant_search_term = "Kurstrinn"
     derived_from = ["nus2000"]
 
-[variables.fa_erfagskole_nus]
-    unit = "fa"
-    dtype = "BOOLEAN"
-    length = [2]  # A bit stupid cause we are converting it to a bool after getting it from klass, the only code is "10"...
-    renamed_from = ["fagskoleutd"]
-    klass_codelist = 36
-    klass_variant_search_term = "Fagskoleutdanning"
-    derived_from = ["nus2000"]
+# Midlertidig avgjørelse (des. 2025) er at denne ansees som data inn fra arkiv ol. dvs. at vi egentlig ikke ønsker at den utledes fra nus2000 da det produserer ett ulikt resultat
+#[variables.fa_erfagskole_nus]
+#    unit = "fa"
+#    dtype = "BOOLEAN"
+#    length = [2]  # A bit stupid cause we are converting it to a bool after getting it from klass, the only code is "10"...
+#    renamed_from = ["fagskoleutd"]
+#    klass_codelist = 36
+#    klass_variant_search_term = "Fagskoleutdanning"
+#    derived_from = ["nus2000"]
 
 
 [variables.fa_studiepoeng_nus]
@@ -126,13 +127,14 @@
     derived_from = ["utd_klassetrinn_lav_hoy_nus"]
 
 
-[variables.utd_erhistorisk_foreldet_fag_nus]
+[variables.utd_erforeldet_kode_nus]
     unit = "utd"
     dtype = "BOOLEAN"  # Only code is '*' and can be converted to a bool
     length = [1]
     klass_codelist = 36
     klass_variant_search_term = "Historisk kode"
     derived_from = ["nus2000"]
+    renamed_from = ["utd_erhistorisk_foreldet_fag_nus"]
 
 [variables.utd_samle_eller_enkeltutd_nus]
     unit = "utd"

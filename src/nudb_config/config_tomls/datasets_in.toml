@@ -33,7 +33,7 @@
         "vg_antall_fag_elevkurs",
         "vg_kursprosent",
         "vg_kontraktstype",
-        "vg_nylaerling",
+        "vg_ernylaerling",
         "vg_yrkes_og_studiekompetanse",
         "vg_hovedaktivitet",
         "fuh_nett_eller_stedbasert",
@@ -63,7 +63,7 @@
         "utd_utdanningstype",
         "utd_utveksling",
         "utd_skolekom",
-        "fa_godkjent_fagskoleutd",
+        "fa_ergodkjent_fagskoleutd",  # Kan denne utledes fra nus isteden?
         "fa_utveksl_varighet_dager",
         "fa_studiestednr_inn",
         "fa_hovedaktivitet",
@@ -96,7 +96,7 @@
         "utd_utdanningstype",
         "utd_utveksling",
         "utd_skolekom",
-        "fa_godkjent_fagskoleutd",
+        "fa_ergodkjent_fagskoleutd",  # Kan denne utledes fra nus isteden?
         "fa_utveksl_varighet_dager",
         "fa_studiestednr_inn",
         "fa_hovedaktivitet",
@@ -201,7 +201,7 @@
             "utd_skolekom",
             "utd_fullfoertkode",
             "utd_viderutd_nettbasert",
-            "fa_godkjent_fagskoleutd",
+            "fa_ergodkjent_fagskoleutd",  # Kan denne utledes fra nus isteden?
             "fa_studiestednr_inn",
             "fa_institusjon_id",
             "fa_karakter",
@@ -237,11 +237,11 @@
             "fuh_nett_eller_stedbasert",
             "uh_institusjon_id",
             "uh_statsborgerskap_inn",
-            "uh_studierett",
+            "uh_erstudierett",
             "uh_studienivaa",
             "uh_studieprogram",
             "uh_studieland",
-            "uh_utland",
+            "uh_erutland",
             "uh_fakultet",
             "uh_studiepoeng_grad",
         ]
@@ -286,7 +286,7 @@
             "uh_studienivaa",
             "uh_studieprogram",
             "uh_studieprogram_navn",
-            "uh_studierett",
+            "uh_erstudierett",
             "uh_termin_rapportert",
             "uh_fullfoertkode_inn",
         ]

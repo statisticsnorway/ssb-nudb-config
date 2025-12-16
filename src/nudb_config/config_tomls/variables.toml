@@ -183,7 +183,9 @@ variables_sort_unit = [
 
 	[variables.utd_aktivitetsnivaa_heltid_deltid]
 		unit = "fag"
-		dtype = "BOOLEAN"
+		dtype = "STRING"
+		length = [1]
+		klass_codelist = 887
 		renamed_from = ["heldel", "utd_heltid_deltid_aktivitetsnivaa"]
 
 	[variables.utd_viderutd_nettbasert]
@@ -294,10 +296,10 @@ variables_sort_unit = [
 		dtype = "FLOAT"
 		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
 
-	[variables.vg_vedtak_saerskilt_spraak]
+	[variables.vg_ervedtak_saer_spraak]
 		unit = "vg"
 		dtype = "BOOLEAN"
-		renamed_from = ["fkurskod"]
+		renamed_from = ["vg_vedtak_saerskilt_spraak", "s_spraak"]
 
 	[variables.vg_kontraktstype]
 		unit = "vg"
@@ -330,10 +332,10 @@ variables_sort_unit = [
 		klass_codelist = 764
 		renamed_from = ["rett"]
 
-	[variables.vg_nylaerling]
+	[variables.vg_ernylaerling]
 		unit = "vg"
 		dtype = "BOOLEAN"
-		renamed_from = ["nylaerl"]
+		renamed_from = ["nylaerl", "vg_nylaerling"]
 
 	[variables.vg_bevistype]
         unit = "fag"
@@ -361,7 +363,7 @@ variables_sort_unit = [
 # "fa" - Fagskoler #
 ####################
 
-	[variables.fa_godkjent_fagskoleutd]
+	[variables.fa_ergodkjent_fagskoleutd]
 		unit = "fa"
 		dtype = "BOOLEAN"
 		renamed_from = ["fagskoleutd"]
@@ -418,12 +420,7 @@ variables_sort_unit = [
 		dtype = "STRING"
 		length = [1]
 
-	[variables.uh_realkompetanse]
-		unit = "uh"
-		dtype = "STRING"
-		length = [1]
-		klass_codelist = 795
-		renamed_from = ["realkomp"]
+
 
     [variables.uh_campus_sted]
         unit = "uh"
@@ -513,15 +510,15 @@ variables_sort_unit = [
 		renamed_from = ["antall_deleks_bestaatt"]
 		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
 
-	[variables.uh_studierett]
+	[variables.uh_erstudierett]
 		unit = "uh"
 		dtype = "BOOLEAN"
-		renamed_from = ["studrett"]
+		renamed_from = ["studrett", "uh_studierett"]
 
-    [variables.uh_permisjon]
+    [variables.uh_erpermisjon]
         unit = "uh"
         dtype = "BOOLEAN"
-        renamed_from = ["permisjon"]
+        renamed_from = ["permisjon", "uh_permisjon"]
 
 	[variables.uh_studieprogresjon_hoest]
 		unit = "uh"
@@ -537,7 +534,7 @@ variables_sort_unit = [
     [variables.uh_hovedaktivitet]   # merkevariabel som prioriterer en record per person, per skoleår, per fil, innenfor uh
         unit = "uh"
         dtype = "STRING"
-        renamed_from = ["hovedprogram"]
+        renamed_from = []
 
     [variables.uh_undervisningsspraak]
         unit = "uh"
@@ -554,10 +551,10 @@ variables_sort_unit = [
 # Land #
 ########
 
-	[variables.uh_utland]
+	[variables.uh_erutland]
 		unit = "land"
 		dtype = "BOOLEAN"
-		renamed_from = ["utland"]
+		renamed_from = ["utland", "uh_utland"]
 
 	[variables.uh_studieland]
 		unit = "land"
