@@ -18,7 +18,7 @@
             "vg_rettstype_inntak",  # old_name: rett
             # "ftype",
             "utd_viderutd_nettbasert",  # old_name: evufjern
-            "uh_studierett",  # old_name: studrett
+            "uh_erstudierett",  # old_name: studrett
             "utd_utdanningstype",  # old_name: utd
             "utd_skolekom",  # old_name: skolekom
             # "eierf",
@@ -26,7 +26,7 @@
             "uh_campus_kommune",  # old_name: campus_kom
             "uh_campus_sted",  # old_name: campus_sted
             "uh_hovedaktivitet",
-            "uh_permisjon", # old_name: permisjon
+            "uh_erpermisjon", # old_name: permisjon
             "uh_studienivaa",  # old_name: studieniva
             "uh_undervisningsspraak",  # undervisningssprak
             #"uh_univ_eller_hogskole",  # Should be derived # old_name: univ
@@ -34,7 +34,7 @@
             "utd_orgnr",  # old_name: orgnr
             "uh_studieland",  # old_name: studieland
             #"utd_aktivitet_start_mrk_kilde",  # old_name: mrk_dl - trengs ikke på utdatasett?
-            "uh_utland",  # old_name: utland
+            "uh_erutland",  # old_name: utland
             "vg_kursprosent",  # old_name: delpros
             "vg_antall_aarstimer_elevkurs",  # old_name: aartimer
             "gro_elevstatus",  # old_name: elevstatus
@@ -57,13 +57,13 @@
             "uh_statsborgerskap_inn",  # old_name: statb_meldt
             "fa_hovedaktivitet",
             "fuh_nett_eller_stedbasert",  # old_name: organisering
-            #"vg_vedtak_saerskilt_spraak",  # old_name:   - vedtak om særskilt språkopplæring blir rapportert på ssbResultat, så skal kun på avslutta
+            #"vg_ervedtak_saer_spraak",  # old_name:   - vedtak om særskilt språkopplæring blir rapportert på ssbResultat, så skal kun på avslutta
             "vg_kontraktstype",  # old_name: kontraktstype
             "uh_studieprogram",
             "gro_programomraade",  # Gamle fkurskod?
             "vg_antall_fag_elevkurs",
             "vg_hovedaktivitet",
-            "vg_nylaerling",  # old_name: nylaerl
+            "vg_ernylaerling",  # old_name: nylaerl
             "vg_utdprogram",
     ]
 
@@ -105,10 +105,10 @@
             #uh_univ_eller_hogskole = 75.0
             fuh_opptaksgrunnlag = 80.0
             uh_utvekslingsavtale = 99.9
-            uh_studierett = 90.0
+            uh_erstudierett = 90.0
             uh_studieprogresjon_hoest = 90.0
             uh_utdplan = 90.0
-            uh_utland = 99.0
+            uh_erutland = 99.0
             uh_studieland = 99.0
             fuh_utvekslingsland = 99.9
             uh_studgrunnlagsland = 99.9
@@ -169,7 +169,7 @@
             "fuh_nett_eller_stedbasert", # old_name: organisering
             "uh_institusjon_id",  # old_name: hskode
             # "utdplan",
-            "uh_studierett",  # old_name: studrett
+            "uh_erstudierett",  # old_name: studrett
             # "studgrland",
             # "utland",
             # "utveks",
@@ -214,7 +214,7 @@
             utd_viderutd_nettbasert = 0.001
             uh_eksamen_studpoeng = 0.0
             uh_eksamen_er_gjentak = 0.0
-            uh_studierett = 0.001
+            uh_erstudierett = 0.001
             utd_utdanningstype = 0.04
             utd_skoleaar_start = 0.0
             uh_termin_rapportert = 35.0  # Ny variabel fom 2014, utfylling bør gå opp
@@ -252,7 +252,7 @@
             "uh_studienivaa",  # old_name: studnivaa
             "utd_utdanningstype",  # old_name: utd
             "gr_grunnskolepoeng",  # old_name: grunnskolepoeng
-            "uh_utland",  # old_name: utland
+            "uh_erutland",  # old_name: utland
             "uh_studieland",  # old_name: studieland
             "uh_statsborgerskap_inn",  # old_name: statb_meldt
             "bof_orgnrbed",  # old_name: orgnrbed
@@ -268,7 +268,7 @@
             "utd_aktivitet_slutt",  # old_name: kurs_slutt
             "utd_aktivitet_start_inn",  # old_name: kurs_start_orig
             "uh_studiepoeng_grad",  # old_name: studpoeng_grad
-            "uh_studierett",  # old_name: studrett
+            "uh_erstudierett",  # old_name: studrett
             "uh_fakultet",  # old_name: fakultet
             "gro_fravaer_timer",  # old_name: f_timer
             "gro_fravaer_dager",  # old_name: f_dager
@@ -280,7 +280,7 @@
             #"utd_skoleaar_slutt", # Vi trenger kun skoleaar_start
             "fa_ergodkjent_fagskoleutd",  # old_name: fagskoleutd  # Kan denne utledes fra nus isteden?
             "gro_elevstatus",  # old_name: elevstatus
-            "vg_vedtak_saerskilt_spraak",  # old_name: fkurskod
+            "vg_ervedtak_saer_spraak",  # old_name: fkurskod
             "vg_kursprosent",  # old_name: delpros
             "gro_programomraade",  # Gamle fkurskod?
             "vg_karakterpoeng",

@@ -127,13 +127,14 @@
     derived_from = ["utd_klassetrinn_lav_hoy_nus"]
 
 
-[variables.utd_erhistorisk_foreldet_fag_nus]
+[variables.utd_erforeldet_kode_nus]
     unit = "utd"
     dtype = "BOOLEAN"  # Only code is '*' and can be converted to a bool
     length = [1]
     klass_codelist = 36
     klass_variant_search_term = "Historisk kode"
     derived_from = ["nus2000"]
+    renamed_from = ["utd_erhistorisk_foreldet_fag_nus"]
 
 [variables.utd_samle_eller_enkeltutd_nus]
     unit = "utd"
