@@ -1,11 +1,10 @@
 ## Datatypesetting på nye variabler - Er dette korrekt?
 vg_antall_fag_elevkurs (unit vgs, dtype INTEGER)
 vg_karakterpoeng (unit vgs, dtype FLOAT)
-vg_vedtak_saerskilt_spraak (unit vgs, dtype BOOLEAN)
+vg_ervedtak_saer_spraak (unit vgs, dtype BOOLEAN)
 vg_prove_dato (unit tid, dtype DATETIME)
 uh_campus_kommune (unit uh, dtype STRING, length [4], klass_codelist=131; renamed_from ['campus_kom'])
-uh_hovedaktivitet (unit uh, dtype STRING; renamed_from ['hovedprogram'])
-uh_permisjon (unit uh, dtype BOOLEAN; renamed_from ['permisjon'])
+uh_erpermisjon (unit uh, dtype BOOLEAN; renamed_from ['permisjon'])
 uh_undervisningsspraak (unit uh, dtype STRING; renamed_from ['undervisningssprak'])
 utd_orgnr_navn_inn (unit skole, dtype STRING; renamed_from ['skolenavn'])
 vg_ny_laerling (unit vgs, dtype BOOLEAN; renamed_from ['nylaerl'])
