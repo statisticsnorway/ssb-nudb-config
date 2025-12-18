@@ -5,7 +5,7 @@
 [variables.vg_kompetanse_nus_label]
     unit = "vg"
     dtype = "STRING"
-    derived_from = ["vg_kompetanse_nus"] 
+    derived_from = ["vg_kompetanse_nus"]
 
 [variables.vg_kurstrinn_nus_label]
     unit = "vg"
