@@ -95,19 +95,19 @@
         "utd_klassetrinn",
         "utd_utdanningstype",
         "utd_utveksling",
-        "utd_skolekom",       
+        "utd_skolekom",
         "fuh_nett_eller_stedbasert",
         "fuh_opptaksgrunnlag",
         "fuh_utvekslingsland",
         "uh_institusjon_id",
-        "uh_permisjon",
+        "uh_erpermisjon",
         "uh_statsborgerskap_inn",
-        "uh_studierett",
+        "uh_erstudierett",
         "uh_studienivaa",
         "uh_utdplan",
         "uh_studieprogram",
         "uh_studieprogresjon_hoest",
-        "uh_utland",
+        "uh_erutland",
         "uh_studgrunnlagsland",
         "uh_studieland",
         "uh_utvekslingsavtale",
@@ -152,7 +152,7 @@
             "gro_programomraade",
             "gro_elevstatus",
             "gro_skolenr_inn",
-            
+
         ]
 
         [datasets.avslutta_grunnskole.thresholds_empty]
@@ -191,7 +191,7 @@
             "vg_rettstype_inntak",
             "vg_kursprosent",
             "vg_karakterpoeng",
-            "vg_vedtak_saerskilt_spraak",
+            "vg_ervedtak_saer_spraak",
             "vg_bevistype",
             "vg_provekandtype",
             "vg_provenr",
