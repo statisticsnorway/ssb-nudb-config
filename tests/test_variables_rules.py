@@ -61,3 +61,28 @@ def test_derived_from_references_existing_variables() -> None:
         "derived_from references must point to existing variables: "
         f"{missing_dependencies}"
     )
+
+
+def test_variables_with_codelist_have_label_variant() -> None:
+    offenders: list[str] = []
+
+    for name, var in settings.variables.items():
+        klass_codelist = getattr(var, "klass_codelist", None)
+        if not (isinstance(klass_codelist, int) and klass_codelist > 0):
+            continue
+
+        dtype = str(getattr(var, "dtype", "") or "").upper()
+        outdated_comment = getattr(var, "outdated_comment", None)
+        outdated_filled = bool(outdated_comment) and str(outdated_comment).strip() != ""
+
+        # Boolean or explicitly outdated variables should not require a label variant
+        if dtype == "BOOLEAN" or outdated_filled:
+            continue
+
+        if f"{name}_label" not in settings.variables:
+            offenders.append(name)
+
+    assert offenders == [], (
+        "Variables with 'klass_codelist' > 0 must have a corresponding "
+        f"'{{variable_name}}_label' entry: {sorted(offenders)}"
+    )

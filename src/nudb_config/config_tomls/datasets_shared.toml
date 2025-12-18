@@ -56,6 +56,9 @@
             "uh_studieprogresjon_hoest",  # old_name: studieprogresjon_h
             "uh_statsborgerskap_inn",  # old_name: statb_meldt
             "fa_hovedaktivitet",
+            "fa_institusjon_id",
+            "fa_studiestednr_inn",
+            "fa_utveksl_varighet_dager",
             "fuh_nett_eller_stedbasert",  # old_name: organisering
             #"vg_ervedtak_saer_spraak",  # old_name:   - vedtak om særskilt språkopplæring blir rapportert på ssbResultat, så skal kun på avslutta
             "vg_kontraktstype",  # old_name: kontraktstype
@@ -147,6 +150,8 @@
             'uh_studienivaa',  # old_name: studnivaa
             'uh_studieprogram_navn',  # old_name: studprog_navn
             'uh_emnekode_navn',  # old_name: emnekode_navn
+            'uh_fullfoertkode_inn',
+            'uh_campus_kommune',
             # 'foedselsdato',
             # 'start_dato',
             # 'slutt_dato',
@@ -289,6 +294,10 @@
             "gro_skolenr_inn",  # old_name: fskolenr
             "vg_provekandtype",  # old_name: provekandtype
             "vg_utdprogram",
+            "uh_campus_kommune",
+            "fa_karakter",
+            "fa_institusjon_id",
+            "fa_studiestednr_inn",
             ]
         [datasets.avslutta.dataset_specific_renames]
             ftype = "vg_provekandtype"
