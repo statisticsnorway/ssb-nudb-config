@@ -1,0 +1,79 @@
+####################################################
+# Variabler som kan utledes fra NUS2000-kodeverket #
+####################################################
+
+[variables.vg_kompetanse_nus_label]
+    unit = "vg"
+    dtype = "STRING"
+    derived_from = ["vg_kompetanse_nus"] 
+
+[variables.vg_kurstrinn_nus_label]
+    unit = "vg"
+    dtype = "STRING"
+    derived_from = ["vg_kurstrinn_nus"]
+
+[variables.fa_studiepoeng_nus_label]
+    unit = "fa"
+    dtype = "STRING"
+    derived_from = ["fa_studiepoeng_nus"]
+
+
+[variables.uh_univ_eller_hogskole_label]
+    unit = "uh"
+    dtype = "STRING"
+    derived_from = ["uh_univ_eller_hogskole"]
+
+
+[variables.uh_studiepoeng_nus_label]
+    unit = "uh"
+    dtype = "STRING"
+    derived_from = ["uh_studiepoeng_nus"]
+
+
+[variables.uh_gradmerke_nus_label]
+    unit = "uh"
+    dtype = "STRING"
+    derived_from = ["uh_gradmerke_nus"]
+
+
+[variables.uh_gruppering_nus_label]
+    unit = "uh"
+    dtype = "STRING"
+    derived_from = ["uh_gruppering_nus"]
+
+
+[variables.utd_klassetrinn_lav_hoy_nus_label]
+    unit = "utd"
+    dtype = "STRING"
+    derived_from = ["utd_klassetrinn_lav_hoy_nus"]
+
+
+[variables.utd_samle_eller_enkeltutd_nus_label]
+    unit = "utd"
+    dtype = "STRING"
+    derived_from = ["utd_samle_eller_enkeltutd_nus"]
+
+[variables.utd_varighet_antall_mnd_nus_label]
+    unit = "utd"
+    dtype = "STRING"
+    derived_from = ["utd_varighet_antall_mnd_nus"]
+
+[variables.utd_utdanningsprogram_nus_label]
+    unit = "utd"
+    dtype = "STRING"
+    derived_from = ["utd_utdanningsprogram_nus"]
+
+[variables.utd_isced2011_programmes_nus_label]
+    unit = "utd"
+    dtype = "STRING"
+    derived_from = ["utd_isced2011_programmes_nus"]
+
+[variables.utd_isced2011_attainment_nus_label]
+    unit = "utd"
+    dtype = "STRING"
+    derived_from = ["utd_isced2011_attainment_nus"]
+
+[variables.utd_isced2013_fagfelt_nus_label]
+    unit = "utd"
+    dtype = "STRING"
+    derived_from = ["utd_isced2013_fagfelt_nus"]
