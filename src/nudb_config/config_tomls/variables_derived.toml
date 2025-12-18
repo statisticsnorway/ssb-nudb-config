@@ -164,22 +164,22 @@
     unit = "utd"
     dtype = "STRING"
     length = [3]
-    klass_codelist = 36
-    klass_correspondence_to = 139
+    klass_codelist = 139
+    klass_correspondence_to = 36
     derived_from = ["nus2000"]
 
 [variables.utd_isced2011_attainment_nus]
     unit = "utd"
     dtype = "STRING"
     length = [3]
-    klass_codelist = 36
-    klass_correspondence_to = 140
+    klass_codelist = 140
+    klass_correspondence_to = 36
     derived_from = ["nus2000"]
 
 [variables.utd_isced2013_fagfelt_nus]
     unit = "utd"
     dtype = "STRING"
     length = [4]
-    klass_codelist = 36
-    klass_correspondence_to = 141
+    klass_codelist = 141
+    klass_correspondence_to = 36
     derived_from = ["nus2000"]

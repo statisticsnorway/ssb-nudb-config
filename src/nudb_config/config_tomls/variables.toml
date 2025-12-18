@@ -401,7 +401,7 @@ variables_sort_unit = [
 		unit = "fuh"
 		dtype = "STRING"
 		length = [1]
-		renamed_from = ["realkomp"]
+		renamed_from = ["realkomp", "uh_realkompetanse"]
 		klass_codelist = 795
 
 ############################################
