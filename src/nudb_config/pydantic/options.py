@@ -6,7 +6,7 @@ from .dotmap import DotMap
 
 
 class OptionEntry(BaseModel, DotMap):
-    """Options configuration for a named environment under ``[options]``.
+    """Options configuration under ``[options]``.
 
     Attributes:
         warn_unsafe_derive: If we should warn of unsafe derivations.
@@ -19,7 +19,7 @@ class OptionsFile(BaseModel, DotMap):
     """Root schema of ``options.toml``.
 
     Attributes:
-        options: Mapping of environment name to its options configuration.
+        options: Options configuration block.
     """
 
-    options: dict[str, OptionEntry]
+    options: OptionEntry
