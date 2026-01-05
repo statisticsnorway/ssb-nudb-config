@@ -11,6 +11,7 @@ from pydantic import ConfigDict
 from .datasets import Dataset
 from .datasets import DatasetsFile
 from .dotmap import DotMap
+from .options import OptionsFile
 from .paths import PathsFile
 from .settings import SettingsFile
 from .variables import Variable
@@ -20,7 +21,7 @@ from .variables import VariablesFile
 class NudbConfig(BaseModel, DotMap):
     """Unified configuration built from the TOML files.
 
-    This model aggregates values from ``settings.toml``, ``variables.toml``,
+    This model aggregates values from ``settings.toml`` ,``options.toml``, ``variables.toml``,
     ``variables_outdated.toml`` (if present), ``datasets.toml``, and
     ``paths.toml``. It mirrors the top-level structure
     exposed by the Dynaconf-based loader to preserve compatibility. Any
@@ -31,25 +32,24 @@ class NudbConfig(BaseModel, DotMap):
         model_config: Pydantic configuration allowing arbitrary DotMap content.
         dapla_team: Team identifier from ``settings.toml``.
         short_name: Short project name from ``settings.toml``.
-        utd_nacekoder: NACE codes from ``settings.toml``.
         variables_sort_unit: Unit sort order from ``variables.toml``.
         variables: Mapping of variable name to definition.
         datasets: Mapping of dataset name to configuration.
         paths: Mapping of environment name to paths configuration.
+        options: Options from ``options.toml``.
     """
 
     model_config = ConfigDict(arbitrary_types_allowed=True)
 
     dapla_team: str
     short_name: str
-    utd_nacekoder: list[str]
 
     variables_sort_unit: list[str] | None = None
     variables: Any
 
     datasets: DotMap
-
     paths: DotMap
+    options: DotMap
 
 
 # Ensure forward refs are resolved for Pydantic
@@ -103,10 +103,12 @@ def load_pydantic_settings() -> NudbConfig:
     cfg_dir = base / "config_tomls"
 
     # Read individual toml files
-    paths_toml = _load_toml(cfg_dir / "paths.toml")
     settings_toml = _load_toml(cfg_dir / "settings.toml")
-    paths_file = PathsFile.model_validate(paths_toml)
     settings_file = SettingsFile.model_validate(settings_toml)
+    paths_toml = _load_toml(cfg_dir / "paths.toml")
+    paths_file = PathsFile.model_validate(paths_toml)
+    options_toml = _load_toml(cfg_dir / "options.toml")
+    options_file = OptionsFile.model_validate(options_toml)
 
     # Variable-toml was getting too big so we split the variables across different tomls
     variables_paths = cfg_dir.glob("variables*.toml")
@@ -134,9 +136,9 @@ def load_pydantic_settings() -> NudbConfig:
     return NudbConfig(
         dapla_team=settings_file.dapla_team,
         short_name=settings_file.short_name,
-        utd_nacekoder=settings_file.utd_nacekoder,
         variables_sort_unit=variables_sort_unit_list,
         variables=DotMap(merged_variables),
         datasets=DotMap(merged_datasets),
         paths=DotMap(paths_file.paths),
+        options=DotMap(options_file.options),
     )
