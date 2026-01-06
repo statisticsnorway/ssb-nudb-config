@@ -11,22 +11,6 @@
     derived_from = ["utd_skoleaar_start"]
 
 
-
-#################################################
-# Variabler som utledes ved hjelp av FREGs data #
-#################################################
-
-# TODO: Enable once sosbak handling is implemented in the other code base.
-# [variables.pers_16aar_foreldres_utdnivaa]
-#     unit = "pers"
-#     dtype = "STRING"
-#     renamed_from = ["sosbak"]
-#     derived_from = ["nus2000", "pers_foedselsdato", "snr_far", "snr_mor"]
-
-
-
-
-
 ####################################################
 # Variabler som kan utledes fra NUS2000-kodeverket #
 ####################################################
@@ -183,3 +167,98 @@
     klass_codelist = 141
     klass_correspondence_to = 36
     derived_from = ["nus2000"]
+
+
+#############################################################################
+# Variabler som krever all utdanningsdata som utgangspunkt for å bli korrekt #
+#############################################################################
+
+[variables.utd_hoyeste_nus2000]
+    unit = "utd"
+    dtype = "STRING"
+    length = [6]
+    klass_codelist = 36
+    renamed_from = ["bu"]
+    derived_from = ["nus2000"]
+
+[variables.utd_foreldres_utdnivaa_16aar]
+     unit = "utd"
+     dtype = "STRING"
+     renamed_from = ["sosbak"]
+     derived_from = ["utd_hoyeste_nus2000", "pers_foedselsdato", "snr_far", "snr_mor"]
+
+
+[variables.uh_foerste_nus2000]
+    unit = "uh"
+    dtype = "STRING"
+    length = [6]
+    klass_codelist = 36
+    derived_from = ["nus2000"]
+
+[variables.gr_foerste_fullfoert_dato]
+    unit = "gr"
+    dtype = "DATETIME"
+    renamed_from = ["aar_forste_fullf_gs"]
+    derived_from = ["nus2000", "utd_fullfoertkode"]  # ???
+
+[variables.vg_foerste_fullfoert_dato]
+    unit = "vg"
+    dtype = "DATETIME"
+    renamed_from = ["aar_forste_fullf_vs", "aar_forste_fullf_vs_lov"]
+    derived_from = ["nus2000", "utd_fullfoertkode"]  # ???
+
+[variables.vg_studiespess_foerste_fullfoert_dato]
+    unit = "vg"
+    dtype = "DATETIME"
+    renamed_from = ["aar_forste_fullf_vsa", "aar_forste_fullf_vsa_lov"]
+    derived_from = ["nus2000", "utd_fullfoertkode"]  # ???
+
+[variables.vg_yrkesfag_foerste_fullfoert_dato]
+    unit = "vg"
+    dtype = "DATETIME"
+    renamed_from = ["aar_forste_fullf_vsy", "aar_forste_fullf_vsy_lov"]
+    derived_from = ["nus2000", "utd_fullfoertkode"]  # ???
+
+
+
+[variables.uh_foerste_registrert_dato]
+    unit = "uh"
+    dtype = "DATETIME"
+    renamed_from = ["aar_forste_reg_uh"]
+    derived_from = ["nus2000", "utd_fullfoertkode"]  # ???
+
+[variables.uh_hoyskolekandidat_foerste_fullfoert_dato]
+    unit = "uh"
+    dtype = "DATETIME"
+    renamed_from = ["aar_forste_fullf_hoy"]
+    derived_from = ["nus2000", "utd_fullfoertkode"]  # ???
+
+
+[variables.uh_bachelor_foerste_registrert_dato]
+    unit = "uh"
+    dtype = "DATETIME"
+    derived_from = ["nus2000", "utd_fullfoertkode"]  # ???
+
+[variables.uh_bachelor_foerste_fullfoert_dato]
+    unit = "uh"
+    dtype = "DATETIME"
+    renamed_from = ["aar_forste_fullf_bach"]
+    derived_from = ["nus2000", "utd_fullfoertkode"]  # ???
+
+[variables.uh_master_foerste_fullfoert_dato]
+    unit = "uh"
+    dtype = "DATETIME"
+    renamed_from = ["aar_forste_fullf_hov"]
+    derived_from = ["nus2000", "utd_fullfoertkode"]  # ???
+
+[variables.uh_master_foerste_registrert_dato]
+    unit = "uh"
+    dtype = "DATETIME"
+    renamed_from = ["aar_forste_reg_hov"]
+    derived_from = ["nus2000", "utd_fullfoertkode"]  # ???
+
+[variables.uh_doktorgrad_foerste_fullfoert_dato]
+    unit = "uh"
+    dtype = "DATETIME"
+    renamed_from = ["aar_forste_reg_dok"]
+    derived_from = ["nus2000", "utd_fullfoertkode"]  # ???
