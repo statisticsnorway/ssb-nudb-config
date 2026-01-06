@@ -20,6 +20,8 @@ try:  # Detect Pydantic models without hard-coding a runtime dependency
 except Exception:
     _PydanticBaseModel = object  # type: ignore
 
+UNRECOGNIZED = "Unrecognized key datatype"
+
 
 class DotMap:
     """Provide dot- and item-access for wrappers and Pydantic models.
@@ -87,7 +89,7 @@ class DotMap:
         elif isinstance(key, str):
             key_str = key
         else:
-            raise TypeError("Unrecognized key datatype")
+            raise TypeError(UNRECOGNIZED)
 
         try:
             return getattr(self, key_str)
@@ -116,7 +118,7 @@ class DotMap:
         elif isinstance(key, str):
             key_str = key
         else:
-            raise TypeError("Unrecognized key datatype")
+            raise TypeError(UNRECOGNIZED)
 
         try:
             setattr(self, key_str, value)
@@ -250,7 +252,7 @@ class DotMapDict(Generic[T]):
         if isinstance(key, int):
             key = list(self._data.keys())[key]
         if not isinstance(key, str):
-            raise TypeError("Unrecognized key datatype")
+            raise TypeError(UNRECOGNIZED)
         try:
             return self._data[key]
         except KeyError as exc:
@@ -261,7 +263,7 @@ class DotMapDict(Generic[T]):
         if isinstance(key, int):
             key = list(self._data.keys())[key]
         if not isinstance(key, str):
-            raise TypeError("Unrecognized key datatype")
+            raise TypeError(UNRECOGNIZED)
         self._data[key] = self._coerce_value(value)
 
     def __delitem__(self, key: str) -> None:

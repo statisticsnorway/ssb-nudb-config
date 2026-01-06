@@ -62,6 +62,54 @@ def _load_toml(path: Path) -> dict[str, object]:
         return tomllib.load(fh)
 
 
+def _iter_variable_paths(cfg_dir: Path) -> list[Path]:
+    """Return variable TOML paths excluding derived label entries."""
+    return [
+        path
+        for path in cfg_dir.glob("variables*.toml")
+        if path.name != "variables_derived_label.toml"
+    ]
+
+
+def _load_variables(cfg_dir: Path) -> VariablesFile:
+    """Load and merge variables, generating derived label entries."""
+    merged_variables: DotMapDict[Variable] = DotMapDict(value_type=Variable)
+    variables_sort_unit_list: None | list[str] = None
+    derived_file: VariablesFile | None = None
+
+    for path in _iter_variable_paths(cfg_dir):
+        var_toml = _load_toml(path)
+        var_file: VariablesFile = VariablesFile.model_validate(var_toml)
+        if path.name == "variables_derived.toml":
+            derived_file = var_file
+        for key, variable in var_file.variables.items():
+            merged_variables[key] = variable
+        if getattr(var_file, "variables_sort_unit", None) is not None:
+            variables_sort_unit_list = var_file.variables_sort_unit
+
+    variables_file = VariablesFile(
+        variables=merged_variables,
+        variables_sort_unit=variables_sort_unit_list,
+    )
+    if derived_file is not None:
+        label_variables = _expand_derived_label_variables(derived_file)
+        for key, variable in label_variables.items():
+            if key not in variables_file.variables:
+                variables_file.variables[key] = variable
+    return _expand_codelist_extras(variables_file)
+
+
+def _load_datasets(cfg_dir: Path) -> DatasetsFile:
+    """Load and merge dataset TOML files."""
+    merged_datasets: DotMapDict[Dataset] = DotMapDict(value_type=Dataset)
+    for path in cfg_dir.glob("datasets*.toml"):
+        datatoml = _load_toml(path)
+        data_file: DatasetsFile = DatasetsFile.model_validate(datatoml)
+        for key, dataset in data_file.datasets.items():
+            merged_datasets[key] = dataset
+    return DatasetsFile(datasets=merged_datasets)
+
+
 def load_pydantic_settings() -> NudbConfig:
     """Load and assemble configuration using Pydantic models.
 
@@ -86,43 +134,8 @@ def load_pydantic_settings() -> NudbConfig:
     options_toml = _load_toml(cfg_dir / "options.toml")
     options_file = OptionsFile.model_validate(options_toml)
 
-    # Variable-toml was getting too big so we split the variables across different tomls
-    variables_paths = cfg_dir.glob("variables*.toml")
-    merged_variables: DotMapDict[Variable] = DotMapDict(value_type=Variable)
-    variables_sort_unit_list: None | list[str] = None
-    derived_file: VariablesFile | None = None
-    for path in variables_paths:
-        var_toml = _load_toml(path)
-        var_file: VariablesFile = VariablesFile.model_validate(var_toml)
-        if path.name == "variables_derived.toml":
-            derived_file = var_file
-        # Merge variable definitions
-        for key, variable in var_file.variables.items():
-            merged_variables[key] = variable
-        # Capture the sort order if present on this file
-        if getattr(var_file, "variables_sort_unit", None) is not None:
-            variables_sort_unit_list = var_file.variables_sort_unit
-    variables_file = VariablesFile(
-        variables=merged_variables,
-        variables_sort_unit=variables_sort_unit_list,
-    )
-    if derived_file is not None:
-        label_variables = _expand_derived_label_variables(derived_file)
-        for key, variable in label_variables.items():
-            if key not in variables_file.variables:
-                variables_file.variables[key] = variable
-    variables_file = _expand_codelist_extras(variables_file)
-
-    # Dataset-toml was split
-    merged_datasets: DotMapDict[Dataset] = DotMapDict(value_type=Dataset)
-    datasets_paths = cfg_dir.glob("datasets*.toml")
-    for path in datasets_paths:
-        datatoml = _load_toml(path)
-        data_file: DatasetsFile = DatasetsFile.model_validate(datatoml)
-        # Merge variable definitions
-        for key, dataset in data_file.datasets.items():
-            merged_datasets[key] = dataset
-    dataset_file = DatasetsFile(datasets=merged_datasets)
+    variables_file = _load_variables(cfg_dir)
+    dataset_file = _load_datasets(cfg_dir)
 
     return NudbConfig(
         dapla_team=settings_file.dapla_team,
