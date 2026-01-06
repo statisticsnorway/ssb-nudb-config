@@ -12,12 +12,15 @@ def test_variables_sort_unit() -> None:
 def test_variables_name_field() -> None:
     assert all([isinstance(x.name, str) and len(x.name) for x in settings.variables])
 
+
 def test_inserting_non_existant_field_raises() -> None:
     with pytest.raises(ValueError, match="has no field"):
         settings.options["non_existant_field"] = "should error"
 
+
 def test_nus_label_klass_variable_dynamic_created() -> None:
     assert "fa_studiepoeng_nus_label" in settings.variables.keys()
+
 
 def test_renamed_from_entries_are_unique_across_variables() -> None:
     renamed_index: dict[str, str] = {}
