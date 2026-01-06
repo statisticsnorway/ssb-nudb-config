@@ -1,11 +1,10 @@
 from __future__ import annotations
 
-from pydantic import BaseModel
+from .dotmap import DotMapBaseModel
+from .dotmap import DotMapDict
 
-from .dotmap import DotMap
 
-
-class PathEntry(BaseModel, DotMap):
+class PathEntry(DotMapBaseModel):
     """Path configuration for a named environment under ``[paths]``.
 
     Attributes:
@@ -13,17 +12,17 @@ class PathEntry(BaseModel, DotMap):
         delt_utdanning: Location of shared education data.
     """
 
-    katalog: str = ""
+    katalog: str | None = None
     delt_utdanning: str = ""
 
     # __getitem__ provided by DotMap
 
 
-class PathsFile(BaseModel, DotMap):
+class PathsFile(DotMapBaseModel):
     """Root schema of ``paths.toml``.
 
     Attributes:
         paths: Mapping of environment name to its paths configuration.
     """
 
-    paths: dict[str, PathEntry]
+    paths: DotMapDict[PathEntry]

@@ -1,5 +1,2 @@
 dapla_team = "utd-nudb"
 short_name = "nudb-data"
-
-# Config choices processing
-warn_unsafe_derive = true
