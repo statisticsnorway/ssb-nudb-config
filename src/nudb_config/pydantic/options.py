@@ -1,25 +1,19 @@
 from __future__ import annotations
 
-from pydantic import BaseModel
-
-from .dotmap import DotMap
+from .dotmap import DotMapBaseModel
 
 
-class OptionEntry(BaseModel, DotMap):
-    """Options configuration under ``[options]``.
+class Options(DotMapBaseModel):
+    """Typed options configuration under ``[options]``."""
 
-    Attributes:
-        warn_unsafe_derive: If we should warn of unsafe derivations.
-    """
-
-    warn_unsafe_derive: bool
+    warn_unsafe_derive: bool = True
 
 
-class OptionsFile(BaseModel, DotMap):
+class OptionsFile(DotMapBaseModel):
     """Root schema of ``options.toml``.
 
     Attributes:
         options: Options configuration block.
     """
 
-    options: OptionEntry
+    options: Options

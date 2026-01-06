@@ -1,11 +1,10 @@
 from __future__ import annotations
 
-from pydantic import BaseModel
+from .dotmap import DotMapBaseModel
+from .dotmap import DotMapDict
 
-from .dotmap import DotMap
 
-
-class Dataset(BaseModel, DotMap):
+class Dataset(DotMapBaseModel):
     """Dataset configuration entry under ``[datasets]``.
 
     Attributes:
@@ -16,18 +15,18 @@ class Dataset(BaseModel, DotMap):
         dataset_specific_renames: Custom renames to apply only for this dataset.
     """
 
-    variables: list[str] = []
+    variables: list[str] | None = None
     thresholds_empty: dict[str, float] | None = None
     min_values: dict[str, str] | None = None
     max_values: dict[str, str] | None = None
     dataset_specific_renames: dict[str, str] | None = None
 
 
-class DatasetsFile(BaseModel, DotMap):
+class DatasetsFile(DotMapBaseModel):
     """Root schema of ``datasets.toml``.
 
     Attributes:
         datasets: Mapping of dataset name to its configuration.
     """
 
-    datasets: dict[str, Dataset]
+    datasets: DotMapDict[Dataset]

@@ -4,16 +4,16 @@ from typing import Any
 from typing import Literal
 
 import klass
-from pydantic import BaseModel
 from pydantic import ConfigDict
 from pydantic import model_validator
 
-from .dotmap import DotMap
+from .dotmap import DotMapBaseModel
+from .dotmap import DotMapDict
 
 DTYPE_FIELD_TYPE = Literal["INTEGER", "FLOAT", "STRING", "DATETIME", "BOOLEAN"]
 
 
-class Variable(BaseModel, DotMap):
+class Variable(DotMapBaseModel):
     """Definition of a single variable from ``variables.toml``.
 
     Attributes:
@@ -84,7 +84,7 @@ class Variable(BaseModel, DotMap):
         return self
 
 
-class VariablesFile(BaseModel, DotMap):
+class VariablesFile(DotMapBaseModel):
     """Root schema of ``variables.toml``.
 
     Attributes:
@@ -93,7 +93,7 @@ class VariablesFile(BaseModel, DotMap):
     """
 
     variables_sort_unit: list[str] | None = None
-    variables: dict[str, Variable]
+    variables: DotMapDict[Variable]
 
     @model_validator(mode="before")
     @classmethod

@@ -1,11 +1,9 @@
 from __future__ import annotations
 
-from pydantic import BaseModel
-
-from .dotmap import DotMap
+from .dotmap import DotMapBaseModel
 
 
-class SettingsFile(BaseModel, DotMap):
+class SettingsFile(DotMapBaseModel):
     """Root schema of ``settings.toml``.
 
     Attributes:
