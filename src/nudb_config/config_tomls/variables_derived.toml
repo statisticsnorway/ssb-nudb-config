@@ -193,31 +193,39 @@
     dtype = "STRING"
     length = [6]
     klass_codelist = 36
-    derived_from = ["nus2000"]
+    derived_from = ["nus2000", "utd_aktivitet_start"]
 
 [variables.gr_foerste_fullfoert_dato]
     unit = "gr"
     dtype = "DATETIME"
     renamed_from = ["aar_forste_fullf_gs"]
-    derived_from = ["nus2000", "utd_fullfoertkode"]  # ???
+    derived_from = ["nus2000", "utd_fullfoertkode", "utd_aktivitet_start", "utd_aktivitet_slutt"]
+
+
+
+[variables.vg_foerste_registrert_dato]
+    unit = "vg"
+    dtype = "DATETIME"
+    renamed_from = ["aar_ny_i_vid_utd", "aar_ny_i_vid_utd_lov"]
+    derived_from = ["nus2000", "utd_aktivitet_start"]  # Kan vi utlede "startet på vg" kun fra nus2000, også for eldre rader?
 
 [variables.vg_foerste_fullfoert_dato]
     unit = "vg"
     dtype = "DATETIME"
     renamed_from = ["aar_forste_fullf_vs", "aar_forste_fullf_vs_lov"]
-    derived_from = ["nus2000", "utd_fullfoertkode"]  # ???
+    derived_from = ["utd_fullfoertkode", "nus2000", "utd_aktivitet_start", "utd_aktivitet_slutt", "vg_utdprogram", "vg_kompetanse_nus"]
 
 [variables.vg_studiespess_foerste_fullfoert_dato]
     unit = "vg"
     dtype = "DATETIME"
     renamed_from = ["aar_forste_fullf_vsa", "aar_forste_fullf_vsa_lov"]
-    derived_from = ["nus2000", "utd_fullfoertkode"]  # ???
+    derived_from = ["utd_fullfoertkode", "nus2000", "utd_aktivitet_start", "utd_aktivitet_slutt", "vg_utdprogram", "vg_kompetanse_nus"]
 
 [variables.vg_yrkesfag_foerste_fullfoert_dato]
     unit = "vg"
     dtype = "DATETIME"
     renamed_from = ["aar_forste_fullf_vsy", "aar_forste_fullf_vsy_lov"]
-    derived_from = ["nus2000", "utd_fullfoertkode"]  # ???
+    derived_from = ["utd_fullfoertkode", "nus2000", "utd_aktivitet_start", "utd_aktivitet_slutt", "vg_utdprogram", "vg_kompetanse_nus"]
 
 
 
@@ -225,19 +233,19 @@
     unit = "uh"
     dtype = "DATETIME"
     renamed_from = ["aar_forste_reg_uh"]
-    derived_from = ["nus2000", "utd_fullfoertkode"]  # ???
+    derived_from = ["nus2000", "utd_aktivitet_start"]
 
 [variables.uh_hoyskolekandidat_foerste_fullfoert_dato]
     unit = "uh"
     dtype = "DATETIME"
     renamed_from = ["aar_forste_fullf_hoy"]
-    derived_from = ["nus2000", "utd_fullfoertkode"]  # ???
+    derived_from = ["nus2000", "utd_fullfoertkode", "uh_gruppering_nus", "utd_aktivitet_start", "utd_aktivitet_slutt"]
 
 
 [variables.uh_bachelor_foerste_registrert_dato]
     unit = "uh"
     dtype = "DATETIME"
-    derived_from = ["nus2000", "utd_fullfoertkode"]  # ???
+    derived_from = ["nus2000", "utd_fullfoertkode", "uh_gruppering_nus"]  # ???
 
 [variables.uh_bachelor_foerste_fullfoert_dato]
     unit = "uh"
@@ -245,17 +253,18 @@
     renamed_from = ["aar_forste_fullf_bach"]
     derived_from = ["nus2000", "utd_fullfoertkode"]  # ???
 
+[variables.uh_master_foerste_registrert_dato]
+    unit = "uh"
+    dtype = "DATETIME"
+    renamed_from = ["aar_forste_reg_hov"] # "Hovedfag" ?
+    derived_from = ["nus2000", "utd_fullfoertkode"]  
+
 [variables.uh_master_foerste_fullfoert_dato]
     unit = "uh"
     dtype = "DATETIME"
     renamed_from = ["aar_forste_fullf_hov"]
     derived_from = ["nus2000", "utd_fullfoertkode"]  # ???
 
-[variables.uh_master_foerste_registrert_dato]
-    unit = "uh"
-    dtype = "DATETIME"
-    renamed_from = ["aar_forste_reg_hov"]
-    derived_from = ["nus2000", "utd_fullfoertkode"]  # ???
 
 [variables.uh_doktorgrad_foerste_fullfoert_dato]
     unit = "uh"
