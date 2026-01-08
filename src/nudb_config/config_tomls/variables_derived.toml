@@ -173,26 +173,19 @@
 # Variabler som krever all utdanningsdata som utgangspunkt for å bli korrekt #
 #############################################################################
 
-
-
-
-
-
-
-
 [variables.utd_hoyeste_nus2000]
     unit = "utd"
     dtype = "STRING"
     length = [6]
     klass_codelist = 36
     renamed_from = ["bu"]
-    derived_from = ["nus2000"]
+    derived_from = ["snr", "nus2000"]
 
 [variables.utd_foreldres_utdnivaa_16aar]
      unit = "utd"
      dtype = "STRING"
      renamed_from = ["sosbak"]
-     derived_from = ["utd_hoyeste_nus2000", "pers_foedselsdato", "snr_far", "snr_mor"]
+     derived_from = ["snr", "utd_hoyeste_nus2000", "pers_foedselsdato", "snr_far", "snr_mor"]
 
 
 [variables.uh_foerste_nus2000]
@@ -200,7 +193,7 @@
     dtype = "STRING"
     length = [6]
     klass_codelist = 36
-    derived_from = ["nus2000", "utd_aktivitet_start"]
+    derived_from = ["snr", "nus2000", "utd_aktivitet_start"]
 
 
 
@@ -267,7 +260,7 @@
     unit = "gr"
     dtype = "BOOLEAN"
     description_short = "Markerer rader som tilsier en fullføring av grunnskolenivå."
-    derived_from = ["utd_fullfoertkode", "nus2000", "uh_erutland"]
+    derived_from = ["snr", "utd_fullfoertkode", "nus2000", "uh_erutland"]
 
 
 
@@ -275,46 +268,46 @@
     unit = "vg"
     dtype = "BOOLEAN"
     description_short = "Markerer rader som tilsier en fullføring av videregåendenivå."
-    derived_from = ["utd_fullfoertkode", "nus2000", "vg_kompetanse_nus"]
+    derived_from = ["snr", "utd_fullfoertkode", "nus2000", "vg_kompetanse_nus"]
 
 
 [variables.vg_erstudiespess_fullfort]
     unit = "vg"
     dtype = "BOOLEAN"
     description_short = "Markerer rader som tilsier en fullføring av videregåendenivå med studiekompetanse."
-    derived_from = ["utd_fullfoertkode", "nus2000", "vg_utdprogram", "vg_kompetanse_nus", "utd_aktivitet_start"]
+    derived_from = ["snr", "utd_fullfoertkode", "nus2000", "vg_utdprogram", "vg_kompetanse_nus", "utd_aktivitet_start"]
 
 [variables.vg_eryrkesfag_fullfort]
     unit = "vg"
     dtype = "BOOLEAN"
     description_short = "Markerer rader som tilsier en fullføring av videregåendenivå med yrkesfaglig kompetanse."
-    derived_from = ["utd_fullfoertkode", "nus2000", "vg_utdprogram", "vg_kompetanse_nus", "utd_aktivitet_start"]
+    derived_from = ["snr", "utd_fullfoertkode", "nus2000", "vg_utdprogram", "vg_kompetanse_nus", "utd_aktivitet_start"]
 
 
 [variables.uh_erhoyskolekandidat_fullfort]
     unit = "uh"
     dtype = "BOOLEAN"
     description_short = "Markerer rader som tilsier en fullføring av 2-årig høyskolekandidat-utdanning. Bør kun kjøres på avslutta-data?"
-    derived_from = ["utd_fullfoertkode", "nus2000", "uh_gruppering_nus", "utd_klassetrinn"]
+    derived_from = ["snr", "utd_fullfoertkode", "nus2000", "uh_gruppering_nus", "utd_klassetrinn"]
 
 [variables.uh_erbachelor_fullfort]
     unit = "uh"
     dtype = "BOOLEAN"
     description_short = "Markerer rader som tilsier en fullføring av en bachelorgrad. Bør kun kjøres på avslutta-data?"
-    derived_from = ["utd_fullfoertkode", "nus2000", "uh_gruppering_nus"]
+    derived_from = ["snr", "utd_fullfoertkode", "nus2000", "uh_gruppering_nus"]
 
 [variables.uh_ermaster_fullfort]
     unit = "uh"
     dtype = "BOOLEAN"
     description_short = "Markerer rader som tilsier en fullføring av en mastergrad. Bør kun kjøres på avslutta-data?"
-    derived_from = ["utd_fullfoertkode", "nus2000"]
+    derived_from = ["snr", "utd_fullfoertkode", "nus2000"]
 
 
 [variables.uh_erdoktorgrad_fullfort]
     unit = "uh"
     dtype = "BOOLEAN"
     description_short = "Markerer rader som tilsier en fullføring av en doktorgrad. Bør kun kjøres på avslutta-data?"
-    derived_from = ["utd_fullfoertkode", "nus2000"]
+    derived_from = ["snr", "utd_fullfoertkode", "nus2000"]
 
 
 #############################
