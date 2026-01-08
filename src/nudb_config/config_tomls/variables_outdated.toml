@@ -251,11 +251,11 @@
 		dtype = "STRING"
 		outdated_comment = "Lite bruk, bør kunne bruke NUS isteden? Bør denne heller ligge i NUSkatalogen, evt bare lage en en variant i klass under NUSkatalogen."
 
-	[variables.uhgruppe]
-		unit = "utdatert"
-		dtype = "STRING"
-		length = [3]
-		outdated_comment = "Bør heller kobles på fra nus2000 enn ligge på datasettet?"
+	#[variables.uhgruppe]
+	#	unit = "utdatert"
+	#	dtype = "STRING"
+	#	length = [3]
+	#	outdated_comment = "Bør heller kobles på fra nus2000 enn ligge på datasettet?"
 
 	[variables.vektgrad]
 		unit = "utdatert"
