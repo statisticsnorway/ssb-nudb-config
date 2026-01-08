@@ -363,11 +363,6 @@ variables_sort_unit = [
 # "fa" - Fagskoler #
 ####################
 
-	[variables.fa_ergodkjent_fagskoleutd]
-		unit = "fa"
-		dtype = "BOOLEAN"
-		renamed_from = ["fagskoleutd"]
-
 	[variables.fa_hovedaktivitet]    # merkevariabel som prioriterer en record per person, per skoleår, per fil, innenfor fa
 		unit = "fa"
 		dtype = "STRING"  # I have no info at current time, so I dont know? C 2025-10-31
