@@ -181,11 +181,12 @@
     renamed_from = ["bu"]
     derived_from = ["snr", "nus2000"]
 
-[variables.utd_foreldres_utdnivaa_16aar]
-     unit = "utd"
-     dtype = "STRING"
-     renamed_from = ["sosbak"]
-     derived_from = ["snr", "utd_hoyeste_nus2000", "pers_foedselsdato", "snr_far", "snr_mor"]
+# Need to figure out how we can reference external variables (not owned by NUDB) we depend on, like snr_far and snr_mor - currently causing a test to fail, and rightly so
+#[variables.utd_foreldres_utdnivaa_16aar]
+#     unit = "utd"
+#     dtype = "STRING"
+#     renamed_from = ["sosbak"]
+#     derived_from = ["snr", "utd_hoyeste_nus2000", "pers_foedselsdato", "snr_far", "snr_mor"]
 
 
 [variables.uh_foerste_nus2000]
@@ -367,7 +368,7 @@
 [variables.uh_bachelor_foerste_registrert_dato]
     unit = "uh"
     dtype = "DATETIME"
-    derived_from = ["uh_erbachelor_registrering", "utd_aktivitet_start", "utd_aktivitet_slutt"] 
+    derived_from = ["uh_erbachelor_registrering", "utd_aktivitet_start", "utd_aktivitet_slutt"]
 
 [variables.uh_bachelor_foerste_fullfoert_dato]
     unit = "uh"
@@ -379,7 +380,7 @@
     unit = "uh"
     dtype = "DATETIME"
     renamed_from = ["aar_forste_reg_hov"] # "Hovedfag" ?
-    derived_from = ["uh_ermaster_registrering", "utd_aktivitet_start", "utd_aktivitet_slutt"]  
+    derived_from = ["uh_ermaster_registrering", "utd_aktivitet_start", "utd_aktivitet_slutt"]
 
 [variables.uh_master_foerste_fullfoert_dato]
     unit = "uh"
