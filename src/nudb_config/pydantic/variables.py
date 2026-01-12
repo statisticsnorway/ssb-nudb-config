@@ -47,10 +47,14 @@ class Variable(DotMapBaseModel):
     klass_variant_search_term: str | None = None
     klass_correspondence_to: int | None = None
     renamed_from: list[str] | None = None
-    derived_from: list[str] | None = None
+
     # Populated programmatically to mirror Dynaconf expansion
     codelist_extras: dict[str, str] | None = None
     outdated_comment: str | None = None
+
+    derived_from: list[str] | None = None
+    derived_uses_datasets: list[str] | None = None
+    derived_join_keys: list[str] | None = None
 
     # Populated by find_var or similar functions that actually fetch from klass
     klass_codelist_metadata: klass.KlassClassification | None = None

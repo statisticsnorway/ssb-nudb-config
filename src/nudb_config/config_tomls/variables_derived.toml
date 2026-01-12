@@ -39,7 +39,7 @@
     dtype = "BOOLEAN"
     length = [2]  # A bit stupid cause we are converting it to a bool after getting it from klass, the only code is "10" -> True...
     renamed_from = ["fagskoleutd"]
-    description_short = "Fra klass får vi de fagskoleutdanningene som er godkjent av NOKUT - dvs. norske fagskoleutdanninger."
+    description_short = "Fra klass får vi de fagskoleutdanningene som er godkjent av NOKUT - dvs. norske fagskoleutdanninger. De som har utd_utdanningstype=710 men som ikke er True/'10' i denne variabelen, er uspesifiserte koder som kommer fra alternative kilder enn NOKUT. "
     klass_codelist = 36
     klass_variant_search_term = "Fagskoleutdanning"
     derived_from = ["nus2000"]
@@ -242,7 +242,7 @@
     unit = "uh"
     dtype = "BOOLEAN"
     description_short = "Markerer rader som tilsier en registering på en bachelorgrad."
-    derived_from = ["nus2000"]
+    derived_from = ["nus2000", "uh_gruppering_nus"]
 
 [variables.uh_ermaster_registrering]
     unit = "uh"
@@ -262,7 +262,7 @@
     unit = "gr"
     dtype = "BOOLEAN"
     description_short = "Markerer rader som tilsier en fullføring av grunnskolenivå."
-    derived_from = ["snr", "utd_fullfoertkode", "nus2000", "uh_erutland"]
+    derived_from = ["utd_fullfoertkode", "nus2000", "uh_erutland"]
 
 
 
@@ -270,46 +270,46 @@
     unit = "vg"
     dtype = "BOOLEAN"
     description_short = "Markerer rader som tilsier en fullføring av videregåendenivå."
-    derived_from = ["snr", "utd_fullfoertkode", "nus2000", "vg_kompetanse_nus"]
+    derived_from = ["utd_fullfoertkode", "nus2000", "vg_kompetanse_nus"]
 
 
 [variables.vg_erstudiespess_fullfort]
     unit = "vg"
     dtype = "BOOLEAN"
     description_short = "Markerer rader som tilsier en fullføring av videregåendenivå med studiekompetanse."
-    derived_from = ["snr", "utd_fullfoertkode", "nus2000", "vg_utdprogram", "vg_kompetanse_nus", "utd_aktivitet_start"]
+    derived_from = ["utd_fullfoertkode", "nus2000", "vg_utdprogram", "vg_kompetanse_nus", "utd_aktivitet_start"]
 
 [variables.vg_eryrkesfag_fullfort]
     unit = "vg"
     dtype = "BOOLEAN"
     description_short = "Markerer rader som tilsier en fullføring av videregåendenivå med yrkesfaglig kompetanse."
-    derived_from = ["snr", "utd_fullfoertkode", "nus2000", "vg_utdprogram", "vg_kompetanse_nus", "utd_aktivitet_start"]
+    derived_from = ["utd_fullfoertkode", "nus2000", "vg_utdprogram", "vg_kompetanse_nus", "utd_aktivitet_start"]
 
 
 [variables.uh_erhoyskolekandidat_fullfort]
     unit = "uh"
     dtype = "BOOLEAN"
     description_short = "Markerer rader som tilsier en fullføring av 2-årig høyskolekandidat-utdanning. Bør kun kjøres på avslutta-data?"
-    derived_from = ["snr", "utd_fullfoertkode", "nus2000", "uh_gruppering_nus", "utd_klassetrinn"]
+    derived_from = ["utd_fullfoertkode", "nus2000", "uh_gruppering_nus", "utd_klassetrinn"]
 
 [variables.uh_erbachelor_fullfort]
     unit = "uh"
     dtype = "BOOLEAN"
     description_short = "Markerer rader som tilsier en fullføring av en bachelorgrad. Bør kun kjøres på avslutta-data?"
-    derived_from = ["snr", "utd_fullfoertkode", "nus2000", "uh_gruppering_nus"]
+    derived_from = ["utd_fullfoertkode", "uh_gruppering_nus"]
 
 [variables.uh_ermaster_fullfort]
     unit = "uh"
     dtype = "BOOLEAN"
     description_short = "Markerer rader som tilsier en fullføring av en mastergrad. Bør kun kjøres på avslutta-data?"
-    derived_from = ["snr", "utd_fullfoertkode", "nus2000"]
+    derived_from = ["utd_fullfoertkode", "nus2000"]
 
 
 [variables.uh_erdoktorgrad_fullfort]
     unit = "uh"
     dtype = "BOOLEAN"
     description_short = "Markerer rader som tilsier en fullføring av en doktorgrad. Bør kun kjøres på avslutta-data?"
-    derived_from = ["snr", "utd_fullfoertkode", "nus2000"]
+    derived_from = ["utd_fullfoertkode", "nus2000"]
 
 
 #############################
@@ -322,33 +322,42 @@
     unit = "gr"
     dtype = "DATETIME"
     renamed_from = ["aar_forste_fullf_gs"]
-    derived_from = ["gr_ergrunnskole_fullfort", "utd_aktivitet_start", "utd_aktivitet_slutt"]
-
+    derived_from = ["snr", "gr_ergrunnskole_fullfort", "utd_aktivitet_start", "utd_aktivitet_slutt"]
+    derived_uses_datasets = ["avslutta"]
+    derived_join_keys = ["snr"]
 
 
 [variables.vg_foerste_registrert_dato]
     unit = "vg"
     dtype = "DATETIME"
     renamed_from = ["aar_ny_i_vid_utd", "aar_ny_i_vid_utd_lov"]
-    derived_from = ["vg_ervgo_registrering", "utd_aktivitet_start"]  # Kan vi utlede "startet på vg" kun fra nus2000, også for eldre rader?
+    derived_from = ["snr", "vg_ervgo_registrering", "utd_aktivitet_start"]  # Kan vi utlede "startet på vg" kun fra nus2000, også for eldre rader?
+    derived_uses_datasets = ["igang", "avslutta"]
+    derived_join_keys = ["snr"]
 
 [variables.vg_foerste_fullfoert_dato]
     unit = "vg"
     dtype = "DATETIME"
     renamed_from = ["aar_forste_fullf_vs", "aar_forste_fullf_vs_lov"]
-    derived_from = ["vg_ervgo_fullfort", "utd_aktivitet_start", "utd_aktivitet_slutt"]
+    derived_from = ["snr", "vg_ervgo_fullfort", "utd_aktivitet_start", "utd_aktivitet_slutt"]
+    derived_uses_datasets = ["avslutta"]
+    derived_join_keys = ["snr"]
 
 [variables.vg_studiespess_foerste_fullfoert_dato]
     unit = "vg"
     dtype = "DATETIME"
     renamed_from = ["aar_forste_fullf_vsa", "aar_forste_fullf_vsa_lov"]
-    derived_from = ["vg_erstudiespess_fullfort", "utd_aktivitet_start", "utd_aktivitet_slutt"]
+    derived_from = ["snr", "vg_erstudiespess_fullfort", "utd_aktivitet_start", "utd_aktivitet_slutt"]
+    derived_uses_datasets = ["avslutta"]
+    derived_join_keys = ["snr"]
 
 [variables.vg_yrkesfag_foerste_fullfoert_dato]
     unit = "vg"
     dtype = "DATETIME"
     renamed_from = ["aar_forste_fullf_vsy", "aar_forste_fullf_vsy_lov"]
-    derived_from = ["vg_eryrkesfag_fullfort", "utd_aktivitet_start", "utd_aktivitet_slutt"]
+    derived_from = ["snr", "vg_eryrkesfag_fullfort", "utd_aktivitet_start", "utd_aktivitet_slutt"]
+    derived_uses_datasets = ["avslutta"]
+    derived_join_keys = ["snr"]
 
 
 
@@ -356,42 +365,56 @@
     unit = "uh"
     dtype = "DATETIME"
     renamed_from = ["aar_forste_reg_uh"]
-    derived_from = ["uh_erhoyereutd_registrering", "utd_aktivitet_start"]
+    derived_from = ["snr", "uh_erhoyereutd_registrering", "utd_aktivitet_start"]
+    derived_uses_datasets = ["igang", "avslutta"]
+    derived_join_keys = ["snr"]
 
 [variables.uh_hoyskolekandidat_foerste_fullfoert_dato]
     unit = "uh"
     dtype = "DATETIME"
     description_short = "Høyskolekandidat er en egen type 2-årig utdanning på uh-nivå."
     renamed_from = ["aar_forste_fullf_hoy"]
-    derived_from = ["uh_erhoyskolekandidat_fullfort", "utd_aktivitet_start", "utd_aktivitet_slutt"]
+    derived_from = ["snr", "uh_erhoyskolekandidat_fullfort", "utd_aktivitet_start", "utd_aktivitet_slutt"]
+    derived_uses_datasets = ["avslutta"]
+    derived_join_keys = ["snr"]
 
 
 [variables.uh_bachelor_foerste_registrert_dato]
     unit = "uh"
     dtype = "DATETIME"
-    derived_from = ["uh_erbachelor_registrering", "utd_aktivitet_start", "utd_aktivitet_slutt"]
+    derived_from = ["snr", "uh_erbachelor_registrering", "utd_aktivitet_start", "utd_aktivitet_slutt"]
+    derived_uses_datasets = ["igang", "avslutta"]
+    derived_join_keys = ["snr"]
 
 [variables.uh_bachelor_foerste_fullfoert_dato]
     unit = "uh"
     dtype = "DATETIME"
     renamed_from = ["aar_forste_fullf_bach"]
-    derived_from = ["uh_erbachelor_fullfort", "utd_aktivitet_start", "utd_aktivitet_slutt" ]
+    derived_from = ["snr", "uh_erbachelor_fullfort", "utd_aktivitet_start", "utd_aktivitet_slutt" ]
+    derived_uses_datasets = ["avslutta"]
+    derived_join_keys = ["snr"]
 
 [variables.uh_master_foerste_registrert_dato]
     unit = "uh"
     dtype = "DATETIME"
     renamed_from = ["aar_forste_reg_hov"] # "Hovedfag" ?
-    derived_from = ["uh_ermaster_registrering", "utd_aktivitet_start", "utd_aktivitet_slutt"]
+    derived_from = ["snr", "uh_ermaster_registrering", "utd_aktivitet_start", "utd_aktivitet_slutt"]
+    derived_uses_datasets = ["igang", "avslutta"]
+    derived_join_keys = ["snr"]
 
 [variables.uh_master_foerste_fullfoert_dato]
     unit = "uh"
     dtype = "DATETIME"
     renamed_from = ["aar_forste_fullf_hov"]
-    derived_from = ["uh_ermaster_fullfort", "utd_aktivitet_start", "utd_aktivitet_slutt" ]
+    derived_from = ["snr", "uh_ermaster_fullfort", "utd_aktivitet_start", "utd_aktivitet_slutt" ]
+    derived_uses_datasets = ["avslutta"]
+    derived_join_keys = ["snr"]
 
 
 [variables.uh_doktorgrad_foerste_fullfoert_dato]
     unit = "uh"
     dtype = "DATETIME"
     renamed_from = ["aar_forste_reg_dok"]
-    derived_from = ["uh_erdoktorgrad_fullfort", "utd_aktivitet_start", "utd_aktivitet_slutt" ]
+    derived_from = ["snr", "uh_erdoktorgrad_fullfort", "utd_aktivitet_start", "utd_aktivitet_slutt" ]
+    derived_uses_datasets = ["avslutta"]
+    derived_join_keys = ["snr"]
