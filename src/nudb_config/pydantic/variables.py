@@ -27,13 +27,16 @@ class Variable(DotMapBaseModel):
         klass_variant: KLASS variant identifier, if applicable.
         klass_variant_search_term: Search term used to find a variant.
         klass_correspondence_to: The Classification ID for what we are mapping from the klass_codelist to.
-        renamed_from: Previous column name(s) that map to this variable.
-        derived_from: Source variables used to derive this value.
-        codelist_extras: Additional code mappings injected at load time.
-        outdated_comment: Explanation when the unit is outdated.
         klass_codelist_metadata: Metadata fetched from KLASS for the codelist.
         klass_variant_metadata: Metadata fetched from KLASS for the variant.
+        renamed_from: Previous column name(s) that map to this variable.
+        derived_from: Source variables used to derive this value.
+        derived_uses_datasets: Names of datasets a derived variable should be derived from (in the cases it is "all-data dependent").
+        derived_join_keys: The keys the derived variable can be joined back on a dataset with, if its a variable with one value per person, this could be just "snr" for example.
+        codelist_extras: Additional code mappings injected at load time.
+        outdated_comment: Explanation when the unit is outdated.
         model_config: Pydantic configuration allowing arbitrary KLASS types.
+
     """
 
     name: str
@@ -41,24 +44,25 @@ class Variable(DotMapBaseModel):
     dtype: DTYPE_FIELD_TYPE
     description_short: str | None = None
     length: list[int] | None = None
+
     klass_codelist: int | None = None
     klass_codelist_from_date: str | None = None
     klass_variant: int | None = None
     klass_variant_search_term: str | None = None
     klass_correspondence_to: int | None = None
-    renamed_from: list[str] | None = None
+    # Populated by find_var or similar functions that actually fetch from klass
+    klass_codelist_metadata: klass.KlassClassification | None = None
+    klass_variant_metadata: klass.KlassVariant | None = None
 
-    # Populated programmatically to mirror Dynaconf expansion
-    codelist_extras: dict[str, str] | None = None
-    outdated_comment: str | None = None
+    renamed_from: list[str] | None = None
 
     derived_from: list[str] | None = None
     derived_uses_datasets: list[str] | None = None
     derived_join_keys: list[str] | None = None
 
-    # Populated by find_var or similar functions that actually fetch from klass
-    klass_codelist_metadata: klass.KlassClassification | None = None
-    klass_variant_metadata: klass.KlassVariant | None = None
+    # Populated programmatically to mirror Dynaconf expansion
+    codelist_extras: dict[str, str] | None = None
+    outdated_comment: str | None = None
 
     # klass.* types come from an external package without Pydantic hooks.
     model_config = ConfigDict(arbitrary_types_allowed=True)
