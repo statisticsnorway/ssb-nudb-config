@@ -311,18 +311,19 @@
 
     [datasets.grunnskolekarakterer]
         variables = [
+            'fnr',
             'snr',  # old_name: snr
-            #'snr_mrk',
+            'snr_valid',
+            'utd_skoleaar_start',  # old_name: skoleaar_slutt
             'utd_orgnr',  # old_name: orgnr
             'utd_skolekom',  # old_name: skolekom
-            'fagkode',
-            'stp',
-            'skr',
-            'mun',
-            'utd_skoleaar_start',  # old_name: skoleaar_slutt
-            'termin1',
-            'termin2',
-            'kar_annen',
+            'gro_fagkode_vigo',
+            'gro_karakter_skriftlig',
+            'gro_karakter_skriftlig',
+            'gro_karakter_muntlig',
+            'gro_karakter_termin1',
+            'gro_karakter_termin2',
+            'gro_karakter_praktisk_muntlig',
         ]
 
         [datasets.grunnskolekarakterer.thresholds_empty]

@@ -187,8 +187,13 @@
     dtype = "STRING"
     length = [6]
     klass_codelist = 36
+    description_short = "NUS-kode for utdanningen ved NUS-kode for høyeste utdanning"
+
+    # This needs to change as we realise more about how the BU-variable needs to be constructed
     renamed_from = ["bu"]
-    derived_from = ["snr", "nus2000"]
+    derived_from = ["snr", "nus2000", "utd_fullfoertkode"]
+    derived_uses_datasets = ["avslutta"]
+    derived_join_keys = ["snr"]
 
 # Need to figure out how we can reference external variables (not owned by NUDB) we depend on, like snr_far and snr_mor - currently causing a test to fail, and rightly so
 #[variables.utd_foreldres_utdnivaa_16aar]
@@ -211,13 +216,11 @@
 # Boolean filter for registreringer i ulike nivåer #
 ####################################################
 
-[variables.gr_ergrunnskole_registering]
+[variables.gr_ergrunnskole_registrering]
     unit = "gr"
     dtype = "BOOLEAN"
     description_short = "Markerer rader som tilsier en registering på grunnskolenivå."
     derived_from = ["nus2000", "uh_erutland"]
-
-
 
 [variables.vg_ervgo_registrering]
     unit = "vg"
@@ -324,7 +327,12 @@
 # Nivåbestemte datokolonner #
 #############################
 
-
+[variables.gr_foerste_registrert_dato]
+    unit = "gr"
+    dtype = "DATETIME"
+    derived_from = ["snr", "gr_ergrunnskole_registrering", "utd_aktivitet_start", "utd_aktivitet_slutt"]
+    derived_uses_datasets = ["igang", "avslutta"]
+    derived_join_keys = ["snr"]
 
 [variables.gr_foerste_fullfoert_dato]
     unit = "gr"

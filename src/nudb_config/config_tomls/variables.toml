@@ -36,6 +36,12 @@ variables_sort_unit = [
 		renamed_from = ["pers_id"]  # This is due to a misunderstanding with 320 and 312. Pers_id was intended to be "pseudonomized fnr", not snr. But we have misunderstood at some point.
 		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
 
+	[variables.snr_valid]
+		unit = "pers"
+		dtype = "BOOLEAN"
+		renamed_from = ["snr_mrk", "mrk_snr", "mrk_snr_nudb", "snr_nudb_mrk", "snr_mrk_nudb"]
+		description_short = "True if snr contains a valid snr - defined by existence in FREG 320 register."
+
 	[variables.fnr]
 		unit = "pers"
 		dtype = "STRING"
@@ -579,41 +585,55 @@ variables_sort_unit = [
 		klass_codelist = 91
 		renamed_from = ["statb_meldt"]
 
-##############
-# Karakterer #
-##############
+#################################################
+# Karakterer kodelister ligger i vigo-kodeverk? #
+#################################################
 
-    [variables.stp]
+	[variables.gro_fagkode_vigo]
+		unit = "gro"
+		length = [3, 6, 7]
+		dtype = "STRING"
+		renamed_from = ["fagkode"]
+
+    [variables.gro_karakter_standpunkt]
         unit = "karakter"
         dtype = "STRING"
         length = [1, 2]
+		renamed_from = ["stp"]
 
-    [variables.skr]
+    [variables.gro_karakter_skriftlig]
         unit = "karakter"
         dtype = "STRING"
         length = [1, 2]
+		renamed_from = ["skr"]
 
-    [variables.mun]
+    [variables.gro_karakter_muntlig]
         unit = "karakter"
         dtype = "STRING"
         length = [1, 2]
+		renamed_from = ["mun"]
 
     [variables.annen]
         unit = "karakter"
         dtype = "STRING"
         length = [1, 2]
+		#renamed_from = ["annen"]
+		outdated_comment = "Kombinert med 'kar_annen' -> gro_karakter_praktisk_muntlig"
 
-    [variables.termin1]
+    [variables.gro_karakter_termin1]
         unit = "karakter"
         dtype = "STRING"
         length = [1, 2]
+		renamed_from = ["termin1"]
 
-    [variables.termin2]
+    [variables.gro_karakter_termin2]
         unit = "karakter"
         dtype = "STRING"
         length = [1, 2]
+		renamed_from = ["termin2"]
 
-    [variables.kar_annen]
+    [variables.gro_karakter_praktisk_muntlig]
         unit = "karakter"
         dtype = "STRING"
         length = [1, 2]
+		renamed_from = ["kar_annen"]
