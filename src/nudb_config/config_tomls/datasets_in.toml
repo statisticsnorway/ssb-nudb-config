@@ -10,6 +10,7 @@
     variables = [
         "fnr",
         "snr",
+        "snr_mrk",
         "pers_foedselsdato",
         "pers_kjoenn",
         "utd_skoleaar_start",
@@ -47,6 +48,7 @@
     variables = [
         "fnr",
         "snr",
+        "snr_mrk",
         "pers_foedselsdato",
         "pers_kjoenn",
         "utd_skoleaar_start",
@@ -81,6 +83,7 @@
     variables = [
         "fnr",
         "snr",
+        "snr_mrk",
         "pers_foedselsdato",
         "pers_kjoenn",
         "utd_skoleaar_start",
@@ -129,6 +132,7 @@
         variables = [
 	        "fnr",
             "snr",
+            "snr_mrk",
             "pers_foedselsdato",
             "pers_kjoenn",
             "nus2000",
@@ -165,6 +169,7 @@
         variables = [
 	        "fnr",
             "snr",
+            "snr_mrk",
             "pers_foedselsdato",
             "pers_kjoenn",
             "utd_skoleaar_start",
@@ -206,6 +211,7 @@
         variables = [
 	        "fnr",
             "snr",
+            "snr_mrk",
             "pers_foedselsdato",
             "pers_kjoenn",
             "utd_skoleaar_start",
@@ -239,6 +245,7 @@
     variables = [
             "fnr",
             "snr",
+            "snr_mrk",
             "pers_foedselsdato",
             "pers_kjoenn",
             "utd_skoleaar_start",
@@ -285,6 +292,7 @@
     variables = [
             "fnr",
             "snr",
+            "snr_mrk",
             "pers_foedselsdato",
             "pers_kjoenn",
             "utd_skoleaar_start",
