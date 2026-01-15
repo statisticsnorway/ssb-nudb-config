@@ -36,10 +36,10 @@ variables_sort_unit = [
 		renamed_from = ["pers_id"]  # This is due to a misunderstanding with 320 and 312. Pers_id was intended to be "pseudonomized fnr", not snr. But we have misunderstood at some point.
 		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
 
-	[variables.snr_valid]
+	[variables.snr_mrk]
 		unit = "pers"
 		dtype = "BOOLEAN"
-		renamed_from = ["snr_mrk", "mrk_snr", "mrk_snr_nudb", "snr_nudb_mrk", "snr_mrk_nudb"]
+		renamed_from = ["snr_valid", "mrk_snr", "mrk_snr_nudb", "snr_nudb_mrk", "snr_mrk_nudb"]
 		description_short = "True if snr contains a valid snr - defined by existence in FREG 320 register."
 
 	[variables.fnr]
