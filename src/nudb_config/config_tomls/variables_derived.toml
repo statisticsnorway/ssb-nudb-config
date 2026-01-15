@@ -216,7 +216,7 @@
 # Boolean filter for registreringer i ulike nivåer #
 ####################################################
 
-[variables.gr_ergrunnskole_registering]
+[variables.gr_ergrunnskole_registrering]
     unit = "gr"
     dtype = "BOOLEAN"
     description_short = "Markerer rader som tilsier en registering på grunnskolenivå."
