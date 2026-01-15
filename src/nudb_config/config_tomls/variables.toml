@@ -36,7 +36,7 @@ variables_sort_unit = [
 		renamed_from = ["pers_id"]  # This is due to a misunderstanding with 320 and 312. Pers_id was intended to be "pseudonomized fnr", not snr. But we have misunderstood at some point.
 		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
 
-	[vasriables.snr_valid]
+	[variables.snr_valid]
 		unit = "pers"
 		dtype = "BOOLEAN"
 		renamed_from = ["snr_mrk", "mrk_snr", "mrk_snr_nudb", "snr_nudb_mrk", "snr_mrk_nudb"]
@@ -588,6 +588,12 @@ variables_sort_unit = [
 #################################################
 # Karakterer kodelister ligger i vigo-kodeverk? #
 #################################################
+
+	[variables.gro_fagkode_vigo]
+		unit = "gro"
+		length = [3, 7]
+		dtype = "STRING"
+		renamed_from = "fagkode"
 
     [variables.gro_karakter_standpunkt]
         unit = "karakter"
