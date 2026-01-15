@@ -637,3 +637,14 @@ variables_sort_unit = [
         dtype = "STRING"
         length = [1, 2]
 		renamed_from = ["kar_annen"]
+
+
+##############################
+# Populasjonsfiltervariabler #
+##############################
+
+	[variables.gr_med_pub_kargs_kar]
+		unit = "gr"
+		dtype = "BOOLEAN"
+		renamed_from = ["med_pub_kar"]
+		description_short = "If the row was part of publising in the product KARGRS in population KAR."

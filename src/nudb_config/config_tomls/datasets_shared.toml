@@ -317,23 +317,25 @@
             'utd_skoleaar_start',  # old_name: skoleaar_slutt
             'utd_orgnr',  # old_name: orgnr
             'utd_skolekom',  # old_name: skolekom
+            "gro_skolenr_inn",
             'gro_fagkode_vigo',
-            'gro_karakter_skriftlig',
+            'gro_karakter_standpunkt',
             'gro_karakter_skriftlig',
             'gro_karakter_muntlig',
             'gro_karakter_termin1',
             'gro_karakter_termin2',
             'gro_karakter_praktisk_muntlig',
+            "gr_med_pub_kargs_kar"
         ]
 
         [datasets.grunnskolekarakterer.thresholds_empty]
             snr = 0.1
             utd_orgnr = 0.1
             utd_skolekom = 0.05
-            fagkode = 0.0
-            stp = 3.0
-            skr = 93.0
-            mun = 96.0
-            termin1 = 15.0
-            termin2 = 99.93
+            gro_fagkode_vigo = 0.0
+            gro_karakter_standpunkt = 3.0
+            gro_karakter_skriftlig = 93.0
+            gro_karakter_muntlig = 96.0
+            gro_karakter_termin1 = 15.0
+            gro_karakter_termin2 = 99.93
             kar_annen = 99.99
