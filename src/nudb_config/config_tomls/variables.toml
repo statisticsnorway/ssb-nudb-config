@@ -591,9 +591,9 @@ variables_sort_unit = [
 
 	[variables.gro_fagkode_vigo]
 		unit = "gro"
-		length = [3, 7]
+		length = [3, 6, 7]
 		dtype = "STRING"
-		renamed_from = "fagkode"
+		renamed_from = ["fagkode"]
 
     [variables.gro_karakter_standpunkt]
         unit = "karakter"
