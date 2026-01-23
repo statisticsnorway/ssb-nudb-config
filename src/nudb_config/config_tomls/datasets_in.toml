@@ -78,7 +78,7 @@
         fnr = 0.0
 
 
-[datasets.igang_hoyereutdanning]
+[datasets.igang_hoeyereutdanning]
 
     variables = [
         "fnr",
@@ -120,7 +120,7 @@
         "uh_hovedaktivitet",
         ]
 
-    [datasets.igang_hoyereutdanning.thresholds_empty]
+    [datasets.igang_hoeyereutdanning.thresholds_empty]
             fnr = 0.0
 
 ############
@@ -198,9 +198,9 @@
             "vg_karakterpoeng",
             "vg_ervedtak_saer_spraak",
             "vg_bevistype",
-            "vg_provekandtype",
-            "vg_provenr",
-            "vg_prove_dato",
+            "vg_proevekandtype",
+            "vg_proevenr",
+            "vg_proeve_dato",
             "vg_fullfoertkode_detaljert",
         ]
     [datasets.avslutta_videregaaende.thresholds_empty]
@@ -240,7 +240,7 @@
             fnr = 0.0
 
 
-[datasets.avslutta_hoyereutdanning]
+[datasets.avslutta_hoeyereutdanning]
 
     variables = [
             "fnr",
@@ -276,7 +276,7 @@
             "uh_campus_kommune",
         ]
 
-    [datasets.avslutta_hoyereutdanning.thresholds_empty]
+    [datasets.avslutta_hoeyereutdanning.thresholds_empty]
             fnr = 0.0
 
 
@@ -287,7 +287,7 @@
 
 
 
-[datasets.eksamen_hoyereutdanning]
+[datasets.eksamen_hoeyereutdanning]
 
     variables = [
             "fnr",
@@ -323,5 +323,5 @@
             "uh_campus_kommune",
         ]
 
-    [datasets.eksamen_hoyereutdanning.thresholds_empty]
+    [datasets.eksamen_hoeyereutdanning.thresholds_empty]
             fnr = 0.0

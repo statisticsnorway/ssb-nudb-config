@@ -54,13 +54,13 @@
     derived_from = ["nus2000"]
 
 
-[variables.uh_univ_eller_hogskole]
+[variables.uh_univ_eller_hoegskole]
     unit = "uh"
     dtype = "STRING"
     length = [1]
     klass_codelist = 885
     renamed_from = ["univ"]
-    derived_from = ["utd_utdanningstype", "utd_datakilde"]
+    derived_from = ["utd_utdanningstype", "utd_datakilde", "uh_univ_eller_hogskole"]
     #outdated_comment = "Kan vi utlede denne istedenfor å ha den lagret på data?"
 
 [variables.uh_studiepoeng_nus]
@@ -91,25 +91,26 @@
     derived_from = ["nus2000"]
 
 
-[variables.utd_klassetrinn_lav_hoy_nus]
+[variables.utd_klassetrinn_lav_hoey_nus]
     unit = "utd"
     dtype = "STRING"
     length = [5]
-    #renamed_from = [""]
+    renamed_from = ["utd_klassetrinn_lav_hoy_nus"]
     klass_codelist = 36
     klass_variant_search_term = "Klassetrinn"
     derived_from = ["nus2000"]
-# Disse to sekundærutledes fra utd_klassetrinn_lav_hoy_nus
+
+# Disse to sekundærutledes fra utd_klassetrinn_lav_hoey_nus
 [variables.utd_klassetrinn_lav_nus]
     unit = "utd"
     dtype = "STRING"
     length = [2]
-    derived_from = ["utd_klassetrinn_lav_hoy_nus"]
-[variables.utd_klassetrinn_hoy_nus]
+    derived_from = ["utd_klassetrinn_lav_hoey_nus"]
+[variables.utd_klassetrinn_hoey_nus]
     unit = "utd"
     dtype = "STRING"
     length = [2]
-    derived_from = ["utd_klassetrinn_lav_hoy_nus"]
+    derived_from = ["utd_klassetrinn_lav_hoey_nus"]
 
 
 [variables.utd_foreldet_kode_nus]
@@ -182,11 +183,12 @@
 # Variabler som krever all utdanningsdata som utgangspunkt for å bli korrekt #
 #############################################################################
 
-[variables.utd_hoyeste_nus2000]
+[variables.utd_hoeyeste_nus2000]
     unit = "utd"
     dtype = "STRING"
     length = [6]
     klass_codelist = 36
+
     description_short = "NUS-kode for utdanningen ved NUS-kode for høyeste utdanning"
 
     # This needs to change as we realise more about how the BU-variable needs to be constructed
@@ -200,7 +202,7 @@
 #     unit = "utd"
 #     dtype = "STRING"
 #     renamed_from = ["sosbak"]
-#     derived_from = ["snr", "utd_hoyeste_nus2000", "pers_foedselsdato", "snr_far", "snr_mor"]
+#     derived_from = ["snr", "utd_hoeyeste_nus2000", "pers_foedselsdato", "snr_far", "snr_mor"]
 
 
 [variables.uh_foerste_nus2000]
@@ -242,7 +244,7 @@
 
 
 
-[variables.uh_erhoyereutd_registrering]
+[variables.uh_erhoeyereutd_registrering]
     unit = "uh"
     dtype = "BOOLEAN"
     description_short = "Markerer rader som tilsier en registering på høyere utdanning."
@@ -269,7 +271,7 @@
 #################################################
 
 
-[variables.gr_ergrunnskole_fullfort]
+[variables.gr_ergrunnskole_fullfoert]
     unit = "gr"
     dtype = "BOOLEAN"
     description_short = "Markerer rader som tilsier en fullføring av grunnskolenivå."
@@ -277,46 +279,46 @@
 
 
 
-[variables.vg_ervgo_fullfort]
+[variables.vg_ervgo_fullfoert]
     unit = "vg"
     dtype = "BOOLEAN"
     description_short = "Markerer rader som tilsier en fullføring av videregåendenivå."
     derived_from = ["utd_fullfoertkode", "nus2000", "vg_kompetanse_nus"]
 
 
-[variables.vg_erstudiespess_fullfort]
+[variables.vg_erstudiespess_fullfoert]
     unit = "vg"
     dtype = "BOOLEAN"
     description_short = "Markerer rader som tilsier en fullføring av videregåendenivå med studiekompetanse."
     derived_from = ["utd_fullfoertkode", "nus2000", "vg_utdprogram", "vg_kompetanse_nus", "utd_aktivitet_start"]
 
-[variables.vg_eryrkesfag_fullfort]
+[variables.vg_eryrkesfag_fullfoert]
     unit = "vg"
     dtype = "BOOLEAN"
     description_short = "Markerer rader som tilsier en fullføring av videregåendenivå med yrkesfaglig kompetanse."
     derived_from = ["utd_fullfoertkode", "nus2000", "vg_utdprogram", "vg_kompetanse_nus", "utd_aktivitet_start"]
 
 
-[variables.uh_erhoyskolekandidat_fullfort]
+[variables.uh_erhoeyskolekandidat_fullfoert]
     unit = "uh"
     dtype = "BOOLEAN"
     description_short = "Markerer rader som tilsier en fullføring av 2-årig høyskolekandidat-utdanning. Bør kun kjøres på avslutta-data?"
     derived_from = ["utd_fullfoertkode", "nus2000", "uh_gruppering_nus", "utd_klassetrinn"]
 
-[variables.uh_erbachelor_fullfort]
+[variables.uh_erbachelor_fullfoert]
     unit = "uh"
     dtype = "BOOLEAN"
     description_short = "Markerer rader som tilsier en fullføring av en bachelorgrad. Bør kun kjøres på avslutta-data?"
     derived_from = ["utd_fullfoertkode", "uh_gruppering_nus"]
 
-[variables.uh_ermaster_fullfort]
+[variables.uh_ermaster_fullfoert]
     unit = "uh"
     dtype = "BOOLEAN"
     description_short = "Markerer rader som tilsier en fullføring av en mastergrad. Bør kun kjøres på avslutta-data?"
     derived_from = ["utd_fullfoertkode", "nus2000"]
 
 
-[variables.uh_erdoktorgrad_fullfort]
+[variables.uh_erdoktorgrad_fullfoert]
     unit = "uh"
     dtype = "BOOLEAN"
     description_short = "Markerer rader som tilsier en fullføring av en doktorgrad. Bør kun kjøres på avslutta-data?"
@@ -381,16 +383,16 @@
     unit = "uh"
     dtype = "DATETIME"
     renamed_from = ["aar_forste_reg_uh"]
-    derived_from = ["snr", "uh_erhoyereutd_registrering", "utd_aktivitet_start"]
+    derived_from = ["snr", "uh_erhoeyereutd_registrering", "utd_aktivitet_start"]
     derived_uses_datasets = ["igang", "avslutta"]
     derived_join_keys = ["snr"]
 
-[variables.uh_hoyskolekandidat_foerste_fullfoert_dato]
+[variables.uh_hoeyskolekandidat_foerste_fullfoert_dato]
     unit = "uh"
     dtype = "DATETIME"
     description_short = "Høyskolekandidat er en egen type 2-årig utdanning på uh-nivå."
-    renamed_from = ["aar_forste_fullf_hoy"]
-    derived_from = ["snr", "uh_erhoyskolekandidat_fullfort", "utd_aktivitet_start", "utd_aktivitet_slutt"]
+    renamed_from = ["aar_forste_fullf_hoey"]
+    derived_from = ["snr", "uh_erhoeyskolekandidat_fullfort", "utd_aktivitet_start", "utd_aktivitet_slutt"]
     derived_uses_datasets = ["avslutta"]
     derived_join_keys = ["snr"]
 
