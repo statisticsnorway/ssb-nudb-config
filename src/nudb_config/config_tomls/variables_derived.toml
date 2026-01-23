@@ -59,8 +59,8 @@
     dtype = "STRING"
     length = [1]
     klass_codelist = 885
-    renamed_from = ["univ"]
-    derived_from = ["utd_utdanningstype", "utd_datakilde", "uh_univ_eller_hogskole"]
+    renamed_from = ["univ", "uh_univ_eller_hogskole"]
+    derived_from = ["utd_utdanningstype", "utd_datakilde"]
     #outdated_comment = "Kan vi utlede denne istedenfor å ha den lagret på data?"
 
 [variables.uh_studiepoeng_nus]
@@ -340,7 +340,7 @@
     unit = "gr"
     dtype = "DATETIME"
     renamed_from = ["aar_forste_fullf_gs"]
-    derived_from = ["snr", "gr_ergrunnskole_fullfort", "utd_aktivitet_start", "utd_aktivitet_slutt"]
+    derived_from = ["snr", "gr_ergrunnskole_fullfoert", "utd_aktivitet_start", "utd_aktivitet_slutt"]
     derived_uses_datasets = ["avslutta"]
     derived_join_keys = ["snr"]
 
@@ -357,7 +357,7 @@
     unit = "vg"
     dtype = "DATETIME"
     renamed_from = ["aar_forste_fullf_vs", "aar_forste_fullf_vs_lov"]
-    derived_from = ["snr", "vg_ervgo_fullfort", "utd_aktivitet_start", "utd_aktivitet_slutt"]
+    derived_from = ["snr", "vg_ervgo_fullfoert", "utd_aktivitet_start", "utd_aktivitet_slutt"]
     derived_uses_datasets = ["avslutta"]
     derived_join_keys = ["snr"]
 
@@ -365,7 +365,7 @@
     unit = "vg"
     dtype = "DATETIME"
     renamed_from = ["aar_forste_fullf_vsa", "aar_forste_fullf_vsa_lov"]
-    derived_from = ["snr", "vg_erstudiespess_fullfort", "utd_aktivitet_start", "utd_aktivitet_slutt"]
+    derived_from = ["snr", "vg_erstudiespess_fullfoert", "utd_aktivitet_start", "utd_aktivitet_slutt"]
     derived_uses_datasets = ["avslutta"]
     derived_join_keys = ["snr"]
 
@@ -373,7 +373,7 @@
     unit = "vg"
     dtype = "DATETIME"
     renamed_from = ["aar_forste_fullf_vsy", "aar_forste_fullf_vsy_lov"]
-    derived_from = ["snr", "vg_eryrkesfag_fullfort", "utd_aktivitet_start", "utd_aktivitet_slutt"]
+    derived_from = ["snr", "vg_eryrkesfag_fullfoert", "utd_aktivitet_start", "utd_aktivitet_slutt"]
     derived_uses_datasets = ["avslutta"]
     derived_join_keys = ["snr"]
 
@@ -392,7 +392,7 @@
     dtype = "DATETIME"
     description_short = "Høyskolekandidat er en egen type 2-årig utdanning på uh-nivå."
     renamed_from = ["aar_forste_fullf_hoey"]
-    derived_from = ["snr", "uh_erhoeyskolekandidat_fullfort", "utd_aktivitet_start", "utd_aktivitet_slutt"]
+    derived_from = ["snr", "uh_erhoeyskolekandidat_fullfoert", "utd_aktivitet_start", "utd_aktivitet_slutt"]
     derived_uses_datasets = ["avslutta"]
     derived_join_keys = ["snr"]
 
@@ -408,7 +408,7 @@
     unit = "uh"
     dtype = "DATETIME"
     renamed_from = ["aar_forste_fullf_bach"]
-    derived_from = ["snr", "uh_erbachelor_fullfort", "utd_aktivitet_start", "utd_aktivitet_slutt" ]
+    derived_from = ["snr", "uh_erbachelor_fullfoert", "utd_aktivitet_start", "utd_aktivitet_slutt" ]
     derived_uses_datasets = ["avslutta"]
     derived_join_keys = ["snr"]
 
@@ -424,7 +424,7 @@
     unit = "uh"
     dtype = "DATETIME"
     renamed_from = ["aar_forste_fullf_hov"]
-    derived_from = ["snr", "uh_ermaster_fullfort", "utd_aktivitet_start", "utd_aktivitet_slutt" ]
+    derived_from = ["snr", "uh_ermaster_fullfoert", "utd_aktivitet_start", "utd_aktivitet_slutt" ]
     derived_uses_datasets = ["avslutta"]
     derived_join_keys = ["snr"]
 
@@ -433,6 +433,6 @@
     unit = "uh"
     dtype = "DATETIME"
     renamed_from = ["aar_forste_reg_dok"]
-    derived_from = ["snr", "uh_erdoktorgrad_fullfort", "utd_aktivitet_start", "utd_aktivitet_slutt" ]
+    derived_from = ["snr", "uh_erdoktorgrad_fullfoert", "utd_aktivitet_start", "utd_aktivitet_slutt" ]
     derived_uses_datasets = ["avslutta"]
     derived_join_keys = ["snr"]
