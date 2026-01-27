@@ -363,6 +363,7 @@ variables_sort_unit = [
 	[variables.vg_hovedaktivitet]  # merkevariabel som prioriterer en record per person, per skoleår, per fil, innenfor vg
         unit = "vg"
         dtype = "STRING"  # Har lite info om denne! C 2025-10-31
+        klass_codelist = 0 # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar. Merkevariabel
 
 	[variables.vg_utdprogram]  # Kan kanskje kobles på fra nuskatalogen, men vi skal beholde den fra innfilene?
 		unit = "vg"
@@ -378,6 +379,7 @@ variables_sort_unit = [
 	[variables.fa_hovedaktivitet]    # merkevariabel som prioriterer en record per person, per skoleår, per fil, innenfor fa
 		unit = "fa"
 		dtype = "STRING"  # I have no info at current time, so I dont know? C 2025-10-31
+        klass_codelist = 0 # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar. Merkevariabel
 
 	[variables.fa_institusjon_id]
 		unit = "fa"
@@ -542,6 +544,7 @@ variables_sort_unit = [
         unit = "uh"
         dtype = "STRING"
         renamed_from = []
+        klass_codelist = 0 # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar. Merkevariabel
 
     [variables.uh_undervisningsspraak]
         unit = "uh"
@@ -599,6 +602,7 @@ variables_sort_unit = [
 		unit = "gro"
 		length = [3, 6, 7]
 		dtype = "STRING"
+        klass_codelist = 0 # Bruker vigo sine koder rett i dataen, så ikke bruk for kodeliste. 
 		renamed_from = ["fagkode"]
 
     [variables.gro_karakter_standpunkt]
