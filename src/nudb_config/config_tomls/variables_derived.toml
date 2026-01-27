@@ -211,6 +211,7 @@
     length = [6]
     klass_codelist = 36
     derived_from = ["snr", "nus2000", "utd_aktivitet_start"]
+    derived_join_keys = ["snr"]
 
 
 
