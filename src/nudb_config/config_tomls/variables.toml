@@ -71,6 +71,7 @@ variables_sort_unit = [
 		unit = "data"
 		dtype = "STRING"
 		length = [1]
+        klass_codelist = 889
 		renamed_from = ["utfall"]
 
 ################
@@ -278,6 +279,7 @@ variables_sort_unit = [
 		unit = "vg"
 		dtype = "STRING"
 		length = [1]
+        klass_codelist = 908
 		renamed_from = ["utfallu", "utd_fullfoertkode_inn"]
 
 	[variables.vg_antall_aarstimer_elevkurs]
@@ -329,6 +331,7 @@ variables_sort_unit = [
 		unit = "vg"
 		dtype = "STRING"
 		length = [1]
+        klass_codelist = 797
 		renamed_from = ["taf"]
 
 	[variables.vg_rettstype_inntak]
@@ -347,12 +350,14 @@ variables_sort_unit = [
         unit = "fag"
         dtype = "STRING"
         length = [2]
+        klass_codelist = 781
         renamed_from = ["doktype"]
 
     [variables.vg_provekandtype]
         unit = "vg"
         dtype = "STRING"
         length = [1]
+        klass_codelist = 768
         renamed_from = ["provekandtype"]  # Ikke legg til ftype, vi håndtrerer den med overrides
 
 	[variables.vg_hovedaktivitet]  # merkevariabel som prioriterer en record per person, per skoleår, per fil, innenfor vg
@@ -363,6 +368,7 @@ variables_sort_unit = [
 		unit = "vg"
 		dtype = "STRING"
 		length = [2]
+        klass_codelist = 909
 		renamed_from = ["studretn"]
 
 ####################
