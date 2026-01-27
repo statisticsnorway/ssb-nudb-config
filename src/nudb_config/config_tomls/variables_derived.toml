@@ -255,7 +255,7 @@
     unit = "uh"
     dtype = "BOOLEAN"
     description_short = "Markerer rader som tilsier en registering på en bachelorgrad."
-    derived_from = ["nus2000", "uh_gruppering_nus"]
+    derived_from = ["nus2000", "uh_gradmerke_nus"]
 
 [variables.uh_ermaster_registrering]
     unit = "uh"
@@ -309,7 +309,7 @@
     unit = "uh"
     dtype = "BOOLEAN"
     description_short = "Markerer rader som tilsier en fullføring av en bachelorgrad. Bør kun kjøres på avslutta-data?"
-    derived_from = ["utd_fullfoertkode", "uh_gruppering_nus"]
+    derived_from = ["utd_fullfoertkode", "uh_gradmerke_nus"]
 
 [variables.uh_ermaster_fullfoert]
     unit = "uh"
