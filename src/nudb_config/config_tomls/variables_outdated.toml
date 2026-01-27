@@ -76,14 +76,14 @@
 		dtype = "STRING"
 		length = [1]
 		klass_variant = 2942
-		outdated_comment = "Splittes i kontraktstype og provekandtype avhengig av innfil den ligger på. En datasett-avhengig rename i datasets.toml bør konfigureres isteden."
+		outdated_comment = "Splittes i kontraktstype og proevekandtype avhengig av innfil den ligger på. En datasett-avhengig rename i datasets.toml bør konfigureres isteden."
 
     [variables.ftypef] # Samme som `ftype`?
         unit = "utdatert"
         dtype = "STRING"
         length = [1]
         klass_variant = 2942
-		outdated_comment = "Splittes i kontraktstype og provekandtype avhengig av innfil den ligger på. En datasett-avhengig rename i datasets.toml bør konfigureres isteden."
+		outdated_comment = "Splittes i kontraktstype og proevekandtype avhengig av innfil den ligger på. En datasett-avhengig rename i datasets.toml bør konfigureres isteden."
 
 	[variables.ktrinn]
 		unit = "utdatert"
