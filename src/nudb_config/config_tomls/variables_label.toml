@@ -92,6 +92,31 @@
 		dtype = "STRING"
 		derived_from = ["vg_rettstype_inntak"]
 
+    [variables.vg_bevistype_label]
+        unit = "fag"
+        dtype = "STRING"
+        derived_from = ["vg_bevistype"]
+
+    [variables.vg_fullfoertkode_detaljert_label]
+		unit = "vg"
+		dtype = "STRING"
+		derived_from = ["vg_fullfoertkode_detaljert"]
+
+    [variables.vg_provekandtype_label]
+        unit = "vg"
+        dtype = "STRING"
+        derived_from = ["vg_provekandtype"]
+
+    [variables.vg_utdprogram_label]
+		unit = "vg"
+		dtype = "STRING"
+		derived_from = ["vg_utdprogram"]
+
+    [variables.vg_yrkes_og_studiekompetanse_label]
+		unit = "vg"
+		dtype = "STRING"
+		derived_from = ["vg_yrkes_og_studiekompetanse"]
+
 ####################
 # "fa" - Fagskoler #
 ####################
@@ -149,3 +174,13 @@
 		unit = "land"
 		dtype = "STRING"
 		derived_from = ["uh_statsborgerskap_inn"]
+
+
+########
+# Datavariabler #
+########
+
+    [variables.utd_fullfoertkode_label]
+		unit = "data"
+		dtype = "STRING"
+		derived_from = ["utd_fullfoertkode"]

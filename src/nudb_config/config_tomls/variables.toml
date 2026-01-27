@@ -602,7 +602,7 @@ variables_sort_unit = [
 		unit = "gro"
 		length = [3, 6, 7]
 		dtype = "STRING"
-        klass_codelist = 0 # Bruker vigo sine koder rett i dataen, så ikke bruk for kodeliste. 
+        klass_codelist = 0 # Bruker vigo sine koder rett i dataen, så ikke bruk for kodeliste.
 		renamed_from = ["fagkode"]
 
     [variables.gro_karakter_standpunkt]
