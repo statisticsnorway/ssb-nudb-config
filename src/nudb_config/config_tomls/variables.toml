@@ -316,16 +316,17 @@ variables_sort_unit = [
 		klass_codelist = 769
 		renamed_from = ["kontraktstype"]  # Ikke legg til ftype, vi håndtrerer den med overrides
 
-	[variables.vg_provenr]
+	[variables.vg_proevenr]
         unit = "vg"
         dtype = "INTEGER"
-        renamed_from = ["provnr"]
+        renamed_from = ["provnr", "vg_provenr"]
 		klass_codelist = 0  # Is this correct? Does a codelist exist?
 
-	[variables.vg_prove_dato]
+	[variables.vg_proeve_dato]
         unit = "vg"
         dtype = "DATETIME"
 		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
+		renamed_from = ["vg_prove_dato"]
 
 	[variables.vg_yrkes_og_studiekompetanse]
 		unit = "vg"
@@ -353,12 +354,11 @@ variables_sort_unit = [
         klass_codelist = 781
         renamed_from = ["doktype"]
 
-    [variables.vg_provekandtype]
+    [variables.vg_proevekandtype]
         unit = "vg"
         dtype = "STRING"
         length = [1]
-        klass_codelist = 768
-        renamed_from = ["provekandtype"]  # Ikke legg til ftype, vi håndtrerer den med overrides
+        renamed_from = ["provekandtype", "vg_provekandtype"]  # Ikke legg til ftype, vi håndtrerer den med overrides
 
 	[variables.vg_hovedaktivitet]  # merkevariabel som prioriterer en record per person, per skoleår, per fil, innenfor vg
         unit = "vg"
