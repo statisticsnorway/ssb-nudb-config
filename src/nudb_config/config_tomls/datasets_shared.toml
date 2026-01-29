@@ -290,7 +290,6 @@
             "gro_programomraade",  # Gamle fkurskod?
             "vg_karakterpoeng",
             "vg_proeve_dato",
-            "fuh_nett_eller_stedbasert",
             "gro_skolenr_inn",  # old_name: fskolenr
             "vg_proevekandtype",  # old_name: provekandtype
             "vg_utdprogram",
