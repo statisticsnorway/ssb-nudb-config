@@ -11,6 +11,13 @@
     derived_from = ["utd_skoleaar_start"]
 
 
+[variables.utd_erutland]
+    unit = "land"
+    dtype = "BOOLEAN"
+    renamed_from = ["utland", "uh_utland", "uh_erutland"]
+    derived_from = ["utd_skolekom"]
+
+
 ####################################################
 # Variabler som kan utledes fra NUS2000-kodeverket #
 ####################################################
@@ -222,7 +229,7 @@
     unit = "gr"
     dtype = "BOOLEAN"
     description_short = "Markerer rader som tilsier en registering på grunnskolenivå."
-    derived_from = ["nus2000", "uh_erutland"]
+    derived_from = ["nus2000", "utd_erutland"]
 
 [variables.vg_ervgo_registrering]
     unit = "vg"
@@ -275,7 +282,7 @@
     unit = "gr"
     dtype = "BOOLEAN"
     description_short = "Markerer rader som tilsier en fullføring av grunnskolenivå."
-    derived_from = ["utd_fullfoertkode", "nus2000", "uh_erutland"]
+    derived_from = ["utd_fullfoertkode", "nus2000", "utd_erutland"]
 
 
 
