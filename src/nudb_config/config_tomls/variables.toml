@@ -553,17 +553,14 @@ variables_sort_unit = [
 # Land #
 ########
 
-	[variables.uh_erutland]
-		unit = "land"
-		dtype = "BOOLEAN"
-		renamed_from = ["utland", "uh_utland"]
 
-	[variables.uh_studieland]
+
+	[variables.utd_studieland]
 		unit = "land"
 		dtype = "STRING"
 		length = [3]
 		klass_codelist = 91
-		renamed_from = ["studieland"]
+		renamed_from = ["studieland", "uh_studieland"]
 
 	[variables.fuh_utvekslingsland]
 		unit = "land"
