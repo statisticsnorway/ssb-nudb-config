@@ -32,7 +32,7 @@
             #"uh_univ_eller_hoegskole",  # Should be derived # old_name: univ
             #"inr",
             "utd_orgnr",  # old_name: orgnr
-            "uh_studieland",  # old_name: studieland
+            "utd_studieland",  # old_name: studieland
             #"utd_aktivitet_start_mrk_kilde",  # old_name: mrk_dl - trengs ikke på utdatasett?
             #"uh_erutland",  # old_name: utland
             "vg_kursprosent",  # old_name: delpros
@@ -112,7 +112,7 @@
             uh_studieprogresjon_hoest = 90.0
             uh_utdplan = 90.0
             #uh_erutland = 99.0
-            uh_studieland = 99.0
+            utd_studieland = 99.0
             fuh_utvekslingsland = 99.9
             uh_studgrunnlagsland = 99.9
             uh_statsborgerskap_inn = 98.0
@@ -258,7 +258,7 @@
             "utd_utdanningstype",  # old_name: utd
             "gr_grunnskolepoeng",  # old_name: grunnskolepoeng
             #"uh_erutland",  # old_name: utland
-            "uh_studieland",  # old_name: studieland
+            "utd_studieland",  # old_name: studieland
             "uh_statsborgerskap_inn",  # old_name: statb_meldt
             "bof_orgnrbed",  # old_name: orgnrbed
             "utd_orgnr",  # old_name: orgnr

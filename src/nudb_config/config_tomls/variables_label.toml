@@ -130,10 +130,10 @@
 # Land #
 ########
 
-	[variables.uh_studieland_label]
+	[variables.utd_studieland_label]
 		unit = "land"
 		dtype = "STRING"
-		derived_from = ["uh_studieland"]
+		derived_from = ["utd_studieland"]
 
 	[variables.fuh_utvekslingsland_label]
 		unit = "land"
