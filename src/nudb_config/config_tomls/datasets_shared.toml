@@ -332,9 +332,9 @@
             utd_orgnr = 0.1
             utd_skolekom = 0.05
             gro_fagkode_vigo = 0.0
-            gro_karakter_standpunkt = 3.0
+            gro_karakter_standpunkt = 4.0
             gro_karakter_skriftlig = 93.0
             gro_karakter_muntlig = 96.0
             gro_karakter_termin1 = 15.0
             gro_karakter_termin2 = 99.93
-            kar_annen = 99.99
+            gro_karakter_praktisk_muntlig = 99.99
