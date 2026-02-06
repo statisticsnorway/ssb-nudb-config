@@ -1,3 +1,13 @@
+
+
+[variables.snr_mrk]
+	unit = "pers"
+	dtype = "BOOLEAN"
+    derived_from = ["snr"]
+	renamed_from = ["snr_valid", "mrk_snr", "mrk_snr_nudb", "snr_nudb_mrk", "snr_mrk_nudb"]
+	description_short = "True if snr contains a valid snr - defined by content of snr, or existence in FREG 320 register."
+
+
 ##############################################
 # Variabler som utledes fra nudbs data alene #
 ##############################################
