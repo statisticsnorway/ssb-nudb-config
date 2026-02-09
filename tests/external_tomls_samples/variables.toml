@@ -1,0 +1,8 @@
+[variables]
+
+    [variables.fullfort_gk]
+        unit = "vgogjen"
+		dtype = "STRING"
+		length = [2]
+
+    snr_mrk = "None"
