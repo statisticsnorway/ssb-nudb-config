@@ -16,10 +16,10 @@ class Dataset(DotMapBaseModel):
     """
 
     variables: list[str] | None = None
-    thresholds_empty: dict[str, float] | None = None
-    min_values: dict[str, str] | None = None
-    max_values: dict[str, str] | None = None
-    dataset_specific_renames: dict[str, str] | None = None
+    thresholds_empty: DotMapDict[float] | None = None
+    min_values: DotMapDict[str] | None = None
+    max_values: DotMapDict[str] | None = None
+    dataset_specific_renames: DotMapDict[str] | None = None
 
 
 class DatasetsFile(DotMapBaseModel):

@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import copy
 import importlib.resources as impres
 import tomllib
 from pathlib import Path
@@ -52,6 +53,21 @@ class NudbConfig(DotMapBaseModel):
     paths: DotMapDict[PathEntry]
     options: Options
 
+    def merge_tomls(self, toml_dir: str | Path) -> NudbConfig:
+        """Return a new config with values merged from external TOML files."""
+        merged = self._deep_copy()
+        cfg_dir = _resolve_toml_dir(toml_dir)
+        for path in sorted(cfg_dir.glob("*.toml")):
+            toml_data = _load_toml(path)
+            _merge_into(merged, toml_data)
+        return merged
+
+    def _deep_copy(self) -> NudbConfig:
+        try:
+            return self.model_copy(deep=True)
+        except Exception:
+            return copy.deepcopy(self)
+
 
 # Ensure forward refs are resolved for Pydantic
 NudbConfig.model_rebuild()
@@ -60,6 +76,85 @@ NudbConfig.model_rebuild()
 def _load_toml(path: Path) -> dict[str, object]:
     with path.open("rb") as fh:
         return tomllib.load(fh)
+
+
+def _resolve_toml_dir(toml_dir: str | Path) -> Path:
+    cfg_dir = Path(toml_dir)
+    if cfg_dir.exists():
+        return cfg_dir
+    fallback = Path.cwd() / str(toml_dir).lstrip("/\\")
+    if fallback.exists():
+        return fallback
+    raise FileNotFoundError(f"TOML directory not found: {toml_dir}")
+
+
+def _is_none_sentinel(value: object) -> bool:
+    if value is None:
+        return True
+    if isinstance(value, str) and value.strip().lower() == "none":
+        return True
+    return False
+
+
+def _merge_into(target: object, updates: object) -> None:
+    if isinstance(updates, dict):
+        _merge_mapping(target, updates)
+        return
+    # Scalar replacement on leaves is handled by parent callers.
+
+
+def _merge_mapping(target: object, updates: dict[str, object]) -> None:
+    if isinstance(target, DotMapDict):
+        for key, value in updates.items():
+            if _is_none_sentinel(value):
+                if key in target:
+                    del target[key]
+                continue
+            if isinstance(value, dict):
+                value_type = getattr(target, "_value_type", None)
+                if value_type is Variable and "name" not in value:
+                    value = {**value, "name": key}
+            if key in target:
+                current = target[key]
+                if isinstance(value, dict) and isinstance(
+                    current, (DotMapBaseModel, DotMapDict, dict)
+                ):
+                    _merge_mapping(current, value)
+                else:
+                    target[key] = value
+            else:
+                target[key] = value
+        return
+
+    if isinstance(target, DotMapBaseModel):
+        model_fields = getattr(type(target), "model_fields", {})
+        for key, value in updates.items():
+            if key not in model_fields:
+                continue
+            if _is_none_sentinel(value):
+                setattr(target, key, None)
+                continue
+            current = getattr(target, key, None)
+            if isinstance(value, dict) and isinstance(
+                current, (DotMapBaseModel, DotMapDict, dict)
+            ):
+                _merge_mapping(current, value)
+            else:
+                setattr(target, key, value)
+        return
+
+    if isinstance(target, dict):
+        for key, value in updates.items():
+            if _is_none_sentinel(value):
+                target.pop(key, None)
+                continue
+            current = target.get(key)
+            if isinstance(value, dict) and isinstance(
+                current, (DotMapBaseModel, DotMapDict, dict)
+            ):
+                _merge_mapping(current, value)
+            else:
+                target[key] = value
 
 
 def _iter_variable_paths(cfg_dir: Path) -> list[Path]:
