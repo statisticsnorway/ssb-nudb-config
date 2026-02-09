@@ -200,19 +200,24 @@
 # Variabler som krever all utdanningsdata som utgangspunkt for å bli korrekt #
 #############################################################################
 
+
+[variables.utd_hoeyeste_rangering]
+    unit = "utd-hoyeste"
+    dtype = "STRING"
+    derived_from = ["nus2000", "utd_klassetrinn", "uh_gruppering_nus", "utd_skoleaar_start", 
+                    "uh_eksamen_studpoeng", "uh_eksamen_dato", "utd_aktivitet_slutt"]
+
 [variables.utd_hoeyeste_nus2000]
-    unit = "utd"
+    unit = "utd-hoyeste"
     dtype = "STRING"
     length = [6]
     klass_codelist = 36
-
     description_short = "NUS-kode for utdanningen ved NUS-kode for høyeste utdanning"
 
-    # This needs to change as we realise more about how the BU-variable needs to be constructed
     renamed_from = ["bu"]
-    derived_from = ["snr", "nus2000", "utd_fullfoertkode"]
-    derived_uses_datasets = ["avslutta"]
+    derived_from = ["snr"]
     derived_join_keys = ["snr"]
+
 
 # Need to figure out how we can reference external variables (not owned by NUDB) we depend on, like snr_far and snr_mor - currently causing a test to fail, and rightly so
 #[variables.utd_foreldres_utdnivaa_16aar]
