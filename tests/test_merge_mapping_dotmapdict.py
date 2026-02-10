@@ -1,3 +1,7 @@
+import logging
+
+import pytest
+
 from nudb_config.pydantic.dotmap import DotMapDict
 from nudb_config.pydantic.load import _merge_mapping
 from nudb_config.pydantic.variables import Variable
@@ -46,3 +50,18 @@ def test_merge_mapping_updates_existing_and_deletes_none() -> None:
 
     assert target.bar.unit == "new"
     assert "remove_me" not in target
+
+
+def test_merge_mapping_warns_on_same_value(caplog: pytest.LogCaptureFixture) -> None:
+    target: DotMapDict[Variable] = DotMapDict(value_type=Variable)
+    target["bar"] = Variable.model_validate(
+        {"name": "bar", "unit": "old", "dtype": "STRING"}
+    )
+
+    caplog.set_level(logging.WARNING, logger="nudb_config")
+    _merge_mapping(target, {"bar": {"unit": "old"}}, path=())
+
+    assert any(
+        "bar.unit" in record.getMessage() and "same value" in record.getMessage()
+        for record in caplog.records
+    )
