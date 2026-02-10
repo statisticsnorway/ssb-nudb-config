@@ -65,3 +65,19 @@ def test_merge_mapping_warns_on_same_value(caplog: pytest.LogCaptureFixture) -> 
         "bar.unit" in record.getMessage() and "same value" in record.getMessage()
         for record in caplog.records
     )
+
+
+def test_merge_mapping_handles_plain_dict_branch() -> None:
+    target: dict[str, object] = {"section": {"keep": 1}}
+
+    _merge_mapping(
+        target,
+        {
+            "section": {"added": 2},
+            "to_remove": "None",
+        },
+        path=(),
+    )
+
+    assert "to_remove" not in target
+    assert target["section"] == {"keep": 1, "added": 2}
