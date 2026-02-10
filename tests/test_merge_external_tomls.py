@@ -1,8 +1,26 @@
-from nudb_config import settings
+from collections.abc import Iterator
+
+import pytest
+
+from nudb_config import config as config_module
+from nudb_config.pydantic.load import NudbConfig
+from nudb_config.pydantic.load import load_pydantic_settings
 
 
-def test_content_settings_after_merge_from_tomls() -> None:
-    combo_settings = settings.merge_tomls("/tests/external_tomls_samples")
+@pytest.fixture
+def isolated_settings() -> Iterator[NudbConfig]:
+    original = config_module.settings
+    config_module.settings = load_pydantic_settings()
+    try:
+        yield config_module.settings
+    finally:
+        config_module.settings = original
+
+
+def test_content_settings_after_merge_from_tomls(
+    isolated_settings: NudbConfig,
+) -> None:
+    combo_settings = isolated_settings.merge_tomls("/tests/external_tomls_samples")
 
     # variables.toml
     assert "fullfort_gk" in combo_settings.variables

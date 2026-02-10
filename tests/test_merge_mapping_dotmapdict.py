@@ -9,6 +9,7 @@ def test_merge_mapping_injects_variable_name_for_new_entry() -> None:
     _merge_mapping(
         target,
         {"fullfort_gk": {"unit": "vgogjen", "dtype": "STRING", "length": [2]}},
+        path=(),
     )
 
     assert "fullfort_gk" in target
@@ -40,6 +41,7 @@ def test_merge_mapping_updates_existing_and_deletes_none() -> None:
             "bar": {"unit": "new"},
             "remove_me": "None",
         },
+        path=(),
     )
 
     assert target.bar.unit == "new"

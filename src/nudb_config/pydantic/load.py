@@ -7,6 +7,7 @@ from pathlib import Path
 
 from pydantic import ConfigDict
 
+from ..logger import logger
 from .datasets import Dataset
 from .datasets import DatasetsFile
 from .dotmap import DotMapBaseModel
@@ -54,13 +55,12 @@ class NudbConfig(DotMapBaseModel):
     options: Options
 
     def merge_tomls(self, toml_dir: str | Path) -> NudbConfig:
-        """Return a new config with values merged from external TOML files."""
-        merged = self._deep_copy()
+        """Merge values from external TOML files into this config and return it."""
         cfg_dir = _resolve_toml_dir(toml_dir)
         for path in sorted(cfg_dir.glob("*.toml")):
             toml_data = _load_toml(path)
-            _merge_into(merged, toml_data)
-        return merged
+            _merge_into(self, toml_data)
+        return self
 
     def _deep_copy(self) -> NudbConfig:
         try:
@@ -98,12 +98,14 @@ def _is_none_sentinel(value: object) -> bool:
 
 def _merge_into(target: object, updates: object) -> None:
     if isinstance(updates, dict):
-        _merge_mapping(target, updates)
+        _merge_mapping(target, updates, path=())
         return
     # Scalar replacement on leaves is handled by parent callers.
 
 
-def _merge_mapping(target: object, updates: dict[str, object]) -> None:
+def _merge_mapping(
+    target: object, updates: dict[str, object], *, path: tuple[str, ...]
+) -> None:
     if isinstance(target, DotMapDict):
         for key, value in updates.items():
             if _is_none_sentinel(value):
@@ -119,8 +121,13 @@ def _merge_mapping(target: object, updates: dict[str, object]) -> None:
                 if isinstance(value, dict) and isinstance(
                     current, (DotMapBaseModel, DotMapDict, dict)
                 ):
-                    _merge_mapping(current, value)
+                    _merge_mapping(current, value, path=(*path, key))
                 else:
+                    if current == value:
+                        logger.warning(
+                            "Merge overwrite has same value; consider removing from local config: %s",
+                            ".".join((*path, key)),
+                        )
                     target[key] = value
             else:
                 target[key] = value
@@ -138,8 +145,13 @@ def _merge_mapping(target: object, updates: dict[str, object]) -> None:
             if isinstance(value, dict) and isinstance(
                 current, (DotMapBaseModel, DotMapDict, dict)
             ):
-                _merge_mapping(current, value)
+                _merge_mapping(current, value, path=(*path, key))
             else:
+                if current == value:
+                    logger.warning(
+                        "Merge overwrite has same value; consider removing from local config: %s",
+                        ".".join((*path, key)),
+                    )
                 setattr(target, key, value)
         return
 
@@ -152,8 +164,13 @@ def _merge_mapping(target: object, updates: dict[str, object]) -> None:
             if isinstance(value, dict) and isinstance(
                 current, (DotMapBaseModel, DotMapDict, dict)
             ):
-                _merge_mapping(current, value)
+                _merge_mapping(current, value, path=(*path, key))
             else:
+                if current == value:
+                    logger.warning(
+                        "Merge overwrite has same value; consider removing from local config: %s",
+                        ".".join((*path, key)),
+                    )
                 target[key] = value
 
 
