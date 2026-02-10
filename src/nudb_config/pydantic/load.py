@@ -4,6 +4,8 @@ import copy
 import importlib.resources as impres
 import tomllib
 from pathlib import Path
+from typing import Any
+from typing import cast
 
 from pydantic import ConfigDict
 
@@ -19,6 +21,10 @@ from .paths import PathsFile
 from .settings import SettingsFile
 from .variables import Variable
 from .variables import VariablesFile
+
+MERGE_WARNING = (
+    "Merge overwrite has same value; consider removing from local config: %s"
+)
 
 
 class NudbConfig(DotMapBaseModel):
@@ -99,79 +105,99 @@ def _is_none_sentinel(value: object) -> bool:
 def _merge_into(target: object, updates: object) -> None:
     if isinstance(updates, dict):
         _merge_mapping(target, updates, path=())
-        return
-    # Scalar replacement on leaves is handled by parent callers.
 
 
 def _merge_mapping(
     target: object, updates: dict[str, object], *, path: tuple[str, ...]
 ) -> None:
     if isinstance(target, DotMapDict):
-        for key, value in updates.items():
-            if _is_none_sentinel(value):
-                if key in target:
-                    del target[key]
-                continue
-            if isinstance(value, dict):
-                value_type = getattr(target, "_value_type", None)
-                if value_type is Variable and "name" not in value:
-                    value = {**value, "name": key}
-            if key in target:
-                current = target[key]
-                if isinstance(value, dict) and isinstance(
-                    current, (DotMapBaseModel, DotMapDict, dict)
-                ):
-                    _merge_mapping(current, value, path=(*path, key))
-                else:
-                    if current == value:
-                        logger.warning(
-                            "Merge overwrite has same value; consider removing from local config: %s",
-                            ".".join((*path, key)),
-                        )
-                    target[key] = value
-            else:
-                target[key] = value
+        _merge_dotmapdict(target, updates, path)
         return
-
     if isinstance(target, DotMapBaseModel):
-        model_fields = getattr(type(target), "model_fields", {})
-        for key, value in updates.items():
-            if key not in model_fields:
-                continue
-            if _is_none_sentinel(value):
-                setattr(target, key, None)
-                continue
-            current = getattr(target, key, None)
-            if isinstance(value, dict) and isinstance(
-                current, (DotMapBaseModel, DotMapDict, dict)
-            ):
-                _merge_mapping(current, value, path=(*path, key))
-            else:
-                if current == value:
-                    logger.warning(
-                        "Merge overwrite has same value; consider removing from local config: %s",
-                        ".".join((*path, key)),
-                    )
-                setattr(target, key, value)
+        _merge_dotmap_model(target, updates, path)
         return
-
     if isinstance(target, dict):
-        for key, value in updates.items():
-            if _is_none_sentinel(value):
-                target.pop(key, None)
+        _merge_plain_dict(target, updates, path)
+
+
+def _merge_dotmapdict(
+    target: DotMapDict[Any], updates: dict[str, object], path: tuple[str, ...]
+) -> None:
+    for key, value in updates.items():
+        if _is_none_sentinel(value):
+            if key in target:
+                del target[key]
+            continue
+        value = _maybe_inject_variable_name(target, key, value)
+        if key in target:
+            current = target[key]
+            if _should_descend(value, current):
+                value_dict = cast(dict[str, object], value)
+                _merge_mapping(current, value_dict, path=(*path, key))
                 continue
-            current = target.get(key)
-            if isinstance(value, dict) and isinstance(
-                current, (DotMapBaseModel, DotMapDict, dict)
-            ):
-                _merge_mapping(current, value, path=(*path, key))
-            else:
-                if current == value:
-                    logger.warning(
-                        "Merge overwrite has same value; consider removing from local config: %s",
-                        ".".join((*path, key)),
-                    )
-                target[key] = value
+            _warn_if_same(current, value, path, key)
+            target[key] = value
+        else:
+            target[key] = value
+
+
+def _merge_dotmap_model(
+    target: DotMapBaseModel, updates: dict[str, object], path: tuple[str, ...]
+) -> None:
+    model_fields = getattr(type(target), "model_fields", {})
+    for key, value in updates.items():
+        if key not in model_fields:
+            continue
+        if _is_none_sentinel(value):
+            setattr(target, key, None)
+            continue
+        current = getattr(target, key, None)
+        if _should_descend(value, current):
+            value_dict = cast(dict[str, object], value)
+            _merge_mapping(current, value_dict, path=(*path, key))
+            continue
+        _warn_if_same(current, value, path, key)
+        setattr(target, key, value)
+
+
+def _merge_plain_dict(
+    target: dict[str, object], updates: dict[str, object], path: tuple[str, ...]
+) -> None:
+    for key, value in updates.items():
+        if _is_none_sentinel(value):
+            target.pop(key, None)
+            continue
+        current = target.get(key)
+        if _should_descend(value, current):
+            value_dict = cast(dict[str, object], value)
+            _merge_mapping(current, value_dict, path=(*path, key))
+            continue
+        _warn_if_same(current, value, path, key)
+        target[key] = value
+
+
+def _warn_if_same(
+    current: object, value: object, path: tuple[str, ...], key: str
+) -> None:
+    if current == value:
+        logger.warning(MERGE_WARNING, ".".join((*path, key)))
+
+
+def _should_descend(value: object, current: object) -> bool:
+    return isinstance(value, dict) and isinstance(
+        current, (DotMapBaseModel, DotMapDict, dict)
+    )
+
+
+def _maybe_inject_variable_name(
+    target: DotMapDict[Any], key: str, value: object
+) -> object:
+    if not isinstance(value, dict):
+        return value
+    value_type = getattr(target, "_value_type", None)
+    if value_type is Variable and "name" not in value:
+        return {**value, "name": key}
+    return value
 
 
 def _iter_variable_paths(cfg_dir: Path) -> list[Path]:
