@@ -1,0 +1,12 @@
+[datasets]
+
+    [datasets.igang]
+        variables = [
+            "inr",
+    ]
+
+    [datasets.igang.dataset_specific_renames]
+            ftype = "ftype"
+
+    [datasets.igang.thresholds_empty]
+            snr = 8.0  # Less strict

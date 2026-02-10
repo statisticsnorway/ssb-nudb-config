@@ -1,0 +1,9 @@
+[variables]
+
+    # Possible to remove a variable?
+    snr_mrk = "None"
+
+    [variables.fullfort_gk]
+        unit = "vgogjen"
+		dtype = "STRING"
+		length = [2]

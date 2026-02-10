@@ -1,0 +1,51 @@
+from collections.abc import Iterator
+
+import pytest
+
+from nudb_config import config as config_module
+from nudb_config.pydantic.load import NudbConfig
+from nudb_config.pydantic.load import load_pydantic_settings
+
+
+@pytest.fixture
+def isolated_settings() -> Iterator[NudbConfig]:
+    original = config_module.settings
+    config_module.settings = load_pydantic_settings()
+    try:
+        yield config_module.settings
+    finally:
+        config_module.settings = original
+
+
+def test_content_settings_after_merge_from_tomls(
+    isolated_settings: NudbConfig,
+) -> None:
+    combo_settings = isolated_settings.merge_tomls("/tests/external_tomls_samples")
+
+    # variables.toml
+    assert "fullfort_gk" in combo_settings.variables
+    assert combo_settings.variables.fullfort_gk.length == [2]
+
+    # datasets.toml
+    assert combo_settings.datasets.igang.variables is not None
+    assert "inr" in combo_settings.datasets.igang.variables
+    assert combo_settings.datasets.igang.dataset_specific_renames is not None
+    assert "ftype" == combo_settings.datasets.igang.dataset_specific_renames.ftype
+    assert combo_settings.datasets.igang.thresholds_empty is not None
+    assert 8.0 == combo_settings.datasets.igang.thresholds_empty.snr
+
+    # paths.toml
+    assert (
+        "/buckets/delt-utdanning/nudb-data/klargjorte-data/"
+        == combo_settings.paths.local_daplalab.delt_utdanning
+    )
+
+    # check existing fields from main config in combined settings
+    assert "fnr" in combo_settings.variables
+    assert combo_settings.variables.fnr.length is not None
+    assert 11 in combo_settings.variables.fnr.length
+    assert "avslutta" in combo_settings.datasets
+    assert "/ssb/stamme03/nudbut/nyeste" == combo_settings.paths.on_prem.delt_utdanning
+
+    # check if removal worked
+    assert "snr_mrk" not in combo_settings.variables

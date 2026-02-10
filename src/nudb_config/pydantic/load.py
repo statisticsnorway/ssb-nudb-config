@@ -1,11 +1,15 @@
 from __future__ import annotations
 
+import copy
 import importlib.resources as impres
 import tomllib
 from pathlib import Path
+from typing import Any
+from typing import cast
 
 from pydantic import ConfigDict
 
+from ..logger import logger
 from .datasets import Dataset
 from .datasets import DatasetsFile
 from .dotmap import DotMapBaseModel
@@ -17,6 +21,10 @@ from .paths import PathsFile
 from .settings import SettingsFile
 from .variables import Variable
 from .variables import VariablesFile
+
+MERGE_WARNING = (
+    "Merge overwrite has same value; consider removing from local config: %s"
+)
 
 
 class NudbConfig(DotMapBaseModel):
@@ -52,6 +60,20 @@ class NudbConfig(DotMapBaseModel):
     paths: DotMapDict[PathEntry]
     options: Options
 
+    def merge_tomls(self, toml_dir: str | Path) -> NudbConfig:
+        """Merge values from external TOML files into this config and return it."""
+        cfg_dir = _resolve_toml_dir(toml_dir)
+        for path in sorted(cfg_dir.glob("*.toml")):
+            toml_data = _load_toml(path)
+            _merge_into(self, toml_data)
+        return self
+
+    def _deep_copy(self) -> NudbConfig:
+        try:
+            return self.model_copy(deep=True)
+        except Exception:
+            return copy.deepcopy(self)
+
 
 # Ensure forward refs are resolved for Pydantic
 NudbConfig.model_rebuild()
@@ -60,6 +82,122 @@ NudbConfig.model_rebuild()
 def _load_toml(path: Path) -> dict[str, object]:
     with path.open("rb") as fh:
         return tomllib.load(fh)
+
+
+def _resolve_toml_dir(toml_dir: str | Path) -> Path:
+    cfg_dir = Path(toml_dir)
+    if cfg_dir.exists():
+        return cfg_dir
+    fallback = Path.cwd() / str(toml_dir).lstrip("/\\")
+    if fallback.exists():
+        return fallback
+    raise FileNotFoundError(f"TOML directory not found: {toml_dir}")
+
+
+def _is_none_sentinel(value: object) -> bool:
+    if value is None:
+        return True
+    if isinstance(value, str) and value.strip().lower() == "none":
+        return True
+    return False
+
+
+def _merge_into(target: object, updates: object) -> None:
+    if isinstance(updates, dict):
+        _merge_mapping(target, updates, path=())
+
+
+def _merge_mapping(
+    target: object, updates: dict[str, object], *, path: tuple[str, ...]
+) -> None:
+    if isinstance(target, DotMapDict):
+        _merge_dotmapdict(target, updates, path)
+        return
+    if isinstance(target, DotMapBaseModel):
+        _merge_dotmap_model(target, updates, path)
+        return
+    if isinstance(target, dict):
+        _merge_plain_dict(target, updates, path)
+
+
+def _merge_dotmapdict(
+    target: DotMapDict[Any], updates: dict[str, object], path: tuple[str, ...]
+) -> None:
+    for key, value in updates.items():
+        if _is_none_sentinel(value):
+            if key in target:
+                del target[key]
+            continue
+        value = _maybe_inject_variable_name(target, key, value)
+        if key in target:
+            current = target[key]
+            if _should_descend(value, current):
+                value_dict = cast(dict[str, object], value)
+                _merge_mapping(current, value_dict, path=(*path, key))
+                continue
+            _warn_if_same(current, value, path, key)
+            target[key] = value
+        else:
+            target[key] = value
+
+
+def _merge_dotmap_model(
+    target: DotMapBaseModel, updates: dict[str, object], path: tuple[str, ...]
+) -> None:
+    model_fields = getattr(type(target), "model_fields", {})
+    for key, value in updates.items():
+        if key not in model_fields:
+            continue
+        if _is_none_sentinel(value):
+            setattr(target, key, None)
+            continue
+        current = getattr(target, key, None)
+        if _should_descend(value, current):
+            value_dict = cast(dict[str, object], value)
+            _merge_mapping(current, value_dict, path=(*path, key))
+            continue
+        _warn_if_same(current, value, path, key)
+        setattr(target, key, value)
+
+
+def _merge_plain_dict(
+    target: dict[str, object], updates: dict[str, object], path: tuple[str, ...]
+) -> None:
+    for key, value in updates.items():
+        if _is_none_sentinel(value):
+            target.pop(key, None)
+            continue
+        current = target.get(key)
+        if _should_descend(value, current):
+            value_dict = cast(dict[str, object], value)
+            _merge_mapping(current, value_dict, path=(*path, key))
+            continue
+        _warn_if_same(current, value, path, key)
+        target[key] = value
+
+
+def _warn_if_same(
+    current: object, value: object, path: tuple[str, ...], key: str
+) -> None:
+    if current == value:
+        logger.warning(MERGE_WARNING, ".".join((*path, key)))
+
+
+def _should_descend(value: object, current: object) -> bool:
+    return isinstance(value, dict) and isinstance(
+        current, (DotMapBaseModel, DotMapDict, dict)
+    )
+
+
+def _maybe_inject_variable_name(
+    target: DotMapDict[Any], key: str, value: object
+) -> object:
+    if not isinstance(value, dict):
+        return value
+    value_type = getattr(target, "_value_type", None)
+    if value_type is Variable and "name" not in value:
+        return {**value, "name": key}
+    return value
 
 
 def _iter_variable_paths(cfg_dir: Path) -> list[Path]:
