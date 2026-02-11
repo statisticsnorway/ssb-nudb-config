@@ -1,6 +1,9 @@
 [datasets]
 
     [datasets.igang]
+        team = "utd-nudb"
+        bucket = "utdanning"
+        path_glob = "nudb-data/klargjorte-data/igang/igang_p[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]_v*[0-9].parquet"
         variables = [
             "utd_hendelse_id",
             "fnr",
@@ -119,6 +122,9 @@
 
 
     [datasets.eksamen]
+        team = "utd-nudb"
+        bucket = "utdanning"
+        path_glob = "nudb-data/klargjorte-data/eksamen/eksamen_p[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]_v*[0-9].parquet"
         variables = [
             "utd_hendelse_id",
             "fnr",
@@ -235,6 +241,9 @@
 
 
 [datasets.avslutta]
+    team = "utd-nudb"
+    bucket = "utdanning"
+    path_glob = "nudb-data/klargjorte-data/avslutta/avslutta_p[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]_v*[0-9].parquet"
         variables = [
             "utd_hendelse_id",
             "fnr",
@@ -309,6 +318,10 @@
 
 
     [datasets.grunnskolekarakterer]
+        team = "utd-nudb"
+        bucket = "utdanning"
+        path_glob = "nudb-data/klargjorte-data/grunnskolekarakterer/grunnskolekarakterer_p[0-9][0-9][0-9][0-9]_p[0-9][0-9][0-9][0-9]_v*[0-9].parquet"
+
         variables = [
             'fnr',
             'snr',  # old_name: snr
