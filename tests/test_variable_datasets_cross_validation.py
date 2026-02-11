@@ -7,6 +7,8 @@ def test_all_dataset_variables_are_defined() -> None:
         variable
         for dataset in settings.datasets.values()
         for variable in getattr(dataset, "variables", []) or []
+        if dataset.team
+        == "utd-nudb"  # We are not taking responsibility for definition of variables in external datasets
     }
 
     missing_definitions = referenced_variables - defined_variables

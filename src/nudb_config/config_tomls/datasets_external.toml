@@ -1,0 +1,103 @@
+[datasets]
+
+##############
+# FREG / BEF #
+##############
+
+    [datasets.freg_situttak]
+        team = "bef-statistikk"
+        bucket = "freg-sittuttak"
+        path_glob = "**/freg*situasjonsuttak*p[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]_v*[0-9].parquet"
+        variables = [
+            "snr",
+            "pers_kjoenn",
+            "foedselsdato",
+        ]
+
+    [datasets.snrkat]
+        team = "bef-statistikk"
+        bucket = "snrkat"
+        path_glob = "[0-9][0-9][0-9][0-9]/snrkat_p[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]_v*[0-9].parquet"
+
+    [datasets.alle_pers]
+        team = "bef-statistikk"
+        bucket = "folketall"
+        path_glob = "alle-pers/[0-9][0-9][0-9][0-9]/alle-pers_p[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]_v*[0-9].parquet"
+
+    [datasets.bosatte]
+        team = "bef-statistikk"
+        bucket = "folketall"
+        path_glob = "bosatte/[0-9][0-9][0-9][0-9]/bosatte_p[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]_v*[0-9].parquet"
+
+    [datasets.invbef]
+        team = "bef-statistikk"
+        bucket = "folketall"
+        path_glob = "innvbef/[0-9][0-9][0-9][0-9]/innvbef_p[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]_v*[0-9].parquet"
+
+    [datasets.slekt]
+        team = "bef-statistikk"
+        bucket = "folketall"
+        path_glob = "slekt/[0-9][0-9][0-9][0-9]/slekt_p[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]_v*[0-9].parquet"
+
+
+#######
+# VOF #
+#######
+
+    [datasets.vof_sittuttak]
+        team = "vof"
+        bucket = "situttak"
+        path_glob = "vof-situasjonsuttak_data/klargjorte-data/parquet/vof-situasjonsuttak_p[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]_v*[0-9].parquet"
+
+#######
+# VGU #
+#######
+
+    [datasets.vigo_programomraader]
+        team = "utd-vg"
+        bucket = "vg-kodeverk"
+        path_glob = "klargjorte-data/vigo*programomraade_p[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]_v*[0-9].parquet"
+
+        variables = [
+            "courseCode",  # "fagkode"
+            "shortName",  # "fagnavn_kort"
+            "norwegianName",  # "fagnavn_lang"
+            "courseType",  # "fagtype"
+            "yearHours",  # "aartimer"
+            "interdisciplinary",  # "tverrfaglig_eksamen"
+            "netScope",  # "grunnlag_kursprosent"
+            "foreignLanguageCode",  # "morsmal"
+        ]
+
+#########
+# TVERR #
+#########
+
+    [datasets.sosbak_bakke]
+        team = "utd-tverr"
+        bucket = "utdanningsnivaa-bakke"
+        path_glob = "utniv/klargjorte-data/sosbak/sosbak_p[0-9][0-9][0-9][0-9]_v*[0-9].parquet"
+
+    [datasets.bu_bakke]
+        team = "utd-tverr"
+        bucket = "utdanningsnivaa-bakke"
+        path_glob = "utniv/klargjorte-data/bu/bu_p[0-9][0-9][0-9][0-9]_v*[0-9].parquet"
+
+    [datasets.bu_storfil_bakke]
+        team = "utd-tverr"
+        bucket = "utdanningsnivaa-bakke"
+        path_glob = "utniv/klargjorte-data/storfil-bu/storfil-bu_p[0-9][0-9][0-9][0-9]_v*[0-9].parquet"
+
+############
+# BHGSKOLE #
+############
+
+    [datasets.kargrs]
+        team = "utd-bhgskole"
+        bucket = "kargrs"
+        path_glob = "kargrs/klargjorte-data/klargjort_karakter_p[0-9][0-9][0-9][0-9]_p[0-9][0-9][0-9][0-9]_v*p[0-9].parquet"
+
+    [datasets.nasjporov]
+        team = "utd-bhgskole"
+        bucket = "nasjprov"
+        path_glob = "nasjprov/klargjorte-data/nasjonaleprover_p[0-9][0-9][0-9][0-9]_p[0-9][0-9][0-9][0-9]_v*p[0-9].parquet"
