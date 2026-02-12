@@ -142,7 +142,7 @@
             # 'snr_nudb',
             'utd_datakilde',  # old_name: kilde
             'uh_eksamen_studpoeng',  # old_name: studpoeng_eks
-            'uh_eksamen_er_gjentak',  # old_name: gjentak
+            'uh_eksamen_ergjentak',  # old_name: gjentak
             'utd_skolekom',  # old_name: skolekom
             'uh_antall_deleksamener',  # old_name: antall_deleks
             'uh_antall_deleksamener_bestatt',  # old_name: antall_deleks_bestaatt
@@ -224,7 +224,7 @@
             # Målte verdier
             utd_viderutd_nettbasert = 0.001
             uh_eksamen_studpoeng = 0.0
-            uh_eksamen_er_gjentak = 0.0
+            uh_eksamen_ergjentak = 0.0
             uh_erstudierett = 0.001
             utd_utdanningstype = 0.04
             utd_skoleaar_start = 0.0

@@ -485,10 +485,9 @@ variables_sort_unit = [
         renamed_from = ["studpoeng_grad"]
 		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
 
-	[variables.uh_eksamen_er_gjentak]
+	[variables.uh_eksamen_ergjentak]
 		unit = "uh"
-		dtype = "STRING"
-		length = [1]
+		dtype = "BOOLEAN"
 		renamed_from = ["gjentak"]
 
 	[variables.uh_antall_deleksamener]

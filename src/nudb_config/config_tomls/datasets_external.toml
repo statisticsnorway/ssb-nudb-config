@@ -29,7 +29,7 @@
         bucket = "folketall"
         path_glob = "bosatte/[0-9][0-9][0-9][0-9]/bosatte_p[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]_v*[0-9].parquet"
 
-    [datasets.invbef]
+    [datasets.innvbef]
         team = "bef-statistikk"
         bucket = "folketall"
         path_glob = "innvbef/[0-9][0-9][0-9][0-9]/innvbef_p[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]_v*[0-9].parquet"
@@ -97,7 +97,7 @@
         bucket = "kargrs"
         path_glob = "kargrs/klargjorte-data/klargjort_karakter_p[0-9][0-9][0-9][0-9]_p[0-9][0-9][0-9][0-9]_v*p[0-9].parquet"
 
-    [datasets.nasjporov]
+    [datasets.nasjprov]
         team = "utd-bhgskole"
         bucket = "nasjprov"
         path_glob = "nasjprov/klargjorte-data/nasjonaleprover_p[0-9][0-9][0-9][0-9]_p[0-9][0-9][0-9][0-9]_v*p[0-9].parquet"
