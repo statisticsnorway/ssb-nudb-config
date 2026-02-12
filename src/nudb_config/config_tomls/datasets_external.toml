@@ -95,9 +95,9 @@
     [datasets.kargrs]
         team = "utd-bhgskole"
         bucket = "kargrs"
-        path_glob = "kargrs/klargjorte-data/klargjort_karakter_p[0-9][0-9][0-9][0-9]_p[0-9][0-9][0-9][0-9]_v*p[0-9].parquet"
+        path_glob = "kargrs/klargjorte-data/klargjort_karakter_p[0-9][0-9][0-9][0-9]_p[0-9][0-9][0-9][0-9]_v*[0-9].parquet"
 
     [datasets.nasjprov]
         team = "utd-bhgskole"
         bucket = "nasjprov"
-        path_glob = "nasjprov/klargjorte-data/nasjonaleprover_p[0-9][0-9][0-9][0-9]_p[0-9][0-9][0-9][0-9]_v*p[0-9].parquet"
+        path_glob = "nasjprov/klargjorte-data/nasjonaleprover_p[0-9][0-9][0-9][0-9]_p[0-9][0-9][0-9][0-9]_v*[0-9].parquet"
