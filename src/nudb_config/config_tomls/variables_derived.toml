@@ -55,7 +55,7 @@
     unit = "fa"
     dtype = "BOOLEAN"
     # If we include length, run_quality_suite will fail, because its supposed to be a BOOLEAN DUDE!
-    #length = [2]  # A bit stupid cause we are converting it to a bool after getting it from klass, the only code is "10" -> True... 
+    #length = [2]  # A bit stupid cause we are converting it to a bool after getting it from klass, the only code is "10" -> True...
     renamed_from = ["fagskoleutd"]
     description_short = "Fra klass får vi de fagskoleutdanningene som er godkjent av NOKUT - dvs. norske fagskoleutdanninger. De som har utd_utdanningstype=710 men som ikke er True/'10' i denne variabelen, er uspesifiserte koder som kommer fra alternative kilder enn NOKUT. "
     klass_codelist = 36
