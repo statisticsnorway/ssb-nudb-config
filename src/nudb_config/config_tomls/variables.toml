@@ -20,10 +20,6 @@ variables_sort_unit = [
 
 [variables]
 
-    [variables.utd_hendelse_id]
-        unit = "enhet"
-        dtype = "INTEGER"
-		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
 
 #################
 # Persvariabler #

@@ -5,10 +5,10 @@
         bucket = "utdanning"
         path_glob = "nudb-data/klargjorte-data/igang/igang_p[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]_v*[0-9].parquet"
         variables = [
-            "utd_hendelse_id",
+            #"utd_hendelse_id",
             "fnr",
             "snr",  # old_name: snr
-            "snr_mrk",
+            # "snr_mrk",
             "utd_skoleaar_start",  # old_name: aargang
             "nus2000",
             "utd_klassetrinn",  # old_name: kltrinn2000
@@ -126,10 +126,10 @@
         bucket = "utdanning"
         path_glob = "nudb-data/klargjorte-data/eksamen/eksamen_p[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]_v*[0-9].parquet"
         variables = [
-            "utd_hendelse_id",
+            #"utd_hendelse_id",
             "fnr",
             "snr",  # old_name: snr
-            "snr_mrk",
+            # "snr_mrk", We want to derive this
             #"snr_mrk_freg",
             "pers_kjoenn",  # old_name: kjoenn
             "pers_foedselsdato",  # old_name: fodt_dato
@@ -208,7 +208,7 @@
         nus2000 = "799999"
 
     [datasets.eksamen.thresholds_empty]
-            utd_hendelse_id = 0.0
+            #utd_hendelse_id = 0.0
             fnr = 0.0  # Dette er ganske lavt ass...
             snr = 4.0
             pers_kjoenn = 2.6
@@ -245,10 +245,10 @@
     bucket = "utdanning"
     path_glob = "nudb-data/klargjorte-data/avslutta/avslutta_p[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]_v*[0-9].parquet"
         variables = [
-            "utd_hendelse_id",
+            #"utd_hendelse_id",
             "fnr",
             "snr",  # old_name: snr
-            "snr_mrk",
+            # "snr_mrk",
             "pers_kjoenn",  # old_name: kjoenn
             "utd_datakilde",  # old_name: kilde
             "utd_fullfoertkode",  # old_name: utfall
@@ -325,7 +325,7 @@
         variables = [
             'fnr',
             'snr',  # old_name: snr
-            'snr_mrk',
+            # 'snr_mrk',
             'utd_skoleaar_start',  # old_name: skoleaar_slutt
             'utd_orgnr',  # old_name: orgnr
             'utd_skolekom',  # old_name: skolekom
