@@ -170,7 +170,7 @@ variables_sort_unit = [
     [variables.gro_skolenavn_inn]
         unit = "skole"
         dtype = "STRING"
-        description_short = "Innrapportert skolenavn"
+        description_short = "Innrapportert skolenavn (Ny i NUDB fom. 2026?)"
         renamed_from = ["skolenavn", "utd_orgnr_navn_inn"]
 		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
 
@@ -261,7 +261,7 @@ variables_sort_unit = [
 	[variables.gro_skolenr_inn]
         unit = "gro"
         dtype = "STRING"
-        description_short = "Fylkenes skolenummer (VIGO eller Udir)"
+        description_short = "Fylkenes skolenummer (VIGO eller Udir). (Ny i NUDB fom. 2026?)"
         length = [5]
         renamed_from = ["fskolenr"]
 
@@ -321,13 +321,13 @@ variables_sort_unit = [
 	[variables.vg_karakterpoeng]
 		unit = "vg"
 		dtype = "FLOAT"
-		description_short = "Karakterpoeng beregnes i VIGO som gjennomsnittet av tellende karakterer multiplisert med 10."
+		description_short = "Karakterpoeng beregnes i VIGO som gjennomsnittet av tellende karakterer multiplisert med 10. (Ny i NUDB fom. 2026?)"
 		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
 
 	[variables.vg_ervedtak_saer_spraak]
 		unit = "vg"
 		dtype = "BOOLEAN"
-		description_short = "Angir om eleven har vedtak om særskilt språkopplæring. Gjelder videregående opplæring."
+		description_short = "Angir om eleven har vedtak om særskilt språkopplæring. Gjelder videregående opplæring. (Ny i NUDB fom. 2026?)"
 		renamed_from = ["vg_vedtak_saerskilt_spraak", "s_spraak"]
 
 	[variables.vg_kontraktstype]
@@ -348,9 +348,9 @@ variables_sort_unit = [
 	[variables.vg_proeve_dato]
         unit = "vg"
         dtype = "DATETIME"
-        description_short = "Dato for avlagt prøve i perioden. Endret fra o til oe i variabelnavnet 23.01.2026"
+        description_short = "Dato for avlagt prøve i perioden. Endret fra o til oe i variabelnavnet 23.01.2026. (Ny i NUDB fom. 2026?)"
 		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
-		renamed_from = ["vg_prove_dato"]
+		renamed_from = ["provedato", "vg_prove_dato"]
 
 	[variables.vg_yrkes_og_studiekompetanse]
 		unit = "vg"
@@ -370,7 +370,7 @@ variables_sort_unit = [
 	[variables.vg_ernylaerling]
 		unit = "vg"
 		dtype = "BOOLEAN"
-		description_short = "Førstegangsregistrert i fagopplæring."
+		description_short = "Førstegangsregistrert i fagopplæring. (Ny i NUDB fom. 2026?)"
 		renamed_from = ["nylaerl", "vg_nylaerling"]
 
 	[variables.vg_bevistype]
@@ -387,9 +387,11 @@ variables_sort_unit = [
         length = [1]
         renamed_from = ["provekandtype", "vg_provekandtype"]  # Ikke legg til ftype, vi håndtrerer den med overrides
 
-	[variables.vg_hovedaktivitet]  # merkevariabel som prioriterer en record per person, per skoleår, per fil, innenfor vg
+	[variables.vg_hovedaktivitet]
         unit = "vg"
         dtype = "STRING"  # Har lite info om denne! C 2025-10-31
+		length = [1]
+		description_short = "Merkevariabel som prioriterer en record per person, per skoleår, per fil, innenfor vg (Ny i NUDB fom. 2026?)"
 
 	[variables.vg_utdprogram]  # Kan kanskje kobles på fra nuskatalogen, men vi skal beholde den fra innfilene?
 		unit = "vg"
@@ -401,38 +403,41 @@ variables_sort_unit = [
 # "fa" - Fagskoler #
 ####################
 
-	[variables.fa_hovedaktivitet]    # merkevariabel som prioriterer en record per person, per skoleår, per fil, innenfor fa
+	[variables.fa_hovedaktivitet]
 		unit = "fa"
 		dtype = "STRING"  # I have no info at current time, so I dont know? C 2025-10-31
+		length = [1]
+		description_short = "merkevariabel som prioriterer en record per person, per skoleår, per fil, innenfor fa. (Ny i NUDB fom. 2026?)"
 
 	[variables.fa_institusjon_id]
 		unit = "fa"
 		dtype = "STRING"  # missing information...
 		renamed_from = ["skolenr"]
-		description_short = "Utfylt fom. 2026"
+		description_short = "(Ny i NUDB fom. 2026?)"
 
 	[variables.fa_karakter]
 		unit = "fa"
 		dtype = "STRING"  # missing information...
 		renamed_from = ["karakterer"]
+		description_short = "(Ny i NUDB fom. 2026?)"
 
 	[variables.fa_studiestednr_inn]
 		unit = "fa"
 		dtype = "STRING"  # missing information...
-		description_short = "Studiested ved eller underlagt fagskolen"
+		description_short = "Studiested ved eller underlagt fagskolen. (Ny i NUDB fom. 2026?)"
 		length = [3]
 		renamed_from = ["studiestednr"]
 
 	[variables.fa_utveksl_varighet_dager]
 		unit = "fa"
 		dtype = "INTEGER"  # HVA ER VARIGHETEN I? Måneder?
-		description_short = "Varigheten på utvekslingsoppholdet i antall dager."
+		description_short = "Varigheten på utvekslingsoppholdet i antall dager. (Ny i NUDB fom. 2026?)"
 		renamed_from = ["utveksl_varighet"]
 
 	[variables.fa_tilbudskode]
 		unit = "fa"
 		dtype = "STRING"
-		description_short = "Institusjonens egen kode for tilbudet (tilbud = kurs/utdanninger)"
+		description_short = "Institusjonens egen kode for tilbudet (tilbud = kurs/utdanninger). (Ny i NUDB fom. 2026?)"
 		renamed_from = ["fagsk_tilbudskode_tilb"]
 
 	[variables.fa_tilbudsnavn]
@@ -476,7 +481,7 @@ variables_sort_unit = [
 		unit = "uh"
 		dtype = "STRING"
 		length = [1]
-
+		description_short = "(Ny i NUDB fom. 2026?)"
 
 
     [variables.uh_campus_sted]
@@ -500,7 +505,7 @@ variables_sort_unit = [
     [variables.uh_studieprogram]
         unit = "fag"
         dtype = "STRING"
-        description_short = "Studentens studieprogram. Et studieprogram kjennetegnes ved at det ikke er nødvendig å søke nytt opptak for å ta nye emner innenfor studieprogrammet."
+        description_short = "Studentens studieprogram. Et studieprogram kjennetegnes ved at det ikke er nødvendig å søke nytt opptak for å ta nye emner innenfor studieprogrammet. (Ny i NUDB fom. 2026?)"
         renamed_from = ["studprog", "studieprogram"]
 
     [variables.uh_eksamen_karakter]
@@ -516,7 +521,7 @@ variables_sort_unit = [
     [variables.uh_studienivaa]
         unit = "fag"
         dtype = "STRING"
-        description_short = "Type studieprogram."
+        description_short = "Type studieprogram. (Ny i NUDB fom. 2026?)"
         renamed_from = ["studnivaa"]
 
     [variables.uh_studieprogram_navn]
@@ -582,7 +587,7 @@ variables_sort_unit = [
     [variables.uh_erpermisjon]
         unit = "uh"
         dtype = "BOOLEAN"
-        description_short = "Angir om personen på tellingstidspunktet har fått innvilget permisjon, og IKKE har registrert seg og betalt semesteravgift dette semesteret."
+        description_short = "Angir om personen på tellingstidspunktet har fått innvilget permisjon, og IKKE har registrert seg og betalt semesteravgift dette semesteret. (Ny i NUDB fom. 2026?)"
         renamed_from = ["permisjon", "uh_permisjon"]
 
 	[variables.uh_studieprogresjon_hoest]
@@ -602,12 +607,12 @@ variables_sort_unit = [
         unit = "uh"
         dtype = "STRING"
         renamed_from = []
-		description_short = "Merkevariabel som prioriterer en record per person, per skoleår, per fil, innenfor uh"
+		description_short = "Merkevariabel som prioriterer en record per person, per skoleår, per fil, innenfor uh. (Ny i NUDB fom. 2026?)"
 
     [variables.uh_undervisningsspraak]
         unit = "uh"
         dtype = "STRING"
-        description_short = "Undervisningsspråk"
+        description_short = "Undervisningsspråk. (Ny i NUDB fom. 2026?)"
         renamed_from = ["undervisningssprak"]
 
     [variables.uh_fakultet]
