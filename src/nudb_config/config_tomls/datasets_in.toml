@@ -69,7 +69,7 @@
         "utd_utdanningstype",
         "utd_utveksling",
         "utd_skolekom",
-        "utd_studieland",
+        #"utd_studieland",
         #"fa_ergodkjent_fagskoleutd",  # skal utledes fra nus2000 isteden
         "fa_utveksl_varighet_dager",
         "fa_studiestednr_inn",
@@ -249,7 +249,7 @@
             "utd_klassetrinn",
             "utd_utdanningstype",
             "utd_skolekom",
-            "utd_studieland",
+            #"utd_studieland",
             "utd_fullfoertkode",
             "utd_viderutd_nettbasert",
             #"fa_ergodkjent_fagskoleutd",  # skal utledes fra nus2000 isteden
@@ -305,7 +305,6 @@
             "uh_campus_kommune",
             "uh_campus_sted",
             "uh_ervitnemaalsgivende",
-            "uh_hovedaktivitet",
         ]
 
         [datasets.avslutta_hoeyereutdanning.thresholds_empty]

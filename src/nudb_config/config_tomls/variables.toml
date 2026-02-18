@@ -29,13 +29,14 @@ variables_sort_unit = [
 		unit = "pers"
 		dtype = "STRING"
 		length = [7, 36]
-		description_short = "SNR is SSBs ident for persons, it is goverend by FREG. For the people missing a snr, we insert UUID4. SNR is a length of 7, UUID4 is 36 characters."
+		description_short = "SNR is SSBs ident for persons, it is goverend by FREG. For the people missing a snr, we insert UUID4. SNR is a length of 7, UUID4 is 36 characters. s-nummer 4.12.2025 Endret fra pers_id til snr"
 		renamed_from = ["pers_id"]  # This is due to a misunderstanding with 320 and 312. Pers_id was intended to be "pseudonomized fnr", not snr. But we have misunderstood at some point.
 		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
 
 	[variables.fnr]
 		unit = "pers"
 		dtype = "STRING"
+		description_short = "fødselsnummer"
 		length = [11]
 		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
 
@@ -43,6 +44,7 @@ variables_sort_unit = [
 	[variables.pers_kjoenn]
 		unit = "pers"
 		dtype = "STRING"
+		description_short = "kjønn"
 		length = [1]
 		klass_codelist = 2
 		renamed_from = ["kjoenn"]
@@ -54,6 +56,7 @@ variables_sort_unit = [
 	[variables.utd_datakilde]
 		unit = "data"
 		dtype = "STRING"
+		description_short = "Kildene til utdanningsdata (dataleverandør eller system)"
 		length = [2]
 		klass_codelist = 792
 		renamed_from = ["kilde", "kildebhu"]
@@ -61,6 +64,7 @@ variables_sort_unit = [
 	[variables.utd_fullfoertkode]
 		unit = "data"
 		dtype = "STRING"
+		description_short = "Fullføringsstatus for registrert utdanning (kurs/klassetrinn/fagprøve/grad)"
 		length = [1]
 		renamed_from = ["utfall"]
 
@@ -71,6 +75,7 @@ variables_sort_unit = [
 	[variables.pers_foedselsdato]
 		unit = "tid"
 		dtype = "DATETIME"
+		description_short = "fødselsdato"
 		renamed_from = ["fodt_dato", "fodtdato", "fodselsdato", "foedselsdato"]
 		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
 
@@ -79,6 +84,7 @@ variables_sort_unit = [
     [variables.utd_aktivitet_start]
         unit = "tid"
         dtype = "DATETIME"
+        description_short = "Endelig aktivitetsstart (dato)"
         renamed_from = ["startd", "kurs_start"]
 		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
 
@@ -86,6 +92,7 @@ variables_sort_unit = [
     [variables.utd_aktivitet_slutt]
         unit = "tid"
         dtype = "DATETIME"
+        description_short = "Endelig aktivitetsslutt (dato)"
         renamed_from = ["sluttd", "fulldato", "kurs_slutt"]
 		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
 
@@ -93,6 +100,7 @@ variables_sort_unit = [
     [variables.utd_aktivitet_start_inn]
         unit = "tid"
         dtype = "DATETIME"
+        description_short = "Innraportert aktivitetsstart (dato)"
         renamed_from = ["estart", "kstart", "kurs_start_orig"]
 		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
 
@@ -100,6 +108,7 @@ variables_sort_unit = [
     [variables.utd_aktivitet_slutt_inn]
         unit = "tid"
         dtype = "DATETIME"
+        description_short = "Innraportert aktivitetssslutt (dato)"
         renamed_from = ["eslutt", "eavsl", "kurs_slutt_orig"]
 		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
 
@@ -107,6 +116,7 @@ variables_sort_unit = [
     [variables.utd_skoleaar_start]
         unit = "tid"
         dtype = "STRING"
+        description_short = "Kalenderår når skoleåret starter (åååå)"
 		length = [4]
         renamed_from = ["skolear", "skoleaar", "skoleaar_start"]
 		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
@@ -131,6 +141,7 @@ variables_sort_unit = [
 	[variables.nus2000]
 		unit = "fag"
 		dtype = "STRING"
+		description_short = "Utdanningsstandard"
 		length = [6]
 		klass_codelist = 36
 
@@ -141,6 +152,7 @@ variables_sort_unit = [
     [variables.bof_orgnrbed]
 		unit = "skole"
 		dtype = "STRING"
+		description_short = "Bedriftens ID ved flerbedriftsforetak. I fleste tilfeller bof_orgnrbed=utd_orgnr, men foretakets organisasjonsnummer ved enbedriftsforetak."
 		length = [9]
         renamed_from = ["orgnrbed", "bof_orgnr_bed"]
 		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
@@ -149,6 +161,7 @@ variables_sort_unit = [
     [variables.utd_orgnr]
 		unit = "skole"
 		dtype = "STRING"
+		description_short = "Organisasjonsnummer til skole (elever, studenter) eller opplæringsbedrift (fagopplæring)"
 		length = [9]
         renamed_from = ["orgnr"]
 		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
@@ -157,6 +170,7 @@ variables_sort_unit = [
     [variables.gro_skolenavn_inn]
         unit = "skole"
         dtype = "STRING"
+        description_short = "Innrapportert skolenavn"
         renamed_from = ["skolenavn", "utd_orgnr_navn_inn"]
 		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
 
@@ -164,6 +178,7 @@ variables_sort_unit = [
 	[variables.utd_skolekom]
 		unit = "skole"
 		dtype = "STRING"
+		description_short = "Kommunenummer til utdanningsinstitusjon (ikke bedrift i tilfeller fagopplæring)"
 		length = [4]
         klass_codelist = 131
         klass_codelist_from_date = "1960-01-01"
@@ -176,11 +191,13 @@ variables_sort_unit = [
 	[variables.utd_klassetrinn]
 		unit = "fag"
 		dtype = "INTEGER"
+		description_short = "Klassetrinnet er økt med 1 for å tilpasses til 10-årig grunnskole/samsvare med klassetrinn i NUS2000-standarden."
 		renamed_from = ["kltrinn2000"]
 
 	[variables.utd_aktivitetsnivaa_heltid_deltid]
 		unit = "fag"
 		dtype = "STRING"
+		description_short = "Heltid betyr at aktivitetsnivå >= 70%, ellers deltid  Leveres foreløpig på filer til NUDB-teamet, tas bare med på ny Avslutta-tabell ved behov."
 		length = [1]
 		klass_codelist = 887
 		renamed_from = ["heldel", "utd_heltid_deltid_aktivitetsnivaa"]
@@ -188,6 +205,7 @@ variables_sort_unit = [
 	[variables.utd_viderutd_nettbasert]
 		unit = "fag"
 		dtype = "STRING"
+		description_short = "Med etterutdanning menes kortere kurs som ikke gir formell kompetanse, men som sikter mot fornyelse og ajourføring av en førstegangsutdanning. Med videreutdanning menes eksamensrettede studier/fag som gir formell kompetanse og studiepoengsuttelling i grad. Et videreutdanningstilbud vil ofte være en spesialisering/påbygging av en grunnutdanning. Grensen mellom ordinær utdanning og videreutdanning er likevel uklar."
 		length = [1]
 		klass_codelist = 794
 		renamed_from = ["evufjern"]
@@ -195,6 +213,7 @@ variables_sort_unit = [
 	[variables.fuh_nett_eller_stedbasert]
 		unit = "fag"
 		dtype = "STRING"
+		description_short = "Angir hvordan undervisningen er organisert"
 		length = [1]
 		klass_codelist = 796
 		renamed_from = ["organisering", "utd_nett_eller_stedbasert"]
@@ -202,6 +221,7 @@ variables_sort_unit = [
 	[variables.utd_utdanningstype]
 		unit = "fag"
 		dtype = "STRING"
+		description_short = "Grupperingen er laget ved å kombinere opplysninger om utdanningens art, institusjonens næringskode og lovverket som regulerer utdanningsvirksomheten (Lov om grunnskolen og den videregående opplæringa (opplæringslova), Lov om frittståande skolar (friskolelova), Lov om fagskoleutdanning, Lov om folkehøyskoler (folkehøyskoleloven) og Lov om universiteter og høyskoler). Den særskilte skoleslagsgrupperingen er en intern kode som benyttes i statistikkproduksjonen. Grupperingen har som formål å gi en m er presis angivelse av ulike skole- og utdanningstyper innenfor utdanningssystemet. Den vil være en sentral grupperingsvariabel i tabeller over utdanning publisert i Statistisk sentralbyrå."
 		length = [3]
 		klass_codelist = 798
 		renamed_from = ["utd"]
@@ -210,6 +230,7 @@ variables_sort_unit = [
 	[variables.utd_utveksling]
 		unit = "uh"
 		dtype = "STRING"
+		description_short = "Studenter hvor det foreligger en avtale med en ekstern institusjon, og hvor varigheten på avtalen er på minst tre måneder. Gjelder per 1.oktober."
 		length = [1]
 		klass_codelist = 791
 		renamed_from = ["utveks"]
@@ -221,6 +242,7 @@ variables_sort_unit = [
     [variables.gr_grunnskolepoeng]
         unit = "gr"
         dtype = "FLOAT"
+        description_short = "\"Grunnskolepoeng er samlet antall karakterpoeng ved avsluttet grunnskole. Definisjon t.o.m. 2006: Summen av elevens fagkarakterer i 11 fag. Når eleven har både standpunktkarakter og eksamenskarakter, er fagkarakteren gjennomsnittet av disse karakterene. Hvis eleven mangler karakter i noen fag, blir det lagt til poeng for inntil to fag ut fra gjennomsnittskarakteren i de fagene eleven har karakter i."
         renamed_from = ["grunnskolepoeng"]
 		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
 
@@ -231,6 +253,7 @@ variables_sort_unit = [
 	[variables.gro_elevstatus]
 		unit = "gro"
 		dtype = "STRING"
+		description_short = "Angir om personen er for eksempel elev, privatist, deltaker i tilbud spesielt tilpasset voksne, eller har individuell opplæringsplan."
 		length = [1]
 		klass_codelist = 765
 		renamed_from = ["elevstatus"]
@@ -238,24 +261,28 @@ variables_sort_unit = [
 	[variables.gro_skolenr_inn]
         unit = "gro"
         dtype = "STRING"
+        description_short = "Fylkenes skolenummer (VIGO eller Udir)"
         length = [5]
         renamed_from = ["fskolenr"]
 
 	[variables.gro_fravaer_dager]
         unit = "gro"
         dtype = "INTEGER"
+        description_short = "Antall dager med fravær på vitnemålet. Fravær på kompetansebevis/vitnemål er kun utfylt hvis elevstatus <> V"
         renamed_from = ["f_dager"]
 		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
 
     [variables.gro_fravaer_timer]
         unit = "gro"
         dtype = "INTEGER"
+        description_short = "Antall enkelttimer med fravær på vitnemålet. Fravær på kompetansebevis/vitnemål er kun utfylt hvis elevstatus <> V"
         renamed_from = ["f_timer"]
 		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
 
     [variables.gro_programomraade]
 		unit = "gro"
 		dtype = "STRING"
+		description_short = "Programområdets alfanumeriske kode på 10 posisjoner. Koden er satt sammen av en grunnkode (de 6 første posisjonene) som er gitt av Utdanningsdirektoratet gjennom Grep-basen og kategorier/varianter (de 4 siste posisjonene) som er gitt av VIGO Kodeverksgruppe. De 4 siste posisjonene viser evt. kategorier/varianter til grunnkoden."
 		length = [10]
 		renamed_from = ["fkurskod", "vg_programomraade"]
 
@@ -274,33 +301,39 @@ variables_sort_unit = [
 	[variables.vg_antall_aarstimer_elevkurs]
         unit = "vg"
         dtype = "INTEGER"
+        description_short = "Viser hvor mange timer eleven har tatt av programområdet."
         renamed_from = ["aartimer"]
 		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
 
 	[variables.vg_kursprosent]
 		unit = "vg"
 		dtype = "FLOAT"
+		description_short = "Viser hvor stor andel av programområdet eleven tar. Kursprosent beregnes i VIGO. Fagstatusene A,E,F,G,N,O,P,R,U,V (se registreringshåndboken) er med i beregning av kursprosenten, og i tillegg S dersom avbrudd >= 1/11. Det kan forekomme 0 (null) på filen."
 		renamed_from = ["delpros"]
 		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
 
 	[variables.vg_antall_fag_elevkurs]
 		unit = "vg"
 		dtype = "INTEGER"
+		description_short = "Antall fag på elevkurset beregnes i VIGO. Fag med fagstatus B (meropplæring) er ikke med i beregningen. Det kan forekomme 0 (null)"
 		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
 
 	[variables.vg_karakterpoeng]
 		unit = "vg"
 		dtype = "FLOAT"
+		description_short = "Karakterpoeng beregnes i VIGO som gjennomsnittet av tellende karakterer multiplisert med 10."
 		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
 
 	[variables.vg_ervedtak_saer_spraak]
 		unit = "vg"
 		dtype = "BOOLEAN"
+		description_short = "Angir om eleven har vedtak om særskilt språkopplæring. Gjelder videregående opplæring."
 		renamed_from = ["vg_vedtak_saerskilt_spraak", "s_spraak"]
 
 	[variables.vg_kontraktstype]
 		unit = "vg"
 		dtype = "STRING"
+		description_short = "Type kontrakt som beskriver kompetansemål og opplæringsløp"
 		length = [1]
 		klass_codelist = 769
 		renamed_from = ["kontraktstype"]  # Ikke legg til ftype, vi håndtrerer den med overrides
@@ -308,24 +341,28 @@ variables_sort_unit = [
 	[variables.vg_proevenr]
         unit = "vg"
         dtype = "INTEGER"
+        description_short = "\"Prøvenummer. Legges ut om det er prøve nr 1, nr 2 osv for personen på denne programområdekode. Endret fra o til oe i variabelnavnet 23.01.2026"
         renamed_from = ["provnr", "vg_provenr"]
 		klass_codelist = 0  # Is this correct? Does a codelist exist?
 
 	[variables.vg_proeve_dato]
         unit = "vg"
         dtype = "DATETIME"
+        description_short = "Dato for avlagt prøve i perioden. Endret fra o til oe i variabelnavnet 23.01.2026"
 		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
 		renamed_from = ["vg_prove_dato"]
 
 	[variables.vg_yrkes_og_studiekompetanse]
 		unit = "vg"
 		dtype = "STRING"
+		description_short = "Videregående utdanning som gir både yrkeskompetanse og studiekompetanse samtidig (TAF=tekniske allmennfag eller YSK=yrkes- og studiekompetanse)"
 		length = [1]
 		renamed_from = ["taf"]
 
 	[variables.vg_rettstype_inntak]
 		unit = "fag"
 		dtype = "STRING"
+		description_short = "Rettstype til grunn for inntaket til elevkurset (søker-rettstype)."
 		length = [1]
 		klass_codelist = 764
 		renamed_from = ["rett"]
@@ -333,17 +370,20 @@ variables_sort_unit = [
 	[variables.vg_ernylaerling]
 		unit = "vg"
 		dtype = "BOOLEAN"
+		description_short = "Førstegangsregistrert i fagopplæring."
 		renamed_from = ["nylaerl", "vg_nylaerling"]
 
 	[variables.vg_bevistype]
         unit = "fag"
         dtype = "STRING"
+        description_short = "Viser hvilken bevistype eleven har fått på opplæringen.variabelen ble fjernet fra NUDB fordi den ikke var utfylt. Den ble i en periode ikke hentet inn fra fylket. Nå (i 2014) er den utfylt på avsluttafilen, men ser ikke ut til å være riktig. van, 8.12.2014 Avslutta 2000/2001. Har foreløpig for dårlig kvalitetdoktype forekommer kun på avsluttet utdanning, settes ved avgang og endres ikke. Er ikke lagt inn i NUDB"
         length = [2]
         renamed_from = ["doktype"]
 
     [variables.vg_proevekandtype]
         unit = "vg"
         dtype = "STRING"
+        description_short = "Resultat av opplæringsform forut for prøve (lærling type). Endret fra o til oe i variabelnavnet 23.01.2026"
         length = [1]
         renamed_from = ["provekandtype", "vg_provekandtype"]  # Ikke legg til ftype, vi håndtrerer den med overrides
 
@@ -379,28 +419,34 @@ variables_sort_unit = [
 	[variables.fa_studiestednr_inn]
 		unit = "fa"
 		dtype = "STRING"  # missing information...
+		description_short = "Studiested ved eller underlagt fagskolen"
 		length = [3]
 		renamed_from = ["studiestednr"]
 
 	[variables.fa_utveksl_varighet_dager]
 		unit = "fa"
 		dtype = "INTEGER"  # HVA ER VARIGHETEN I? Måneder?
+		description_short = "Varigheten på utvekslingsoppholdet i antall dager."
 		renamed_from = ["utveksl_varighet"]
 
 	[variables.fa_tilbudskode]
 		unit = "fa"
 		dtype = "STRING"
-		description_short = "Institusjonens egen kode for tilbudet (tilbud = kurs/utdanninger). (New variable 2026)"
-
+		description_short = "Institusjonens egen kode for tilbudet (tilbud = kurs/utdanninger)"
+		renamed_from = ["fagsk_tilbudskode_tilb"]
+	
 	[variables.fa_tilbudsnavn]
 		unit = "fa"
 		dtype = "STRING"
-		desctription_short = "Institusjonens eget navn for tilbudet. (New variable 2026)"
+		description_short = "Institusjonens eget navn for tilbudet. (New variable 2026)"
+		renamed_from = ["fagsk_tilbudnavn_tilb"]
 
 	[variables.fa_nettbasert_antall_samledager_tilbud]
 		unit = "fa"
 		dtype = "INTEGER"
 		description_short = "Antall samledager for nettbaserte tilbud med samling. (New variable 2026)"
+		renamed_from = ["ant_saml_dager_tilb"]
+
 
 #########################################################
 # "fuh" - Fagskoler + Universitet og Høgskole-Utdanning #
@@ -409,6 +455,7 @@ variables_sort_unit = [
 	[variables.fuh_opptaksgrunnlag]
 		unit = "fuh"
 		dtype = "STRING"
+		description_short = "Studiekompetansegrunnlag"
 		length = [1]
 		renamed_from = ["realkomp", "uh_realkompetanse"]
 		klass_codelist = 795
@@ -420,6 +467,7 @@ variables_sort_unit = [
 	[variables.uh_institusjon_id]
 		unit = "skole"
 		dtype = "STRING"
+		description_short = "Ident for universitet eller høyskole"
 		length = [3]
 		klass_codelist = 790
         renamed_from = ["hskode"]
@@ -443,8 +491,7 @@ variables_sort_unit = [
         length = [4]
         klass_codelist = 131
         renamed_from = ["campus_kom"]
-		description_short = "Studentens geografiske studiested. (New variable 2026)"
-
+		description_short = "Kommune hvor campus er plassert. (New variable 2026)"
     [variables.uh_termin_rapportert]
         unit = "fag"
         dtype = "STRING"
@@ -453,6 +500,7 @@ variables_sort_unit = [
     [variables.uh_studieprogram]
         unit = "fag"
         dtype = "STRING"
+        description_short = "Studentens studieprogram. Et studieprogram kjennetegnes ved at det ikke er nødvendig å søke nytt opptak for å ta nye emner innenfor studieprogrammet."
         renamed_from = ["studprog", "studieprogram"]
 
     [variables.uh_eksamen_karakter]
@@ -468,6 +516,7 @@ variables_sort_unit = [
     [variables.uh_studienivaa]
         unit = "fag"
         dtype = "STRING"
+        description_short = "Type studieprogram."
         renamed_from = ["studnivaa"]
 
     [variables.uh_studieprogram_navn]
@@ -483,6 +532,7 @@ variables_sort_unit = [
 	[variables.uh_utvekslingsavtale]
 		unit = "uh"
 		dtype = "STRING"
+		description_short = "Betegnelse på ulike utvekslingsavtaler."
 		length = [3,4,5,6,7,8,9,10,11,12,13]
 		renamed_from = ["utveksavtale"]
 		#klass_codelist = 792  # Denne er foreldet etter vi gikk over til å bruke kodelisten slik den kommer inn til oss?
@@ -496,6 +546,7 @@ variables_sort_unit = [
     [variables.uh_studiepoeng_grad]
         unit = "uh"
         dtype = "FLOAT"
+        description_short = "Antall studiepoeng fullført grad"
         renamed_from = ["studpoeng_grad"]
 		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
 
@@ -523,6 +574,7 @@ variables_sort_unit = [
 	[variables.uh_studierett]
 		unit = "uh"
 		dtype = "STRING"
+		description_short = "Med eller uten studierett"
 	    length = [1]
 		renamed_from = ["studrett", "uh_erstudierett"]
 		#klass_codelist =   # "S"/"1" = Studierett, "P"/"2" = Ikke studirett, "A" = "Annet"
@@ -530,27 +582,32 @@ variables_sort_unit = [
     [variables.uh_erpermisjon]
         unit = "uh"
         dtype = "BOOLEAN"
+        description_short = "Angir om personen på tellingstidspunktet har fått innvilget permisjon, og IKKE har registrert seg og betalt semesteravgift dette semesteret."
         renamed_from = ["permisjon", "uh_permisjon"]
 
 	[variables.uh_studieprogresjon_hoest]
 		unit = "uh"
 		dtype = "FLOAT"
+		description_short = "Planlagt studieprogresjon i høstsemesteret"
 		renamed_from = ["studieprogresjon_h", "studieprogresjon"]
 		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
 
     [variables.uh_utdplan]
 		unit = "uh"
         dtype = "STRING"
+		description_short = "Utdanningsplan"
         renamed_from = ["utdplan"]
 
-    [variables.uh_hovedaktivitet]   # merkevariabel som prioriterer en record per person, per skoleår, per fil, innenfor uh
+    [variables.uh_hovedaktivitet]  
         unit = "uh"
         dtype = "STRING"
         renamed_from = []
+		description_short = "Merkevariabel som prioriterer en record per person, per skoleår, per fil, innenfor uh"
 
     [variables.uh_undervisningsspraak]
         unit = "uh"
         dtype = "STRING"
+        description_short = "Undervisningsspråk"
         renamed_from = ["undervisningssprak"]
 
     [variables.uh_fakultet]
@@ -574,6 +631,7 @@ variables_sort_unit = [
 	[variables.utd_studieland]
 		unit = "land"
 		dtype = "STRING"
+		description_short = "Landkode for studieland"
 		length = [3]
 		klass_codelist = 91
 		renamed_from = ["studieland", "uh_studieland"]
@@ -581,6 +639,7 @@ variables_sort_unit = [
 	[variables.fuh_utvekslingsland]
 		unit = "land"
 		dtype = "STRING"
+		description_short = "Landkode for hvor utvekslingsstudentene faktisk studerer."
 		length = [3]
 		klass_codelist = 91
 		renamed_from = ["utveksland","uh_utvekslingsland"]
@@ -588,6 +647,7 @@ variables_sort_unit = [
 	[variables.uh_studgrunnlagsland]
 		unit = "land"
 		dtype = "STRING"
+		description_short = "Landkode for studiegrunnlag"
 		length = [3]
 		klass_codelist = 91
 		renamed_from = ["studgrland"]
@@ -595,6 +655,7 @@ variables_sort_unit = [
 	[variables.uh_statsborgerskap_inn]
 		unit = "land"
 		dtype = "STRING"
+		description_short = "Landkode statsborgerskap rapportert fra institusjon"
 		length = [3]
 		klass_codelist = 91
 		renamed_from = ["statb_meldt"]
