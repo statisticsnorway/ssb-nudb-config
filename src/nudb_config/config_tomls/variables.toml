@@ -434,7 +434,7 @@ variables_sort_unit = [
 		dtype = "STRING"
 		description_short = "Institusjonens egen kode for tilbudet (tilbud = kurs/utdanninger)"
 		renamed_from = ["fagsk_tilbudskode_tilb"]
-	
+
 	[variables.fa_tilbudsnavn]
 		unit = "fa"
 		dtype = "STRING"
@@ -598,7 +598,7 @@ variables_sort_unit = [
 		description_short = "Utdanningsplan"
         renamed_from = ["utdplan"]
 
-    [variables.uh_hovedaktivitet]  
+    [variables.uh_hovedaktivitet]
         unit = "uh"
         dtype = "STRING"
         renamed_from = []
