@@ -12,7 +12,7 @@
     variables = [
         "fnr",
         "snr",
-        "snr_mrk",
+        #"snr_mrk",  # We dont demand this delivered, as we will reproduce anyway
         "pers_foedselsdato",
         "pers_kjoenn",
         "utd_skoleaar_start",
@@ -53,7 +53,7 @@
         variables = [
         "fnr",
         "snr",
-        "snr_mrk",
+        #"snr_mrk",  # We dont demand this delivered, as we will reproduce anyway
         "pers_foedselsdato",
         "pers_kjoenn",
         "utd_skoleaar_start",
@@ -95,7 +95,7 @@
         variables = [
         "fnr",
         "snr",
-        "snr_mrk",
+        #"snr_mrk",   # We dont demand this delivered, as we will reproduce anyway
         "pers_foedselsdato",
         "pers_kjoenn",
         "utd_skoleaar_start",
@@ -147,7 +147,7 @@
         variables = [
 	        "fnr",
             "snr",
-            "snr_mrk",
+            #"snr_mrk",  # We dont demand this delivered, as we will reproduce anyway
             "pers_foedselsdato",
             "pers_kjoenn",
             "nus2000",
@@ -189,7 +189,7 @@
         variables = [
 	        "fnr",
             "snr",
-            "snr_mrk",
+            #"snr_mrk",  # We dont demand this delivered, as we will reproduce anyway
             "pers_foedselsdato",
             "pers_kjoenn",
             "utd_skoleaar_start",
@@ -233,7 +233,7 @@
         variables = [
 	        "fnr",
             "snr",
-            "snr_mrk",
+            #"snr_mrk",  # We dont demand this delivered, as we will reproduce anyway
             "pers_foedselsdato",
             "pers_kjoenn",
             "utd_skoleaar_start",
@@ -274,7 +274,7 @@
         variables = [
             "fnr",
             "snr",
-            "snr_mrk",
+            #"snr_mrk",  # We dont demand this delivered, as we will reproduce anyway
             "pers_foedselsdato",
             "pers_kjoenn",
             "utd_skoleaar_start",
@@ -325,7 +325,7 @@
         variables = [
             "fnr",
             "snr",
-            "snr_mrk",
+            #"snr_mrk",  # We dont demand this delivered, as we will reproduce anyway
             "pers_foedselsdato",
             "pers_kjoenn",
             "utd_skoleaar_start",

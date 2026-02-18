@@ -8,7 +8,7 @@
             #"utd_hendelse_id",
             "fnr",
             "snr",  # old_name: snr
-            # "snr_mrk",
+            "snr_mrk",
             "utd_skoleaar_start",  # old_name: aargang
             "nus2000",
             "utd_klassetrinn",  # old_name: kltrinn2000
@@ -132,7 +132,7 @@
             #"utd_hendelse_id",
             "fnr",
             "snr",  # old_name: snr
-            # "snr_mrk", We want to derive this
+            "snr_mrk",
             #"snr_mrk_freg",
             "pers_kjoenn",  # old_name: kjoenn
             "pers_foedselsdato",  # old_name: fodt_dato
@@ -252,7 +252,7 @@
             #"utd_hendelse_id",
             "fnr",
             "snr",  # old_name: snr
-            # "snr_mrk",
+            "snr_mrk",
             "pers_kjoenn",  # old_name: kjoenn
             "utd_datakilde",  # old_name: kilde
             "utd_fullfoertkode",  # old_name: utfall
@@ -335,7 +335,7 @@
         variables = [
             'fnr',
             'snr',  # old_name: snr
-            # 'snr_mrk',
+            'snr_mrk',
             'utd_skoleaar_start',  # old_name: skoleaar_slutt
             'utd_orgnr',  # old_name: orgnr
             'utd_skolekom',  # old_name: skolekom
