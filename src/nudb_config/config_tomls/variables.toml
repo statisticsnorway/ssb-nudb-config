@@ -477,10 +477,11 @@ variables_sort_unit = [
 		klass_codelist = 790
         renamed_from = ["hskode"]
 
-	[variables.uh_fullfoertkode_inn]
+	[variables.uh_fullfoertkode_detaljert]
 		unit = "uh"
 		dtype = "STRING"
 		length = [1]
+		renamed_from = ["uh_fullfoertkode_inn"]
 		description_short = "(Ny i NUDB fom. 2026?)"
 
 

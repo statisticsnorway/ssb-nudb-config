@@ -159,7 +159,7 @@
             'uh_studienivaa',  # old_name: studnivaa
             'uh_studieprogram_navn',  # old_name: studprog_navn
             'uh_emnekode_navn',  # old_name: emnekode_navn
-            'uh_fullfoertkode_inn',
+            'uh_fullfoertkode_detaljert',
             'uh_campus_kommune',
             'uh_campus_sted',
             # 'foedselsdato',
