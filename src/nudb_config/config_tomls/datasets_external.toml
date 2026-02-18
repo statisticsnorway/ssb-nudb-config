@@ -6,7 +6,7 @@
 
     [datasets.freg_situttak]
         team = "bef-statistikk"
-        bucket = "freg-sittuttak"
+        bucket = "freg-situttak"
         path_glob = "**/freg*situasjonsuttak*p[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]_v*[0-9].parquet"
         variables = [
             "snr",
@@ -44,7 +44,7 @@
 # VOF #
 #######
 
-    [datasets.vof_sittuttak]
+    [datasets.vof_situttak]
         team = "vof"
         bucket = "situttak"
         path_glob = "vof-situasjonsuttak_data/klargjorte-data/parquet/vof-situasjonsuttak_p[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]_v*[0-9].parquet"

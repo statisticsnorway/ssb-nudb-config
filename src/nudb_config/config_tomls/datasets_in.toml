@@ -12,7 +12,7 @@
     variables = [
         "fnr",
         "snr",
-        "snr_mrk",
+        #"snr_mrk",  # We dont demand this delivered, as we will reproduce anyway
         "pers_foedselsdato",
         "pers_kjoenn",
         "utd_skoleaar_start",
@@ -53,7 +53,7 @@
         variables = [
         "fnr",
         "snr",
-        "snr_mrk",
+        #"snr_mrk",  # We dont demand this delivered, as we will reproduce anyway
         "pers_foedselsdato",
         "pers_kjoenn",
         "utd_skoleaar_start",
@@ -69,7 +69,7 @@
         "utd_utdanningstype",
         "utd_utveksling",
         "utd_skolekom",
-        "utd_studieland",
+        #"utd_studieland",
         #"fa_ergodkjent_fagskoleutd",  # skal utledes fra nus2000 isteden
         "fa_utveksl_varighet_dager",
         "fa_studiestednr_inn",
@@ -78,6 +78,9 @@
         "fa_institusjon_id",
         "fuh_opptaksgrunnlag",
         "fuh_utvekslingsland",
+        "fa_tilbudskode",
+        "fa_tilbudsnavn",
+        "fa_nettbasert_antall_samledager_tilbud",
         ]
 
     [datasets.igang_fagskole.thresholds_empty]
@@ -92,7 +95,7 @@
         variables = [
         "fnr",
         "snr",
-        "snr_mrk",
+        #"snr_mrk",   # We dont demand this delivered, as we will reproduce anyway
         "pers_foedselsdato",
         "pers_kjoenn",
         "utd_skoleaar_start",
@@ -114,7 +117,7 @@
         "uh_institusjon_id",
         "uh_erpermisjon",
         "uh_statsborgerskap_inn",
-        "uh_erstudierett",
+        "uh_studierett",
         "uh_studienivaa",
         "uh_utdplan",
         "uh_studieprogram",
@@ -144,7 +147,7 @@
         variables = [
 	        "fnr",
             "snr",
-            "snr_mrk",
+            #"snr_mrk",  # We dont demand this delivered, as we will reproduce anyway
             "pers_foedselsdato",
             "pers_kjoenn",
             "nus2000",
@@ -168,6 +171,8 @@
             "gro_programomraade",
             "gro_elevstatus",
             "gro_skolenr_inn",
+            "gro_skolenavn_inn",
+
 
         ]
 
@@ -184,7 +189,7 @@
         variables = [
 	        "fnr",
             "snr",
-            "snr_mrk",
+            #"snr_mrk",  # We dont demand this delivered, as we will reproduce anyway
             "pers_foedselsdato",
             "pers_kjoenn",
             "utd_skoleaar_start",
@@ -228,7 +233,7 @@
         variables = [
 	        "fnr",
             "snr",
-            "snr_mrk",
+            #"snr_mrk",  # We dont demand this delivered, as we will reproduce anyway
             "pers_foedselsdato",
             "pers_kjoenn",
             "utd_skoleaar_start",
@@ -244,7 +249,7 @@
             "utd_klassetrinn",
             "utd_utdanningstype",
             "utd_skolekom",
-            "utd_studieland",
+            #"utd_studieland",
             "utd_fullfoertkode",
             "utd_viderutd_nettbasert",
             #"fa_ergodkjent_fagskoleutd",  # skal utledes fra nus2000 isteden
@@ -252,6 +257,9 @@
             "fa_institusjon_id",
             "fa_karakter",
             "fuh_nett_eller_stedbasert",
+            "fa_tilbudskode",
+            "fa_tilbudsnavn",
+            "fa_nettbasert_antall_samledager_tilbud",
         ]
 
     [datasets.avslutta_fagskole.thresholds_empty]
@@ -266,7 +274,7 @@
         variables = [
             "fnr",
             "snr",
-            "snr_mrk",
+            #"snr_mrk",  # We dont demand this delivered, as we will reproduce anyway
             "pers_foedselsdato",
             "pers_kjoenn",
             "utd_skoleaar_start",
@@ -287,7 +295,7 @@
             "fuh_nett_eller_stedbasert",
             "uh_institusjon_id",
             "uh_statsborgerskap_inn",
-            "uh_erstudierett",
+            "uh_studierett",
             "uh_studienivaa",
             "uh_studieprogram",
             "utd_studieland",
@@ -295,6 +303,8 @@
             "uh_fakultet",
             "uh_studiepoeng_grad",
             "uh_campus_kommune",
+            "uh_campus_sted",
+            "uh_ervitnemaalsgivende",
         ]
 
         [datasets.avslutta_hoeyereutdanning.thresholds_empty]
@@ -315,7 +325,7 @@
         variables = [
             "fnr",
             "snr",
-            "snr_mrk",
+            #"snr_mrk",  # We dont demand this delivered, as we will reproduce anyway
             "pers_foedselsdato",
             "pers_kjoenn",
             "utd_skoleaar_start",
@@ -340,10 +350,11 @@
             "uh_studienivaa",
             "uh_studieprogram",
             "uh_studieprogram_navn",
-            "uh_erstudierett",
+            "uh_studierett",
             "uh_termin_rapportert",
-            "uh_fullfoertkode_inn",
+            "uh_fullfoertkode_detaljert",
             "uh_campus_kommune",
+            "uh_campus_sted",
         ]
 
     [datasets.eksamen_hoeyereutdanning.thresholds_empty]

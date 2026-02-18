@@ -36,3 +36,19 @@ def test_renamed_from_entries_are_unique_across_variables() -> None:
         "renamed_from values must be unique across variables; duplicates found: "
         + "; ".join(sorted(duplicates))
     )
+
+
+def test_all_variable_units_are_in_sort_unit_list() -> None:
+    assert settings.variables_sort_unit is not None
+    allowed_units = set(settings.variables_sort_unit)
+    invalid = sorted(
+        {
+            var.unit
+            for var in settings.variables.values()
+            if var.unit not in allowed_units
+        }
+    )
+    assert not invalid, (
+        "variable.unit must be listed in settings.variables_sort_unit; "
+        f"unknown units: {', '.join(invalid)}"
+    )

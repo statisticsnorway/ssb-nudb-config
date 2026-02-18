@@ -8,7 +8,7 @@
             #"utd_hendelse_id",
             "fnr",
             "snr",  # old_name: snr
-            # "snr_mrk",
+            "snr_mrk",
             "utd_skoleaar_start",  # old_name: aargang
             "nus2000",
             "utd_klassetrinn",  # old_name: kltrinn2000
@@ -21,7 +21,7 @@
             "vg_rettstype_inntak",  # old_name: rett
             # "ftype",
             "utd_viderutd_nettbasert",  # old_name: evufjern
-            "uh_erstudierett",  # old_name: studrett
+            "uh_studierett",  # old_name: studrett
             "utd_utdanningstype",  # old_name: utd
             "utd_skolekom",  # old_name: skolekom
             # "eierf",
@@ -62,6 +62,9 @@
             "fa_institusjon_id",
             "fa_studiestednr_inn",
             "fa_utveksl_varighet_dager",
+            "fa_tilbudskode",
+            "fa_tilbudsnavn",
+            "fa_nettbasert_antall_samledager_tilbud",
             "fuh_nett_eller_stedbasert",  # old_name: organisering
             #"vg_ervedtak_saer_spraak",  # old_name:   - vedtak om særskilt språkopplæring blir rapportert på ssbResultat, så skal kun på avslutta
             "vg_kontraktstype",  # old_name: kontraktstype
@@ -111,7 +114,7 @@
             #uh_univ_eller_hoegskole = 75.0
             fuh_opptaksgrunnlag = 80.0
             uh_utvekslingsavtale = 99.9
-            uh_erstudierett = 90.0
+            uh_studierett = 90.0
             uh_studieprogresjon_hoest = 90.0
             uh_utdplan = 90.0
             #uh_erutland = 99.0
@@ -129,7 +132,7 @@
             #"utd_hendelse_id",
             "fnr",
             "snr",  # old_name: snr
-            # "snr_mrk", We want to derive this
+            "snr_mrk",
             #"snr_mrk_freg",
             "pers_kjoenn",  # old_name: kjoenn
             "pers_foedselsdato",  # old_name: fodt_dato
@@ -156,8 +159,9 @@
             'uh_studienivaa',  # old_name: studnivaa
             'uh_studieprogram_navn',  # old_name: studprog_navn
             'uh_emnekode_navn',  # old_name: emnekode_navn
-            'uh_fullfoertkode_inn',
+            'uh_fullfoertkode_detaljert',
             'uh_campus_kommune',
+            'uh_campus_sted',
             # 'foedselsdato',
             # 'start_dato',
             # 'slutt_dato',
@@ -180,7 +184,7 @@
             "fuh_nett_eller_stedbasert", # old_name: organisering
             "uh_institusjon_id",  # old_name: hskode
             # "utdplan",
-            "uh_erstudierett",  # old_name: studrett
+            "uh_studierett",  # old_name: studrett
             # "studgrland",
             # "utland",
             # "utveks",
@@ -225,7 +229,7 @@
             utd_viderutd_nettbasert = 0.001
             uh_eksamen_studpoeng = 0.0
             uh_eksamen_ergjentak = 0.0
-            uh_erstudierett = 0.001
+            uh_studierett = 0.001
             utd_utdanningstype = 0.04
             utd_skoleaar_start = 0.0
             uh_termin_rapportert = 35.0  # Ny variabel fom 2014, utfylling bør gå opp
@@ -248,7 +252,7 @@
             #"utd_hendelse_id",
             "fnr",
             "snr",  # old_name: snr
-            # "snr_mrk",
+            "snr_mrk",
             "pers_kjoenn",  # old_name: kjoenn
             "utd_datakilde",  # old_name: kilde
             "utd_fullfoertkode",  # old_name: utfall
@@ -282,8 +286,9 @@
             "utd_aktivitet_slutt",  # old_name: kurs_slutt
             "utd_aktivitet_start_inn",  # old_name: kurs_start_orig
             "uh_studiepoeng_grad",  # old_name: studpoeng_grad
-            "uh_erstudierett",  # old_name: studrett
+            "uh_studierett",  # old_name: studrett
             "uh_fakultet",  # old_name: fakultet
+            "uh_ervitnemaalsgivende",
             "gro_fravaer_timer",  # old_name: f_timer
             "gro_fravaer_dager",  # old_name: f_dager
             # "pedsem", Skal ikke være med fordi den bør utledes fra NUS
@@ -303,9 +308,14 @@
             "vg_proevekandtype",  # old_name: provekandtype
             "vg_utdprogram",
             "uh_campus_kommune",
+            "uh_campus_sted",
+            "uh_hovedaktivitet",
             "fa_karakter",
             "fa_institusjon_id",
             "fa_studiestednr_inn",
+            "fa_tilbudskode",
+            "fa_tilbudsnavn",
+            "fa_nettbasert_antall_samledager_tilbud",
             ]
         [datasets.avslutta.dataset_specific_renames]
             ftype = "vg_proevekandtype"
@@ -325,7 +335,7 @@
         variables = [
             'fnr',
             'snr',  # old_name: snr
-            # 'snr_mrk',
+            'snr_mrk',
             'utd_skoleaar_start',  # old_name: skoleaar_slutt
             'utd_orgnr',  # old_name: orgnr
             'utd_skolekom',  # old_name: skolekom

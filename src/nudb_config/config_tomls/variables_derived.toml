@@ -203,13 +203,13 @@
 
 
 [variables.utd_hoeyeste_rangering]
-    unit = "utd-hoyeste"
+    unit = "utd"
     dtype = "STRING"
     derived_from = ["nus2000", "utd_klassetrinn", "uh_gruppering_nus", "utd_skoleaar_start",
                     "uh_eksamen_studpoeng", "uh_eksamen_dato", "utd_aktivitet_slutt"]
 
 [variables.utd_hoeyeste_nus2000]
-    unit = "utd-hoyeste"
+    unit = "utd"
     dtype = "STRING"
     length = [6]
     klass_codelist = 36
