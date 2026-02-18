@@ -78,6 +78,9 @@
         "fa_institusjon_id",
         "fuh_opptaksgrunnlag",
         "fuh_utvekslingsland",
+        "fa_tilbudskode",
+        "fa_tilbudsnavn",
+        "fa_nettbasert_antall_samledager_tilbud",
         ]
 
     [datasets.igang_fagskole.thresholds_empty]
@@ -114,7 +117,7 @@
         "uh_institusjon_id",
         "uh_erpermisjon",
         "uh_statsborgerskap_inn",
-        "uh_erstudierett",
+        "uh_studierett",
         "uh_studienivaa",
         "uh_utdplan",
         "uh_studieprogram",
@@ -168,6 +171,8 @@
             "gro_programomraade",
             "gro_elevstatus",
             "gro_skolenr_inn",
+            "gro_skolenavn_inn",
+            
 
         ]
 
@@ -252,6 +257,9 @@
             "fa_institusjon_id",
             "fa_karakter",
             "fuh_nett_eller_stedbasert",
+            "fa_tilbudskode",
+            "fa_tilbudsnavn",
+            "fa_nettbasert_antall_samledager_tilbud",
         ]
 
     [datasets.avslutta_fagskole.thresholds_empty]
@@ -287,7 +295,7 @@
             "fuh_nett_eller_stedbasert",
             "uh_institusjon_id",
             "uh_statsborgerskap_inn",
-            "uh_erstudierett",
+            "uh_studierett",
             "uh_studienivaa",
             "uh_studieprogram",
             "utd_studieland",
@@ -295,6 +303,9 @@
             "uh_fakultet",
             "uh_studiepoeng_grad",
             "uh_campus_kommune",
+            "uh_campus_sted",
+            "uh_ervitnemaalsgivende",
+            "uh_hovedaktivitet",
         ]
 
         [datasets.avslutta_hoeyereutdanning.thresholds_empty]
@@ -340,10 +351,11 @@
             "uh_studienivaa",
             "uh_studieprogram",
             "uh_studieprogram_navn",
-            "uh_erstudierett",
+            "uh_studierett",
             "uh_termin_rapportert",
             "uh_fullfoertkode_inn",
             "uh_campus_kommune",
+            "uh_campus_sted",
         ]
 
     [datasets.eksamen_hoeyereutdanning.thresholds_empty]

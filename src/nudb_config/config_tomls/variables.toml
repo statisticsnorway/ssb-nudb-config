@@ -369,6 +369,7 @@ variables_sort_unit = [
 		unit = "fa"
 		dtype = "STRING"  # missing information...
 		renamed_from = ["skolenr"]
+		description_short = "Utfylt fom. 2026"
 
 	[variables.fa_karakter]
 		unit = "fa"
@@ -385,6 +386,21 @@ variables_sort_unit = [
 		unit = "fa"
 		dtype = "INTEGER"  # HVA ER VARIGHETEN I? Måneder?
 		renamed_from = ["utveksl_varighet"]
+
+	[variables.fa_tilbudskode]
+		unit = "fa"
+		dtype = "STRING"
+		description_short = "Institusjonens egen kode for tilbudet (tilbud = kurs/utdanninger). (New variable 2026)"
+
+	[variables.fa_tilbudsnavn]
+		unit = "fa"
+		dtype = "STRING"
+		desctription_short = "Institusjonens eget navn for tilbudet. (New variable 2026)"
+
+	[variables.fa_nettbasert_antall_samledager_tilbud]
+		unit = "fa"
+		dtype = "INTEGER"
+		description_short = "Antall samledager for nettbaserte tilbud med samling. (New variable 2026)"
 
 #########################################################
 # "fuh" - Fagskoler + Universitet og Høgskole-Utdanning #
@@ -419,6 +435,7 @@ variables_sort_unit = [
         unit = "uh"
         dtype = "STRING"
         renamed_from = ["campus_sted"]
+		description_short = "Studentens geografiske studiested. (New variable 2026)"
 
     [variables.uh_campus_kommune]
         unit = "uh"
@@ -426,6 +443,7 @@ variables_sort_unit = [
         length = [4]
         klass_codelist = 131
         renamed_from = ["campus_kom"]
+		description_short = "Studentens geografiske studiested. (New variable 2026)"
 
     [variables.uh_termin_rapportert]
         unit = "fag"
@@ -502,10 +520,12 @@ variables_sort_unit = [
 		renamed_from = ["antall_deleks_bestaatt"]
 		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
 
-	[variables.uh_erstudierett]
+	[variables.uh_studierett]
 		unit = "uh"
-		dtype = "BOOLEAN"
-		renamed_from = ["studrett", "uh_studierett"]
+		dtype = "STRING"
+	    length = [1]
+		renamed_from = ["studrett", "uh_erstudierett"]
+		#klass_codelist =   # "S"/"1" = Studierett, "P"/"2" = Ikke studirett, "A" = "Annet"
 
     [variables.uh_erpermisjon]
         unit = "uh"
@@ -538,6 +558,12 @@ variables_sort_unit = [
         dtype = "STRING"
         length = [2]
         renamed_from = ["fakultet"]
+
+	[variables.uh_ervitnemaalsgivende]
+		unit = "uh"
+		dtype = "BOOLEAN"
+		description_short = "New variable 2026."
+
 
 ########
 # Land #

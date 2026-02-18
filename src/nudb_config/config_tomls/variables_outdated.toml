@@ -3,7 +3,7 @@
 ###################
 
     [variables.utd_hendelse_id]
-        unit = "enhet"
+        unit = "utdatetert"
         dtype = "INTEGER"
 		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
 		outdated_comment = "Vi prøver å klare oss uten denne variabelen inntil videre. Den var ment å kunne bakes inn i ny aggregert data for å henvise tilbake til kilden."
