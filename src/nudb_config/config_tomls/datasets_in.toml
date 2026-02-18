@@ -352,7 +352,7 @@
             "uh_studieprogram_navn",
             "uh_studierett",
             "uh_termin_rapportert",
-            "uh_fullfoertkode_inn",
+            "uh_fullfoertkode_detaljert",
             "uh_campus_kommune",
             "uh_campus_sted",
         ]
