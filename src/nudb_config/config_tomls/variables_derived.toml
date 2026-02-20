@@ -220,12 +220,12 @@
     derived_join_keys = ["snr"]
 
 
-# Need to figure out how we can reference external variables (not owned by NUDB) we depend on, like snr_far and snr_mor - currently causing a test to fail, and rightly so
-#[variables.utd_foreldres_utdnivaa_16aar]
-#     unit = "utd"
-#     dtype = "STRING"
-#     renamed_from = ["sosbak"]
-#     derived_from = ["snr", "utd_hoeyeste_nus2000", "pers_foedselsdato", "snr_far", "snr_mor"]
+[variables.utd_foreldres_utdnivaa_16aar]
+     unit = "utd"
+     dtype = "STRING"
+     renamed_from = ["sosbak"]
+     derived_from = ["snr"]
+     derived_join_keys = ["snr"]
 
 
 [variables.uh_foerste_nus2000]
@@ -236,7 +236,6 @@
     derived_from = ["snr", "nus2000", "utd_aktivitet_start", "utd_aktivitet_slutt", "uh_eksamen_dato"]
     derived_join_keys = ["snr"]
     derived_uses_datasets = ["avslutta", "igang", "eksamen"]
-
 
 
 ####################################################
