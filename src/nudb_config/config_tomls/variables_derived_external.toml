@@ -1,0 +1,60 @@
+[variables.snr]
+    unit = "pers"
+    dtype = "STRING"
+    length = [7, 36]
+    klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
+    description_short = "SNR is SSBs ident for persons, it is goverend by FREG. For the people missing a snr, we insert UUID4. SNR is a length of 7, UUID4 is 36 characters. s-nummer 4.12.2025 Endret fra pers_id til snr"
+    renamed_from = ["pers_id"]  # This is due to a misunderstanding with 320 and 312. Pers_id was intended to be "pseudonomized fnr", not snr. But we have misunderstood at some point.
+    derived_from = ["snr", "fnr"]
+    derived_join_keys = ["snr", "fnr"]
+    derived_uses_datasets = ["snrkat"]
+    derived_values_priority = "new"
+
+
+[variables.fnr]
+    unit = "pers"
+    dtype = "STRING"
+    description_short = "fødselsnummer"
+    length = [11]
+    klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
+    derived_from = ["fnr"]
+    derived_join_keys = ["fnr"]
+    derived_uses_datasets = ["snrkat"]
+    derived_values_priority = "new"
+
+
+[variables.pers_kjoenn]
+	unit = "pers"
+	dtype = "STRING"
+	description_short = "kjønn"
+	length = [1]
+	klass_codelist = 2
+	renamed_from = ["kjoenn"]
+    derived_from = ["snr"]
+    derived_join_keys = ["snr"]
+    derived_uses_datasets = ["freg_situttak"]
+    derived_values_priority = "new"
+
+
+[variables.pers_foedselsdato]
+	unit = "tid"
+	dtype = "DATETIME"
+	description_short = "fødselsdato"
+	renamed_from = ["fodt_dato", "fodtdato", "fodselsdato", "foedselsdato"]
+	klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
+    derived_from = ["snr"]
+    derived_join_keys = ["snr"]
+    derived_uses_datasets = ["freg_situttak"]
+    derived_values_priority = "new"
+
+
+[variables.pers_invkat]
+    unit = "pers"
+    dtype = "STRING"
+    description_short = "innvandringskategori"
+    length = [1]
+    renamed_from = ["invkat"]
+    klass_codelist = 82
+    derived_join_keys = ["snr"]
+    derived_uses_datasets = ["innvbef"]
+    derived_values_priority = "new"

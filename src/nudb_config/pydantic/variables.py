@@ -33,6 +33,7 @@ class Variable(DotMapBaseModel):
         derived_from: Source variables used to derive this value.
         derived_uses_datasets: Names of datasets a derived variable should be derived from (in the cases it is "all-data dependent").
         derived_join_keys: The keys the derived variable can be joined back on a dataset with, if its a variable with one value per person, this could be just "snr" for example.
+        derived_values_priority: The priority of which values to keep if derive variable already exists in the data.
         codelist_extras: Additional code mappings injected at load time.
         outdated_comment: Explanation when the unit is outdated.
         model_config: Pydantic configuration allowing arbitrary KLASS types.
@@ -59,6 +60,7 @@ class Variable(DotMapBaseModel):
     derived_from: list[str] | None = None
     derived_uses_datasets: list[str] | None = None
     derived_join_keys: list[str] | None = None
+    derived_values_priority: str | None = None
 
     # Populated programmatically to mirror Dynaconf expansion
     codelist_extras: dict[str, str] | None = None

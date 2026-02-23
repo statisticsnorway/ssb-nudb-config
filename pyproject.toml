@@ -1,6 +1,6 @@
 [project]
 name = "ssb-nudb-config"
-version = "2026.2.9"  # Year.Month.Patch - So the last number is not day of month, but patch number within month
+version = "2026.2.10"  # Year.Month.Patch - So the last number is not day of month, but patch number within month
 description = "The config for NUDB - Nasjonal utdanningsdatabase"
 authors = [{ name = "Markus Storeide", email = "rku@ssb.no" }]
 maintainers = [{ name = "Statistics Norway, Education statistics Department (360)" }]
