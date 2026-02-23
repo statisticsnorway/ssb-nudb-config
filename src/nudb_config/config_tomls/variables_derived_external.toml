@@ -30,6 +30,7 @@
     length = [1]
     renamed_from = ["invkat"]
     klass_codelist = 82
+    derived_from = ["snr"]
     derived_join_keys = ["snr"]
     derived_uses_datasets = ["innvbef"]
     derived_values_priority = "new"
