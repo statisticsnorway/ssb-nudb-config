@@ -22,6 +22,26 @@ variables_sort_unit = [
 
 
 #################
+# Persvariabler #
+#################
+
+	[variables.snr]
+		unit = "pers"
+		dtype = "STRING"
+		length = [7, 36]
+		description_short = "SNR is SSBs ident for persons, it is goverend by FREG. For the people missing a snr, we insert UUID4. SNR is a length of 7, UUID4 is 36 characters. s-nummer 4.12.2025 Endret fra pers_id til snr"
+		renamed_from = ["pers_id"]  # This is due to a misunderstanding with 320 and 312. Pers_id was intended to be "pseudonomized fnr", not snr. But we have misunderstood at some point.
+		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
+
+	[variables.fnr]
+		unit = "pers"
+		dtype = "STRING"
+		description_short = "fødselsnummer"
+		length = [11]
+		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
+
+
+#################
 # Datavariabler #
 #################
 
