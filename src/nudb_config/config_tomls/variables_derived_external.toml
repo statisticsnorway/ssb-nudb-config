@@ -31,3 +31,22 @@
     derived_from = ["snr"]
     derived_join_keys = ["snr"]
     derived_uses_datasets = ["innvbef"]
+
+
+[variables.vof_eierforhold]
+   unit = "vof"
+   dtype = "STRING"
+   derived_from = ["utd_orgnr", "utd_orgnrbed"]
+   klass_codelist = 0
+   length = [1]
+   derived_uses_datasets = ["_vof_eierforhold"]
+
+
+[variables.vof_orgnr_foretak]
+	unit = "vof"
+	dtype = "STRING"
+	description_short = "Foretakets orgnr"
+	length = [9]
+	klass_codelist = 0
+    derived_uses_datasets = ["_vof_orgnr_bed2foretak"]
+    derived_from = ["utd_orgnr", "utd_orgnrbed"]
