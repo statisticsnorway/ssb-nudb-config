@@ -12,6 +12,7 @@ variables_sort_unit = [
 	"fa",        # Fagskoler (Høyere yrkesfaglig utdanning)
 	"fuh",       # Fagskoler + Universitet og Høgskole-Utdanning
     "uh",        # Universitet og Høgskole-Utdanning
+    "vof"        # VOF/BOF
     "karakter",  # Karakterer elev/student har motatt
     "land",      # Variabler som sier noe om landtilhørighet
     "utdatert",  # Variabler vi ønsker at skal vekk
