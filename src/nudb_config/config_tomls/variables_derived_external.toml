@@ -33,15 +33,6 @@
     derived_uses_datasets = ["innvbef"]
 
 
-[variables.vof_eierforhold]
-   unit = "vof"
-   dtype = "STRING"
-   derived_from = ["utd_orgnr", "bof_orgnrbed"]
-   klass_codelist = 0
-   length = [1]
-   derived_uses_datasets = ["_vof_eierforhold"]
-
-
 [variables.vof_orgnr_foretak]
 	unit = "vof"
 	dtype = "STRING"
@@ -50,3 +41,12 @@
 	klass_codelist = 0
     derived_uses_datasets = ["_vof_orgnr_bed2foretak"]
     derived_from = ["utd_orgnr", "bof_orgnrbed"]
+
+
+[variables.vof_eierforhold]
+   unit = "vof"
+   dtype = "STRING"
+   derived_from = ["vof_orgnr_foretak"]
+   klass_codelist = 0
+   length = [1]
+   derived_uses_datasets = ["_vof_eierforhold"]
