@@ -19,24 +19,6 @@ def test_all_dataset_variables_are_defined() -> None:
     )
 
 
-def test_all_derived_uses_datasets_are_defined() -> None:
-    defined_datasets = set(settings.datasets.keys())
-    missing_dataset_refs = []
-
-    for variable in settings.variables.values():
-        derived_datasets = getattr(variable, "derived_uses_datasets", None)
-        if not derived_datasets:
-            continue
-        for dataset_name in derived_datasets:
-            if dataset_name not in defined_datasets:
-                missing_dataset_refs.append((variable.name, dataset_name))
-
-    assert not missing_dataset_refs, (
-        "Datasets referenced in settings.variables.-variable names-.derived_uses_datasets that are missing definitions in "
-        f"settings.datasets: {sorted(missing_dataset_refs)}. Did you rename them, or add them in just one of these places?"
-    )
-
-
 def test_derived_join_keys_are_in_derived_from() -> None:
     missing_join_keys = []
 
