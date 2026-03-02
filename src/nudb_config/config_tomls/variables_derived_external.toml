@@ -36,7 +36,7 @@
 [variables.vof_eierforhold]
    unit = "vof"
    dtype = "STRING"
-   derived_from = ["utd_orgnr", "utd_orgnrbed"]
+   derived_from = ["utd_orgnr", "bof_orgnrbed"]
    klass_codelist = 0
    length = [1]
    derived_uses_datasets = ["_vof_eierforhold"]
@@ -49,4 +49,4 @@
 	length = [9]
 	klass_codelist = 0
     derived_uses_datasets = ["_vof_orgnr_bed2foretak"]
-    derived_from = ["utd_orgnr", "utd_orgnrbed"]
+    derived_from = ["utd_orgnr", "bof_orgnrbed"]
