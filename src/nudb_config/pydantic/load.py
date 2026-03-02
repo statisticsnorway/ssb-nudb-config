@@ -201,12 +201,15 @@ def _maybe_inject_variable_name(
 
 
 def _iter_variable_paths(cfg_dir: Path) -> list[Path]:
-    """Return variable TOML paths excluding derived label entries."""
-    return [
-        path
-        for path in cfg_dir.glob("variables*.toml")
-        if path.name != "variables_derived_label.toml"
-    ]
+    """Return variable TOML paths excluding derived label entries, sorted by shortest length first."""
+    return sorted(
+        [
+            path
+            for path in cfg_dir.glob("variables*.toml")
+            if path.name != "variables_derived_label.toml"
+        ],
+        key=lambda x: len(str(x)),
+    )
 
 
 def _load_variables(cfg_dir: Path) -> VariablesFile:
@@ -240,7 +243,7 @@ def _load_variables(cfg_dir: Path) -> VariablesFile:
 def _load_datasets(cfg_dir: Path) -> DatasetsFile:
     """Load and merge dataset TOML files."""
     merged_datasets: DotMapDict[Dataset] = DotMapDict(value_type=Dataset)
-    for path in cfg_dir.glob("datasets*.toml"):
+    for path in sorted(cfg_dir.glob("datasets*.toml"), key=lambda x: len(str(x))):
         datatoml = _load_toml(path)
         data_file: DatasetsFile = DatasetsFile.model_validate(datatoml)
         for key, dataset in data_file.datasets.items():
