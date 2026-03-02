@@ -1,0 +1,33 @@
+[variables.pers_kjoenn]
+	unit = "pers"
+	dtype = "STRING"
+	description_short = "kjønn"
+	length = [1]
+	klass_codelist = 2
+	renamed_from = ["kjoenn"]
+    derived_from = ["snr"]
+    derived_join_keys = ["snr"]
+    derived_uses_datasets = ["freg_situttak"]
+
+
+[variables.pers_foedselsdato]
+	unit = "tid"
+	dtype = "DATETIME"
+	description_short = "fødselsdato"
+	renamed_from = ["fodt_dato", "fodtdato", "fodselsdato", "foedselsdato"]
+	klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
+    derived_from = ["snr"]
+    derived_join_keys = ["snr"]
+    derived_uses_datasets = ["freg_situttak"]
+
+
+[variables.pers_invkat]
+    unit = "pers"
+    dtype = "STRING"
+    description_short = "innvandringskategori"
+    length = [1]
+    renamed_from = ["invkat"]
+    klass_codelist = 82
+    derived_from = ["snr"]
+    derived_join_keys = ["snr"]
+    derived_uses_datasets = ["innvbef"]

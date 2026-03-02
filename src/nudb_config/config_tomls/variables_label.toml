@@ -8,9 +8,10 @@
 	dtype = "STRING"
 	derived_from = ["utd_datakilde"]
 
-
-
-
+[variables.pers_invkat_label]
+    unit = "pers"
+    dtype = "STRING"
+    derived_from = ["pers_invkat"]
 
 #############################
 # Fagvariabler / nuskatalog #

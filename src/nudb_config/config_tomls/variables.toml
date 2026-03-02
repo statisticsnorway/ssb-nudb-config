@@ -41,14 +41,6 @@ variables_sort_unit = [
 		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
 
 
-	[variables.pers_kjoenn]
-		unit = "pers"
-		dtype = "STRING"
-		description_short = "kjønn"
-		length = [1]
-		klass_codelist = 2
-		renamed_from = ["kjoenn"]
-
 #################
 # Datavariabler #
 #################
@@ -71,14 +63,6 @@ variables_sort_unit = [
 ################
 # Tidskolonner #
 ################
-
-	[variables.pers_foedselsdato]
-		unit = "tid"
-		dtype = "DATETIME"
-		description_short = "fødselsdato"
-		renamed_from = ["fodt_dato", "fodtdato", "fodselsdato", "foedselsdato"]
-		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
-
 
 
     [variables.utd_aktivitet_start]
