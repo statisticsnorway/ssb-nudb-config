@@ -48,6 +48,7 @@ class NudbConfig(DotMapBaseModel):
         datasets: Mapping of dataset name to configuration.
         paths: Mapping of environment name to paths configuration.
         options: Options from ``options.toml``.
+        constants: Constants from ``constants.toml``.
     """
 
     model_config = ConfigDict(arbitrary_types_allowed=True)
@@ -68,6 +69,8 @@ class NudbConfig(DotMapBaseModel):
         cfg_dir = _resolve_toml_dir(toml_dir)
         for path in sorted(cfg_dir.glob("*.toml")):
             toml_data = _load_toml(path)
+            if isinstance(toml_data.get("paths"), dict):
+                toml_data = _normalize_paths_toml(toml_data)
             _merge_into(self, toml_data)
         return self
 
@@ -95,6 +98,22 @@ def _resolve_toml_dir(toml_dir: str | Path) -> Path:
     if fallback.exists():
         return fallback
     raise FileNotFoundError(f"TOML directory not found: {toml_dir}")
+
+
+def _normalize_paths_toml(paths_toml: dict[str, object]) -> dict[str, object]:
+    paths_block = paths_toml.get("paths")
+    if not isinstance(paths_block, dict):
+        return paths_toml
+    normalized_paths = dict(paths_block)
+    shared_root = None
+    shared_value = normalized_paths.get("shared_root")
+    if shared_value is not None and not isinstance(shared_value, dict):
+        shared_root = shared_value
+        normalized_paths.pop("shared_root", None)
+    normalized: dict[str, object] = {"paths": normalized_paths}
+    if shared_root is not None:
+        normalized["shared_root"] = shared_root
+    return normalized
 
 
 def _is_none_sentinel(value: object) -> bool:
@@ -148,8 +167,26 @@ def _merge_dotmap_model(
     target: DotMapBaseModel, updates: dict[str, object], path: tuple[str, ...]
 ) -> None:
     model_fields = getattr(type(target), "model_fields", {})
+    model_config = getattr(type(target), "model_config", {})
+    extra_allowed = False
+    if isinstance(model_config, dict):
+        extra_allowed = model_config.get("extra") == "allow"
     for key, value in updates.items():
         if key not in model_fields:
+            if not extra_allowed:
+                continue
+            if _is_none_sentinel(value):
+                extra = getattr(target, "__pydantic_extra__", None)
+                if isinstance(extra, dict):
+                    extra.pop(key, None)
+                continue
+            current = getattr(target, key, None)
+            if _should_descend(value, current):
+                value_dict = cast(dict[str, object], value)
+                _merge_mapping(current, value_dict, path=(*path, key))
+                continue
+            _warn_if_same(current, value, path, key)
+            setattr(target, key, value)
             continue
         if _is_none_sentinel(value):
             setattr(target, key, None)
@@ -274,7 +311,7 @@ def load_pydantic_settings() -> NudbConfig:
     settings_toml = _load_toml(cfg_dir / "settings.toml")
     settings_file = SettingsFile.model_validate(settings_toml)
     paths_toml = _load_toml(cfg_dir / "paths.toml")
-    paths_file = PathsFile.model_validate(paths_toml)
+    paths_file = PathsFile.model_validate(_normalize_paths_toml(paths_toml))
     options_toml = _load_toml(cfg_dir / "options.toml")
     options_file = OptionsFile.model_validate(options_toml)
     constants_toml = _load_toml(cfg_dir / "constants.toml")

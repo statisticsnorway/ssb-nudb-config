@@ -1,7 +1,9 @@
 [paths]
+shared_root = "/buckets/shared"
 
 [paths.local_daplalab]
-
+utdanning_shared_local = "/buckets/delt-utdanning/nudb-data"
+produkt = "/buckets/produkt/nudb-data/"
 katalog = "/buckets/produkt/nudb-data/konfigurasjon/kat/"
 delt_utdanning = "/buckets/shared/utd-nudb/utdanning/"
 
