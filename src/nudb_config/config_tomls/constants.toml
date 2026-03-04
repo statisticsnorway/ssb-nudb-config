@@ -1,0 +1,12 @@
+
+[constants]
+
+foreign_municipalities = ["2580", "2500", "2400", "0025", "1025", "2025"]
+
+
+[constants.datadoc_pandas_dtype_mapping]
+    DATETIME = "datetime64[s]"
+    STRING = "string[pyarrow]"
+    INTEGER = "Int64"
+    FLOAT = "Float64"
+    BOOL = "bool[pyarrow]"

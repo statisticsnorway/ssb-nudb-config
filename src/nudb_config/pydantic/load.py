@@ -10,6 +10,8 @@ from typing import cast
 from pydantic import ConfigDict
 
 from ..logger import logger
+from .constants import Constants
+from .constants import ConstantsFile
 from .datasets import Dataset
 from .datasets import DatasetsFile
 from .dotmap import DotMapBaseModel
@@ -59,6 +61,7 @@ class NudbConfig(DotMapBaseModel):
     datasets: DotMapDict[Dataset]
     paths: DotMapDict[PathEntry]
     options: Options
+    constants: Constants
 
     def merge_tomls(self, toml_dir: str | Path) -> NudbConfig:
         """Merge values from external TOML files into this config and return it."""
@@ -274,6 +277,8 @@ def load_pydantic_settings() -> NudbConfig:
     paths_file = PathsFile.model_validate(paths_toml)
     options_toml = _load_toml(cfg_dir / "options.toml")
     options_file = OptionsFile.model_validate(options_toml)
+    constants_toml = _load_toml(cfg_dir / "constants.toml")
+    constants_file = ConstantsFile.model_validate(constants_toml)
 
     variables_file = _load_variables(cfg_dir)
     dataset_file = _load_datasets(cfg_dir)
@@ -286,6 +291,7 @@ def load_pydantic_settings() -> NudbConfig:
         datasets=dataset_file.datasets,
         paths=paths_file.paths,
         options=options_file.options,
+        constants=constants_file.constants,
     )
 
 
