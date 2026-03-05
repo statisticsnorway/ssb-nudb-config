@@ -44,10 +44,6 @@
         bucket = "folketall"
         path_glob = "tverrfaglig/360/komm-nr-ved-16_p[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]_v*[0-9].parquet"
 
-        [datasets.bokommune_16aar.dataset_specific_renames]
-            folkeregisteridentifikator = "fnr"
-            komm_nr = "pers_bokommune_16aar"
-
 
 #######
 # VOF #
