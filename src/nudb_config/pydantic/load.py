@@ -150,14 +150,8 @@ def _merge_dotmap_model(
     target: DotMapBaseModel, updates: dict[str, object], path: tuple[str, ...]
 ) -> None:
     model_fields = getattr(type(target), "model_fields", {})
-    model_config = getattr(type(target), "model_config", {})
-    extra_allowed = False
-    if isinstance(model_config, dict):
-        extra_allowed = model_config.get("extra") == "allow"
     for key, value in updates.items():
         if key not in model_fields:
-            if not extra_allowed:
-                continue
             if _is_none_sentinel(value):
                 extra = getattr(target, "__pydantic_extra__", None)
                 if isinstance(extra, dict):

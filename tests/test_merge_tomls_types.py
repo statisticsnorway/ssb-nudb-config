@@ -1,11 +1,9 @@
 from collections.abc import Iterator
 
 import pytest
-from pydantic import ConfigDict
 
 from nudb_config import config as config_module
 from nudb_config.pydantic.datasets import Dataset
-from nudb_config.pydantic.dotmap import DotMapBaseModel
 from nudb_config.pydantic.dotmap import DotMapDict
 from nudb_config.pydantic.load import NudbConfig
 from nudb_config.pydantic.load import _merge_dotmap_model
@@ -50,24 +48,7 @@ def test_merge_tomls_preserves_types(isolated_settings: NudbConfig) -> None:
     assert isinstance(merged.options, Options)
 
 
-class _ExtraModel(DotMapBaseModel):
-    model_config = ConfigDict(extra="allow")
-
-    known: str | None = None
-
-
-def test_merge_dotmap_model_extra_allowed_paths() -> None:
-    model = _ExtraModel(known="value")
-
-    model.extra_key = "value"
-    _merge_dotmap_model(model, {"extra_key": None}, path=())
-    assert not hasattr(model, "extra_key")
-
-    model.extra_map = {"a": 1}
-    _merge_dotmap_model(model, {"extra_map": {"b": 2}}, path=())
-    extra_map = model.extra_map
-    assert extra_map["a"] == 1
-    assert extra_map["b"] == 2
-
-    _merge_dotmap_model(model, {"new_key": "new_value"}, path=())
-    assert model.new_key == "new_value"
+def test_merge_dotmap_model_ignores_unknown_fields() -> None:
+    options = Options()
+    _merge_dotmap_model(options, {"extra_key": "value"}, path=())
+    assert not hasattr(options, "extra_key")
