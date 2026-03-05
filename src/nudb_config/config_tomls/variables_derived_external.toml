@@ -31,3 +31,15 @@
     derived_from = ["snr"]
     derived_join_keys = ["snr"]
     derived_uses_datasets = ["innvbef"]
+
+
+[variables.pers_bokommune_16aar]
+    unit = "pers"
+    dtype = "STRING"
+    description_short = "Bokommune ved utgang av året, personen fylte 16 år. For de yngre enn 16: siste kjente bokommune."
+    length = [4]
+    renamed_from = ["komm_nr"]
+    klass_codelist = 131
+    derived_from = ["snr"]
+    derived_join_keys = ["snr"]
+    derived_uses_datasets = ["bokommune_16aar"]

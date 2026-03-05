@@ -36,8 +36,8 @@ def test_content_settings_after_merge_from_tomls(
 
     # paths.toml
     assert (
-        "/buckets/delt-utdanning/nudb-data/klargjorte-data/"
-        == combo_settings.paths.local_daplalab.delt_utdanning
+        "/buckets/delt-utdanning/nudb-data/"
+        == combo_settings.paths.daplalab_mounted.shared_utdanning_internal
     )
 
     # check existing fields from main config in combined settings
@@ -45,7 +45,10 @@ def test_content_settings_after_merge_from_tomls(
     assert combo_settings.variables.fnr.length is not None
     assert 11 in combo_settings.variables.fnr.length
     assert "avslutta" in combo_settings.datasets
-    assert "/ssb/stamme03/nudbut/nyeste" == combo_settings.paths.on_prem.delt_utdanning
+    assert (
+        "/ssb/stamme03/nudbut/nyeste/"
+        == combo_settings.paths.on_prem.shared_utdanning_external
+    )
 
     # check if removal worked
     assert "snr_mrk" not in combo_settings.variables

@@ -14,6 +14,7 @@ from .constants import Constants
 from .constants import ConstantsFile
 from .datasets import Dataset
 from .datasets import DatasetsFile
+from .datasets import DatasetsOverrideFile
 from .dotmap import DotMapBaseModel
 from .dotmap import DotMapDict
 from .options import Options
@@ -69,8 +70,6 @@ class NudbConfig(DotMapBaseModel):
         cfg_dir = _resolve_toml_dir(toml_dir)
         for path in sorted(cfg_dir.glob("*.toml")):
             toml_data = _load_toml(path)
-            if isinstance(toml_data.get("paths"), dict):
-                toml_data = _normalize_paths_toml(toml_data)
             _merge_into(self, toml_data)
         return self
 
@@ -98,22 +97,6 @@ def _resolve_toml_dir(toml_dir: str | Path) -> Path:
     if fallback.exists():
         return fallback
     raise FileNotFoundError(f"TOML directory not found: {toml_dir}")
-
-
-def _normalize_paths_toml(paths_toml: dict[str, object]) -> dict[str, object]:
-    paths_block = paths_toml.get("paths")
-    if not isinstance(paths_block, dict):
-        return paths_toml
-    normalized_paths = dict(paths_block)
-    shared_root = None
-    shared_value = normalized_paths.get("shared_root")
-    if shared_value is not None and not isinstance(shared_value, dict):
-        shared_root = shared_value
-        normalized_paths.pop("shared_root", None)
-    normalized: dict[str, object] = {"paths": normalized_paths}
-    if shared_root is not None:
-        normalized["shared_root"] = shared_root
-    return normalized
 
 
 def _is_none_sentinel(value: object) -> bool:
@@ -285,9 +268,21 @@ def _load_datasets(cfg_dir: Path) -> DatasetsFile:
     merged_datasets: DotMapDict[Dataset] = DotMapDict(value_type=Dataset)
     for path in sorted(cfg_dir.glob("datasets*.toml"), key=lambda x: len(str(x))):
         datatoml = _load_toml(path)
-        data_file: DatasetsFile = DatasetsFile.model_validate(datatoml)
-        for key, dataset in data_file.datasets.items():
-            merged_datasets[key] = dataset
+        if path.name == "datasets.toml":
+            data_file: DatasetsFile = DatasetsFile.model_validate(datatoml)
+            for key, dataset in data_file.datasets.items():
+                merged_datasets[key] = dataset
+            continue
+
+        override_file: DatasetsOverrideFile = DatasetsOverrideFile.model_validate(
+            datatoml
+        )
+        for key, override in override_file.datasets.items():
+            override_data = override.model_dump(exclude_none=True)
+            if key in merged_datasets:
+                _merge_mapping(merged_datasets[key], override_data, path=(key,))
+                continue
+            merged_datasets[key] = Dataset.model_validate(override_data)
     return DatasetsFile(datasets=merged_datasets)
 
 
@@ -311,7 +306,7 @@ def load_pydantic_settings() -> NudbConfig:
     settings_toml = _load_toml(cfg_dir / "settings.toml")
     settings_file = SettingsFile.model_validate(settings_toml)
     paths_toml = _load_toml(cfg_dir / "paths.toml")
-    paths_file = PathsFile.model_validate(_normalize_paths_toml(paths_toml))
+    paths_file = PathsFile.model_validate(paths_toml)
     options_toml = _load_toml(cfg_dir / "options.toml")
     options_file = OptionsFile.model_validate(options_toml)
     constants_toml = _load_toml(cfg_dir / "constants.toml")
