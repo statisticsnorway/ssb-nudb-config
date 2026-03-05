@@ -22,14 +22,19 @@
 		dtype = "STRING"
 		derived_from = ["nus2000"]
 
-##################
-# Skolevariabler #
-##################
+############
+# Kommuner #
+############
 
 	[variables.utd_skolekom_label]
 		unit = "skole"
 		dtype = "STRING"
         derived_from = ["utd_skolekom"]
+
+	[variables.pers_bokommune_16aar_label]
+		unit = "skole"
+		dtype = "STRING"
+        derived_from = ["pers_bokommune_16aar"]
 
 
 ############################

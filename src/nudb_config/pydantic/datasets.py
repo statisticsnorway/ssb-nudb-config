@@ -28,6 +28,19 @@ class Dataset(DotMapBaseModel):
     dataset_specific_renames: DotMapDict[str] | None = None
 
 
+class DatasetOverride(DotMapBaseModel):
+    """Partial dataset override entry under ``[datasets]``."""
+
+    team: str | None = None
+    bucket: str | None = None
+    path_glob: str | None = None
+    variables: list[str] | None = None
+    thresholds_empty: DotMapDict[float] | None = None
+    min_values: DotMapDict[str] | None = None
+    max_values: DotMapDict[str] | None = None
+    dataset_specific_renames: DotMapDict[str] | None = None
+
+
 class DatasetsFile(DotMapBaseModel):
     """Root schema of ``datasets.toml``.
 
@@ -36,3 +49,9 @@ class DatasetsFile(DotMapBaseModel):
     """
 
     datasets: DotMapDict[Dataset]
+
+
+class DatasetsOverrideFile(DotMapBaseModel):
+    """Root schema for dataset override TOMLs."""
+
+    datasets: DotMapDict[DatasetOverride]
