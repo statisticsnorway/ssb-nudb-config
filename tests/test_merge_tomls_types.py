@@ -52,3 +52,13 @@ def test_merge_dotmap_model_ignores_unknown_fields() -> None:
     options = Options()
     _merge_dotmap_model(options, {"extra_key": "value"}, path=())
     assert not hasattr(options, "extra_key")
+
+
+def test_merge_dotmap_model_none_sentinel_respects_optional() -> None:
+    options = Options()
+    _merge_dotmap_model(options, {"warn_unsafe_derive": "None"}, path=())
+    assert options.warn_unsafe_derive is True
+
+    path_entry = PathEntry(katalog="/tmp", shared_utdanning_internal="/tmp")
+    _merge_dotmap_model(path_entry, {"katalog": "None"}, path=())
+    assert path_entry.katalog is None

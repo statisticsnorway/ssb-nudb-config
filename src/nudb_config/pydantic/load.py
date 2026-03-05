@@ -6,6 +6,7 @@ import tomllib
 from pathlib import Path
 from typing import Any
 from typing import cast
+from typing import get_args
 
 from pydantic import ConfigDict
 
@@ -152,21 +153,11 @@ def _merge_dotmap_model(
     model_fields = getattr(type(target), "model_fields", {})
     for key, value in updates.items():
         if key not in model_fields:
-            if _is_none_sentinel(value):
-                extra = getattr(target, "__pydantic_extra__", None)
-                if isinstance(extra, dict):
-                    extra.pop(key, None)
-                continue
-            current = getattr(target, key, None)
-            if _should_descend(value, current):
-                value_dict = cast(dict[str, object], value)
-                _merge_mapping(current, value_dict, path=(*path, key))
-                continue
-            _warn_if_same(current, value, path, key)
-            setattr(target, key, value)
             continue
         if _is_none_sentinel(value):
-            setattr(target, key, None)
+            field = model_fields[key]
+            if _field_allows_none(field):
+                setattr(target, key, None)
             continue
         current = getattr(target, key, None)
         if _should_descend(value, current):
@@ -198,6 +189,17 @@ def _warn_if_same(
 ) -> None:
     if current == value:
         logger.warning(MERGE_WARNING, ".".join((*path, key)))
+
+
+def _field_allows_none(field: object) -> bool:
+    annotation = getattr(field, "annotation", None)
+    if annotation is Any:
+        return True
+    args = get_args(annotation)
+    if args and type(None) in args:
+        return True
+    default = getattr(field, "default", None)
+    return default is None
 
 
 def _should_descend(value: object, current: object) -> bool:
