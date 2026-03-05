@@ -59,15 +59,15 @@ class _ExtraModel(DotMapBaseModel):
 def test_merge_dotmap_model_extra_allowed_paths() -> None:
     model = _ExtraModel(known="value")
 
-    setattr(model, "extra_key", "value")
+    model.extra_key = "value"
     _merge_dotmap_model(model, {"extra_key": None}, path=())
     assert not hasattr(model, "extra_key")
 
-    setattr(model, "extra_map", {"a": 1})
+    model.extra_map = {"a": 1}
     _merge_dotmap_model(model, {"extra_map": {"b": 2}}, path=())
-    extra_map = getattr(model, "extra_map")
+    extra_map = model.extra_map
     assert extra_map["a"] == 1
     assert extra_map["b"] == 2
 
     _merge_dotmap_model(model, {"new_key": "new_value"}, path=())
-    assert getattr(model, "new_key") == "new_value"
+    assert model.new_key == "new_value"
