@@ -38,8 +38,8 @@
     dtype = "STRING"
     description_short = "Bokommune ved utgang av året, personen fylte 16 år. For de yngre enn 16: siste kjente bokommune."
     length = [4]
-    renamed_from = ["komm_nr"]
+    renamed_from = ["komm_nr", "komm16", "komm_16"]
     klass_codelist = 131
     derived_from = ["snr"]
     derived_join_keys = ["snr"]
-    derived_uses_datasets = ["bokommune_16aar"]
+    derived_uses_datasets = ["bokommune_16aar_snr"]
