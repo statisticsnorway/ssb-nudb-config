@@ -11,12 +11,12 @@
 	[variables.orgnr]
 		unit = "utdatert"
 		dtype = "STRING"
-		outdated_comment = "Historisk en blandet kolonne med bøde orgnr-bedrift og orgnr-foretak. 360 har vedtatt å dele dette i to rendyrkede kolonner."
+		outdated_comment = "Rydd foretaks-orgnr inn i kolonnen orgnr_foretak, og bedrifts-orgnr inn i orgnrbed. Historisk en blandet kolonne med bøde orgnr-bedrift og orgnr-foretak. 360 har vedtatt å dele dette i to rendyrkede kolonner."
 
 	[variables.utd_orgnr]
 		unit = "utdatert"
 		dtype = "STRING"
-		outdated_comment = "Historisk en blandet kolonne med bøde orgnr-bedrift og orgnr-foretak. 360 har vedtatt å dele dette i to rendyrkede kolonner."
+		outdated_comment = "Rydd foretaks-orgnr inn i kolonnen orgnr_foretak, og bedrifts-orgnr inn i orgnrbed. Historisk en blandet kolonne med bøde orgnr-bedrift og orgnr-foretak. 360 har vedtatt å dele dette i to rendyrkede kolonner."
 
 
 	[variables.fnr_mrk_freg] # kobler fnr mot folkeregisteret?
