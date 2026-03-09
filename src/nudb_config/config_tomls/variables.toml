@@ -147,7 +147,7 @@ variables_sort_unit = [
 		dtype = "STRING"
 		description_short = "Organisasjonsnummeret til Overenhet / Foretak / Juridisk Enhet. ID definert av Brønnøysundregistered og VoF/BoF."
 		length = [9]
-        renamed_from = ["orgnr", "utd_orgnr"]
+        renamed_from = []
 		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
 
 
