@@ -133,21 +133,21 @@ variables_sort_unit = [
 # Skolevariabler #
 ##################
 
-    [variables.bof_orgnrbed]
+    [variables.orgnrbed]
 		unit = "skole"
 		dtype = "STRING"
-		description_short = "Bedriftens ID ved flerbedriftsforetak. I fleste tilfeller bof_orgnrbed=utd_orgnr, men foretakets organisasjonsnummer ved enbedriftsforetak."
+		description_short = "Underenhet / Bedriftens organisasjons-ID definert av Brønnøysundregistered og VoF/BoF."
 		length = [9]
-        renamed_from = ["orgnrbed", "bof_orgnr_bed"]
+        renamed_from = ["bof_orgnrbed", "bof_orgnr_bed"]
 		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
 
 
-    [variables.utd_orgnr]
+    [variables.orgnr_foretak]
 		unit = "skole"
 		dtype = "STRING"
-		description_short = "Organisasjonsnummer til skole (elever, studenter) eller opplæringsbedrift (fagopplæring)"
+		description_short = "Organisasjonsnummeret til Overenhet / Foretak / Juridisk Enhet. ID definert av Brønnøysundregistered og VoF/BoF."
 		length = [9]
-        renamed_from = ["orgnr"]
+        renamed_from = ["orgnr", "utd_orgnr"]
 		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
 
 
