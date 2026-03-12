@@ -13,6 +13,8 @@ sane_skoleaar_range = [1969, 2050]
 unique_per_person_cols = ["pers_kjoenn", "pers_foedselsdato", "gr_grunnskolepoeng"]
 valid_personal_ids_prio = ["snr", "fnr"]
 
+videreutd_uhgrupper = ['18', '19', '20', '21', '22', '23', '66', '67']
+
 brreg_utd_nacekoder = [
     "88.911",
     "85.100",
