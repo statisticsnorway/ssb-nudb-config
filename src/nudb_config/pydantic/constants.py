@@ -16,6 +16,7 @@ class Constants(DotMapBaseModel):
     sane_skoleaar_range: list[int]
     unique_per_person_cols: list[str]
     valid_personal_ids_prio: list[str]
+    videreutd_uhgrupper: list[str]
     brreg_utd_nacekoder: list[str]
     foreign_municipalities: list[str]
 
