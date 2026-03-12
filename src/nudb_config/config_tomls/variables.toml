@@ -155,7 +155,7 @@ variables_sort_unit = [
         unit = "skole"
         dtype = "STRING"
         description_short = "Innrapportert skolenavn (Ny i NUDB fom. 2026?)"
-        renamed_from = ["skolenavn", "utd_orgnr_navn_inn"]
+        renamed_from = ["skolenavn", "utd_orgnr_navn_inn", "snavn"]
 		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
 
 
