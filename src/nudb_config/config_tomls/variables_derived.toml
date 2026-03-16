@@ -227,6 +227,21 @@
      derived_from = ["snr"]
      derived_join_keys = ["snr"]
 
+[variables.utd_hoeyeste_mor_nus2000]
+     unit = "utd"
+     dtype = "STRING"
+     renamed_from = ["nus2000_mor"]
+     derived_from = ["snr"]
+     derived_join_keys = ["snr"]
+
+[variables.utd_hoeyeste_far_nus2000]
+     unit = "utd"
+     dtype = "STRING"
+     renamed_from = ["nus2000_far"]
+     derived_from = ["snr"]
+     derived_join_keys = ["snr"]
+
+
 
 [variables.uh_foerste_nus2000]
     unit = "uh"
