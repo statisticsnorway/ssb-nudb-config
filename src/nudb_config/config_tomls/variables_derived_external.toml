@@ -21,7 +21,7 @@
     derived_uses_datasets = ["freg_situttak"]
 
 
-[variables.pers_invkat]
+[variables.pers_innvandringskategori]
     unit = "pers"
     dtype = "STRING"
     description_short = "innvandringskategori"
@@ -31,6 +31,20 @@
     derived_from = ["snr"]
     derived_join_keys = ["snr"]
     derived_uses_datasets = ["innvbef"]
+
+
+[variables.pers_innvandringsgrunn]
+    unit = "pers"
+    dtype = "STRING"
+    description_short = "innvandringsgrunn"
+    length = [3]
+    renamed_from = ["inngrunn1"]
+    klass_codelist = 355
+    derived_from = ["snr"]
+    derived_join_keys = ["snr"]
+    derived_uses_datasets = ["innvbef"]
+
+
 
 [variables.pers_foerste_bosattdato]
 	unit = "tid"

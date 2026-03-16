@@ -1,17 +1,8 @@
-[variables.pers_kjoenn_label]
-	unit = "pers"
-	dtype = "STRING"
-	derived_from = ["pers_kjoenn"]
-
 [variables.utd_datakilde_label]
 	unit = "data"
 	dtype = "STRING"
 	derived_from = ["utd_datakilde"]
 
-[variables.pers_invkat_label]
-    unit = "pers"
-    dtype = "STRING"
-    derived_from = ["pers_invkat"]
 
 #############################
 # Fagvariabler / nuskatalog #
@@ -30,11 +21,6 @@
 		unit = "skole"
 		dtype = "STRING"
         derived_from = ["utd_skolekom"]
-
-	[variables.pers_bokommune_16aar_label]
-		unit = "skole"
-		dtype = "STRING"
-        derived_from = ["pers_bokommune_16aar"]
 
 
 ############################
@@ -155,3 +141,64 @@
 		unit = "land"
 		dtype = "STRING"
 		derived_from = ["uh_statsborgerskap_inn"]
+
+
+
+######################
+# External variables #
+######################
+[variables.pers_kjoenn_label]
+	unit = "pers"
+	dtype = "STRING"
+	derived_from = ["pers_kjoenn"]
+
+
+[variables.pers_innvandringskategori_label]
+    unit = "pers"
+    dtype = "STRING"
+    derived_from = ["pers_innvandringskategori"]
+
+[variables.pers_innvandringsgrunn_label]
+    unit = "pers"
+    dtype = "STRING"
+    derived_from = ["pers_innvandringsgrunn"]
+
+[variables.pers_statsborgerskap_land_label]
+    unit = "pers"
+    dtype = "STRING"
+    derived_from = ["pers_statsborgerskap_land"]
+
+[variables.pers_foedeland_label]
+    unit = "pers"
+    dtype = "STRING"
+    derived_from = ["pers_foedeland"]
+
+[variables.pers_fra_land_label]
+    unit = "pers"
+    dtype = "STRING"
+    derived_from = ["pers_fra_land"]
+
+[variables.pers_landbakgrunn_land_label]
+    unit = "pers"
+    dtype = "STRING"
+    derived_from = ["pers_landbakgrunn_land"]
+
+[variables.pers_bokommune_16aar_label]
+	unit = "skole"
+	dtype = "STRING"
+	derived_from = ["pers_bokommune_16aar"]
+
+[variables.pers_bokommune_label]
+    unit = "pers"
+    dtype = "STRING"
+    derived_from = ["pers_bokommune"]
+
+[variables.pers_grunnkrets_label]
+    unit = "pers"
+    dtype = "STRING"
+    derived_from = ["pers_grunnkrets"]
+
+[variables.pers_bydel_label]
+    unit = "pers"
+    dtype = "STRING"
+    derived_from = ["pers_bydel"]
