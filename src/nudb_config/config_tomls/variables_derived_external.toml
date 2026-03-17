@@ -4,7 +4,7 @@
 	description_short = "kjønn"
 	length = [1]
 	klass_codelist = 2
-	renamed_from = ["kjoenn"]
+	renamed_from = ["kjoenn", "kjonn"]
     derived_from = ["snr"]
     derived_join_keys = ["snr"]
     derived_uses_datasets = ["freg_situttak"]
@@ -21,7 +21,7 @@
     derived_uses_datasets = ["freg_situttak"]
 
 
-[variables.pers_innvandringskategori]
+[variables.pers_invkat]
     unit = "pers"
     dtype = "STRING"
     description_short = "innvandringskategori"
@@ -33,7 +33,7 @@
     derived_uses_datasets = ["innvbef"]
 
 
-[variables.pers_innvandringsgrunn]
+[variables.pers_inngrunn1]
     unit = "pers"
     dtype = "STRING"
     description_short = "innvandringsgrunn"
@@ -72,19 +72,19 @@
 # Geografi #
 ############
 
-[variables.pers_statsborgerskap_land]
+[variables.pers_statsborgerskap]
     unit = "pers"
     dtype = "STRING"
     description_short = "Statborgerskap land - 3 siffer landkode (SSB3)."
     length = [3]
-    renamed_from = ["statborg"]
+    renamed_from = ["statsborgerskap", "statborg"]
     klass_codelist = 91
     derived_from = ["snr"]
     derived_join_keys = ["snr"]
     derived_uses_datasets = ["alle_pers"]
 
 
-[variables.pers_bokommune]
+[variables.pers_bokommune_nr]
     unit = "pers"
     dtype = "STRING"
     description_short = "Bokommune ved måletidspunkt."
@@ -96,7 +96,7 @@
     derived_uses_datasets = ["bosatte"]
 
 
-[variables.pers_grunnkrets]
+[variables.pers_gkrets_nr]
     unit = "pers"
     dtype = "STRING"
     description_short = "Grunnkrets ved måletidspunkt."
@@ -107,7 +107,7 @@
     derived_join_keys = ["snr"]
     derived_uses_datasets = ["bosatte"]
 
-[variables.pers_bydel]
+[variables.pers_bydel_nr]
     unit = "pers"
     dtype = "STRING"
     description_short = "Bydel ved måletidspunkt."
@@ -156,10 +156,10 @@
 
 
 
-[variables.pers_landbakgrunn_land]
+[variables.pers_landbak3gen]
     unit = "pers"
     dtype = "STRING"
-    description_short = "Bakgrunnsland- 3 siffer landkode (SSB3)."
+    description_short = "Bakgrunnsland - 3 siffer landkode (SSB3)."
     length = [3]
     renamed_from = ["landbak", "landbak3gen"]
     klass_codelist = 91
