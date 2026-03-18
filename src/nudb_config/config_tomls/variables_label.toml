@@ -102,10 +102,10 @@
 		dtype = "STRING"
 		derived_from = ["vg_fullfoertkode_detaljert"]
 
-    [variables.vg_provekandtype_label]
+    [variables.vg_proevekandtype_label]
         unit = "vg"
         dtype = "STRING"
-        derived_from = ["vg_provekandtype"]
+        derived_from = ["vg_proevekandtype"]
 
     [variables.vg_utdprogram_label]
 		unit = "vg"

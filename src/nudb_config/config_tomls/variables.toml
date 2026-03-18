@@ -358,6 +358,7 @@ variables_sort_unit = [
         unit = "vg"
         dtype = "STRING"
         length = [1]
+        klass_codelist = 768
         renamed_from = ["provekandtype", "vg_provekandtype"]  # Ikke legg til ftype, vi håndtrerer den med overrides
 
 	[variables.vg_hovedaktivitet]  # merkevariabel som prioriterer en record per person, per skoleår, per fil, innenfor vg
@@ -483,7 +484,7 @@ variables_sort_unit = [
 		dtype = "STRING"
 		length = [3,4,5,6,7,8,9,10,11,12,13]
 		renamed_from = ["utveksavtale"]
-		#klass_codelist = 792  # Denne er foreldet etter vi gikk over til å bruke kodelisten slik den kommer inn til oss?
+		#klass_codelist = 792  # Denne er foreldet etter vi gikk over til å bruke kodelisten slik den kommer inn til oss
 
 	[variables.uh_eksamen_studpoeng]
 		unit = "uh"
