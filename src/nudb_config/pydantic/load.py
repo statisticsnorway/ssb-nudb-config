@@ -1,13 +1,21 @@
 from __future__ import annotations
 
+import copy
 import importlib.resources as impres
 import tomllib
 from pathlib import Path
+from typing import Any
+from typing import cast
+from typing import get_args
 
 from pydantic import ConfigDict
 
+from ..logger import logger
+from .constants import Constants
+from .constants import ConstantsFile
 from .datasets import Dataset
 from .datasets import DatasetsFile
+from .datasets import DatasetsOverrideFile
 from .dotmap import DotMapBaseModel
 from .dotmap import DotMapDict
 from .options import Options
@@ -17,6 +25,10 @@ from .paths import PathsFile
 from .settings import SettingsFile
 from .variables import Variable
 from .variables import VariablesFile
+
+MERGE_WARNING = (
+    "Merge overwrite has same value; consider removing from local config: %s"
+)
 
 
 class NudbConfig(DotMapBaseModel):
@@ -38,6 +50,7 @@ class NudbConfig(DotMapBaseModel):
         datasets: Mapping of dataset name to configuration.
         paths: Mapping of environment name to paths configuration.
         options: Options from ``options.toml``.
+        constants: Constants from ``constants.toml``.
     """
 
     model_config = ConfigDict(arbitrary_types_allowed=True)
@@ -51,6 +64,21 @@ class NudbConfig(DotMapBaseModel):
     datasets: DotMapDict[Dataset]
     paths: DotMapDict[PathEntry]
     options: Options
+    constants: Constants
+
+    def merge_tomls(self, toml_dir: str | Path) -> NudbConfig:
+        """Merge values from external TOML files into this config and return it."""
+        cfg_dir = _resolve_toml_dir(toml_dir)
+        for path in sorted(cfg_dir.glob("*.toml")):
+            toml_data = _load_toml(path)
+            _merge_into(self, toml_data)
+        return self
+
+    def _deep_copy(self) -> NudbConfig:
+        try:
+            return self.model_copy(deep=True)
+        except Exception:
+            return copy.deepcopy(self)
 
 
 # Ensure forward refs are resolved for Pydantic
@@ -62,13 +90,145 @@ def _load_toml(path: Path) -> dict[str, object]:
         return tomllib.load(fh)
 
 
+def _resolve_toml_dir(toml_dir: str | Path) -> Path:
+    cfg_dir = Path(toml_dir)
+    if cfg_dir.exists():
+        return cfg_dir
+    fallback = Path.cwd() / str(toml_dir).lstrip("/\\")
+    if fallback.exists():
+        return fallback
+    raise FileNotFoundError(f"TOML directory not found: {toml_dir}")
+
+
+def _is_none_sentinel(value: object) -> bool:
+    if value is None:
+        return True
+    if isinstance(value, str) and value.strip().lower() == "none":
+        return True
+    return False
+
+
+def _merge_into(target: object, updates: object) -> None:
+    if isinstance(updates, dict):
+        _merge_mapping(target, updates, path=())
+
+
+def _merge_mapping(
+    target: object, updates: dict[str, object], *, path: tuple[str, ...]
+) -> None:
+    if isinstance(target, DotMapDict):
+        _merge_dotmapdict(target, updates, path)
+        return
+    if isinstance(target, DotMapBaseModel):
+        _merge_dotmap_model(target, updates, path)
+        return
+    if isinstance(target, dict):
+        _merge_plain_dict(target, updates, path)
+
+
+def _merge_dotmapdict(
+    target: DotMapDict[Any], updates: dict[str, object], path: tuple[str, ...]
+) -> None:
+    for key, value in updates.items():
+        if _is_none_sentinel(value):
+            if key in target:
+                del target[key]
+            continue
+        value = _maybe_inject_variable_name(target, key, value)
+        if key in target:
+            current = target[key]
+            if _should_descend(value, current):
+                value_dict = cast(dict[str, object], value)
+                _merge_mapping(current, value_dict, path=(*path, key))
+                continue
+            _warn_if_same(current, value, path, key)
+            target[key] = value
+        else:
+            target[key] = value
+
+
+def _merge_dotmap_model(
+    target: DotMapBaseModel, updates: dict[str, object], path: tuple[str, ...]
+) -> None:
+    model_fields = getattr(type(target), "model_fields", {})
+    for key, value in updates.items():
+        if key not in model_fields:
+            continue
+        if _is_none_sentinel(value):
+            field = model_fields[key]
+            if _field_allows_none(field):
+                setattr(target, key, None)
+            continue
+        current = getattr(target, key, None)
+        if _should_descend(value, current):
+            value_dict = cast(dict[str, object], value)
+            _merge_mapping(current, value_dict, path=(*path, key))
+            continue
+        _warn_if_same(current, value, path, key)
+        setattr(target, key, value)
+
+
+def _merge_plain_dict(
+    target: dict[str, object], updates: dict[str, object], path: tuple[str, ...]
+) -> None:
+    for key, value in updates.items():
+        if _is_none_sentinel(value):
+            target.pop(key, None)
+            continue
+        current = target.get(key)
+        if _should_descend(value, current):
+            value_dict = cast(dict[str, object], value)
+            _merge_mapping(current, value_dict, path=(*path, key))
+            continue
+        _warn_if_same(current, value, path, key)
+        target[key] = value
+
+
+def _warn_if_same(
+    current: object, value: object, path: tuple[str, ...], key: str
+) -> None:
+    if current == value:
+        logger.warning(MERGE_WARNING, ".".join((*path, key)))
+
+
+def _field_allows_none(field: object) -> bool:
+    annotation = getattr(field, "annotation", None)
+    if annotation is Any:
+        return True
+    args = get_args(annotation)
+    if args and type(None) in args:
+        return True
+    default = getattr(field, "default", None)
+    return default is None
+
+
+def _should_descend(value: object, current: object) -> bool:
+    return isinstance(value, dict) and isinstance(
+        current, (DotMapBaseModel, DotMapDict, dict)
+    )
+
+
+def _maybe_inject_variable_name(
+    target: DotMapDict[Any], key: str, value: object
+) -> object:
+    if not isinstance(value, dict):
+        return value
+    value_type = getattr(target, "_value_type", None)
+    if value_type is Variable and "name" not in value:
+        return {**value, "name": key}
+    return value
+
+
 def _iter_variable_paths(cfg_dir: Path) -> list[Path]:
-    """Return variable TOML paths excluding derived label entries."""
-    return [
-        path
-        for path in cfg_dir.glob("variables*.toml")
-        if path.name != "variables_derived_label.toml"
-    ]
+    """Return variable TOML paths excluding derived label entries, sorted by shortest length first."""
+    return sorted(
+        [
+            path
+            for path in cfg_dir.glob("variables*.toml")
+            if path.name != "variables_derived_label.toml"
+        ],
+        key=lambda x: len(str(x)),
+    )
 
 
 def _load_variables(cfg_dir: Path) -> VariablesFile:
@@ -102,11 +262,23 @@ def _load_variables(cfg_dir: Path) -> VariablesFile:
 def _load_datasets(cfg_dir: Path) -> DatasetsFile:
     """Load and merge dataset TOML files."""
     merged_datasets: DotMapDict[Dataset] = DotMapDict(value_type=Dataset)
-    for path in cfg_dir.glob("datasets*.toml"):
+    for path in sorted(cfg_dir.glob("datasets*.toml"), key=lambda x: len(str(x))):
         datatoml = _load_toml(path)
-        data_file: DatasetsFile = DatasetsFile.model_validate(datatoml)
-        for key, dataset in data_file.datasets.items():
-            merged_datasets[key] = dataset
+        if path.name == "datasets.toml":
+            data_file: DatasetsFile = DatasetsFile.model_validate(datatoml)
+            for key, dataset in data_file.datasets.items():
+                merged_datasets[key] = dataset
+            continue
+
+        override_file: DatasetsOverrideFile = DatasetsOverrideFile.model_validate(
+            datatoml
+        )
+        for key, override in override_file.datasets.items():
+            override_data = override.model_dump(exclude_none=True)
+            if key in merged_datasets:
+                _merge_mapping(merged_datasets[key], override_data, path=(key,))
+                continue
+            merged_datasets[key] = Dataset.model_validate(override_data)
     return DatasetsFile(datasets=merged_datasets)
 
 
@@ -133,6 +305,8 @@ def load_pydantic_settings() -> NudbConfig:
     paths_file = PathsFile.model_validate(paths_toml)
     options_toml = _load_toml(cfg_dir / "options.toml")
     options_file = OptionsFile.model_validate(options_toml)
+    constants_toml = _load_toml(cfg_dir / "constants.toml")
+    constants_file = ConstantsFile.model_validate(constants_toml)
 
     variables_file = _load_variables(cfg_dir)
     dataset_file = _load_datasets(cfg_dir)
@@ -145,6 +319,7 @@ def load_pydantic_settings() -> NudbConfig:
         datasets=dataset_file.datasets,
         paths=paths_file.paths,
         options=options_file.options,
+        constants=constants_file.constants,
     )
 
 

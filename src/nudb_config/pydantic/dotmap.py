@@ -281,9 +281,12 @@ class DotMapDict(Generic[T]):
     def __getattr__(self, name: str) -> T:
         """Return a value via attribute access."""
         try:
-            return self._data[name]
+            mapping = object.__getattribute__(self, "_data")
+            return cast(T, mapping[name])
         except KeyError as exc:
             raise AttributeError(name) from exc
+        except AttributeError as e:
+            raise AttributeError(name) from e
 
     def __setattr__(self, name: str, value: T) -> None:
         """Assign a value via attribute access, coercing to the target type."""

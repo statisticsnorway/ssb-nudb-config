@@ -1,3 +1,13 @@
+
+
+[variables.snr_mrk]
+	unit = "pers"
+	dtype = "BOOLEAN"
+    derived_from = ["snr"]
+	renamed_from = ["snr_valid", "mrk_snr", "mrk_snr_nudb", "snr_nudb_mrk", "snr_mrk_nudb"]
+	description_short = "True if snr contains a valid snr - defined by content of snr, or existence in FREG 320 register."
+
+
 ##############################################
 # Variabler som utledes fra nudbs data alene #
 ##############################################
@@ -9,6 +19,13 @@
     renamed_from = ["skoleaar_slutt"]
     klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
     derived_from = ["utd_skoleaar_start"]
+
+
+[variables.utd_erutland]
+    unit = "land"
+    dtype = "BOOLEAN"
+    renamed_from = ["utland", "uh_utland", "uh_erutland"]
+    derived_from = ["utd_skolekom"]
 
 
 ####################################################
@@ -37,7 +54,8 @@
 [variables.fa_erfagskole_nokut_nus]
     unit = "fa"
     dtype = "BOOLEAN"
-    length = [2]  # A bit stupid cause we are converting it to a bool after getting it from klass, the only code is "10" -> True...
+    # If we include length, run_quality_suite will fail, because its supposed to be a BOOLEAN DUDE!
+    #length = [2]  # A bit stupid cause we are converting it to a bool after getting it from klass, the only code is "10" -> True...
     renamed_from = ["fagskoleutd"]
     description_short = "Fra klass får vi de fagskoleutdanningene som er godkjent av NOKUT - dvs. norske fagskoleutdanninger. De som har utd_utdanningstype=710 men som ikke er True/'10' i denne variabelen, er uspesifiserte koder som kommer fra alternative kilder enn NOKUT. "
     klass_codelist = 36
@@ -183,26 +201,31 @@
 # Variabler som krever all utdanningsdata som utgangspunkt for å bli korrekt #
 #############################################################################
 
+
+[variables.utd_hoeyeste_rangering]
+    unit = "utd"
+    dtype = "STRING"
+    derived_from = ["nus2000", "utd_klassetrinn", "uh_gruppering_nus", "utd_skoleaar_start",
+                    "uh_eksamen_studpoeng", "uh_eksamen_dato", "utd_aktivitet_slutt"]
+
 [variables.utd_hoeyeste_nus2000]
     unit = "utd"
     dtype = "STRING"
     length = [6]
     klass_codelist = 36
-
     description_short = "NUS-kode for utdanningen ved NUS-kode for høyeste utdanning"
 
-    # This needs to change as we realise more about how the BU-variable needs to be constructed
     renamed_from = ["bu"]
-    derived_from = ["snr", "nus2000", "utd_fullfoertkode"]
-    derived_uses_datasets = ["avslutta"]
+    derived_from = ["snr"]
     derived_join_keys = ["snr"]
 
-# Need to figure out how we can reference external variables (not owned by NUDB) we depend on, like snr_far and snr_mor - currently causing a test to fail, and rightly so
-#[variables.utd_foreldres_utdnivaa_16aar]
-#     unit = "utd"
-#     dtype = "STRING"
-#     renamed_from = ["sosbak"]
-#     derived_from = ["snr", "utd_hoeyeste_nus2000", "pers_foedselsdato", "snr_far", "snr_mor"]
+
+[variables.utd_foreldres_utdnivaa_16aar]
+     unit = "utd"
+     dtype = "STRING"
+     renamed_from = ["sosbak"]
+     derived_from = ["snr"]
+     derived_join_keys = ["snr"]
 
 
 [variables.uh_foerste_nus2000]
@@ -210,8 +233,9 @@
     dtype = "STRING"
     length = [6]
     klass_codelist = 36
-    derived_from = ["snr", "nus2000", "utd_aktivitet_start"]
-
+    derived_from = ["snr", "nus2000", "utd_aktivitet_start", "utd_aktivitet_slutt", "uh_eksamen_dato"]
+    derived_join_keys = ["snr"]
+    derived_uses_datasets = ["avslutta", "igang", "eksamen"]
 
 
 ####################################################
@@ -222,7 +246,7 @@
     unit = "gr"
     dtype = "BOOLEAN"
     description_short = "Markerer rader som tilsier en registering på grunnskolenivå."
-    derived_from = ["nus2000", "uh_erutland"]
+    derived_from = ["nus2000", "utd_erutland"]
 
 [variables.vg_ervgo_registrering]
     unit = "vg"
@@ -255,7 +279,7 @@
     unit = "uh"
     dtype = "BOOLEAN"
     description_short = "Markerer rader som tilsier en registering på en bachelorgrad."
-    derived_from = ["nus2000", "uh_gruppering_nus"]
+    derived_from = ["nus2000", "uh_gradmerke_nus"]
 
 [variables.uh_ermaster_registrering]
     unit = "uh"
@@ -275,7 +299,7 @@
     unit = "gr"
     dtype = "BOOLEAN"
     description_short = "Markerer rader som tilsier en fullføring av grunnskolenivå."
-    derived_from = ["utd_fullfoertkode", "nus2000", "uh_erutland"]
+    derived_from = ["utd_fullfoertkode", "nus2000", "utd_erutland"]
 
 
 
@@ -309,7 +333,7 @@
     unit = "uh"
     dtype = "BOOLEAN"
     description_short = "Markerer rader som tilsier en fullføring av en bachelorgrad. Bør kun kjøres på avslutta-data?"
-    derived_from = ["utd_fullfoertkode", "uh_gruppering_nus"]
+    derived_from = ["utd_fullfoertkode", "uh_gradmerke_nus"]
 
 [variables.uh_ermaster_fullfoert]
     unit = "uh"
@@ -349,7 +373,7 @@
     unit = "vg"
     dtype = "DATETIME"
     renamed_from = ["aar_ny_i_vid_utd", "aar_ny_i_vid_utd_lov"]
-    derived_from = ["snr", "vg_ervgo_registrering", "utd_aktivitet_start"]  # Kan vi utlede "startet på vg" kun fra nus2000, også for eldre rader?
+    derived_from = ["snr", "vg_ervgo_registrering", "utd_aktivitet_start", "utd_aktivitet_slutt"]  # Kan vi utlede "startet på vg" kun fra nus2000, også for eldre rader?
     derived_uses_datasets = ["igang", "avslutta"]
     derived_join_keys = ["snr"]
 
@@ -383,8 +407,8 @@
     unit = "uh"
     dtype = "DATETIME"
     renamed_from = ["aar_forste_reg_uh"]
-    derived_from = ["snr", "uh_erhoeyereutd_registrering", "utd_aktivitet_start"]
-    derived_uses_datasets = ["igang", "avslutta"]
+    derived_from = ["snr", "uh_erhoeyereutd_registrering", "utd_aktivitet_start", "utd_aktivitet_slutt", "uh_eksamen_dato"]
+    derived_uses_datasets = ["igang", "avslutta", "eksamen"] # skal eksamen være med hær
     derived_join_keys = ["snr"]
 
 [variables.uh_hoeyskolekandidat_foerste_fullfoert_dato]
@@ -408,7 +432,7 @@
     unit = "uh"
     dtype = "DATETIME"
     renamed_from = ["aar_forste_fullf_bach"]
-    derived_from = ["snr", "uh_erbachelor_fullfoert", "utd_aktivitet_start", "utd_aktivitet_slutt" ]
+    derived_from = ["snr", "uh_erbachelor_fullfoert", "utd_aktivitet_start", "utd_aktivitet_slutt"]
     derived_uses_datasets = ["avslutta"]
     derived_join_keys = ["snr"]
 
@@ -433,6 +457,6 @@
     unit = "uh"
     dtype = "DATETIME"
     renamed_from = ["aar_forste_reg_dok"]
-    derived_from = ["snr", "uh_erdoktorgrad_fullfoert", "utd_aktivitet_start", "utd_aktivitet_slutt" ]
+    derived_from = ["snr", "uh_erdoktorgrad_fullfoert", "utd_aktivitet_start", "utd_aktivitet_slutt"]
     derived_uses_datasets = ["avslutta"]
     derived_join_keys = ["snr"]

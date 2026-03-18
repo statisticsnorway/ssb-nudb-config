@@ -8,6 +8,9 @@ class Dataset(DotMapBaseModel):
     """Dataset configuration entry under ``[datasets]``.
 
     Attributes:
+        team: The name of the dapla-team who owns the dataset.
+        bucket: The bucket name, under the dapla-team, where the dataset is located.
+        path_glob: A glob that can be used in the bucket to pinpoint all available periods and versions of the dataset.
         variables: Ordered list of variable names included in the dataset.
         thresholds_empty: Allowable proportions of emptiness per variable.
         min_values: Minimum inclusive filter values per variable.
@@ -15,11 +18,27 @@ class Dataset(DotMapBaseModel):
         dataset_specific_renames: Custom renames to apply only for this dataset.
     """
 
+    team: str
+    bucket: str
+    path_glob: str
     variables: list[str] | None = None
-    thresholds_empty: dict[str, float] | None = None
-    min_values: dict[str, str] | None = None
-    max_values: dict[str, str] | None = None
-    dataset_specific_renames: dict[str, str] | None = None
+    thresholds_empty: DotMapDict[float] | None = None
+    min_values: DotMapDict[str] | None = None
+    max_values: DotMapDict[str] | None = None
+    dataset_specific_renames: DotMapDict[str] | None = None
+
+
+class DatasetOverride(DotMapBaseModel):
+    """Partial dataset override entry under ``[datasets]``."""
+
+    team: str | None = None
+    bucket: str | None = None
+    path_glob: str | None = None
+    variables: list[str] | None = None
+    thresholds_empty: DotMapDict[float] | None = None
+    min_values: DotMapDict[str] | None = None
+    max_values: DotMapDict[str] | None = None
+    dataset_specific_renames: DotMapDict[str] | None = None
 
 
 class DatasetsFile(DotMapBaseModel):
@@ -30,3 +49,9 @@ class DatasetsFile(DotMapBaseModel):
     """
 
     datasets: DotMapDict[Dataset]
+
+
+class DatasetsOverrideFile(DotMapBaseModel):
+    """Root schema for dataset override TOMLs."""
+
+    datasets: DotMapDict[DatasetOverride]

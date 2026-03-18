@@ -29,7 +29,7 @@ nudb\_config.config module
 
 .. automodule:: nudb_config.config
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 ```

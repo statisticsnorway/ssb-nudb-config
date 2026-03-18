@@ -1,0 +1,3 @@
+[paths]
+    [paths.local_daplalab]
+        delt_utdanning = "/buckets/delt-utdanning/nudb-data/klargjorte-data/"

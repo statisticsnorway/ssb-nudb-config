@@ -23,7 +23,9 @@ def test_klass_codelist_or_variant_requires_length_list_of_ints() -> None:
     for name, var in settings.variables.items():
         codelist_filled = getattr(var, "klass_codelist", None) not in (None, 0)
         variant_filled = getattr(var, "klass_variant", None) is not None
-        if not (codelist_filled or variant_filled):
+        if getattr(var, "dtype", "") == "BOOLEAN" or not (
+            codelist_filled or variant_filled
+        ):
             continue
 
         length = getattr(var, "length", None)

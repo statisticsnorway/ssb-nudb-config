@@ -5,20 +5,22 @@
 # IGANG #
 #########
 
-[datasets.igang_videregaaende]
-
+    [datasets.igang_videregaaende]
+    team = "utd-vg"
+    bucket = "vgu"
+    path_glob = ""
     variables = [
         "fnr",
         "snr",
-        "snr_mrk",
+        #"snr_mrk",  # We dont demand this delivered, as we will reproduce anyway
         "pers_foedselsdato",
         "pers_kjoenn",
         "utd_skoleaar_start",
         "utd_aktivitet_start",
         "utd_aktivitet_start_inn",
         "utd_aktivitetsnivaa_heltid_deltid",
-        "bof_orgnrbed",
-        "utd_orgnr",
+        "orgnrbed",
+        "orgnr_foretak",
         "nus2000",
         "utd_viderutd_nettbasert",
         "utd_datakilde",
@@ -29,6 +31,7 @@
         "gro_skolenr_inn",
         "gro_elevstatus",
         "gro_programomraade",
+        "vg_utdprogram",
         "vg_rettstype_inntak",
         "vg_antall_aarstimer_elevkurs",
         "vg_antall_fag_elevkurs",
@@ -39,24 +42,26 @@
         "vg_hovedaktivitet",
         ]
 
-    [datasets.igang_videregaaende.thresholds_empty]
+        [datasets.igang_videregaaende.thresholds_empty]
             fnr = 0.0
 
 
-[datasets.igang_fagskole]
-
-    variables = [
+    [datasets.igang_fagskole]
+        team = "utd-uhfagskole"
+        bucket = "fagskole"
+        path_glob = ""
+        variables = [
         "fnr",
         "snr",
-        "snr_mrk",
+        #"snr_mrk",  # We dont demand this delivered, as we will reproduce anyway
         "pers_foedselsdato",
         "pers_kjoenn",
         "utd_skoleaar_start",
         "utd_aktivitet_start",
         "utd_aktivitet_start_inn",
         "utd_aktivitetsnivaa_heltid_deltid",
-        "bof_orgnrbed",
-        "utd_orgnr",
+        "orgnrbed",
+        "orgnr_foretak",
         "nus2000",
         "utd_viderutd_nettbasert",
         "utd_datakilde",
@@ -64,6 +69,7 @@
         "utd_utdanningstype",
         "utd_utveksling",
         "utd_skolekom",
+        #"utd_studieland",
         #"fa_ergodkjent_fagskoleutd",  # skal utledes fra nus2000 isteden
         "fa_utveksl_varighet_dager",
         "fa_studiestednr_inn",
@@ -72,26 +78,32 @@
         "fa_institusjon_id",
         "fuh_opptaksgrunnlag",
         "fuh_utvekslingsland",
+        "fa_tilbudskode",
+        "fa_tilbudsnavn",
+        "fa_nettbasert_antall_samledager_tilbud",
         ]
 
     [datasets.igang_fagskole.thresholds_empty]
         fnr = 0.0
 
 
-[datasets.igang_hoeyereutdanning]
+    [datasets.igang_hoeyereutdanning]
+        team = "utd-uhfagskole"
+        bucket = "uh"
+        path_glob = ""
 
-    variables = [
+        variables = [
         "fnr",
         "snr",
-        "snr_mrk",
+        #"snr_mrk",   # We dont demand this delivered, as we will reproduce anyway
         "pers_foedselsdato",
         "pers_kjoenn",
         "utd_skoleaar_start",
         "utd_aktivitet_start",
         "utd_aktivitet_start_inn",
         "utd_aktivitetsnivaa_heltid_deltid",
-        "bof_orgnrbed",
-        "utd_orgnr",
+        "orgnrbed",
+        "orgnr_foretak",
         "nus2000",
         "utd_viderutd_nettbasert",
         "utd_datakilde",
@@ -105,14 +117,14 @@
         "uh_institusjon_id",
         "uh_erpermisjon",
         "uh_statsborgerskap_inn",
-        "uh_erstudierett",
+        "uh_studierett",
         "uh_studienivaa",
         "uh_utdplan",
         "uh_studieprogram",
         "uh_studieprogresjon_hoest",
-        "uh_erutland",
+        #"uh_erutland",
         "uh_studgrunnlagsland",
-        "uh_studieland",
+        "utd_studieland",
         "uh_utvekslingsavtale",
         "uh_undervisningsspraak",
         "uh_campus_kommune",
@@ -120,7 +132,7 @@
         "uh_hovedaktivitet",
         ]
 
-    [datasets.igang_hoeyereutdanning.thresholds_empty]
+        [datasets.igang_hoeyereutdanning.thresholds_empty]
             fnr = 0.0
 
 ############
@@ -128,11 +140,14 @@
 ############
 
     [datasets.avslutta_grunnskole]
+    team = "utd-bhgskole"
+    bucket = ""
+    path_glob = ""
 
         variables = [
 	        "fnr",
             "snr",
-            "snr_mrk",
+            #"snr_mrk",  # We dont demand this delivered, as we will reproduce anyway
             "pers_foedselsdato",
             "pers_kjoenn",
             "nus2000",
@@ -146,9 +161,9 @@
             "utd_utdanningstype",
             "utd_fullfoertkode",
             "utd_aktivitetsnivaa_heltid_deltid",
-            "bof_orgnrbed",
+            "orgnrbed",
+            "orgnr_foretak",
             "utd_skolekom",
-            "utd_orgnr",
             "utd_viderutd_nettbasert",
             "gr_grunnskolepoeng",
             "gro_fravaer_dager",
@@ -156,6 +171,8 @@
             "gro_programomraade",
             "gro_elevstatus",
             "gro_skolenr_inn",
+            "gro_skolenavn_inn",
+
 
         ]
 
@@ -164,12 +181,15 @@
 
 
 
-[datasets.avslutta_videregaaende]
+    [datasets.avslutta_videregaaende]
+        team = "utd-vg"
+        bucket = "vgu"
+        path_glob = ""
 
         variables = [
 	        "fnr",
             "snr",
-            "snr_mrk",
+            #"snr_mrk",  # We dont demand this delivered, as we will reproduce anyway
             "pers_foedselsdato",
             "pers_kjoenn",
             "utd_skoleaar_start",
@@ -178,8 +198,8 @@
             "utd_aktivitet_start_inn",
             "utd_aktivitet_slutt_inn",
             "utd_aktivitetsnivaa_heltid_deltid",
-            "bof_orgnrbed",
-            "utd_orgnr",
+            "orgnrbed",
+            "orgnr_foretak",
             "nus2000",
             "utd_datakilde",
             "utd_klassetrinn",
@@ -203,15 +223,17 @@
             "vg_proeve_dato",
             "vg_fullfoertkode_detaljert",
         ]
-    [datasets.avslutta_videregaaende.thresholds_empty]
+        [datasets.avslutta_videregaaende.thresholds_empty]
             fnr = 0.0
 
-[datasets.avslutta_fagskole]
-
+    [datasets.avslutta_fagskole]
+        team = "utd-uhfagskole"
+        bucket = "fagskole"
+        path_glob = ""
         variables = [
 	        "fnr",
             "snr",
-            "snr_mrk",
+            #"snr_mrk",  # We dont demand this delivered, as we will reproduce anyway
             "pers_foedselsdato",
             "pers_kjoenn",
             "utd_skoleaar_start",
@@ -220,13 +242,14 @@
             "utd_aktivitet_start_inn",
             "utd_aktivitet_slutt_inn",
             "utd_aktivitetsnivaa_heltid_deltid",
-            "bof_orgnrbed",
-            "utd_orgnr",
+            "orgnrbed",
+            "orgnr_foretak",
             "nus2000",
             "utd_datakilde",
             "utd_klassetrinn",
             "utd_utdanningstype",
             "utd_skolekom",
+            #"utd_studieland",
             "utd_fullfoertkode",
             "utd_viderutd_nettbasert",
             #"fa_ergodkjent_fagskoleutd",  # skal utledes fra nus2000 isteden
@@ -234,18 +257,24 @@
             "fa_institusjon_id",
             "fa_karakter",
             "fuh_nett_eller_stedbasert",
+            "fa_tilbudskode",
+            "fa_tilbudsnavn",
+            "fa_nettbasert_antall_samledager_tilbud",
         ]
 
     [datasets.avslutta_fagskole.thresholds_empty]
             fnr = 0.0
 
 
-[datasets.avslutta_hoeyereutdanning]
+    [datasets.avslutta_hoeyereutdanning]
+        team = "utd-uhfagskole"
+        bucket = "uh"
+        path_glob = ""
 
-    variables = [
+        variables = [
             "fnr",
             "snr",
-            "snr_mrk",
+            #"snr_mrk",  # We dont demand this delivered, as we will reproduce anyway
             "pers_foedselsdato",
             "pers_kjoenn",
             "utd_skoleaar_start",
@@ -254,8 +283,8 @@
             "utd_aktivitet_start_inn",
             "utd_aktivitet_slutt_inn",
             "utd_aktivitetsnivaa_heltid_deltid",
-            "bof_orgnrbed",
-            "utd_orgnr",
+            "orgnrbed",
+            "orgnr_foretak",
             "nus2000",
             "utd_datakilde",
             "utd_klassetrinn",
@@ -266,17 +295,19 @@
             "fuh_nett_eller_stedbasert",
             "uh_institusjon_id",
             "uh_statsborgerskap_inn",
-            "uh_erstudierett",
+            "uh_studierett",
             "uh_studienivaa",
             "uh_studieprogram",
-            "uh_studieland",
-            "uh_erutland",
+            "utd_studieland",
+            #"uh_erutland",
             "uh_fakultet",
             "uh_studiepoeng_grad",
             "uh_campus_kommune",
+            "uh_campus_sted",
+            "uh_ervitnemaalsgivende",
         ]
 
-    [datasets.avslutta_hoeyereutdanning.thresholds_empty]
+        [datasets.avslutta_hoeyereutdanning.thresholds_empty]
             fnr = 0.0
 
 
@@ -287,17 +318,19 @@
 
 
 
-[datasets.eksamen_hoeyereutdanning]
-
-    variables = [
+    [datasets.eksamen_hoeyereutdanning]
+        team = "utd-uhfagskole"
+        bucket = "uh"
+        path_glob = ""
+        variables = [
             "fnr",
             "snr",
-            "snr_mrk",
+            #"snr_mrk",  # We dont demand this delivered, as we will reproduce anyway
             "pers_foedselsdato",
             "pers_kjoenn",
             "utd_skoleaar_start",
-            "bof_orgnrbed",
-            "utd_orgnr",
+            "orgnrbed",
+            "orgnr_foretak",
             "nus2000",
             "utd_datakilde",
             "utd_utdanningstype",
@@ -308,7 +341,7 @@
             "uh_eksamen_dato_inn",
             "uh_antall_deleksamener",
             "uh_antall_deleksamener_bestatt",
-            "uh_eksamen_er_gjentak",
+            "uh_eksamen_ergjentak",
             "uh_eksamen_karakter",
             "uh_eksamen_studpoeng",
             "uh_emnekode",
@@ -317,10 +350,11 @@
             "uh_studienivaa",
             "uh_studieprogram",
             "uh_studieprogram_navn",
-            "uh_erstudierett",
+            "uh_studierett",
             "uh_termin_rapportert",
-            "uh_fullfoertkode_inn",
+            "uh_fullfoertkode_detaljert",
             "uh_campus_kommune",
+            "uh_campus_sted",
         ]
 
     [datasets.eksamen_hoeyereutdanning.thresholds_empty]

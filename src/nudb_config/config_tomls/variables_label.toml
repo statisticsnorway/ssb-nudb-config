@@ -8,9 +8,10 @@
 	dtype = "STRING"
 	derived_from = ["utd_datakilde"]
 
-
-
-
+[variables.pers_invkat_label]
+    unit = "pers"
+    dtype = "STRING"
+    derived_from = ["pers_invkat"]
 
 #############################
 # Fagvariabler / nuskatalog #
@@ -21,14 +22,19 @@
 		dtype = "STRING"
 		derived_from = ["nus2000"]
 
-##################
-# Skolevariabler #
-##################
+############
+# Kommuner #
+############
 
 	[variables.utd_skolekom_label]
 		unit = "skole"
 		dtype = "STRING"
         derived_from = ["utd_skolekom"]
+
+	[variables.pers_bokommune_16aar_label]
+		unit = "skole"
+		dtype = "STRING"
+        derived_from = ["pers_bokommune_16aar"]
 
 
 ############################
@@ -155,10 +161,10 @@
 # Land #
 ########
 
-	[variables.uh_studieland_label]
+	[variables.utd_studieland_label]
 		unit = "land"
 		dtype = "STRING"
-		derived_from = ["uh_studieland"]
+		derived_from = ["utd_studieland"]
 
 	[variables.fuh_utvekslingsland_label]
 		unit = "land"
