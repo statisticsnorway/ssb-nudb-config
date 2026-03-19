@@ -1,57 +1,65 @@
+#################
+# Datavariabler #
+#################
 [variables.utd_datakilde_label]
 	unit = "data"
 	dtype = "STRING"
 	derived_from = ["utd_datakilde"]
 
 
+[variables.utd_fullfoertkode_label]
+	unit = "data"
+	dtype = "STRING"
+	derived_from = ["utd_fullfoertkode"]
+
 #############################
 # Fagvariabler / nuskatalog #
 #############################
 
-	[variables.nus2000_label]
-		unit = "fag"
-		dtype = "STRING"
-		derived_from = ["nus2000"]
+[variables.nus2000_label]
+	unit = "fag"
+	dtype = "STRING"
+	derived_from = ["nus2000"]
 
 ############
 # Kommuner #
 ############
 
-	[variables.utd_skolekom_label]
-		unit = "skole"
-		dtype = "STRING"
-        derived_from = ["utd_skolekom"]
+[variables.utd_skolekom_label]
+	unit = "skole"
+	dtype = "STRING"
+	derived_from = ["utd_skolekom"]
 
 
 ############################
 # "utd" - Alle utdanninger #
 ############################
 
-	[variables.utd_aktivitetsnivaa_heltid_deltid_label]
-		unit = "fag"
-		dtype = "STRING"
-		derived_from = ["utd_aktivitetsnivaa_heltid_deltid"]
+[variables.utd_aktivitetsnivaa_heltid_deltid_label]
+	unit = "fag"
+	dtype = "STRING"
+	derived_from = ["utd_aktivitetsnivaa_heltid_deltid"]
 
-	[variables.utd_viderutd_nettbasert_label]
-		unit = "fag"
-		dtype = "STRING"
-		derived_from = ["utd_viderutd_nettbasert"]
+[variables.utd_viderutd_nettbasert_label]
+	unit = "fag"
+	dtype = "STRING"
+	derived_from = ["utd_viderutd_nettbasert"]
 
-	[variables.fuh_nett_eller_stedbasert_label]
-		unit = "fag"
-		dtype = "STRING"
-		derived_from = ["fuh_nett_eller_stedbasert"]
+[variables.fuh_nett_eller_stedbasert_label]
+	unit = "fag"
+	dtype = "STRING"
+	derived_from = ["fuh_nett_eller_stedbasert"]
 
-	[variables.utd_utdanningstype_label]
-		unit = "fag"
-		dtype = "STRING"
-		derived_from = ["utd_utdanningstype"]
+[variables.utd_utdanningstype_label]
+	unit = "fag"
+	dtype = "STRING"
+	derived_from = ["utd_utdanningstype"]
 
-	# Utveksling ikke kun på UH?
-	[variables.utd_utveksling_label]
-		unit = "uh"
-		dtype = "STRING"
-		derived_from = ["utd_utveksling"]
+# Utveksling ikke kun på UH?
+[variables.utd_utveksling_label]
+	unit = "uh"
+	dtype = "STRING"
+	derived_from = ["utd_utveksling"]
 
 
 #####################
@@ -62,27 +70,52 @@
 ####################################
 # "gro" - Grunnopplæring (gr + vg) #
 ####################################
-	[variables.gro_elevstatus_label]
-		unit = "gro"
-		dtype = "STRING"
-		derived_from = ["gro_elevstatus"]
+[variables.gro_elevstatus_label]
+	unit = "gro"
+	dtype = "STRING"
+	derived_from = ["gro_elevstatus"]
 
 ################################
 # "vg" - Videregåendeutdanning #
 ################################
 
-	# Tidligere ble denne imputert til fra UH ol. men vi ønsker å beholde kodelistene der slik de kommer inn
-	# Derfor blir dette en VG-variabel, som kun bør være utfylt med de som har utd_utdanningstype 211, 212, 220 eller 610
+# Tidligere ble denne imputert til fra UH ol. men vi ønsker å beholde kodelistene der slik de kommer inn
+# Derfor blir dette en VG-variabel, som kun bør være utfylt med de som har utd_utdanningstype 211, 212, 220 eller 610
 
-	[variables.vg_kontraktstype_label]
-		unit = "vg"
-		dtype = "STRING"
-		derived_from = ["vg_kontraktstype"]
+[variables.vg_kontraktstype_label]
+	unit = "vg"
+	dtype = "STRING"
+	derived_from = ["vg_kontraktstype"]
 
-	[variables.vg_rettstype_inntak_label]
-		unit = "fag"
-		dtype = "STRING"
-		derived_from = ["vg_rettstype_inntak"]
+[variables.vg_rettstype_inntak_label]
+	unit = "fag"
+	dtype = "STRING"
+	derived_from = ["vg_rettstype_inntak"]
+
+[variables.vg_bevistype_label]
+	unit = "fag"
+	dtype = "STRING"
+	derived_from = ["vg_bevistype"]
+
+[variables.vg_fullfoertkode_detaljert_label]
+	unit = "vg"
+	dtype = "STRING"
+	derived_from = ["vg_fullfoertkode_detaljert"]
+
+[variables.vg_proevekandtype_label]
+	unit = "vg"
+	dtype = "STRING"
+	derived_from = ["vg_proevekandtype"]
+
+[variables.vg_utdprogram_label]
+	unit = "vg"
+	dtype = "STRING"
+	derived_from = ["vg_utdprogram"]
+
+[variables.vg_yrkes_og_studiekompetanse_label]
+	unit = "vg"
+	dtype = "STRING"
+	derived_from = ["vg_yrkes_og_studiekompetanse"]
 
 ####################
 # "fa" - Fagskoler #
@@ -95,10 +128,10 @@
 #########################################################
 
 
-	[variables.fuh_opptaksgrunnlag_label]
-		unit = "fuh"
-		dtype = "STRING"
-		derived_from = ["fuh_opptaksgrunnlag"]
+[variables.fuh_opptaksgrunnlag_label]
+	unit = "fuh"
+	dtype = "STRING"
+	derived_from = ["fuh_opptaksgrunnlag"]
 
 
 ############################################
@@ -106,41 +139,41 @@
 ############################################
 
 
-	[variables.uh_institusjon_id_label]
-		unit = "skole"
-		dtype = "STRING"
-		derived_from = ["uh_institusjon_id"]
+[variables.uh_institusjon_id_label]
+	unit = "skole"
+	dtype = "STRING"
+	derived_from = ["uh_institusjon_id"]
 
 
-    [variables.uh_campus_kommune_label]
-        unit = "uh"
-        dtype = "STRING"
-        derived_from = ["uh_campus_kommune"]
+[variables.uh_campus_kommune_label]
+	unit = "uh"
+	dtype = "STRING"
+	derived_from = ["uh_campus_kommune"]
 
 
 ########
 # Land #
 ########
 
-	[variables.utd_studieland_label]
-		unit = "land"
-		dtype = "STRING"
-		derived_from = ["utd_studieland"]
+[variables.utd_studieland_label]
+	unit = "land"
+	dtype = "STRING"
+	derived_from = ["utd_studieland"]
 
-	[variables.fuh_utvekslingsland_label]
-		unit = "land"
-		dtype = "STRING"
-		derived_from = ["fuh_utvekslingsland"]
+[variables.fuh_utvekslingsland_label]
+	unit = "land"
+	dtype = "STRING"
+	derived_from = ["fuh_utvekslingsland"]
 
-	[variables.uh_studgrunnlagsland_label]
-		unit = "land"
-		dtype = "STRING"
-		derived_from = ["uh_studgrunnlagsland"]
+[variables.uh_studgrunnlagsland_label]
+	unit = "land"
+	dtype = "STRING"
+	derived_from = ["uh_studgrunnlagsland"]
 
-	[variables.uh_statsborgerskap_inn_label]
-		unit = "land"
-		dtype = "STRING"
-		derived_from = ["uh_statsborgerskap_inn"]
+[variables.uh_statsborgerskap_inn_label]
+	unit = "land"
+	dtype = "STRING"
+	derived_from = ["uh_statsborgerskap_inn"]
 
 
 
@@ -202,3 +235,4 @@
     unit = "pers"
     dtype = "STRING"
     derived_from = ["pers_bydel_nr"]
+

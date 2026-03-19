@@ -58,6 +58,7 @@ variables_sort_unit = [
 		dtype = "STRING"
 		description_short = "Fullføringsstatus for registrert utdanning (kurs/klassetrinn/fagprøve/grad)"
 		length = [1]
+        klass_codelist = 889
 		renamed_from = ["utfall"]
 
 ################
@@ -280,6 +281,7 @@ variables_sort_unit = [
 		unit = "vg"
 		dtype = "STRING"
 		length = [1]
+        klass_codelist = 908
 		renamed_from = ["utfallu", "utd_fullfoertkode_inn"]
 
 	[variables.vg_antall_aarstimer_elevkurs]
@@ -341,6 +343,7 @@ variables_sort_unit = [
 		dtype = "STRING"
 		description_short = "Videregående utdanning som gir både yrkeskompetanse og studiekompetanse samtidig (TAF=tekniske allmennfag eller YSK=yrkes- og studiekompetanse)"
 		length = [1]
+        klass_codelist = 797
 		renamed_from = ["taf"]
 
 	[variables.vg_rettstype_inntak]
@@ -362,6 +365,7 @@ variables_sort_unit = [
         dtype = "STRING"
         description_short = "Viser hvilken bevistype eleven har fått på opplæringen.variabelen ble fjernet fra NUDB fordi den ikke var utfylt. Den ble i en periode ikke hentet inn fra fylket. Nå (i 2014) er den utfylt på avsluttafilen, men ser ikke ut til å være riktig. van, 8.12.2014 Avslutta 2000/2001. Har foreløpig for dårlig kvalitetdoktype forekommer kun på avsluttet utdanning, settes ved avgang og endres ikke. Er ikke lagt inn i NUDB"
         length = [2]
+        klass_codelist = 781
         renamed_from = ["doktype"]
 
     [variables.vg_proevekandtype]
@@ -369,18 +373,19 @@ variables_sort_unit = [
         dtype = "STRING"
         description_short = "Resultat av opplæringsform forut for prøve (lærling type). Endret fra o til oe i variabelnavnet 23.01.2026"
         length = [1]
+        klass_codelist = 768
         renamed_from = ["provekandtype", "vg_provekandtype"]  # Ikke legg til ftype, vi håndtrerer den med overrides
 
 	[variables.vg_hovedaktivitet]
         unit = "vg"
         dtype = "STRING"  # Har lite info om denne! C 2025-10-31
-		length = [1]
-		description_short = "Merkevariabel som prioriterer en record per person, per skoleår, per fil, innenfor vg (Ny i NUDB fom. 2026?)"
+        klass_codelist = 0 # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar. Merkevariabel
 
 	[variables.vg_utdprogram]  # Kan kanskje kobles på fra nuskatalogen, men vi skal beholde den fra innfilene?
 		unit = "vg"
 		dtype = "STRING"
 		length = [2]
+    klass_codelist = 909
 		renamed_from = ["studretn"]
 
 ####################
@@ -390,8 +395,7 @@ variables_sort_unit = [
 	[variables.fa_hovedaktivitet]
 		unit = "fa"
 		dtype = "STRING"  # I have no info at current time, so I dont know? C 2025-10-31
-		length = [1]
-		description_short = "merkevariabel som prioriterer en record per person, per skoleår, per fil, innenfor fa. (Ny i NUDB fom. 2026?)"
+        klass_codelist = 0 # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar. Merkevariabel
 
 	[variables.fa_institusjon_id]
 		unit = "fa"
@@ -525,7 +529,7 @@ variables_sort_unit = [
 		description_short = "Betegnelse på ulike utvekslingsavtaler."
 		length = [3,4,5,6,7,8,9,10,11,12,13]
 		renamed_from = ["utveksavtale"]
-		#klass_codelist = 792  # Denne er foreldet etter vi gikk over til å bruke kodelisten slik den kommer inn til oss?
+		#klass_codelist = 792  # Denne er foreldet etter vi gikk over til å bruke kodelisten slik den kommer inn til oss
 
 	[variables.uh_eksamen_studpoeng]
 		unit = "uh"
@@ -592,7 +596,7 @@ variables_sort_unit = [
         unit = "uh"
         dtype = "STRING"
         renamed_from = []
-		description_short = "Merkevariabel som prioriterer en record per person, per skoleår, per fil, innenfor uh. (Ny i NUDB fom. 2026?)"
+        klass_codelist = 0 # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar. Merkevariabel
 
     [variables.uh_undervisningsspraak]
         unit = "uh"
@@ -658,6 +662,7 @@ variables_sort_unit = [
 		unit = "gro"
 		length = [3, 6, 7]
 		dtype = "STRING"
+        klass_codelist = 0 # Bruker vigo sine koder rett i dataen, så ikke bruk for kodeliste.
 		renamed_from = ["fagkode"]
 
     [variables.gro_karakter_standpunkt]
