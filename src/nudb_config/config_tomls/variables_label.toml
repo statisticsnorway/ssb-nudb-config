@@ -235,4 +235,3 @@
     unit = "pers"
     dtype = "STRING"
     derived_from = ["pers_bydel_nr"]
-
