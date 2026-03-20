@@ -21,6 +21,12 @@
 	dtype = "STRING"
 	derived_from = ["nus2000"]
 
+
+[variables.utd_foreldres_utdnivaa_16aar_label]
+	unit = "fag"
+	dtype = "STRING"
+	derived_from = ["utd_foreldres_utdnivaa_16aar"]
+
 ############
 # Kommuner #
 ############
