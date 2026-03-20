@@ -223,9 +223,10 @@
 [variables.utd_foreldres_utdnivaa_16aar]
      unit = "utd"
      dtype = "STRING"
+     length = [1]
      renamed_from = ["sosbak"]
      klass_codelist = 227
-     derived_from = ["utd_foreldres_utdnivaa_16aar_nus2000"]
+     derived_from = ["snr", "utd_foreldres_utdnivaa_16aar_nus2000"]
      derived_join_keys = ["snr"]
 
 [variables.utd_foreldres_utdnivaa_16aar_nus2000]
