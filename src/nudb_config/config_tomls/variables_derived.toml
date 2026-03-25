@@ -277,6 +277,12 @@
     description_short = "Markerer rader som tilsier en registering på videregåendenivå."
     derived_from = ["nus2000"]
 
+[variables.vg_ervgo_erutdprogram_registrering]
+    unit = "vg"
+    dtype = "BOOLEAN"
+    description_short = "Markerer rader som tilsier en registering på videregåendenivå, inkludert utfylt studretn."
+    derived_from = ["nus2000", "vg_utdprogram"]
+
 [variables.vg_erstudiespess_registrering]
     unit = "vg"
     dtype = "BOOLEAN"
@@ -395,8 +401,16 @@
 [variables.vg_foerste_registrert_dato]
     unit = "vg"
     dtype = "DATETIME"
-    renamed_from = ["aar_ny_i_vid_utd", "aar_ny_i_vid_utd_lov"]
-    derived_from = ["snr", "vg_ervgo_registrering", "utd_aktivitet_start", "utd_aktivitet_slutt"]  # Kan vi utlede "startet på vg" kun fra nus2000, også for eldre rader?
+    renamed_from = ["aar_ny_i_vid_utd"]
+    derived_from = ["snr", "vg_ervgo_registrering", "utd_aktivitet_start", "utd_aktivitet_slutt"]
+    derived_uses_datasets = ["igang", "avslutta"]
+    derived_join_keys = ["snr"]
+
+[variables.vg_foerste_registrert_erutdprogram_dato]
+    unit = "vg"
+    dtype = "DATETIME"
+    renamed_from = ["aar_ny_i_vid_utd_lov"]
+    derived_from = ["snr", "vg_ervgo_erutdprogram_registrering", "utd_aktivitet_start", "utd_aktivitet_slutt"]
     derived_uses_datasets = ["igang", "avslutta"]
     derived_join_keys = ["snr"]
 
