@@ -39,7 +39,7 @@
         bucket = "folketall"
         path_glob = "slekt/[0-9][0-9][0-9][0-9]/slekt_p[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]_v*[0-9].parquet"
 
-    [datasets.bokommune_16aar]
+    [datasets.bokommune_16aar_fnr]
         team = "bef-statistikk"
         bucket = "folketall"
         path_glob = "tverrfaglig/360/komm-nr-ved-16_p[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]_v*[0-9].parquet"
