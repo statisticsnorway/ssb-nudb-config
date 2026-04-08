@@ -232,7 +232,7 @@
 [variables.utd_foreldres_utdnivaa_16aar_nus2000]
      unit = "utd"
      dtype = "STRING"
-     derived_from = ["snr"]
+     derived_from = ["snr", "utd_hoeyeste_mor_nus2000", "utd_hoeyeste_far_nus2000"]
      derived_join_keys = ["snr"]
 
 [variables.utd_hoeyeste_mor_nus2000]
