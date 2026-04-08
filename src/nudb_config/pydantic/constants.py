@@ -13,6 +13,8 @@ class Constants(DotMapBaseModel):
 
     vg_utdprogram_ranges_studiespess: list[str]
     vg_utdprogram_ranges_yrkesfag: list[str]
+    vg_utdprogram_ranges_annet: list[str]
+
     sane_skoleaar_range: list[int]
     unique_per_person_cols: list[str]
     valid_personal_ids_prio: list[str]
