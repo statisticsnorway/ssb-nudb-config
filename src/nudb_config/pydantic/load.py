@@ -366,7 +366,7 @@ def _expand_codelist_extras(variables_file: VariablesFile) -> VariablesFile:
             }
         if var.klass_codelist == 131:
             var.codelist_extras = {
-                "2580": "360s definerte Utland",
+                "2599": "Utland",
                 "2111": "Longyearbyen arealplanområde",
             }
     return variables_file

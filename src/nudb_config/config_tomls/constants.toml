@@ -8,7 +8,9 @@ venstresensur = "1970"
 
 
 vg_utdprogram_ranges_studiespess = ["1-2", "21-24", "60-65"]
-vg_utdprogram_ranges_yrkesfag = ["3-20", "30-43", "50-51", "70-84", "98-100"]
+vg_utdprogram_ranges_yrkesfag = ["3-20", "30-43", "50-51", "70-84"]
+vg_utdprogram_ranges_annet = ["98-100"]
+
 sane_skoleaar_range = [1969, 2050]
 unique_per_person_cols = ["pers_kjoenn", "pers_foedselsdato", "gr_grunnskolepoeng"]
 valid_personal_ids_prio = ["snr", "fnr"]
@@ -46,15 +48,15 @@ brreg_utd_nacekoder = [
 ]
 
 
-foreign_municipalities = ["2580", "2500", "2400", "0025", "1025", "2025"]
+foreign_municipalities = ["2599", "2580", "2500", "2400", "0025", "1025", "2025", "2899"]
 
 [constants.county_municipality_single_mapping]
     03 = "0301"
     21 = "2111"
-    25 = "2580"
+    25 = "2599"
 
 [constants.extra_municipality_nr]
-    2580 = "360s definerte Utland"
+    2599 = "Utland"
     2111 = "Longyearbyen arealplanområde"
 
 [constants.missing_vals]
