@@ -1,0 +1,74 @@
+
+[constants]
+
+
+snr_allnumeric_7digit_threshold_percent = 5.0
+fullfoertkode = "8"
+venstresensur = "1970"
+
+
+vg_utdprogram_ranges_studiespess = ["1-2", "21-24", "60-65"]
+vg_utdprogram_ranges_yrkesfag = ["3-20", "30-43", "50-51", "70-84"]
+vg_utdprogram_ranges_annet = ["98-100"]
+
+sane_skoleaar_range = [1969, 2050]
+unique_per_person_cols = ["pers_kjoenn", "pers_foedselsdato", "gr_grunnskolepoeng"]
+valid_personal_ids_prio = ["snr", "fnr"]
+
+videreutd_uhgrupper = ['18', '19', '20', '21', '22', '23', '66', '67']
+
+brreg_utd_nacekoder = [
+    "88.911",
+    "85.100",
+    "85.201",
+    "85.202",
+    "85.203",
+    "85.601",  # Grunnskole
+    "85.310",
+    "85.320",
+    "85.609",  # Videregående
+    "85.510",
+    "85.521",
+    "85.522",
+    "85.529",
+    "85.530",
+    "85.592",
+    "85.593",
+    "85.594",
+    "85.595",
+    "85.596",
+    "85.599",  # Diverse
+    "85.410",  # Fagskole
+    "85.591",  # Folkehøgskoler
+    "85.421",
+    "85.422",
+    "85.423",
+    "85.424",
+    "85.429",  # Uh
+]
+
+
+foreign_municipalities = ["2599", "2580", "2500", "2400", "0025", "1025", "2025", "2899"]
+
+[constants.county_municipality_single_mapping]
+    03 = "0301"
+    21 = "2111"
+    25 = "2599"
+
+[constants.extra_municipality_nr]
+    2599 = "Utland"
+    2111 = "Longyearbyen arealplanområde"
+
+[constants.missing_vals]
+    nus2000 = "999999"
+    utd_klassetrinn = "00"
+    utd_skolekom = "9999"
+    komm_16 = "9999"
+    land = "000"
+
+[constants.datadoc_pandas_dtype_mapping]
+    DATETIME = "datetime64[s]"
+    STRING = "string[pyarrow]"
+    INTEGER = "Int64"
+    FLOAT = "Float64"
+    BOOL = "bool[pyarrow]"

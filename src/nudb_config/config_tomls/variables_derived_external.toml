@@ -4,7 +4,7 @@
 	description_short = "kjønn"
 	length = [1]
 	klass_codelist = 2
-	renamed_from = ["kjoenn"]
+	renamed_from = ["kjoenn", "kjonn"]
     derived_from = ["snr"]
     derived_join_keys = ["snr"]
     derived_uses_datasets = ["freg_situttak"]
@@ -50,3 +50,138 @@
    klass_codelist = 0
    length = [1]
    derived_uses_datasets = ["_vof_eierforhold"]
+
+
+[variables.pers_inngrunn1]
+    unit = "pers"
+    dtype = "STRING"
+    description_short = "innvandringsgrunn"
+    length = [3]
+    renamed_from = ["inngrunn1"]
+    klass_codelist = 355
+    derived_from = ["snr"]
+    derived_join_keys = ["snr"]
+    derived_uses_datasets = ["innvbef"]
+
+
+
+[variables.pers_foerste_bosattdato]
+	unit = "tid"
+	dtype = "DATETIME"
+    description_short = "Første bosattdato."
+    renamed_from = ["foerste_bosattdato", "fodato"]
+    derived_from = ["snr"]
+    derived_join_keys = ["snr"]
+    derived_uses_datasets = ["innvbef"]
+
+[variables.pers_innflyttingsdato]
+	unit = "tid"
+	dtype = "DATETIME"
+    description_short = "Innflyttingsdato"
+    renamed_from = ["innflyttingsdato", "fraland_dato"]
+    derived_from = ["snr"]
+    derived_join_keys = ["snr"]
+    derived_uses_datasets = ["innvbef"]
+
+
+
+
+
+############
+# Geografi #
+############
+
+[variables.pers_statsborgerskap]
+    unit = "pers"
+    dtype = "STRING"
+    description_short = "Statborgerskap land - 3 siffer landkode (SSB3)."
+    length = [3]
+    renamed_from = ["statsborgerskap", "statborg"]
+    klass_codelist = 91
+    derived_from = ["snr"]
+    derived_join_keys = ["snr"]
+    derived_uses_datasets = ["alle_pers"]
+
+
+[variables.pers_bokommune_nr]
+    unit = "pers"
+    dtype = "STRING"
+    description_short = "Bokommune ved måletidspunkt."
+    length = [4]
+    renamed_from = ["komm_nr", "komm", "kommnr"]
+    klass_codelist = 131
+    derived_from = ["snr"]
+    derived_join_keys = ["snr"]
+    derived_uses_datasets = ["bosatte"]
+
+
+[variables.pers_gkrets_nr]
+    unit = "pers"
+    dtype = "STRING"
+    description_short = "Grunnkrets ved måletidspunkt."
+    length = [4, 8]
+    renamed_from = ["gkrets", "gkrets_nr"]
+    klass_codelist = 1  # Kodelisten kombinerer kommunennummer og grunnkrets... Litt trøblete
+    derived_from = ["snr"]
+    derived_join_keys = ["snr"]
+    derived_uses_datasets = ["bosatte"]
+
+[variables.pers_bydel_nr]
+    unit = "pers"
+    dtype = "STRING"
+    description_short = "Bydel ved måletidspunkt."
+    length = [6]
+    renamed_from = ["bydel", "bydel_nr"]
+    klass_codelist = 103
+    derived_from = ["snr"]
+    derived_join_keys = ["snr"]
+    derived_uses_datasets = ["bosatte"]
+
+
+[variables.pers_bokommune_16aar]
+    unit = "pers"
+    dtype = "STRING"
+    description_short = "Bokommune ved utgang av året, personen fylte 16 år. For de yngre enn 16: siste kjente bokommune."
+    length = [4]
+    renamed_from = ["komm16", "komm_16"]
+    klass_codelist = 131
+    derived_from = ["snr"]
+    derived_join_keys = ["snr"]
+    derived_uses_datasets = ["bokommune_16aar_snr"]
+
+
+[variables.pers_foedeland]
+    unit = "pers"
+    dtype = "STRING"
+    description_short = "Fødeland - 3 siffer landkode (SSB3)."
+    length = [3]
+    renamed_from = ["foedeland", "fodeland"]
+    klass_codelist = 91
+    derived_from = ["snr"]
+    derived_join_keys = ["snr"]
+    derived_uses_datasets = ["innvbef"]
+
+
+[variables.pers_fra_land]
+    unit = "pers"
+    dtype = "STRING"
+    description_short = "Landet personen er fra? - 3 siffer landkode (SSB3)."
+    length = [3]
+    renamed_from = ["fraland", "fra_land"]
+    klass_codelist = 91
+    derived_from = ["snr"]
+    derived_join_keys = ["snr"]
+    derived_uses_datasets = ["innvbef"]
+
+
+
+[variables.pers_landbak3gen]
+    unit = "pers"
+    dtype = "STRING"
+    description_short = "Bakgrunnsland - 3 siffer landkode (SSB3)."
+    length = [3]
+    renamed_from = ["landbak", "landbak3gen"]
+    klass_codelist = 91
+    derived_from = ["snr"]
+    derived_join_keys = ["snr"]
+    derived_uses_datasets = ["innvbef"]

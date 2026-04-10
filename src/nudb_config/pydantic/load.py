@@ -6,12 +6,16 @@ import tomllib
 from pathlib import Path
 from typing import Any
 from typing import cast
+from typing import get_args
 
 from pydantic import ConfigDict
 
 from ..logger import logger
+from .constants import Constants
+from .constants import ConstantsFile
 from .datasets import Dataset
 from .datasets import DatasetsFile
+from .datasets import DatasetsOverrideFile
 from .dotmap import DotMapBaseModel
 from .dotmap import DotMapDict
 from .options import Options
@@ -46,6 +50,7 @@ class NudbConfig(DotMapBaseModel):
         datasets: Mapping of dataset name to configuration.
         paths: Mapping of environment name to paths configuration.
         options: Options from ``options.toml``.
+        constants: Constants from ``constants.toml``.
     """
 
     model_config = ConfigDict(arbitrary_types_allowed=True)
@@ -59,6 +64,7 @@ class NudbConfig(DotMapBaseModel):
     datasets: DotMapDict[Dataset]
     paths: DotMapDict[PathEntry]
     options: Options
+    constants: Constants
 
     def merge_tomls(self, toml_dir: str | Path) -> NudbConfig:
         """Merge values from external TOML files into this config and return it."""
@@ -149,7 +155,9 @@ def _merge_dotmap_model(
         if key not in model_fields:
             continue
         if _is_none_sentinel(value):
-            setattr(target, key, None)
+            field = model_fields[key]
+            if _field_allows_none(field):
+                setattr(target, key, None)
             continue
         current = getattr(target, key, None)
         if _should_descend(value, current):
@@ -181,6 +189,17 @@ def _warn_if_same(
 ) -> None:
     if current == value:
         logger.warning(MERGE_WARNING, ".".join((*path, key)))
+
+
+def _field_allows_none(field: object) -> bool:
+    annotation = getattr(field, "annotation", None)
+    if annotation is Any:
+        return True
+    args = get_args(annotation)
+    if args and type(None) in args:
+        return True
+    default = getattr(field, "default", None)
+    return default is None
 
 
 def _should_descend(value: object, current: object) -> bool:
@@ -245,9 +264,21 @@ def _load_datasets(cfg_dir: Path) -> DatasetsFile:
     merged_datasets: DotMapDict[Dataset] = DotMapDict(value_type=Dataset)
     for path in sorted(cfg_dir.glob("datasets*.toml"), key=lambda x: len(str(x))):
         datatoml = _load_toml(path)
-        data_file: DatasetsFile = DatasetsFile.model_validate(datatoml)
-        for key, dataset in data_file.datasets.items():
-            merged_datasets[key] = dataset
+        if path.name == "datasets.toml":
+            data_file: DatasetsFile = DatasetsFile.model_validate(datatoml)
+            for key, dataset in data_file.datasets.items():
+                merged_datasets[key] = dataset
+            continue
+
+        override_file: DatasetsOverrideFile = DatasetsOverrideFile.model_validate(
+            datatoml
+        )
+        for key, override in override_file.datasets.items():
+            override_data = override.model_dump(exclude_none=True)
+            if key in merged_datasets:
+                _merge_mapping(merged_datasets[key], override_data, path=(key,))
+                continue
+            merged_datasets[key] = Dataset.model_validate(override_data)
     return DatasetsFile(datasets=merged_datasets)
 
 
@@ -274,6 +305,8 @@ def load_pydantic_settings() -> NudbConfig:
     paths_file = PathsFile.model_validate(paths_toml)
     options_toml = _load_toml(cfg_dir / "options.toml")
     options_file = OptionsFile.model_validate(options_toml)
+    constants_toml = _load_toml(cfg_dir / "constants.toml")
+    constants_file = ConstantsFile.model_validate(constants_toml)
 
     variables_file = _load_variables(cfg_dir)
     dataset_file = _load_datasets(cfg_dir)
@@ -286,6 +319,7 @@ def load_pydantic_settings() -> NudbConfig:
         datasets=dataset_file.datasets,
         paths=paths_file.paths,
         options=options_file.options,
+        constants=constants_file.constants,
     )
 
 
@@ -332,7 +366,7 @@ def _expand_codelist_extras(variables_file: VariablesFile) -> VariablesFile:
             }
         if var.klass_codelist == 131:
             var.codelist_extras = {
-                "2580": "360s definerte Utland",
+                "2599": "Utland",
                 "2111": "Longyearbyen arealplanområde",
             }
     return variables_file
