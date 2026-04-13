@@ -242,7 +242,7 @@
     dtype = "STRING"
     derived_from = ["pers_bydel_nr"]
 
-[variables.vof_eierforhold_label]
-    unit = "vof"
+[variables.bof_eierforhold_label]
+    unit = "bof"
     dtype = "STRING"
-    derived_from = ["vof_eierforhold"]
+    derived_from = ["bof_eierforhold"]
