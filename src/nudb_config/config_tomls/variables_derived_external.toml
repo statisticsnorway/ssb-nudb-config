@@ -171,11 +171,11 @@
 # Organisasjoner #
 ##################
 
-[variables.vof_eierforhold]
-   unit = "vof"
+[variables.bof_eierforhold]
+   unit = "bof"
    dtype = "STRING"
    derived_from = ["orgnr_foretak"]
    klass_codelist = 793
    length = [1]
    renamed_from = ["eierf"]
-   derived_uses_datasets = ["_vof_eierforhold"]
+   derived_uses_datasets = ["_bof_eierforhold"]
