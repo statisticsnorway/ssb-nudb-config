@@ -54,6 +54,11 @@ variables_sort_unit = [
 		klass_codelist = 792
 		renamed_from = ["kilde", "kildebhu"]
 
+	[variables.nudb_source_path]
+		unit = "data"
+		dtype = "STRING"
+		description_short = "The path to the source file the record/row is from"
+
 	[variables.utd_fullfoertkode]
 		unit = "data"
 		dtype = "STRING"
