@@ -18,7 +18,7 @@
             # "voksen",
             "fuh_opptaksgrunnlag",  # old_name: realkomp
             "utd_datakilde",  # old_name: kilde
-            "nudb_source_path",
+            "nudb_dataset_id",
             "vg_rettstype_inntak",  # old_name: rett
             # "ftype",
             "utd_viderutd_nettbasert",  # old_name: evufjern
@@ -145,7 +145,7 @@
             # "kilde",
             # 'snr_nudb',
             'utd_datakilde',  # old_name: kilde
-            "nudb_source_path",
+            "nudb_dataset_id",
             'uh_eksamen_studpoeng',  # old_name: studpoeng_eks
             'uh_eksamen_ergjentak',  # old_name: gjentak
             'utd_skolekom',  # old_name: skolekom
@@ -257,7 +257,7 @@
             "snr_mrk",  # See Jira NUD-482 for decision to include
             "pers_kjoenn",  # old_name: kjoenn
             "utd_datakilde",  # old_name: kilde
-            "nudb_source_path",
+            "nudb_dataset_id",
             "utd_fullfoertkode",  # old_name: utfall
             "vg_fullfoertkode_detaljert",  # old_name: utfallu
             # "mrk_grskole", Trengs ikke
