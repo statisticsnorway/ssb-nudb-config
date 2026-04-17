@@ -48,7 +48,10 @@ brreg_utd_nacekoder = [
 ]
 
 
-foreign_municipalities = ["2599", "2580", "2500", "2400", "0025", "1025", "2025", "2899"]
+# 2400 er ikke nødvendigvis en utenlandskommune - fordi det kan også være hjemmeundervisning?
+# Det er veldig viktig at den første i denne listen er den vi ønsker å mappe til... Dvs. 2599 er nåværende "korrekte" utenlandskommune.
+foreign_municipalities = ["2599", "2580", "2500", "0025", "1025", "2025", "2899"]
+
 
 [constants.county_municipality_single_mapping]
     03 = "0301"

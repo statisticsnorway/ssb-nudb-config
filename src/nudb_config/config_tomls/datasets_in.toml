@@ -352,9 +352,9 @@
             "uh_studieprogram_navn",
             "uh_studierett",
             "uh_termin_rapportert",
-            "uh_fullfoertkode_detaljert",
-            "uh_campus_kommune",
-            "uh_campus_sted",
+            "uh_fullfoertkode_detaljert", # Kommer i 2026?
+            "uh_campus_kommune", # Kommer i 2026?
+            "uh_campus_sted", # Kommer i 2026?
         ]
 
     [datasets.eksamen_hoeyereutdanning.thresholds_empty]
