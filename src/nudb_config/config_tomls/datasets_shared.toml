@@ -77,7 +77,7 @@
             "vg_hovedaktivitet",
             "vg_ernylaerling",  # old_name: nylaerl
             "vg_utdprogram",
-            
+
     ]
 
     [datasets.igang.dataset_specific_renames]
