@@ -503,6 +503,11 @@ variables_sort_unit = [
         description_short = "Studentens studieprogram. Et studieprogram kjennetegnes ved at det ikke er nødvendig å søke nytt opptak for å ta nye emner innenfor studieprogrammet. (Ny i NUDB fom. 2026?)"
         renamed_from = ["studprog", "studieprogram"]
 
+	[variables.uh_studieprogram_navn]
+		unit = "fag"
+		dtype = "STRING"
+		description_short = "Navnet til studentens studieprogram. Et studieprogram kjennetegnes ved at det ikke er nødvendig å søke nytt opptak for å ta nye emner innenfor studieprogrammet. (Ny i NUDB fom. 2026?)"
+
     [variables.uh_eksamen_karakter]
         unit = "fag"
         dtype = "STRING"
