@@ -23,7 +23,7 @@
 [variables.utd_erutenlandsk_utdanning]
     unit = "land"
     dtype = "BOOLEAN"
-    renamed_from = ["utland", "uh_utland", "uh_erutland", "utd_erutland"]
+    renamed_from = ["uh_utland", "uh_erutland", "utd_erutland"]
     derived_from = ["utd_skolekom", "utd_datakilde"]
 
 

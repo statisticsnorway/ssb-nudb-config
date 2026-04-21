@@ -277,6 +277,12 @@ variables_sort_unit = [
 		length = [10]
 		renamed_from = ["fkurskod", "vg_programomraade"]
 
+	[variables.gro_ernorsk_skole_i_utlandet]
+		unit = "gro"
+		dtype = "BOOLEAN"
+		description_short = "Norske skoler som følger norske opplæringsplaner, geografisk plassert i utlandet. Datakilde 10 og 20 tilsier at informasjonen kommer fra norske institusjoner."
+		renamed_from = ["utland"]
+
 ################################
 # "vg" - Videregåendeutdanning #
 ################################
