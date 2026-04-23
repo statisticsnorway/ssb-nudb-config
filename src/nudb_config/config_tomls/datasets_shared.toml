@@ -70,11 +70,13 @@
             #"vg_ervedtak_saer_spraak",  # old_name:   - vedtak om særskilt språkopplæring blir rapportert på ssbResultat, så skal kun på avslutta
             "vg_kontraktstype",  # old_name: kontraktstype
             "uh_studieprogram",
+
             "gro_programomraade",  # Gamle fkurskod?
             "vg_antall_fag_elevkurs",
             "vg_hovedaktivitet",
             "vg_ernylaerling",  # old_name: nylaerl
             "vg_utdprogram",
+
     ]
 
     [datasets.igang.dataset_specific_renames]
@@ -270,6 +272,7 @@
             "utd_viderutd_nettbasert",  # old_name: evufjern
             "fuh_nett_eller_stedbasert",  # old_name: organisering
             "uh_studieprogram",  # old_name: studprog
+            "uh_studieprogram_navn",
             "uh_studienivaa",  # old_name: studnivaa
             "utd_utdanningstype",  # old_name: utd
             "gr_grunnskolepoeng",  # old_name: grunnskolepoeng
@@ -289,7 +292,7 @@
             "utd_aktivitet_slutt",  # old_name: kurs_slutt
             "utd_aktivitet_start_inn",  # old_name: kurs_start_orig
             "uh_studiepoeng_grad",  # old_name: studpoeng_grad
-            "uh_studierett",  # old_name: studrett
+            #"uh_studierett",  # fjernes etter samtaler april 2026
             "uh_fakultet",  # old_name: fakultet
             "uh_ervitnemaalsgivende",
             "gro_fravaer_timer",  # old_name: f_timer

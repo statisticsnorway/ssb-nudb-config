@@ -295,9 +295,10 @@
             "fuh_nett_eller_stedbasert",
             "uh_institusjon_id",
             "uh_statsborgerskap_inn",
-            "uh_studierett",
+            #"uh_studierett", # Fjernes etter samtaler april 2026
             "uh_studienivaa",
             "uh_studieprogram",
+            "uh_studieprogram_navn",
             "utd_studieland",
             #"uh_erutland",
             "uh_fakultet",

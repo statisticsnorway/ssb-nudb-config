@@ -277,6 +277,7 @@ variables_sort_unit = [
 		length = [10]
 		renamed_from = ["fkurskod", "vg_programomraade"]
 
+
 ################################
 # "vg" - Videregåendeutdanning #
 ################################
@@ -309,6 +310,7 @@ variables_sort_unit = [
 		dtype = "INTEGER"
 		description_short = "Antall fag på elevkurset beregnes i VIGO. Fag med fagstatus B (meropplæring) er ikke med i beregningen. Det kan forekomme 0 (null)"
 		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
+		renamed_from = ["ant_fag"]
 
 	[variables.vg_karakterpoeng]
 		unit = "vg"
@@ -492,6 +494,7 @@ variables_sort_unit = [
         klass_codelist = 131
         renamed_from = ["campus_kom"]
 		description_short = "Kommune hvor campus er plassert. (New variable 2026)"
+
     [variables.uh_termin_rapportert]
         unit = "fag"
         dtype = "STRING"
@@ -502,6 +505,12 @@ variables_sort_unit = [
         dtype = "STRING"
         description_short = "Studentens studieprogram. Et studieprogram kjennetegnes ved at det ikke er nødvendig å søke nytt opptak for å ta nye emner innenfor studieprogrammet. (Ny i NUDB fom. 2026?)"
         renamed_from = ["studprog", "studieprogram"]
+
+	[variables.uh_studieprogram_navn]
+		unit = "fag"
+		dtype = "STRING"
+		description_short = "Navnet til studentens studieprogram. Et studieprogram kjennetegnes ved at det ikke er nødvendig å søke nytt opptak for å ta nye emner innenfor studieprogrammet. (Ny i NUDB fom. 2026?)"
+		renamed_from = ["studprog_navn"]
 
     [variables.uh_eksamen_karakter]
         unit = "fag"
@@ -519,10 +528,6 @@ variables_sort_unit = [
         description_short = "Type studieprogram. (Ny i NUDB fom. 2026?)"
         renamed_from = ["studnivaa"]
 
-    [variables.uh_studieprogram_navn]
-        unit = "fag"
-        dtype = "STRING"
-        renamed_from = ["studprog_navn"]
 
     [variables.uh_emnekode_navn]
         unit = "fag"
@@ -603,6 +608,7 @@ variables_sort_unit = [
         dtype = "STRING"
         renamed_from = []
         klass_codelist = 0 # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar. Merkevariabel
+
 
     [variables.uh_undervisningsspraak]
         unit = "uh"

@@ -20,12 +20,11 @@
     klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
     derived_from = ["utd_skoleaar_start"]
 
-
 [variables.utd_erutland]
     unit = "land"
     dtype = "BOOLEAN"
     renamed_from = ["utland", "uh_utland", "uh_erutland"]
-    derived_from = ["utd_skolekom"]
+    derived_from = ["utd_skolekom"]  # skolekom = 2580/2599
 
 
 ####################################################
