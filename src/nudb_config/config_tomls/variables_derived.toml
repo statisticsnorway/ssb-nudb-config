@@ -24,7 +24,7 @@
     unit = "land"
     dtype = "BOOLEAN"
     renamed_from = ["utland", "uh_utland", "uh_erutland"]
-    derived_from = ["utd_skolekom"]  # skolekom = 2580/2599 
+    derived_from = ["utd_skolekom"]  # skolekom = 2580/2599
 
 
 ####################################################
