@@ -44,7 +44,6 @@
             "gro_elevstatus",  # old_name: elevstatus
             "gro_skolenr_inn",  # old_name: fskolenr
             "gro_skolenavn_inn",  # old_name: skolenavn
-            "gro_ernorsk_skole_i_utlandet",
             # "realkompetansevurdert_dato",  # old_name: dato_dokrealkomp
             "orgnrbed",
             #"fa_ergodkjent_fagskoleutd",  # old_name: fagskoleutd  # skal utledes fra nus2000 isteden
@@ -298,7 +297,6 @@
             "uh_ervitnemaalsgivende",
             "gro_fravaer_timer",  # old_name: f_timer
             "gro_fravaer_dager",  # old_name: f_dager
-            "gro_ernorsk_skole_i_utlandet",
             # "pedsem", Skal ikke være med fordi den bør utledes fra NUS
             "vg_proevenr",  # old_name: provnr
             # "endret_utfall", Hvor kommer den fra? Avslutta?

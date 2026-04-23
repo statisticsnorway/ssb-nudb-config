@@ -31,7 +31,6 @@
         "gro_skolenr_inn",
         "gro_elevstatus",
         "gro_programomraade",
-        "gro_ernorsk_skole_i_utlandet",
         "vg_utdprogram",
         "vg_rettstype_inntak",
         "vg_antall_aarstimer_elevkurs",
@@ -173,7 +172,6 @@
             "gro_elevstatus",
             "gro_skolenr_inn",
             "gro_skolenavn_inn",
-            "gro_ernorsk_skole_i_utlandet",
 
 
         ]
@@ -214,7 +212,6 @@
             "gro_skolenr_inn",
             "gro_elevstatus",
             "gro_programomraade",
-            "gro_ernorsk_skole_i_utlandet",
             "vg_utdprogram",
             "vg_rettstype_inntak",
             "vg_kursprosent",

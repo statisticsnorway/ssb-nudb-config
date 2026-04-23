@@ -277,11 +277,6 @@ variables_sort_unit = [
 		length = [10]
 		renamed_from = ["fkurskod", "vg_programomraade"]
 
-	[variables.gro_ernorsk_skole_i_utlandet]
-		unit = "gro"
-		dtype = "BOOLEAN"
-		description_short = "Norske skoler som følger norske opplæringsplaner, geografisk plassert i utlandet. Datakilde 10 og 20 tilsier at informasjonen kommer fra norske institusjoner."
-		renamed_from = ["utland"]
 
 ################################
 # "vg" - Videregåendeutdanning #
@@ -315,6 +310,7 @@ variables_sort_unit = [
 		dtype = "INTEGER"
 		description_short = "Antall fag på elevkurset beregnes i VIGO. Fag med fagstatus B (meropplæring) er ikke med i beregningen. Det kan forekomme 0 (null)"
 		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
+		renamed_from = ["ant_fag"]
 
 	[variables.vg_karakterpoeng]
 		unit = "vg"
@@ -498,6 +494,7 @@ variables_sort_unit = [
         klass_codelist = 131
         renamed_from = ["campus_kom"]
 		description_short = "Kommune hvor campus er plassert. (New variable 2026)"
+
     [variables.uh_termin_rapportert]
         unit = "fag"
         dtype = "STRING"
@@ -611,6 +608,7 @@ variables_sort_unit = [
         dtype = "STRING"
         renamed_from = []
         klass_codelist = 0 # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar. Merkevariabel
+
 
     [variables.uh_undervisningsspraak]
         unit = "uh"

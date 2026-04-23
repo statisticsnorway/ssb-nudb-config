@@ -20,11 +20,11 @@
     klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
     derived_from = ["utd_skoleaar_start"]
 
-[variables.utd_erutenlandsk_utdanning]
+[variables.utd_erutland]
     unit = "land"
     dtype = "BOOLEAN"
-    renamed_from = ["uh_utland", "uh_erutland", "utd_erutland"]
-    derived_from = ["utd_skolekom", "utd_datakilde"]
+    renamed_from = ["utland", "uh_utland", "uh_erutland"]
+    derived_from = ["utd_skolekom"]  # skolekom = 2580/2599 - kilde not 10/20 - elevstatus = I / NA "norsk elev i utlandet" - programomraadekode
 
 
 ####################################################
@@ -268,7 +268,7 @@
     unit = "gr"
     dtype = "BOOLEAN"
     description_short = "Markerer rader som tilsier en registering på grunnskolenivå."
-    derived_from = ["nus2000", "gro_ernorsk_skole_i_utlandet"]
+    derived_from = ["nus2000", "utd_erutland"]
 
 [variables.vg_ervgo_registrering]
     unit = "vg"
@@ -327,7 +327,7 @@
     unit = "gr"
     dtype = "BOOLEAN"
     description_short = "Markerer rader som tilsier en fullføring av grunnskolenivå."
-    derived_from = ["utd_fullfoertkode", "nus2000", "gro_ernorsk_skole_i_utlandet"]
+    derived_from = ["utd_fullfoertkode", "nus2000", "utd_erutland"]
 
 
 
