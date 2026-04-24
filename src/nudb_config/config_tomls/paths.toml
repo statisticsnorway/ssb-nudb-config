@@ -6,7 +6,7 @@ produkt = "/buckets/produkt/nudb-data/"
 katalog = "/buckets/produkt/nudb-data/konfigurasjon/kat/"
 shared_root_external = "/buckets/shared/"
 shared_root_internal = "/buckets/delt-utdanning/"
-shared_utdanning_external = "/buckets/shared/utd-nudb/utdanning/"
+shared_utdanning_external = "/buckets/shared/utd-nudb/utdanning/nudb-data"
 shared_utdanning_internal = "/buckets/delt-utdanning/nudb-data/"
 
 
