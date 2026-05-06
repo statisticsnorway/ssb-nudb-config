@@ -457,9 +457,9 @@ variables_sort_unit = [
 		unit = "fuh"
 		dtype = "STRING"
 		description_short = "Studiekompetansegrunnlag"
-		length = [1]
+		length = [3]
 		renamed_from = ["realkomp", "uh_realkompetanse"]
-		klass_codelist = 795
+		klass_codelist = 957
 
 ############################################
 # "uh" - Universitet og Høgskole-Utdanning #
