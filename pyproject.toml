@@ -22,7 +22,7 @@ Changelog = "https://github.com/statisticsnorway/ssb-nudb-config/releases"
 
 [tool.poetry]
 packages = [{ include = "nudb_config", from = "src" }]
-classifiers = ["Development Status :: 3 - Alpha"]
+classifiers = ["Development Status :: 4 - Beta"]
 requires-poetry = ">=2.0"
 
 [tool.poetry.group.dev.dependencies]
