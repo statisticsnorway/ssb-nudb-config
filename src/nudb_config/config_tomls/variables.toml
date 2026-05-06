@@ -459,7 +459,7 @@ variables_sort_unit = [
 		description_short = "Studiekompetansegrunnlag"
 		length = [1]
 		renamed_from = ["realkomp", "uh_realkompetanse"]
-		klass_codelist = 795
+		klass_codelist = 957
 
 ############################################
 # "uh" - Universitet og Høgskole-Utdanning #
