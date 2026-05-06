@@ -421,7 +421,7 @@ variables_sort_unit = [
 		unit = "fa"
 		dtype = "STRING"  # missing information...
 		description_short = "Studiested ved eller underlagt fagskolen. (Ny i NUDB fom. 2026?)"
-		length = [3]
+		length = [1, 2, 3]
 		renamed_from = ["studiestednr"]
 
 	[variables.fa_utveksl_varighet_dager]
