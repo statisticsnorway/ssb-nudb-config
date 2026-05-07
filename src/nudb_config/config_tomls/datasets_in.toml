@@ -8,7 +8,7 @@
     [datasets.igang_videregaaende]
     team = "utd-vg"
     bucket = "vgu"
-    path_glob = ""
+    path_glob = "vgu/klargjorte-data/nudb/igang-videregaaende_p[0-9][0-9][0-9][0-9]_p[0-9][0-9][0-9][0-9]_v*[0-9].parquet"
     variables = [
         "fnr",
         "snr",
@@ -49,7 +49,7 @@
     [datasets.igang_fagskole]
         team = "utd-uhfagskole"
         bucket = "fagskole"
-        path_glob = ""
+        path_glob = "klargjorte_data/igang-fagskole_p[0-9][0-9][0-9][0-9]_p[0-9][0-9][0-9][0-9]_v*[0-9].parquet"
         variables = [
         "fnr",
         "snr",
@@ -90,7 +90,7 @@
     [datasets.igang_hoeyereutdanning]
         team = "utd-uhfagskole"
         bucket = "uh"
-        path_glob = ""
+        path_glob = "uvh/klargjorte_data/igang-hoeyereutdanning_p[0-9][0-9][0-9][0-9]_p[0-9][0-9][0-9][0-9]_v*[0-9].parquet"
 
         variables = [
         "fnr",
@@ -141,9 +141,8 @@
 
     [datasets.avslutta_grunnskole]
     team = "utd-bhgskole"
-    bucket = ""
-    path_glob = ""
-
+    bucket = "kargrs"
+    path_glob = "kargrs/klargjorte-data/avslutta-grunnskole_p[0-9][0-9][0-9][0-9]_p[0-9][0-9][0-9][0-9]_v*[0-9].parquet"
         variables = [
 	        "fnr",
             "snr",
@@ -184,7 +183,7 @@
     [datasets.avslutta_videregaaende]
         team = "utd-vg"
         bucket = "vgu"
-        path_glob = ""
+        path_glob = "vgu/klargjorte-data/nudb/avslutta-videregaaende_p[0-9][0-9][0-9][0-9]_p[0-9][0-9][0-9][0-9]_v*[0-9].parquet"
 
         variables = [
 	        "fnr",
@@ -229,7 +228,7 @@
     [datasets.avslutta_fagskole]
         team = "utd-uhfagskole"
         bucket = "fagskole"
-        path_glob = ""
+        path_glob = "fagskoler/klargjorte_data/nudb/avslutta-fagskole_p[0-9][0-9][0-9][0-9]_p[0-9][0-9][0-9][0-9]_v*[0-9].parquet"
         variables = [
 	        "fnr",
             "snr",
@@ -269,7 +268,7 @@
     [datasets.avslutta_hoeyereutdanning]
         team = "utd-uhfagskole"
         bucket = "uh"
-        path_glob = ""
+        path_glob = "uvh/klargjorte_data/avslutta-hoeyereutdanning_p[0-9][0-9][0-9][0-9]_p[0-9][0-9][0-9][0-9]_v*[0-9].parquet"
 
         variables = [
             "fnr",
@@ -322,7 +321,7 @@
     [datasets.eksamen_hoeyereutdanning]
         team = "utd-uhfagskole"
         bucket = "uh"
-        path_glob = ""
+        path_glob = "uvh/klargjorte_data/eksamen-hoeyereutdanning_p[0-9][0-9][0-9][0-9]_p[0-9][0-9][0-9][0-9]_v*[0-9].parquet"
         variables = [
             "fnr",
             "snr",
