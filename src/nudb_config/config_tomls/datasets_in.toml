@@ -228,7 +228,7 @@
     [datasets.avslutta_fagskole]
         team = "utd-uhfagskole"
         bucket = "fagskole"
-        path_glob = "fagskoler/klargjorte_data/nudb/avslutta-fagskole_p[0-9][0-9][0-9][0-9]_p[0-9][0-9][0-9][0-9]_v*[0-9].parquet"
+        path_glob = "fagskoler/klargjorte_data/avslutta-fagskole_p[0-9][0-9][0-9][0-9]_p[0-9][0-9][0-9][0-9]_v*[0-9].parquet"
         variables = [
 	        "fnr",
             "snr",
