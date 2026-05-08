@@ -12,7 +12,8 @@
     variables = [
         "fnr",
         "snr",
-        #"snr_mrk",  # We dont demand this delivered, as we will reproduce anyway
+        "snr_mrk",  # We dont demand this delivered, as we will reproduce anyway, but vg has decided to deliver it
+        "nudb_dataset_id",
         "pers_foedselsdato",
         "pers_kjoenn",
         "utd_skoleaar_start",
@@ -188,7 +189,8 @@
         variables = [
 	        "fnr",
             "snr",
-            #"snr_mrk",  # We dont demand this delivered, as we will reproduce anyway
+            "snr_mrk",  # We dont demand this delivered, as we will reproduce anyway, but vg has decided to deliver it
+            "nudb_dataset_id",
             "pers_foedselsdato",
             "pers_kjoenn",
             "utd_skoleaar_start",
@@ -211,6 +213,7 @@
             "gro_skolenr_inn",
             "gro_elevstatus",
             "gro_programomraade",
+            "vg_hovedaktivitet",
             "vg_utdprogram",
             "vg_rettstype_inntak",
             "vg_kursprosent",
@@ -220,6 +223,9 @@
             "vg_proevekandtype",
             "vg_proevenr",
             "vg_proeve_dato",
+            "vg_proevestatus",
+            "vg_resultat_teori",
+            "vg_resultat_praktisk_proeve",
             "vg_fullfoertkode_detaljert",
         ]
         [datasets.avslutta_videregaaende.thresholds_empty]
@@ -236,9 +242,9 @@
             "pers_foedselsdato",
             "pers_kjoenn",
             "utd_skoleaar_start",
-            "utd_aktivitet_start",
+            #"utd_aktivitet_start",  # Finnes ikke levert på fila - krever den ikke levert når det ikke er "ekte data"
             "utd_aktivitet_slutt",
-            "utd_aktivitet_start_inn",
+            #"utd_aktivitet_start_inn",  # Finnes ikke levert på fila - krever den ikke levert når det ikke er "ekte data"
             "utd_aktivitet_slutt_inn",
             "utd_aktivitetsnivaa_heltid_deltid",
             "orgnrbed",
@@ -277,9 +283,9 @@
             "pers_foedselsdato",
             "pers_kjoenn",
             "utd_skoleaar_start",
-            "utd_aktivitet_start",
+            #"utd_aktivitet_start",  # Finnes ikke levert på fila - krever den ikke levert når det ikke er "ekte data"
             "utd_aktivitet_slutt",
-            "utd_aktivitet_start_inn",
+            #"utd_aktivitet_start_inn",  # Finnes ikke levert på fila - krever den ikke levert når det ikke er "ekte data"
             "utd_aktivitet_slutt_inn",
             "utd_aktivitetsnivaa_heltid_deltid",
             "orgnrbed",

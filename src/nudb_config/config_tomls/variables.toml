@@ -335,7 +335,7 @@ variables_sort_unit = [
 	[variables.vg_proevenr]
         unit = "vg"
         dtype = "INTEGER"
-        description_short = "\"Prøvenummer. Legges ut om det er prøve nr 1, nr 2 osv for personen på denne programområdekode. Endret fra o til oe i variabelnavnet 23.01.2026"
+        description_short = "Prøvenummer. Legges ut om det er prøve nr 1, nr 2 osv for personen på denne programområdekode. Endret fra o til oe i variabelnavnet 23.01.2026"
         renamed_from = ["provnr", "vg_provenr"]
 		klass_codelist = 0  # Is this correct? Does a codelist exist?
 
@@ -345,6 +345,28 @@ variables_sort_unit = [
         description_short = "Dato for avlagt prøve i perioden. Endret fra o til oe i variabelnavnet 23.01.2026. (Ny i NUDB fom. 2026?)"
 		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
 		renamed_from = ["provedato", "vg_prove_dato"]
+
+
+	[variables.vg_proevestatus]
+        unit = "vg"
+        dtype = "STRING"
+        #description_short = ""
+        #renamed_from = []
+		klass_codelist = 906
+
+	[variables.vg_resultat_teori]
+        unit = "vg"
+        dtype = "STRING"
+        #description_short = ""
+        #renamed_from = []
+		#klass_codelist = 
+
+	[variables.vg_resultat_praktisk_proeve]
+        unit = "vg"
+        dtype = "STRING"
+        #description_short = ""
+        #renamed_from = []
+		#klass_codelist = 
 
 	[variables.vg_yrkes_og_studiekompetanse]
 		unit = "vg"
