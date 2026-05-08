@@ -339,20 +339,20 @@
             "fuh_nett_eller_stedbasert",
             "uh_eksamen_dato",
             "uh_eksamen_dato_inn",
-            "uh_antall_deleksamener",
-            "uh_antall_deleksamener_bestatt",
+            #"uh_antall_deleksamener",  # Alle eksamener leveres - så disse kolonnene er ikke lengre nødvendig og bør kunne aggregeres på nytt fra leverte rader
+            #"uh_antall_deleksamener_bestatt",
             "uh_eksamen_ergjentak",
             "uh_eksamen_karakter",
             "uh_eksamen_studpoeng",
             "uh_emnekode",
-            "uh_emnekode_navn",
+            "uh_emnenavn",
             "uh_institusjon_id",
             "uh_studienivaa",
             "uh_studieprogram",
             "uh_studieprogram_navn",
             "uh_studierett",
             "uh_termin_rapportert",
-            "uh_fullfoertkode_detaljert", # Kommer i 2026?
+            "uh_fullfoertkode", # Kommer i 2026?
             "uh_campus_kommune", # Kommer i 2026?
             "uh_campus_sted", # Kommer i 2026?
         ]

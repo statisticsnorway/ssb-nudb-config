@@ -473,11 +473,11 @@ variables_sort_unit = [
 		klass_codelist = 790
         renamed_from = ["hskode"]
 
-	[variables.uh_fullfoertkode_detaljert]
+	[variables.uh_fullfoertkode]
 		unit = "uh"
 		dtype = "STRING"
 		length = [1]
-		renamed_from = ["uh_fullfoertkode_inn"]
+		renamed_from = ["uh_fullfoertkode_inn", "uh_fullfoertkode_detaljert"]
 		description_short = "(Ny i NUDB fom. 2026?)"
 
 
@@ -529,10 +529,10 @@ variables_sort_unit = [
         renamed_from = ["studnivaa"]
 
 
-    [variables.uh_emnekode_navn]
+    [variables.uh_emnenavn]
         unit = "fag"
         dtype = "STRING"
-        renamed_from = ["emnekode_navn"]
+        renamed_from = ["emnekode_navn", "uh_emnekode_navn"]
 
 	[variables.uh_utvekslingsavtale]
 		unit = "uh"
