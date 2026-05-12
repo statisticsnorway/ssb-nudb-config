@@ -113,6 +113,12 @@
 	dtype = "STRING"
 	derived_from = ["vg_proevekandtype"]
 
+
+[variables.vg_proevestatus_label]
+	unit = "vg"
+	dtype = "STRING"
+	derived_from = ["vg_proevestatus"]
+
 [variables.vg_utdprogram_label]
 	unit = "vg"
 	dtype = "STRING"

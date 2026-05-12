@@ -162,8 +162,8 @@
             'uh_emnekode',  # old_name: emnekode
             'uh_studienivaa',  # old_name: studnivaa
             'uh_studieprogram_navn',  # old_name: studprog_navn
-            'uh_emnekode_navn',  # old_name: emnekode_navn
-            'uh_fullfoertkode_detaljert',
+            'uh_emnenavn',  # old_name: emnekode_navn
+            'uh_fullfoertkode',
             'uh_campus_kommune',
             'uh_campus_sted',
             # 'foedselsdato',
@@ -244,7 +244,7 @@
             fuh_nett_eller_stedbasert = 38.0 # Ny variabel fom 2015, utfylling bør gå opp
             uh_studienivaa = 60.0 # Ny variabel fom 2018, utfylling bør gå opp
             uh_studieprogram_navn = 93.0 # Ny variabel fom 2023, utfylling bør gå opp
-            uh_emnekode_navn = 93.0 # Ny variabel fom 2023, utfylling bør gå opp
+            uh_emnenavn = 93.0 # Ny variabel fom 2023, utfylling bør gå opp
 
 
 

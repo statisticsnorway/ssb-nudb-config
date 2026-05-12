@@ -8,11 +8,12 @@
     [datasets.igang_videregaaende]
     team = "utd-vg"
     bucket = "vgu"
-    path_glob = ""
+    path_glob = "vgu/klargjorte-data/nudb/igang-videregaaende_p[0-9][0-9][0-9][0-9]_p[0-9][0-9][0-9][0-9]_v*[0-9].parquet"
     variables = [
         "fnr",
         "snr",
-        #"snr_mrk",  # We dont demand this delivered, as we will reproduce anyway
+        "snr_mrk",  # We dont demand this delivered, as we will reproduce anyway, but vg has decided to deliver it
+        "nudb_dataset_id",
         "pers_foedselsdato",
         "pers_kjoenn",
         "utd_skoleaar_start",
@@ -49,7 +50,7 @@
     [datasets.igang_fagskole]
         team = "utd-uhfagskole"
         bucket = "fagskole"
-        path_glob = ""
+        path_glob = "fagskoler/klargjorte-data/nudb/igang-fagskole_p[0-9][0-9][0-9][0-9]_p[0-9][0-9][0-9][0-9]_v*[0-9].parquet"
         variables = [
         "fnr",
         "snr",
@@ -90,7 +91,7 @@
     [datasets.igang_hoeyereutdanning]
         team = "utd-uhfagskole"
         bucket = "uh"
-        path_glob = ""
+        path_glob = "uvh/klargjorte-data/nudb/igang-hoeyereutdanning_p[0-9][0-9][0-9][0-9]_p[0-9][0-9][0-9][0-9]_v*[0-9].parquet"
 
         variables = [
         "fnr",
@@ -141,9 +142,8 @@
 
     [datasets.avslutta_grunnskole]
     team = "utd-bhgskole"
-    bucket = ""
-    path_glob = ""
-
+    bucket = "kargrs"
+    path_glob = "kargrs/klargjorte-data/avslutta-grunnskole_p[0-9][0-9][0-9][0-9]_p[0-9][0-9][0-9][0-9]_v*[0-9].parquet"
         variables = [
 	        "fnr",
             "snr",
@@ -184,12 +184,13 @@
     [datasets.avslutta_videregaaende]
         team = "utd-vg"
         bucket = "vgu"
-        path_glob = ""
+        path_glob = "vgu/klargjorte-data/nudb/avslutta-videregaaende_p[0-9][0-9][0-9][0-9]_p[0-9][0-9][0-9][0-9]_v*[0-9].parquet"
 
         variables = [
 	        "fnr",
             "snr",
-            #"snr_mrk",  # We dont demand this delivered, as we will reproduce anyway
+            "snr_mrk",  # We dont demand this delivered, as we will reproduce anyway, but vg has decided to deliver it
+            "nudb_dataset_id",
             "pers_foedselsdato",
             "pers_kjoenn",
             "utd_skoleaar_start",
@@ -212,6 +213,7 @@
             "gro_skolenr_inn",
             "gro_elevstatus",
             "gro_programomraade",
+            "vg_hovedaktivitet",
             "vg_utdprogram",
             "vg_rettstype_inntak",
             "vg_kursprosent",
@@ -221,6 +223,9 @@
             "vg_proevekandtype",
             "vg_proevenr",
             "vg_proeve_dato",
+            "vg_proevestatus",
+            "vg_resultat_teori",
+            "vg_resultat_praktisk_proeve",
             "vg_fullfoertkode_detaljert",
         ]
         [datasets.avslutta_videregaaende.thresholds_empty]
@@ -229,7 +234,7 @@
     [datasets.avslutta_fagskole]
         team = "utd-uhfagskole"
         bucket = "fagskole"
-        path_glob = ""
+        path_glob = "fagskoler/klargjorte-data/nudb/avslutta-fagskole_p[0-9][0-9][0-9][0-9]_p[0-9][0-9][0-9][0-9]_v*[0-9].parquet"
         variables = [
 	        "fnr",
             "snr",
@@ -237,9 +242,9 @@
             "pers_foedselsdato",
             "pers_kjoenn",
             "utd_skoleaar_start",
-            "utd_aktivitet_start",
+            #"utd_aktivitet_start",  # Finnes ikke levert på fila - krever den ikke levert når det ikke er "ekte data"
             "utd_aktivitet_slutt",
-            "utd_aktivitet_start_inn",
+            #"utd_aktivitet_start_inn",  # Finnes ikke levert på fila - krever den ikke levert når det ikke er "ekte data"
             "utd_aktivitet_slutt_inn",
             "utd_aktivitetsnivaa_heltid_deltid",
             "orgnrbed",
@@ -269,7 +274,7 @@
     [datasets.avslutta_hoeyereutdanning]
         team = "utd-uhfagskole"
         bucket = "uh"
-        path_glob = ""
+        path_glob = "uvh/klargjorte-data/nudb/avslutta-hoeyereutdanning_p[0-9][0-9][0-9][0-9]_p[0-9][0-9][0-9][0-9]_v*[0-9].parquet"
 
         variables = [
             "fnr",
@@ -278,9 +283,9 @@
             "pers_foedselsdato",
             "pers_kjoenn",
             "utd_skoleaar_start",
-            "utd_aktivitet_start",
+            #"utd_aktivitet_start",  # Finnes ikke levert på fila - krever den ikke levert når det ikke er "ekte data"
             "utd_aktivitet_slutt",
-            "utd_aktivitet_start_inn",
+            #"utd_aktivitet_start_inn",  # Finnes ikke levert på fila - krever den ikke levert når det ikke er "ekte data"
             "utd_aktivitet_slutt_inn",
             "utd_aktivitetsnivaa_heltid_deltid",
             "orgnrbed",
@@ -322,7 +327,7 @@
     [datasets.eksamen_hoeyereutdanning]
         team = "utd-uhfagskole"
         bucket = "uh"
-        path_glob = ""
+        path_glob = "uvh/klargjorte-data/nudb/eksamen-hoeyereutdanning_p[0-9][0-9][0-9][0-9]_p[0-9][0-9][0-9][0-9]_v*[0-9].parquet"
         variables = [
             "fnr",
             "snr",
@@ -340,20 +345,20 @@
             "fuh_nett_eller_stedbasert",
             "uh_eksamen_dato",
             "uh_eksamen_dato_inn",
-            "uh_antall_deleksamener",
-            "uh_antall_deleksamener_bestatt",
+            #"uh_antall_deleksamener",  # Alle eksamener leveres - så disse kolonnene er ikke lengre nødvendig og bør kunne aggregeres på nytt fra leverte rader
+            #"uh_antall_deleksamener_bestatt",
             "uh_eksamen_ergjentak",
             "uh_eksamen_karakter",
             "uh_eksamen_studpoeng",
             "uh_emnekode",
-            "uh_emnekode_navn",
+            "uh_emnenavn",
             "uh_institusjon_id",
             "uh_studienivaa",
             "uh_studieprogram",
             "uh_studieprogram_navn",
             "uh_studierett",
             "uh_termin_rapportert",
-            "uh_fullfoertkode_detaljert", # Kommer i 2026?
+            "uh_fullfoertkode", # Kommer i 2026?
             "uh_campus_kommune", # Kommer i 2026?
             "uh_campus_sted", # Kommer i 2026?
         ]
