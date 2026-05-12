@@ -86,5 +86,5 @@ def test_variables_with_codelist_have_label_variant() -> None:
 
     assert offenders == [], (
         "Variables with 'klass_codelist' > 0 must have a corresponding "
-        f"'{{variable_name}}_label' entry: {sorted(offenders)}"
+        f"`*_label` entry: {sorted(offenders)}"
     )
