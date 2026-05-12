@@ -50,7 +50,7 @@
     [datasets.igang_fagskole]
         team = "utd-uhfagskole"
         bucket = "fagskole"
-        path_glob = "fagskoler/klargjorte_data/nudb/igang-fagskole_p[0-9][0-9][0-9][0-9]_p[0-9][0-9][0-9][0-9]_v*[0-9].parquet"
+        path_glob = "fagskoler/klargjorte-data/nudb/igang-fagskole_p[0-9][0-9][0-9][0-9]_p[0-9][0-9][0-9][0-9]_v*[0-9].parquet"
         variables = [
         "fnr",
         "snr",
@@ -91,7 +91,7 @@
     [datasets.igang_hoeyereutdanning]
         team = "utd-uhfagskole"
         bucket = "uh"
-        path_glob = "uvh/klargjorte_data/nudb/igang-hoeyereutdanning_p[0-9][0-9][0-9][0-9]_p[0-9][0-9][0-9][0-9]_v*[0-9].parquet"
+        path_glob = "uvh/klargjorte-data/nudb/igang-hoeyereutdanning_p[0-9][0-9][0-9][0-9]_p[0-9][0-9][0-9][0-9]_v*[0-9].parquet"
 
         variables = [
         "fnr",
@@ -234,7 +234,7 @@
     [datasets.avslutta_fagskole]
         team = "utd-uhfagskole"
         bucket = "fagskole"
-        path_glob = "fagskoler/klargjorte_data/nudb/avslutta-fagskole_p[0-9][0-9][0-9][0-9]_p[0-9][0-9][0-9][0-9]_v*[0-9].parquet"
+        path_glob = "fagskoler/klargjorte-data/nudb/avslutta-fagskole_p[0-9][0-9][0-9][0-9]_p[0-9][0-9][0-9][0-9]_v*[0-9].parquet"
         variables = [
 	        "fnr",
             "snr",
@@ -274,7 +274,7 @@
     [datasets.avslutta_hoeyereutdanning]
         team = "utd-uhfagskole"
         bucket = "uh"
-        path_glob = "uvh/klargjorte_data/nudb/avslutta-hoeyereutdanning_p[0-9][0-9][0-9][0-9]_p[0-9][0-9][0-9][0-9]_v*[0-9].parquet"
+        path_glob = "uvh/klargjorte-data/nudb/avslutta-hoeyereutdanning_p[0-9][0-9][0-9][0-9]_p[0-9][0-9][0-9][0-9]_v*[0-9].parquet"
 
         variables = [
             "fnr",
@@ -327,7 +327,7 @@
     [datasets.eksamen_hoeyereutdanning]
         team = "utd-uhfagskole"
         bucket = "uh"
-        path_glob = "uvh/klargjorte_data/nudb/eksamen-hoeyereutdanning_p[0-9][0-9][0-9][0-9]_p[0-9][0-9][0-9][0-9]_v*[0-9].parquet"
+        path_glob = "uvh/klargjorte-data/nudb/eksamen-hoeyereutdanning_p[0-9][0-9][0-9][0-9]_p[0-9][0-9][0-9][0-9]_v*[0-9].parquet"
         variables = [
             "fnr",
             "snr",

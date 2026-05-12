@@ -359,14 +359,14 @@ variables_sort_unit = [
         dtype = "STRING"
         #description_short = ""
         #renamed_from = []
-		#klass_codelist = 
+		#klass_codelist =
 
 	[variables.vg_resultat_praktisk_proeve]
         unit = "vg"
         dtype = "STRING"
         #description_short = ""
         #renamed_from = []
-		#klass_codelist = 
+		#klass_codelist =
 
 	[variables.vg_yrkes_og_studiekompetanse]
 		unit = "vg"
