@@ -352,6 +352,7 @@ variables_sort_unit = [
         dtype = "STRING"
         #description_short = ""
         #renamed_from = []
+		length = [1,2]
 		klass_codelist = 906
 
 	[variables.vg_resultat_teori]
