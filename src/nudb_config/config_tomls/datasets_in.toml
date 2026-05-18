@@ -300,7 +300,7 @@
             "fuh_nett_eller_stedbasert",
             "uh_institusjon_id",
             "uh_statsborgerskap_inn",
-            #"uh_studierett", # Fjernes etter samtaler april 2026
+            #"uh_studierett", # Fjernes etter samtaler april 2026 - kun på igang
             "uh_studienivaa",
             "uh_studieprogram",
             "uh_studieprogram_navn",
@@ -344,7 +344,7 @@
             "utd_viderutd_nettbasert",
             "fuh_nett_eller_stedbasert",
             "uh_eksamen_dato",
-            "uh_eksamen_dato_inn",
+            #"uh_eksamen_dato_inn",
             #"uh_antall_deleksamener",  # Alle eksamener leveres - så disse kolonnene er ikke lengre nødvendig og bør kunne aggregeres på nytt fra leverte rader
             #"uh_antall_deleksamener_bestatt",
             "uh_eksamen_ergjentak",
@@ -356,9 +356,9 @@
             "uh_studienivaa",
             "uh_studieprogram",
             "uh_studieprogram_navn",
-            "uh_studierett",
+            "uh_ereksamenrett",
             "uh_termin_rapportert",
-            "uh_fullfoertkode", # Kommer i 2026?
+            "uh_fullfoertkode_inn", # Kommer i 2026?
             "uh_campus_kommune", # Kommer i 2026?
             "uh_campus_sted", # Kommer i 2026?
         ]

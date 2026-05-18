@@ -119,12 +119,6 @@ variables_sort_unit = [
 		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
 
 
-
-    [variables.uh_eksamen_dato_inn]
-        unit = "tid"
-        dtype = "DATETIME"
-		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
-
 #############################
 # Fagvariabler / nuskatalog #
 #############################
@@ -496,11 +490,12 @@ variables_sort_unit = [
 		klass_codelist = 790
         renamed_from = ["hskode"]
 
-	[variables.uh_fullfoertkode]
+	[variables.uh_fullfoertkode_inn]
 		unit = "uh"
 		dtype = "STRING"
 		length = [1]
-		renamed_from = ["uh_fullfoertkode_inn", "uh_fullfoertkode_detaljert"]
+		klass_codelist = 912
+		renamed_from = ["uh_fullfoertkode", "uh_fullfoertkode_detaljert"]
 		description_short = "(Ny i NUDB fom. 2026?)"
 
 
@@ -602,10 +597,15 @@ variables_sort_unit = [
 	[variables.uh_studierett]
 		unit = "uh"
 		dtype = "STRING"
-		description_short = "Med eller uten studierett"
+		description_short = "Med eller uten studierett - eller Annet"
 	    length = [1]
 		renamed_from = ["studrett", "uh_erstudierett"]
-		#klass_codelist =   # "S"/"1" = Studierett, "P"/"2" = Ikke studirett, "A" = "Annet"
+		klass_codelist = 958  # "S"/"1" = Studierett, "P"/"2" = Ikke studirett, "A" = "Annet"
+
+	[variables.uh_ereksamenrett]
+		unit = "uh"
+		dtype = "BOOLEAN"
+		description_short = "Med har eksamensrett menes at studenten på grunnlag av studie- og undervisningsrett, samt gjeldende lovverk, gis adgang til å fremstille seg til eksamen."
 
     [variables.uh_erpermisjon]
         unit = "uh"

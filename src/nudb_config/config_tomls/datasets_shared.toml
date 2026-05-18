@@ -163,7 +163,7 @@
             'uh_studienivaa',  # old_name: studnivaa
             'uh_studieprogram_navn',  # old_name: studprog_navn
             'uh_emnenavn',  # old_name: emnekode_navn
-            'uh_fullfoertkode',
+            'uh_fullfoertkode_inn',
             'uh_campus_kommune',
             'uh_campus_sted',
             # 'foedselsdato',
@@ -172,7 +172,7 @@
             # 'start_dato_kilde',
             # 'slutt_dato_kilde',
             'uh_eksamen_dato',
-            'uh_eksamen_dato_inn',
+            #'uh_eksamen_dato_inn',
             #"kilde_dato",
             'utd_skoleaar_start',  # old_name: skoleaar_start
             #'utd_skoleaar_slutt',  # Vi trenger kun skoleaar_start # old_name: skoleaar_slutt
@@ -188,7 +188,7 @@
             "fuh_nett_eller_stedbasert", # old_name: organisering
             "uh_institusjon_id",  # old_name: hskode
             # "utdplan",
-            "uh_studierett",  # old_name: studrett
+            "uh_ereksamenrett",  # old_name: studrett, uh_studierett
             # "studgrland",
             # "utland",
             # "utveks",
@@ -233,13 +233,12 @@
             utd_viderutd_nettbasert = 0.001
             uh_eksamen_studpoeng = 0.0
             uh_eksamen_ergjentak = 0.0
-            uh_studierett = 0.001
             utd_utdanningstype = 0.04
             utd_skoleaar_start = 0.0
             uh_termin_rapportert = 35.0  # Ny variabel fom 2014, utfylling bør gå opp
             uh_studieprogram = 32.0 # Ny variabel fom 2014, utfylling bør gå opp
             uh_eksamen_karakter = 32.0 # Ny variabel fom 2014, utfylling bør gå opp
-            uh_eksamen_dato_inn = 32.0 # Ny variabel fom 2014, butfylling ør gå opp
+            #uh_eksamen_dato_inn = 32.0 # Ny variabel fom 2014, butfylling ør gå opp
             uh_emnekode = 32.0 # Ny variabel fom 2014, utfylling bør gå opp
             fuh_nett_eller_stedbasert = 38.0 # Ny variabel fom 2015, utfylling bør gå opp
             uh_studienivaa = 60.0 # Ny variabel fom 2018, utfylling bør gå opp
