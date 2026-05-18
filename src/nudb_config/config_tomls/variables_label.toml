@@ -162,6 +162,15 @@
 	dtype = "STRING"
 	derived_from = ["uh_campus_kommune"]
 
+[variables.uh_fullfoertkode_inn_label]
+	unit = "uh"
+	dtype = "STRING"
+	derived_from = ["uh_fullfoertkode_inn"]
+
+[variables.uh_studierett_label]
+	unit = "uh"
+	dtype = "STRING"
+	derived_from = ["uh_studierett"]
 
 ########
 # Land #
