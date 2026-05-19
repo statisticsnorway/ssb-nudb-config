@@ -10,38 +10,55 @@
     bucket = "vgu"
     path_glob = "vgu/klargjorte-data/nudb/igang-videregaaende_p[0-9][0-9][0-9][0-9]_p[0-9][0-9][0-9][0-9]_v*[0-9].parquet"
     variables = [
-        "fnr",
+        # pers
         "snr",
-        "snr_mrk",  # We dont demand this delivered, as we will reproduce anyway, but vg has decided to deliver it
+        "fnr",
+
+        # data
+        "utd_datakilde",
         "nudb_dataset_id",
-        "pers_foedselsdato",
-        "pers_kjoenn",
-        "utd_skoleaar_start",
+
+        # tid
         "utd_aktivitet_start",
         "utd_aktivitet_start_inn",
+        "utd_skoleaar_start",
+
+        # fag
+        "nus2000",
+        "utd_klassetrinn",
         "utd_aktivitetsnivaa_heltid_deltid",
+        "utd_viderutd_nettbasert",
+        "utd_utdanningstype",
+        "vg_rettstype_inntak",
+
+        # skole
         "orgnrbed",
         "orgnr_foretak",
-        "nus2000",
-        "utd_viderutd_nettbasert",
-        "utd_datakilde",
-        "utd_klassetrinn",
-        "utd_utdanningstype",
-        "utd_utveksling",
         "utd_skolekom",
-        "gro_skolenr_inn",
+
+        # gro
         "gro_elevstatus",
+        "gro_skolenr_inn",
         "gro_programomraade",
-        "vg_utdprogram",
-        "vg_rettstype_inntak",
+
+        # vg
         "vg_antall_aarstimer_elevkurs",
-        "vg_antall_fag_elevkurs",
         "vg_kursprosent",
+        "vg_antall_fag_elevkurs",
         "vg_kontraktstype",
-        "vg_ernylaerling",
         "vg_yrkes_og_studiekompetanse",
-        "vg_hovedaktivitet",
-        ]
+        "vg_ernylaerling",
+        "vg_erhovedaktivitet",
+        "vg_utdprogram",
+
+        # uh
+        "utd_utveksling",
+
+        # ukjent
+        "pers_foedselsdato",
+        "pers_kjoenn",
+        "snr_mrk",  # We dont demand this delivered, as we will reproduce anyway, but vg has decided to deliver it
+    ]
 
         [datasets.igang_videregaaende.thresholds_empty]
             fnr = 0.0
@@ -52,36 +69,52 @@
         bucket = "fagskole"
         path_glob = "fagskoler/klargjorte-data/nudb/igang-fagskole_p[0-9][0-9][0-9][0-9]_p[0-9][0-9][0-9][0-9]_v*[0-9].parquet"
         variables = [
-        "fnr",
-        "snr",
-        #"snr_mrk",  # We dont demand this delivered, as we will reproduce anyway
-        "pers_foedselsdato",
-        "pers_kjoenn",
-        "utd_skoleaar_start",
-        "utd_aktivitet_start",
-        "utd_aktivitet_start_inn",
-        "utd_aktivitetsnivaa_heltid_deltid",
-        "orgnrbed",
-        "orgnr_foretak",
-        "nus2000",
-        "utd_viderutd_nettbasert",
-        "utd_datakilde",
-        "utd_klassetrinn",
-        "utd_utdanningstype",
-        "utd_utveksling",
-        "utd_skolekom",
-        #"utd_studieland",
-        #"fa_ergodkjent_fagskoleutd",  # skal utledes fra nus2000 isteden
-        "fa_utveksl_varighet_dager",
-        "fa_studiestednr_inn",
-        "fa_hovedaktivitet",
-        "fuh_nett_eller_stedbasert",
-        "fa_institusjon_id",
-        "fuh_opptaksgrunnlag",
-        "fuh_utvekslingsland",
-        "fa_tilbudskode",
-        "fa_tilbudsnavn",
-        "fa_nettbasert_antall_samledager_tilbud",
+            # pers
+            "snr",
+            "fnr",
+
+            # data
+            "utd_datakilde",
+
+            # tid
+            "utd_aktivitet_start",
+            "utd_aktivitet_start_inn",
+            "utd_skoleaar_start",
+
+            # fag
+            "nus2000",
+            "utd_klassetrinn",
+            "utd_aktivitetsnivaa_heltid_deltid",
+            "utd_viderutd_nettbasert",
+            "fuh_nett_eller_stedbasert",
+            "utd_utdanningstype",
+
+            # skole
+            "orgnrbed",
+            "orgnr_foretak",
+            "utd_skolekom",
+
+            # fa
+            "fa_erhovedaktivitet",
+            "fa_institusjon_id",
+            "fa_studiestednr_inn",
+            "fa_utveksl_varighet_dager",
+            "fa_tilbudskode",
+            "fa_tilbudsnavn",
+            "fa_nettbasert_antall_samledager_tilbud",
+
+            # fuh
+            "fuh_opptaksgrunnlag",
+
+            # uh
+            "utd_utveksling",
+
+            # land
+            "fuh_utvekslingsland",
+
+            # ukjent
+            "pers_foedselsdato",
+            "pers_kjoenn",
         ]
 
     [datasets.igang_fagskole.thresholds_empty]
@@ -94,43 +127,59 @@
         path_glob = "uvh/klargjorte-data/nudb/igang-hoeyereutdanning_p[0-9][0-9][0-9][0-9]_p[0-9][0-9][0-9][0-9]_v*[0-9].parquet"
 
         variables = [
-        "fnr",
-        "snr",
-        #"snr_mrk",   # We dont demand this delivered, as we will reproduce anyway
-        "pers_foedselsdato",
-        "pers_kjoenn",
-        "utd_skoleaar_start",
-        "utd_aktivitet_start",
-        "utd_aktivitet_start_inn",
-        "utd_aktivitetsnivaa_heltid_deltid",
-        "orgnrbed",
-        "orgnr_foretak",
-        "nus2000",
-        "utd_viderutd_nettbasert",
-        "utd_datakilde",
-        "utd_klassetrinn",
-        "utd_utdanningstype",
-        "utd_utveksling",
-        "utd_skolekom",
-        "fuh_nett_eller_stedbasert",
-        "fuh_opptaksgrunnlag",
-        "fuh_utvekslingsland",
-        "uh_institusjon_id",
-        "uh_erpermisjon",
-        "uh_statsborgerskap_inn",
-        "uh_studierett",
-        "uh_studienivaa",
-        "uh_utdplan",
-        "uh_studieprogram",
-        "uh_studieprogresjon_hoest",
-        #"uh_erutland",
-        "uh_studgrunnlagsland",
-        "utd_studieland",
-        "uh_utvekslingsavtale",
-        "uh_undervisningsspraak",
-        "uh_campus_kommune",
-        "uh_campus_sted",
-        "uh_hovedaktivitet",
+            # pers
+            "snr",
+            "fnr",
+
+            # data
+            "utd_datakilde",
+
+            # tid
+            "utd_aktivitet_start",
+            "utd_aktivitet_start_inn",
+            "utd_skoleaar_start",
+
+            # fag
+            "nus2000",
+            "utd_klassetrinn",
+            "utd_aktivitetsnivaa_heltid_deltid",
+            "utd_viderutd_nettbasert",
+            "fuh_nett_eller_stedbasert",
+            "utd_utdanningstype",
+            "uh_studieprogram",
+            "uh_studienivaa",
+
+            # skole
+            "orgnrbed",
+            "orgnr_foretak",
+            "utd_skolekom",
+            "uh_institusjon_id",
+
+            # fuh
+            "fuh_opptaksgrunnlag",
+
+            # uh
+            "utd_utveksling",
+            "uh_campus_sted",
+            "uh_campus_kommune",
+            "uh_utvekslingsavtale",
+            "uh_studierett",
+            "uh_programprosent",
+            "uh_erpermisjon",
+            "uh_studieprogresjon_hoest",
+            "uh_utdplan",
+            "uh_erhovedaktivitet",
+            "uh_undervisningsspraak",
+
+            # land
+            "utd_studieland",
+            "fuh_utvekslingsland",
+            "uh_studgrunnlagsland",
+            "uh_statsborgerskap_inn",
+
+            # ukjent
+            "pers_foedselsdato",
+            "pers_kjoenn",
         ]
 
         [datasets.igang_hoeyereutdanning.thresholds_empty]
@@ -145,35 +194,47 @@
     bucket = "kargrs"
     path_glob = "kargrs/klargjorte-data/avslutta-grunnskole_p[0-9][0-9][0-9][0-9]_p[0-9][0-9][0-9][0-9]_v*[0-9].parquet"
         variables = [
-	        "fnr",
+            # pers
             "snr",
-            #"snr_mrk",  # We dont demand this delivered, as we will reproduce anyway
-            "pers_foedselsdato",
-            "pers_kjoenn",
-            "nus2000",
-            "utd_skoleaar_start",
+            "fnr",
+
+            # data
+            "utd_datakilde",
+            "utd_fullfoertkode",
+
+            # tid
             "utd_aktivitet_start",
             "utd_aktivitet_slutt",
             "utd_aktivitet_start_inn",
             "utd_aktivitet_slutt_inn",
-            "utd_datakilde",
+            "utd_skoleaar_start",
+
+            # fag
+            "nus2000",
             "utd_klassetrinn",
-            "utd_utdanningstype",
-            "utd_fullfoertkode",
             "utd_aktivitetsnivaa_heltid_deltid",
+            "utd_viderutd_nettbasert",
+            "utd_utdanningstype",
+
+            # skole
             "orgnrbed",
             "orgnr_foretak",
+            "gro_skolenavn_inn",
             "utd_skolekom",
-            "utd_viderutd_nettbasert",
+
+            # gr
             "gr_grunnskolepoeng",
+
+            # gro
+            "gro_elevstatus",
+            "gro_skolenr_inn",
             "gro_fravaer_dager",
             "gro_fravaer_timer",
             "gro_programomraade",
-            "gro_elevstatus",
-            "gro_skolenr_inn",
-            "gro_skolenavn_inn",
 
-
+            # ukjent
+            "pers_foedselsdato",
+            "pers_kjoenn",
         ]
 
         [datasets.avslutta_grunnskole.thresholds_empty]
@@ -187,46 +248,61 @@
         path_glob = "vgu/klargjorte-data/nudb/avslutta-videregaaende_p[0-9][0-9][0-9][0-9]_p[0-9][0-9][0-9][0-9]_v*[0-9].parquet"
 
         variables = [
-	        "fnr",
+            # pers
             "snr",
-            "snr_mrk",  # We dont demand this delivered, as we will reproduce anyway, but vg has decided to deliver it
+            "fnr",
+
+            # data
+            "utd_datakilde",
             "nudb_dataset_id",
-            "pers_foedselsdato",
-            "pers_kjoenn",
-            "utd_skoleaar_start",
+            "utd_fullfoertkode",
+
+            # tid
             "utd_aktivitet_start",
             "utd_aktivitet_slutt",
             "utd_aktivitet_start_inn",
             "utd_aktivitet_slutt_inn",
+            "utd_skoleaar_start",
+
+            # fag
+            "nus2000",
+            "utd_klassetrinn",
             "utd_aktivitetsnivaa_heltid_deltid",
+            "utd_viderutd_nettbasert",
+            "utd_utdanningstype",
+            "vg_rettstype_inntak",
+            "vg_bevistype",
+
+            # skole
             "orgnrbed",
             "orgnr_foretak",
-            "nus2000",
-            "utd_datakilde",
-            "utd_klassetrinn",
-            "utd_utdanningstype",
             "utd_skolekom",
-            "utd_fullfoertkode",
-            "utd_viderutd_nettbasert",
+
+            # gro
+            "gro_elevstatus",
+            "gro_skolenr_inn",
             "gro_fravaer_dager",
             "gro_fravaer_timer",
-            "gro_skolenr_inn",
-            "gro_elevstatus",
             "gro_programomraade",
-            "vg_hovedaktivitet",
-            "vg_utdprogram",
-            "vg_rettstype_inntak",
+
+            # vg
+            "vg_fullfoertkode_detaljert",
             "vg_kursprosent",
             "vg_karakterpoeng",
             "vg_ervedtak_saer_spraak",
-            "vg_bevistype",
-            "vg_proevekandtype",
             "vg_proevenr",
             "vg_proeve_dato",
             "vg_proevestatus",
             "vg_resultat_teori",
             "vg_resultat_praktisk_proeve",
-            "vg_fullfoertkode_detaljert",
+            "vg_proevekandtype",
+            "vg_erhovedaktivitet",
+            "vg_utdprogram",
+
+            # ukjent
+            "pers_foedselsdato",
+            "pers_kjoenn",
+            "snr_mrk",  # We dont demand this delivered, as we will reproduce anyway, but vg has decided to deliver it
         ]
         [datasets.avslutta_videregaaende.thresholds_empty]
             fnr = 0.0
@@ -236,35 +312,43 @@
         bucket = "fagskole"
         path_glob = "fagskoler/klargjorte-data/nudb/avslutta-fagskole_p[0-9][0-9][0-9][0-9]_p[0-9][0-9][0-9][0-9]_v*[0-9].parquet"
         variables = [
-	        "fnr",
+            # pers
             "snr",
-            #"snr_mrk",  # We dont demand this delivered, as we will reproduce anyway
-            "pers_foedselsdato",
-            "pers_kjoenn",
-            "utd_skoleaar_start",
-            #"utd_aktivitet_start",  # Finnes ikke levert på fila - krever den ikke levert når det ikke er "ekte data"
+            "fnr",
+
+            # data
+            "utd_datakilde",
+            "utd_fullfoertkode",
+
+            # tid
             "utd_aktivitet_slutt",
-            #"utd_aktivitet_start_inn",  # Finnes ikke levert på fila - krever den ikke levert når det ikke er "ekte data"
             "utd_aktivitet_slutt_inn",
+            "utd_skoleaar_start",
+
+            # fag
+            "nus2000",
+            "utd_klassetrinn",
             "utd_aktivitetsnivaa_heltid_deltid",
+            "utd_viderutd_nettbasert",
+            "fuh_nett_eller_stedbasert",
+            "utd_utdanningstype",
+
+            # skole
             "orgnrbed",
             "orgnr_foretak",
-            "nus2000",
-            "utd_datakilde",
-            "utd_klassetrinn",
-            "utd_utdanningstype",
             "utd_skolekom",
-            #"utd_studieland",
-            "utd_fullfoertkode",
-            "utd_viderutd_nettbasert",
-            #"fa_ergodkjent_fagskoleutd",  # skal utledes fra nus2000 isteden
-            "fa_studiestednr_inn",
+
+            # fa
             "fa_institusjon_id",
             "fa_karakter",
-            "fuh_nett_eller_stedbasert",
+            "fa_studiestednr_inn",
             "fa_tilbudskode",
             "fa_tilbudsnavn",
             "fa_nettbasert_antall_samledager_tilbud",
+
+            # ukjent
+            "pers_foedselsdato",
+            "pers_kjoenn",
         ]
 
     [datasets.avslutta_fagskole.thresholds_empty]
@@ -277,40 +361,50 @@
         path_glob = "uvh/klargjorte-data/nudb/avslutta-hoeyereutdanning_p[0-9][0-9][0-9][0-9]_p[0-9][0-9][0-9][0-9]_v*[0-9].parquet"
 
         variables = [
-            "fnr",
+            # pers
             "snr",
-            #"snr_mrk",  # We dont demand this delivered, as we will reproduce anyway
-            "pers_foedselsdato",
-            "pers_kjoenn",
-            "utd_skoleaar_start",
-            #"utd_aktivitet_start",  # Finnes ikke levert på fila - krever den ikke levert når det ikke er "ekte data"
-            "utd_aktivitet_slutt",
-            #"utd_aktivitet_start_inn",  # Finnes ikke levert på fila - krever den ikke levert når det ikke er "ekte data"
-            "utd_aktivitet_slutt_inn",
-            "utd_aktivitetsnivaa_heltid_deltid",
-            "orgnrbed",
-            "orgnr_foretak",
-            "nus2000",
+            "fnr",
+
+            # data
             "utd_datakilde",
-            "utd_klassetrinn",
-            "utd_utdanningstype",
-            "utd_skolekom",
             "utd_fullfoertkode",
+
+            # tid
+            "utd_aktivitet_slutt",
+            "utd_aktivitet_slutt_inn",
+            "utd_skoleaar_start",
+
+            # fag
+            "nus2000",
+            "utd_klassetrinn",
+            "utd_aktivitetsnivaa_heltid_deltid",
             "utd_viderutd_nettbasert",
             "fuh_nett_eller_stedbasert",
-            "uh_institusjon_id",
-            "uh_statsborgerskap_inn",
-            #"uh_studierett", # Fjernes etter samtaler april 2026 - kun på igang
-            "uh_studienivaa",
+            "utd_utdanningstype",
             "uh_studieprogram",
             "uh_studieprogram_navn",
-            "utd_studieland",
-            #"uh_erutland",
-            "uh_fakultet",
-            "uh_studiepoeng_grad",
-            "uh_campus_kommune",
+            "uh_studienivaa",
+
+            # skole
+            "orgnrbed",
+            "orgnr_foretak",
+            "utd_skolekom",
+            "uh_institusjon_id",
+
+            # uh
             "uh_campus_sted",
+            "uh_campus_kommune",
+            "uh_studiepoeng_grad",
+            "uh_fakultet",
             "uh_ervitnemaalsgivende",
+
+            # land
+            "utd_studieland",
+            "uh_statsborgerskap_inn",
+
+            # ukjent
+            "pers_foedselsdato",
+            "pers_kjoenn",
         ]
 
         [datasets.avslutta_hoeyereutdanning.thresholds_empty]
@@ -329,38 +423,47 @@
         bucket = "uh"
         path_glob = "uvh/klargjorte-data/nudb/eksamen-hoeyereutdanning_p[0-9][0-9][0-9][0-9]_p[0-9][0-9][0-9][0-9]_v*[0-9].parquet"
         variables = [
-            "fnr",
+            # pers
             "snr",
-            #"snr_mrk",  # We dont demand this delivered, as we will reproduce anyway
-            "pers_foedselsdato",
-            "pers_kjoenn",
-            "utd_skoleaar_start",
-            "orgnrbed",
-            "orgnr_foretak",
-            "nus2000",
+            "fnr",
+
+            # data
             "utd_datakilde",
-            "utd_utdanningstype",
-            "utd_skolekom",
+
+            # tid
+            "utd_skoleaar_start",
+            "uh_eksamen_dato",
+
+            # fag
+            "nus2000",
             "utd_viderutd_nettbasert",
             "fuh_nett_eller_stedbasert",
-            "uh_eksamen_dato",
-            #"uh_eksamen_dato_inn",
-            #"uh_antall_deleksamener",  # Alle eksamener leveres - så disse kolonnene er ikke lengre nødvendig og bør kunne aggregeres på nytt fra leverte rader
-            #"uh_antall_deleksamener_bestatt",
-            "uh_eksamen_ergjentak",
-            "uh_eksamen_karakter",
-            "uh_eksamen_studpoeng",
-            "uh_emnekode",
-            "uh_emnenavn",
-            "uh_institusjon_id",
-            "uh_studienivaa",
+            "utd_utdanningstype",
+            "uh_termin_rapportert",
             "uh_studieprogram",
             "uh_studieprogram_navn",
+            "uh_eksamen_karakter",
+            "uh_emnekode",
+            "uh_studienivaa",
+            "uh_emnenavn",
+
+            # skole
+            "orgnrbed",
+            "orgnr_foretak",
+            "utd_skolekom",
+            "uh_institusjon_id",
+
+            # uh
+            "uh_fullfoertkode_inn",  # Kommer i 2026?
+            "uh_campus_sted",  # Kommer i 2026?
+            "uh_campus_kommune",  # Kommer i 2026?
+            "uh_eksamen_studpoeng",
+            "uh_eksamen_ergjentak",
             "uh_ereksamenrett",
-            "uh_termin_rapportert",
-            "uh_fullfoertkode_inn", # Kommer i 2026?
-            "uh_campus_kommune", # Kommer i 2026?
-            "uh_campus_sted", # Kommer i 2026?
+
+            # ukjent
+            "pers_foedselsdato",
+            "pers_kjoenn",
         ]
 
     [datasets.eksamen_hoeyereutdanning.thresholds_empty]

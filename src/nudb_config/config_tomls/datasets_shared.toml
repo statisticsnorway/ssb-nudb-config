@@ -5,79 +5,88 @@
         bucket = "utdanning"
         path_glob = "nudb-data/klargjorte-data/igang/igang_p[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]_v*[0-9].parquet"
         variables = [
-            #"utd_hendelse_id",
-            "fnr",
+            # pers
             "snr",  # old_name: snr
-            "snr_mrk",  # See Jira NUD-482 for decision to include
+            "fnr",
+
+            # data
+            "utd_datakilde",  # old_name: kilde
+            "nudb_dataset_id",
+
+            # tid
+            "utd_aktivitet_start",  # old_name: startd
+            "utd_aktivitet_start_inn",  # old_name: kurs_start_orig
             "utd_skoleaar_start",  # old_name: aargang
+
+            # fag
             "nus2000",
             "utd_klassetrinn",  # old_name: kltrinn2000
             "utd_aktivitetsnivaa_heltid_deltid",  # old_name: heldel
-            "utd_aktivitet_start",  # old_name: startd
-            "utd_aktivitet_start_inn",  # old_name: kurs_start_orig
-            # "voksen",
-            "fuh_opptaksgrunnlag",  # old_name: realkomp
-            "utd_datakilde",  # old_name: kilde
-            "nudb_dataset_id",
-            "vg_rettstype_inntak",  # old_name: rett
-            # "ftype",
             "utd_viderutd_nettbasert",  # old_name: evufjern
-            "uh_studierett",  # old_name: studrett
+            "fuh_nett_eller_stedbasert",  # old_name: organisering
             "utd_utdanningstype",  # old_name: utd
-            "utd_skolekom",  # old_name: skolekom
-            # "eierf",
-            "uh_institusjon_id",  # old_name: hskode
-            "uh_campus_kommune",  # old_name: campus_kom
-            "uh_campus_sted",  # old_name: campus_sted
-            "uh_hovedaktivitet",
-            "uh_erpermisjon", # old_name: permisjon
+            "vg_rettstype_inntak",  # old_name: rett
+            "uh_studieprogram",
             "uh_studienivaa",  # old_name: studieniva
-            "uh_undervisningsspraak",  # undervisningssprak
-            #"uh_univ_eller_hoegskole",  # Should be derived # old_name: univ
-            #"inr",
+
+            # skole
+            "orgnrbed",
             "orgnr_foretak",  # old_name: orgnr
-            "utd_studieland",  # old_name: studieland
-            #"utd_aktivitet_start_mrk_kilde",  # old_name: mrk_dl - trengs ikke på utdatasett?
-            #"uh_erutland",  # old_name: utland
-            "vg_kursprosent",  # old_name: delpros
-            "vg_antall_aarstimer_elevkurs",  # old_name: aartimer
+            "gro_skolenavn_inn",  # old_name: skolenavn
+            "utd_skolekom",  # old_name: skolekom
+            "uh_institusjon_id",  # old_name: hskode
+
+            # gro
             "gro_elevstatus",  # old_name: elevstatus
             "gro_skolenr_inn",  # old_name: fskolenr
-            "gro_skolenavn_inn",  # old_name: skolenavn
-            # "realkompetansevurdert_dato",  # old_name: dato_dokrealkomp
-            "orgnrbed",
-            #"fa_ergodkjent_fagskoleutd",  # old_name: fagskoleutd  # skal utledes fra nus2000 isteden
+            "gro_programomraade",  # Gamle fkurskod?
+
+            # vg
+            "vg_antall_aarstimer_elevkurs",  # old_name: aartimer
+            "vg_kursprosent",  # old_name: delpros
+            "vg_antall_fag_elevkurs",
+            "vg_kontraktstype",  # old_name: kontraktstype
             "vg_yrkes_og_studiekompetanse",  # old_name: taf
-            "utd_utveksling",  # old_name: utveks
-            "fuh_utvekslingsland",  # old_name: utveksland
-            "uh_studgrunnlagsland",  # old_name: studgrland
-            "uh_utdplan",  # old_name: utdplan
-            # "sn07",
-            "pers_kjoenn",  # old_name: kjoenn
-            "pers_foedselsdato",
-            #"foedselsaar",
-            "uh_utvekslingsavtale",  # old_name: utveksavtale
-            "uh_studieprogresjon_hoest",  # old_name: studieprogresjon_h
-            "uh_statsborgerskap_inn",  # old_name: statb_meldt
-            "fa_hovedaktivitet",
+            "vg_ernylaerling",  # old_name: nylaerl
+            "vg_erhovedaktivitet",
+            "vg_utdprogram",
+
+            # fa
+            "fa_erhovedaktivitet",
             "fa_institusjon_id",
             "fa_studiestednr_inn",
             "fa_utveksl_varighet_dager",
             "fa_tilbudskode",
             "fa_tilbudsnavn",
             "fa_nettbasert_antall_samledager_tilbud",
-            "fuh_nett_eller_stedbasert",  # old_name: organisering
-            #"vg_ervedtak_saer_spraak",  # old_name:   - vedtak om særskilt språkopplæring blir rapportert på ssbResultat, så skal kun på avslutta
-            "vg_kontraktstype",  # old_name: kontraktstype
-            "uh_studieprogram",
 
-            "gro_programomraade",  # Gamle fkurskod?
-            "vg_antall_fag_elevkurs",
-            "vg_hovedaktivitet",
-            "vg_ernylaerling",  # old_name: nylaerl
-            "vg_utdprogram",
+            # fuh
+            "fuh_opptaksgrunnlag",  # old_name: realkomp
 
-    ]
+            # uh
+            "utd_utveksling",  # old_name: utveks
+            "uh_campus_sted",  # old_name: campus_sted
+            "uh_campus_kommune",  # old_name: campus_kom
+            "uh_utvekslingsavtale",  # old_name: utveksavtale
+            "uh_studierett",  # old_name: studrett
+            "uh_programprosent",
+            "uh_erpermisjon",  # old_name: permisjon
+            "uh_studieprogresjon_hoest",  # old_name: studieprogresjon_h
+            "uh_utdplan",  # old_name: utdplan
+            "uh_erhovedaktivitet",
+            "uh_undervisningsspraak",  # undervisningssprak
+
+            # land
+            "utd_studieland",  # old_name: studieland
+            "fuh_utvekslingsland",  # old_name: utveksland
+            "uh_studgrunnlagsland",  # old_name: studgrland
+            "uh_statsborgerskap_inn",  # old_name: statb_meldt
+
+            # ukjent
+            "pers_foedselsdato",
+            "pers_kjoenn",  # old_name: kjoenn
+            "snr_mrk",  # See Jira NUD-482 for decision to include
+        ]
 
     [datasets.igang.dataset_specific_renames]
             ftype = "vg_kontraktstype"
@@ -132,83 +141,52 @@
         bucket = "utdanning"
         path_glob = "nudb-data/klargjorte-data/eksamen/eksamen_p[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]_v*[0-9].parquet"
         variables = [
-            #"utd_hendelse_id",
-            "fnr",
+            # pers
             "snr",  # old_name: snr
-            "snr_mrk",  # See Jira NUD-482 for decision to include
-            #"snr_mrk_freg",
-            "pers_kjoenn",  # old_name: kjoenn
-            "pers_foedselsdato",  # old_name: fodt_dato
-            "nus2000",   # Personvariabler ?
-            # "estart",
-            # "kstart",
-            # "startd",
-            # "mrk_dl",  # Tidsvariabler ?
-            # "kilde",
-            # 'snr_nudb',
-            'utd_datakilde',  # old_name: kilde
+            "fnr",
+
+            # data
+            "utd_datakilde",  # old_name: kilde
             "nudb_dataset_id",
-            'uh_eksamen_studpoeng',  # old_name: studpoeng_eks
-            'uh_eksamen_ergjentak',  # old_name: gjentak
-            'utd_skolekom',  # old_name: skolekom
-            'uh_antall_deleksamener',  # old_name: antall_deleks
-            'uh_antall_deleksamener_bestatt',  # old_name: antall_deleks_bestaatt
-            # 'studieprogresjon',
-            # 'studieprogresjon_h',
-            'uh_termin_rapportert',  # old_name: termrapp
-            'uh_eksamen_karakter',  # old_name: karakter_eks
-            # 'eavsl',
-            'uh_studieprogram',  # old_name: studprog
-            'uh_emnekode',  # old_name: emnekode
-            'uh_studienivaa',  # old_name: studnivaa
-            'uh_studieprogram_navn',  # old_name: studprog_navn
-            'uh_emnenavn',  # old_name: emnekode_navn
-            'uh_fullfoertkode_inn',
-            'uh_campus_kommune',
-            'uh_campus_sted',
-            # 'foedselsdato',
-            # 'start_dato',
-            # 'slutt_dato',
-            # 'start_dato_kilde',
-            # 'slutt_dato_kilde',
-            'uh_eksamen_dato',
-            #'uh_eksamen_dato_inn',
-            #"kilde_dato",
-            'utd_skoleaar_start',  # old_name: skoleaar_start
-            #'utd_skoleaar_slutt',  # Vi trenger kun skoleaar_start # old_name: skoleaar_slutt
+
+            # tid
+            "utd_skoleaar_start",  # old_name: skoleaar_start
+            "uh_eksamen_dato",
+
+            # fag
+            "nus2000",  # Personvariabler ?
+            "utd_viderutd_nettbasert",  # old_name: evufjern
+            "fuh_nett_eller_stedbasert",  # old_name: organisering
             "utd_utdanningstype",  # old_name: utd
-            #"uh_univ_eller_hoegskole", # Should be derived # old_name: univ
-            #"heldel",  # Hvordan kan en eksamen "være heltid"? Mellom 2003 og 2012 så er ALLE eksamener "heltid"...
+            "uh_termin_rapportert",  # old_name: termrapp
+            "uh_studieprogram",  # old_name: studprog
+            "uh_studieprogram_navn",  # old_name: studprog_navn
+            "uh_eksamen_karakter",  # old_name: karakter_eks
+            "uh_emnekode",  # old_name: emnekode
+            "uh_studienivaa",  # old_name: studnivaa
+            "uh_emnenavn",  # old_name: emnekode_navn
+
+            # skole
             "orgnrbed",
             "orgnr_foretak",  # old_name: orgnr
-            # "eierf",
-            # "skolekom",
-            # "rett",
-            "utd_viderutd_nettbasert",  # old_name: evufjern
-            "fuh_nett_eller_stedbasert", # old_name: organisering
+            "utd_skolekom",  # old_name: skolekom
             "uh_institusjon_id",  # old_name: hskode
-            # "utdplan",
+
+            # uh
+            "uh_fullfoertkode_inn",
+            "uh_campus_sted",
+            "uh_campus_kommune",
+            "uh_eksamen_studpoeng",  # old_name: studpoeng_eks
+            "uh_eksamen_ergjentak",  # old_name: gjentak
+            "uh_antall_deleksamener",  # old_name: antall_deleks
+            "uh_antall_deleksamener_bestatt",  # old_name: antall_deleks_bestaatt
             "uh_ereksamenrett",  # old_name: studrett, uh_studierett
-            # "studgrland",
-            # "utland",
-            # "utveks",
-            # "utveksavtale",
-            # "utveksland",
-            # "studieland",
-            # "statb_meldt",  # UH-variabler?
-            # "studieprogresjon_h",
-            # "fagskoleutd",
-            # "taf",
-            # "delpros",
-            # "aartimer",
-            # "elevstatus",
-            # "realkomp",
-            # "dato_dokrealkomp",
-            # "ftype",
-            # "fkurskod",
-            # "kontraktstype", ikke relevant??
-            # "voksen",
-    ]
+
+            # ukjent
+            "pers_foedselsdato",  # old_name: fodt_dato
+            "pers_kjoenn",  # old_name: kjoenn
+            "snr_mrk",  # See Jira NUD-482 for decision to include
+        ]
     [datasets.eksamen.min_values]
         nus2000 = "600000"  # Triple-checked with AM
 
@@ -252,76 +230,91 @@
     bucket = "utdanning"
     path_glob = "nudb-data/klargjorte-data/avslutta/avslutta_p[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]_v*[0-9].parquet"
         variables = [
-            #"utd_hendelse_id",
-            "fnr",
+            # pers
             "snr",  # old_name: snr
-            "snr_mrk",  # See Jira NUD-482 for decision to include
-            "pers_kjoenn",  # old_name: kjoenn
+            "fnr",
+
+            # data
             "utd_datakilde",  # old_name: kilde
             "nudb_dataset_id",
             "utd_fullfoertkode",  # old_name: utfall
-            "vg_fullfoertkode_detaljert",  # old_name: utfallu
-            # "mrk_grskole", Trengs ikke
-            "vg_bevistype",  # old_name: doktype
-            "vg_rettstype_inntak",  # old_name: rett
-            # "realkompetansevurdert_dato", skal ikke være med?
-            "utd_aktivitetsnivaa_heltid_deltid",  # old_name: heldel
-            "utd_klassetrinn",  # old_name: kltrinn2000
+
+            # tid
+            "utd_aktivitet_start",  # old_name: kurs_start
+            "utd_aktivitet_slutt",  # old_name: kurs_slutt
+            "utd_aktivitet_start_inn",  # old_name: kurs_start_orig
+            "utd_aktivitet_slutt_inn",  # old_name: kurs_slutt_orig
+            "utd_skoleaar_start",  # old_name: aargang
+
+            # fag
             "nus2000",
+            "utd_klassetrinn",  # old_name: kltrinn2000
+            "utd_aktivitetsnivaa_heltid_deltid",  # old_name: heldel
             "utd_viderutd_nettbasert",  # old_name: evufjern
             "fuh_nett_eller_stedbasert",  # old_name: organisering
+            "utd_utdanningstype",  # old_name: utd
+            "vg_rettstype_inntak",  # old_name: rett
+            "vg_bevistype",  # old_name: doktype
             "uh_studieprogram",  # old_name: studprog
             "uh_studieprogram_navn",
             "uh_studienivaa",  # old_name: studnivaa
-            "utd_utdanningstype",  # old_name: utd
-            "gr_grunnskolepoeng",  # old_name: grunnskolepoeng
-            #"uh_erutland",  # old_name: utland
-            "utd_studieland",  # old_name: studieland
-            "uh_statsborgerskap_inn",  # old_name: statb_meldt
+
+            # skole
             "orgnrbed",
             "orgnr_foretak",  # old_name: orgnr
             "gro_skolenavn_inn",
             "utd_skolekom",  # old_name: skolekom
-            #"eierf",  # Koble på fra BOF isteden for å ligge på filen
             "uh_institusjon_id",  # old_name: hskode
-            #"uh_univ_eller_hoegskole",  # old_name: univ should be derived instead from
-            "pers_foedselsdato",  # old_name: fodt_dato
-            "utd_aktivitet_slutt_inn",  # old_name: kurs_slutt_orig
-            "utd_aktivitet_start",  # old_name: kurs_start
-            "utd_aktivitet_slutt",  # old_name: kurs_slutt
-            "utd_aktivitet_start_inn",  # old_name: kurs_start_orig
-            "uh_studiepoeng_grad",  # old_name: studpoeng_grad
-            #"uh_studierett",  # fjernes etter samtaler april 2026
-            "uh_fakultet",  # old_name: fakultet
-            "uh_ervitnemaalsgivende",
-            "gro_fravaer_timer",  # old_name: f_timer
-            "gro_fravaer_dager",  # old_name: f_dager
-            # "pedsem", Skal ikke være med fordi den bør utledes fra NUS
-            "vg_proevenr",  # old_name: provnr
-            # "endret_utfall", Hvor kommer den fra? Avslutta?
-            # "mrk_dl_bhu", Kommer fra eldre filer
-            "utd_skoleaar_start",  # old_name: aargang
-            #"utd_skoleaar_slutt", # Vi trenger kun skoleaar_start
-            #"fa_ergodkjent_fagskoleutd",  # old_name: fagskoleutd  # skal utledes fra nus2000 isteden
+
+            # gr
+            "gr_grunnskolepoeng",  # old_name: grunnskolepoeng
+
+            # gro
             "gro_elevstatus",  # old_name: elevstatus
-            "vg_ervedtak_saer_spraak",  # old_name: fkurskod
-            "vg_kursprosent",  # old_name: delpros
-            "gro_programomraade",  # Gamle fkurskod?
-            "vg_karakterpoeng",
-            "vg_proeve_dato",
             "gro_skolenr_inn",  # old_name: fskolenr
+            "gro_fravaer_dager",  # old_name: f_dager
+            "gro_fravaer_timer",  # old_name: f_timer
+            "gro_programomraade",  # Gamle fkurskod?
+
+            # vg
+            "vg_fullfoertkode_detaljert",  # old_name: utfallu
+            "vg_kursprosent",  # old_name: delpros
+            "vg_karakterpoeng",
+            "vg_ervedtak_saer_spraak",  # old_name: fkurskod
+            "vg_proevenr",  # old_name: provnr
+            "vg_proeve_dato",
+            "vg_proevestatus",
+            "vg_resultat_teori",
+            "vg_resultat_praktisk_proeve",
             "vg_proevekandtype",  # old_name: provekandtype
+            "vg_erhovedaktivitet",
             "vg_utdprogram",
-            "uh_campus_kommune",
-            "uh_campus_sted",
-            "uh_hovedaktivitet",
-            "fa_karakter",
+
+            # fa
             "fa_institusjon_id",
+            "fa_karakter",
             "fa_studiestednr_inn",
             "fa_tilbudskode",
             "fa_tilbudsnavn",
             "fa_nettbasert_antall_samledager_tilbud",
-            ]
+
+            # uh
+            "uh_campus_sted",
+            "uh_campus_kommune",
+            "uh_studiepoeng_grad",  # old_name: studpoeng_grad
+            "uh_erhovedaktivitet",
+            "uh_fakultet",  # old_name: fakultet
+            "uh_ervitnemaalsgivende",
+
+            # land
+            "utd_studieland",  # old_name: studieland
+            "uh_statsborgerskap_inn",  # old_name: statb_meldt
+
+            # ukjent
+            "pers_foedselsdato",  # old_name: fodt_dato
+            "pers_kjoenn",  # old_name: kjoenn
+            "snr_mrk",  # See Jira NUD-482 for decision to include
+        ]
         [datasets.avslutta.dataset_specific_renames]
             ftype = "vg_proevekandtype"
             ftypef = "vg_proevekandtype"
@@ -338,21 +331,34 @@
         path_glob = "nudb-data/klargjorte-data/grunnskolekarakterer/grunnskolekarakterer_p[0-9][0-9][0-9][0-9]_p[0-9][0-9][0-9][0-9]_v*[0-9].parquet"
 
         variables = [
-            'fnr',
-            'snr',  # old_name: snr
-            'snr_mrk',  # See Jira NUD-482 for decision to include
-            'utd_skoleaar_start',  # old_name: skoleaar_slutt
-            'orgnr_foretak',  # old_name: orgnr
-            'utd_skolekom',  # old_name: skolekom
+            # pers
+            "snr",  # old_name: snr
+            "fnr",
+
+            # tid
+            "utd_skoleaar_start",  # old_name: skoleaar_slutt
+
+            # skole
+            "orgnr_foretak",  # old_name: orgnr
+            "utd_skolekom",  # old_name: skolekom
+
+            # gr
+            "gr_med_pub_kargs_kar",
+
+            # gro
             "gro_skolenr_inn",
-            'gro_fagkode_vigo',
-            'gro_karakter_standpunkt',
-            'gro_karakter_skriftlig',
-            'gro_karakter_muntlig',
-            'gro_karakter_termin1',
-            'gro_karakter_termin2',
-            'gro_karakter_praktisk_muntlig',
-            "gr_med_pub_kargs_kar"
+            "gro_fagkode_vigo",
+
+            # karakter
+            "gro_karakter_standpunkt",
+            "gro_karakter_skriftlig",
+            "gro_karakter_muntlig",
+            "gro_karakter_termin1",
+            "gro_karakter_termin2",
+            "gro_karakter_praktisk_muntlig",
+
+            # ukjent
+            "snr_mrk",  # See Jira NUD-482 for decision to include
         ]
 
         [datasets.grunnskolekarakterer.thresholds_empty]
