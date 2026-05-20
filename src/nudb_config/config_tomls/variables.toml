@@ -401,9 +401,10 @@ variables_sort_unit = [
         klass_codelist = 768
         renamed_from = ["provekandtype", "vg_provekandtype"]  # Ikke legg til ftype, vi håndtrerer den med overrides
 
-	[variables.vg_hovedaktivitet]
+	[variables.vg_erhovedaktivitet]
         unit = "vg"
-        dtype = "STRING"  # Har lite info om denne! C 2025-10-31
+        dtype = "BOOLEAN"
+		renamed_from = ["vg_hovedaktivitet"]
         klass_codelist = 0 # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar. Merkevariabel
 
 	[variables.vg_utdprogram]  # Kan kanskje kobles på fra nuskatalogen, men vi skal beholde den fra innfilene?
@@ -417,9 +418,10 @@ variables_sort_unit = [
 # "fa" - Fagskoler #
 ####################
 
-	[variables.fa_hovedaktivitet]
+	[variables.fa_erhovedaktivitet]
 		unit = "fa"
-		dtype = "STRING"  # I have no info at current time, so I dont know? C 2025-10-31
+		dtype = "BOOLEAN"
+		renamed_from = ["fa_hovedaktivitet"]
         klass_codelist = 0 # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar. Merkevariabel
 
 	[variables.fa_institusjon_id]
@@ -602,6 +604,12 @@ variables_sort_unit = [
 		renamed_from = ["studrett", "uh_erstudierett"]
 		klass_codelist = 958  # "S"/"1" = Studierett, "P"/"2" = Ikke studirett, "A" = "Annet"
 
+	[variables.uh_programprosent]
+		unit = "uh"
+		dtype = "FLOAT"
+		renamed_from = ["uh_program_heltid_deltid"]
+		description_short = "Beskriver om programmet er heltid eller deltid, eller eventuelt tiltenkt studieprogresjon i forhold til fulltidsprogram på et vanlig studieår."
+
 	[variables.uh_ereksamenrett]
 		unit = "uh"
 		dtype = "BOOLEAN"
@@ -626,10 +634,10 @@ variables_sort_unit = [
 		description_short = "Utdanningsplan"
         renamed_from = ["utdplan"]
 
-    [variables.uh_hovedaktivitet]
+    [variables.uh_erhovedaktivitet]
         unit = "uh"
-        dtype = "STRING"
-        renamed_from = []
+        dtype = "BOOLEAN"
+        renamed_from = ["uh_hovedaktivitet"]
         klass_codelist = 0 # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar. Merkevariabel
 
 
