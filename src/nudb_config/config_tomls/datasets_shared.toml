@@ -82,7 +82,7 @@
             "uh_studgrunnlagsland",  # old_name: studgrland
             "uh_statsborgerskap_inn",  # old_name: statb_meldt
 
-            # ukjent
+            # derived
             "pers_foedselsdato",
             "pers_kjoenn",  # old_name: kjoenn
             "snr_mrk",  # See Jira NUD-482 for decision to include
@@ -182,7 +182,7 @@
             "uh_antall_deleksamener_bestatt",  # old_name: antall_deleks_bestaatt
             "uh_ereksamenrett",  # old_name: studrett, uh_studierett
 
-            # ukjent
+            # derived
             "pers_foedselsdato",  # old_name: fodt_dato
             "pers_kjoenn",  # old_name: kjoenn
             "snr_mrk",  # See Jira NUD-482 for decision to include
@@ -310,7 +310,7 @@
             "utd_studieland",  # old_name: studieland
             "uh_statsborgerskap_inn",  # old_name: statb_meldt
 
-            # ukjent
+            # derived
             "pers_foedselsdato",  # old_name: fodt_dato
             "pers_kjoenn",  # old_name: kjoenn
             "snr_mrk",  # See Jira NUD-482 for decision to include
@@ -357,7 +357,7 @@
             "gro_karakter_termin2",
             "gro_karakter_praktisk_muntlig",
 
-            # ukjent
+            # derived
             "snr_mrk",  # See Jira NUD-482 for decision to include
         ]
 

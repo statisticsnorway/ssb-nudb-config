@@ -607,6 +607,7 @@ variables_sort_unit = [
 	[variables.uh_programprosent]
 		unit = "uh"
 		dtype = "FLOAT"
+		renamed_from = ["uh_program_heltid_deltid"]
 		description_short = "Beskriver om programmet er heltid eller deltid, eller eventuelt tiltenkt studieprogresjon i forhold til fulltidsprogram på et vanlig studieår."
 
 	[variables.uh_ereksamenrett]

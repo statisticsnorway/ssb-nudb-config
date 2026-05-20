@@ -54,7 +54,7 @@
         # uh
         "utd_utveksling",
 
-        # ukjent
+        # derived
         "pers_foedselsdato",
         "pers_kjoenn",
         "snr_mrk",  # We dont demand this delivered, as we will reproduce anyway, but vg has decided to deliver it
@@ -112,7 +112,7 @@
             # land
             "fuh_utvekslingsland",
 
-            # ukjent
+            # derived
             "pers_foedselsdato",
             "pers_kjoenn",
         ]
@@ -177,7 +177,7 @@
             "uh_studgrunnlagsland",
             "uh_statsborgerskap_inn",
 
-            # ukjent
+            # derived
             "pers_foedselsdato",
             "pers_kjoenn",
         ]
@@ -232,7 +232,7 @@
             "gro_fravaer_timer",
             "gro_programomraade",
 
-            # ukjent
+            # derived
             "pers_foedselsdato",
             "pers_kjoenn",
         ]
@@ -299,7 +299,7 @@
             "vg_erhovedaktivitet",
             "vg_utdprogram",
 
-            # ukjent
+            # derived
             "pers_foedselsdato",
             "pers_kjoenn",
             "snr_mrk",  # We dont demand this delivered, as we will reproduce anyway, but vg has decided to deliver it
@@ -346,7 +346,7 @@
             "fa_tilbudsnavn",
             "fa_nettbasert_antall_samledager_tilbud",
 
-            # ukjent
+            # derived
             "pers_foedselsdato",
             "pers_kjoenn",
         ]
@@ -402,7 +402,7 @@
             "utd_studieland",
             "uh_statsborgerskap_inn",
 
-            # ukjent
+            # derived
             "pers_foedselsdato",
             "pers_kjoenn",
         ]
@@ -461,7 +461,7 @@
             "uh_eksamen_ergjentak",
             "uh_ereksamenrett",
 
-            # ukjent
+            # derived
             "pers_foedselsdato",
             "pers_kjoenn",
         ]
