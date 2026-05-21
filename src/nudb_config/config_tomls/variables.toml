@@ -650,7 +650,7 @@ variables_sort_unit = [
     [variables.uh_fakultet]
         unit = "uh"
         dtype = "STRING"
-        length = [2]
+        length = [6]  # Was read in as 2 for many years, but should have been 6 all along?
         renamed_from = ["fakultet"]
 
 	[variables.uh_ervitnemaalsgivende]

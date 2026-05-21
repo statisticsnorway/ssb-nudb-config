@@ -377,7 +377,7 @@
             # fag
             "nus2000",
             "utd_klassetrinn",
-            "utd_aktivitetsnivaa_heltid_deltid",
+            #"utd_aktivitetsnivaa_heltid_deltid",  # Kan ikke leveres nå, kanskje senere? 2026-05-20
             "utd_viderutd_nettbasert",
             "fuh_nett_eller_stedbasert",
             "utd_utdanningstype",
@@ -392,10 +392,10 @@
             "uh_institusjon_id",
 
             # uh
-            "uh_campus_sted",
-            "uh_campus_kommune",
+            #"uh_campus_sted",  # Kan ikke leveres nå, kanskje senere? 2026-05-20
+            #"uh_campus_kommune",  # Kan ikke leveres nå, kanskje senere? 2026-05-20
             "uh_studiepoeng_grad",
-            "uh_fakultet",
+            #"uh_fakultet",  # Kan ikke leveres nå, kanskje senere? 2026-05-20
             "uh_ervitnemaalsgivende",
 
             # land
