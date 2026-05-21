@@ -70,7 +70,7 @@
             "uh_utvekslingsavtale",  # old_name: utveksavtale
             "uh_studierett",  # old_name: studrett
             "uh_programprosent",
-            "uh_erpermisjon",  # old_name: permisjon
+            #"uh_erpermisjon",  # old_name: permisjon  # Temporary decision is that this should be removed before sharing, for now
             "uh_studieprogresjon_hoest",  # old_name: studieprogresjon_h
             "uh_utdplan",  # old_name: utdplan
             "uh_erhovedaktivitet",

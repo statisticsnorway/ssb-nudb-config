@@ -41,10 +41,27 @@ variables_sort_unit = [
 		length = [11]
 		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
 
+#############################
+# Fagvariabler / nuskatalog #
+#############################
+
+	[variables.nus2000]
+		unit = "fag"
+		dtype = "STRING"
+		description_short = "Utdanningsstandard"
+		length = [6]
+		klass_codelist = 36
+
 
 #################
 # Datavariabler #
 #################
+
+	[variables.nudb_dataset_id]
+		unit = "data"
+		dtype = "STRING"
+		description_short = "The path to the source file the record/row is from"
+
 
 	[variables.utd_datakilde]
 		unit = "data"
@@ -53,11 +70,6 @@ variables_sort_unit = [
 		length = [2]
 		klass_codelist = 792
 		renamed_from = ["kilde", "kildebhu"]
-
-	[variables.nudb_dataset_id]
-		unit = "data"
-		dtype = "STRING"
-		description_short = "The path to the source file the record/row is from"
 
 	[variables.utd_fullfoertkode]
 		unit = "data"
@@ -118,17 +130,6 @@ variables_sort_unit = [
         dtype = "DATETIME"
 		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
 
-
-#############################
-# Fagvariabler / nuskatalog #
-#############################
-
-	[variables.nus2000]
-		unit = "fag"
-		dtype = "STRING"
-		description_short = "Utdanningsstandard"
-		length = [6]
-		klass_codelist = 36
 
 ##################
 # Skolevariabler #
@@ -194,14 +195,6 @@ variables_sort_unit = [
 		length = [1]
 		klass_codelist = 794
 		renamed_from = ["evufjern"]
-
-	[variables.fuh_nett_eller_stedbasert]
-		unit = "fag"
-		dtype = "STRING"
-		description_short = "Angir hvordan undervisningen er organisert"
-		length = [1]
-		klass_codelist = 796
-		renamed_from = ["organisering", "utd_nett_eller_stedbasert"]
 
 	[variables.utd_utdanningstype]
 		unit = "fag"
@@ -480,6 +473,22 @@ variables_sort_unit = [
 		renamed_from = ["realkomp", "uh_realkompetanse"]
 		klass_codelist = 957
 
+	[variables.fuh_nett_eller_stedbasert]
+		unit = "fag"
+		dtype = "STRING"
+		description_short = "Angir hvordan undervisningen er organisert"
+		length = [1]
+		klass_codelist = 796
+		renamed_from = ["organisering", "utd_nett_eller_stedbasert"]
+
+	[variables.fuh_utvekslingsland]
+		unit = "land"
+		dtype = "STRING"
+		description_short = "Landkode for hvor utvekslingsstudentene faktisk studerer."
+		length = [3]
+		klass_codelist = 91
+		renamed_from = ["utveksland","uh_utvekslingsland"]
+
 ############################################
 # "uh" - Universitet og Høgskole-Utdanning #
 ############################################
@@ -664,23 +673,6 @@ variables_sort_unit = [
 ########
 
 
-
-	[variables.utd_studieland]
-		unit = "land"
-		dtype = "STRING"
-		description_short = "Landkode for studieland"
-		length = [3]
-		klass_codelist = 91
-		renamed_from = ["studieland", "uh_studieland"]
-
-	[variables.fuh_utvekslingsland]
-		unit = "land"
-		dtype = "STRING"
-		description_short = "Landkode for hvor utvekslingsstudentene faktisk studerer."
-		length = [3]
-		klass_codelist = 91
-		renamed_from = ["utveksland","uh_utvekslingsland"]
-
 	[variables.uh_studgrunnlagsland]
 		unit = "land"
 		dtype = "STRING"
@@ -696,6 +688,15 @@ variables_sort_unit = [
 		length = [3]
 		klass_codelist = 91
 		renamed_from = ["statb_meldt"]
+
+
+	[variables.utd_studieland]
+		unit = "land"
+		dtype = "STRING"
+		description_short = "Landkode for studieland"
+		length = [3]
+		klass_codelist = 91
+		renamed_from = ["studieland", "uh_studieland"]
 
 #################################################
 # Karakterer kodelister ligger i vigo-kodeverk? #
