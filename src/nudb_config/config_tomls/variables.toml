@@ -689,7 +689,7 @@ variables_sort_unit = [
 		klass_codelist = 91
 		renamed_from = ["statb_meldt"]
 
-	
+
 	[variables.utd_studieland]
 		unit = "land"
 		dtype = "STRING"
