@@ -303,7 +303,7 @@
             #"uh_campus_kommune",  # Kan ikke leveres nå, kanskje senere? 2026-05-20
             "uh_studiepoeng_grad",  # old_name: studpoeng_grad
             "uh_erhovedaktivitet",
-            "uh_fakultet",  # old_name: fakultet  # Kan ikke leveres nå fra UH, kanskje senere? Beholdes her fordi den har data fra andre kilder 2026-05-20
+            #"uh_fakultet",  # old_name: fakultet  # Bør være 6 siffer - Kan ikke leveres nå fra UH, kanskje senere? Beholdes her fordi den har data fra andre kilder 2026-05-20
             "uh_ervitnemaalsgivende",
 
             # land
