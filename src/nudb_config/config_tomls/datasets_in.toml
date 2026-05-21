@@ -124,7 +124,7 @@
     [datasets.igang_hoeyereutdanning]
         team = "utd-uhfagskole"
         bucket = "uh"
-        path_glob = "uvh/klargjorte-data/nudb/igang-hoeyereutdanning_p[0-9][0-9][0-9][0-9]_p[0-9][0-9][0-9][0-9]_v*[0-9].parquet"
+        path_glob = "uvh/klargjorte-data/nudb/igang-hoeyereutdanning_p[0-9][0-9][0-9][0-9]_v*[0-9].parquet"
 
         variables = [
             # pers
