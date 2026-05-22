@@ -46,10 +46,11 @@
         "vg_kursprosent",
         "vg_antall_fag_elevkurs",
         "vg_kontraktstype",
-        "vg_yrkes_og_studiekompetanse",
         "vg_ernylaerling",
         "vg_erhovedaktivitet",
         "vg_utdprogram",
+        "vg_yrkes_og_studiekompetanse",
+
 
         # uh
         "utd_utveksling",
@@ -298,6 +299,7 @@
             "vg_proevekandtype",
             "vg_erhovedaktivitet",
             "vg_utdprogram",
+            "vg_yrkes_og_studiekompetanse",  # old_name: taf
 
             # derived
             "pers_foedselsdato",

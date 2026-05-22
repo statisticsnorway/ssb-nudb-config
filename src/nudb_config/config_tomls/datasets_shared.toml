@@ -32,9 +32,9 @@
             # skole
             "orgnrbed",
             "orgnr_foretak",  # old_name: orgnr
-            "gro_skolenavn_inn",  # old_name: skolenavn
             "utd_skolekom",  # old_name: skolekom
             "uh_institusjon_id",  # old_name: hskode
+            "gro_skolenavn_inn",  # old_name: skolenavn
 
             # gro
             "gro_elevstatus",  # old_name: elevstatus
@@ -289,6 +289,7 @@
             "vg_proevekandtype",  # old_name: provekandtype
             "vg_erhovedaktivitet",
             "vg_utdprogram",
+            "vg_yrkes_og_studiekompetanse",  # old_name: taf
 
             # fa
             "fa_institusjon_id",
