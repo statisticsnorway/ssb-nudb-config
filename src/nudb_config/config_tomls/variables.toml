@@ -261,7 +261,7 @@ variables_sort_unit = [
 		unit = "gro"
 		dtype = "STRING"
 		description_short = "Programområdets alfanumeriske kode på 10 posisjoner. Koden er satt sammen av en grunnkode (de 6 første posisjonene) som er gitt av Utdanningsdirektoratet gjennom Grep-basen og kategorier/varianter (de 4 siste posisjonene) som er gitt av VIGO Kodeverksgruppe. De 4 siste posisjonene viser evt. kategorier/varianter til grunnkoden."
-		length = [10]
+		length = [4, 6, 10]
 		renamed_from = ["fkurskod", "vg_programomraade"]
 
 
