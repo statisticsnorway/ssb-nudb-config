@@ -180,6 +180,7 @@
             "uh_eksamen_ergjentak",  # old_name: gjentak
             "uh_antall_deleksamener",  # old_name: antall_deleks
             "uh_antall_deleksamener_bestatt",  # old_name: antall_deleks_bestaatt
+            "uh_programprosent",
             "uh_ereksamenrett",  # old_name: studrett, uh_studierett
 
             # derived

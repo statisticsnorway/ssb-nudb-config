@@ -461,6 +461,7 @@
             "uh_campus_kommune",  # Kommer i 2026?
             "uh_eksamen_studpoeng",
             "uh_eksamen_ergjentak",
+            "uh_programprosent",
             "uh_ereksamenrett",
 
             # derived
