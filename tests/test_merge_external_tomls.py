@@ -46,7 +46,7 @@ def test_content_settings_after_merge_from_tomls(
     assert 11 in combo_settings.variables.fnr.length
     assert "avslutta" in combo_settings.datasets
     assert (
-        "/ssb/stamme03/nudbut/nyeste/"
+        "/ssb/stamme03/nudbut/"
         == combo_settings.paths.on_prem.shared_utdanning_external
     )
 
