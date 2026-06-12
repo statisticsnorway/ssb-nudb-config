@@ -297,7 +297,6 @@
             "vg_resultat_teori",
             "vg_resultat_praktisk_proeve",
             "vg_proevekandtype",
-            "vg_erhovedaktivitet",
             "vg_utdprogram",
             "vg_yrkes_og_studiekompetanse",  # old_name: taf
 
@@ -308,6 +307,7 @@
         ]
         [datasets.avslutta_videregaaende.thresholds_empty]
             fnr = 0.0
+            utd_aktivitet_slutt = 0.0 # should not be allowed
 
     [datasets.avslutta_fagskole]
         team = "utd-uhfagskole"
@@ -355,6 +355,7 @@
 
     [datasets.avslutta_fagskole.thresholds_empty]
             fnr = 0.0
+            utd_aktivitet_slutt = 0.0 # should not be allowed
 
 
     [datasets.avslutta_hoeyereutdanning]
@@ -411,6 +412,7 @@
 
         [datasets.avslutta_hoeyereutdanning.thresholds_empty]
             fnr = 0.0
+            utd_aktivitet_slutt = 0.0 # should not be allowed
 
 
 
