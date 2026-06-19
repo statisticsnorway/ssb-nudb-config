@@ -34,7 +34,7 @@
             "orgnr_foretak",  # old_name: orgnr
             "utd_skolekom",  # old_name: skolekom
             "uh_institusjon_id",  # old_name: hskode
-            "gro_skolenavn_inn",  # old_name: skolenavn
+            #"gro_skolenavn_inn",  # only delivered on avslutta_grunnskole - so we cant expect it on igang?
 
             # gro
             "gro_elevstatus",  # old_name: elevstatus
