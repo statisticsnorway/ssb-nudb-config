@@ -188,6 +188,7 @@
             "pers_kjoenn",  # old_name: kjoenn
             "snr_mrk",  # See Jira NUD-482 for decision to include
         ]
+
     [datasets.eksamen.min_values]
         nus2000 = "600000"  # Triple-checked with AM
 
@@ -224,6 +225,9 @@
             uh_studieprogram_navn = 93.0 # Ny variabel fom 2023, utfylling bør gå opp
             uh_emnenavn = 93.0 # Ny variabel fom 2023, utfylling bør gå opp
 
+    [datasets.eksamen.dataset_specific_renames]
+            studrett = "uh_ereksamenrett"
+            uh_studierett = "uh_ereksamenrett"
 
 
 [datasets.avslutta]
