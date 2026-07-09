@@ -347,14 +347,16 @@ variables_sort_unit = [
         dtype = "STRING"
         #description_short = ""
         #renamed_from = []
-		#klass_codelist =
+		length = [1,2]
+		klass_codelist = 906
 
 	[variables.vg_resultat_praktisk_proeve]
         unit = "vg"
         dtype = "STRING"
         #description_short = ""
         #renamed_from = []
-		#klass_codelist =
+		length = [1,2]
+		klass_codelist = 906
 
 	[variables.vg_yrkes_og_studiekompetanse]
 		unit = "vg"
@@ -613,16 +615,17 @@ variables_sort_unit = [
 		renamed_from = ["studrett", "uh_erstudierett"]
 		klass_codelist = 958  # "S"/"1" = Studierett, "P"/"2" = Ikke studirett, "A" = "Annet"
 
+	[variables.uh_ereksamenrett]
+		unit = "uh"
+		dtype = "BOOLEAN"
+		description_short = "Med har eksamensrett menes at studenten på grunnlag av studie- og undervisningsrett, samt gjeldende lovverk, gis adgang til å fremstille seg til eksamen. Het tidligere studrett på eksamener i Oracle."
+
+
 	[variables.uh_programprosent]
 		unit = "uh"
 		dtype = "FLOAT"
 		renamed_from = ["uh_program_heltid_deltid"]
 		description_short = "Beskriver om programmet er heltid eller deltid, eller eventuelt tiltenkt studieprogresjon i forhold til fulltidsprogram på et vanlig studieår."
-
-	[variables.uh_ereksamenrett]
-		unit = "uh"
-		dtype = "BOOLEAN"
-		description_short = "Med har eksamensrett menes at studenten på grunnlag av studie- og undervisningsrett, samt gjeldende lovverk, gis adgang til å fremstille seg til eksamen."
 
     [variables.uh_erpermisjon]
         unit = "uh"

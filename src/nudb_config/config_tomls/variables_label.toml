@@ -119,6 +119,16 @@
 	dtype = "STRING"
 	derived_from = ["vg_proevestatus"]
 
+[variables.vg_resultat_praktisk_proeve_label]
+	unit = "vg"
+	dtype = "STRING"
+	derived_from = ["vg_resultat_praktisk_proeve"]
+
+[variables.vg_resultat_teori_label]
+	unit = "vg"
+	dtype = "STRING"
+	derived_from = ["vg_resultat_teori"]
+
 [variables.vg_utdprogram_label]
 	unit = "vg"
 	dtype = "STRING"
