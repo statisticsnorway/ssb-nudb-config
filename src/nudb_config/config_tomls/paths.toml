@@ -11,7 +11,7 @@ shared_utdanning_internal = "/buckets/delt-utdanning/nudb-data/"
 
 
 [paths.on_prem]
-shared_utdanning_external = "/ssb/stamme03/nudbut/nyeste/"
+shared_utdanning_external = "/ssb/stamme03/nudbut/"
 
 [paths.url_gcs]
 shared_utdanning_external = "ssb-utd-nudb-data-delt-utdanning-prod/nudb-data/"
