@@ -234,7 +234,7 @@ def _iter_variable_paths(cfg_dir: Path) -> list[Path]:
 def _load_variables(cfg_dir: Path) -> VariablesFile:
     """Load and merge variables, generating derived label entries."""
     merged_variables: DotMapDict[Variable] = DotMapDict(value_type=Variable)
-    variables_sort_unit_list: None | list[str] = None
+    variables_sort_unit_list: list[str] | None = None
     derived_file: VariablesFile | None = None
 
     for path in _iter_variable_paths(cfg_dir):
