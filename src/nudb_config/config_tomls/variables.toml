@@ -104,7 +104,7 @@ variables_sort_unit = [
         unit = "tid"
         dtype = "DATETIME"
         description_short = "Innraportert aktivitetsstart (dato)"
-        renamed_from = ["estart", "kstart", "kurs_start_orig"]
+        renamed_from = ["estart", "kstart", "kurs_start_orig", "startdato"]
 		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
 
 
@@ -112,7 +112,7 @@ variables_sort_unit = [
         unit = "tid"
         dtype = "DATETIME"
         description_short = "Innraportert aktivitetssslutt (dato)"
-        renamed_from = ["eslutt", "eavsl", "kurs_slutt_orig"]
+        renamed_from = ["eslutt", "eavsl", "kurs_slutt_orig", "avbruddsdato"]
 		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
 
 
@@ -140,7 +140,7 @@ variables_sort_unit = [
 		dtype = "STRING"
 		description_short = "Underenhet / Bedriftens organisasjons-ID definert av Brønnøysundregistered og VoF/BoF."
 		length = [9]
-        renamed_from = ["bof_orgnrbed", "bof_orgnr_bed"]
+        renamed_from = ["bof_orgnrbed", "bof_orgnr_bed", "organisasjonsnummer"]
 		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
 
 
@@ -221,7 +221,7 @@ variables_sort_unit = [
         unit = "gr"
         dtype = "FLOAT"
         description_short = "\"Grunnskolepoeng er samlet antall karakterpoeng ved avsluttet grunnskole. Definisjon t.o.m. 2006: Summen av elevens fagkarakterer i 11 fag. Når eleven har både standpunktkarakter og eksamenskarakter, er fagkarakteren gjennomsnittet av disse karakterene. Hvis eleven mangler karakter i noen fag, blir det lagt til poeng for inntil to fag ut fra gjennomsnittskarakteren i de fagene eleven har karakter i."
-        renamed_from = ["grunnskolepoeng"]
+        renamed_from = ["grunnskolepoeng", "karakterpoeng"]
 		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
 
 ####################################
@@ -241,20 +241,20 @@ variables_sort_unit = [
         dtype = "STRING"
         description_short = "Fylkenes skolenummer (VIGO eller Udir). (Ny i NUDB fom. 2026?)"
         length = [5]
-        renamed_from = ["fskolenr"]
+        renamed_from = ["fskolenr", "skolenummer"]
 
 	[variables.gro_fravaer_dager]
         unit = "gro"
         dtype = "INTEGER"
         description_short = "Antall dager med fravær på vitnemålet. Fravær på kompetansebevis/vitnemål er kun utfylt hvis elevstatus <> V"
-        renamed_from = ["f_dager"]
+        renamed_from = ["f_dager", "antall_dager_fravaer_pa_vitnemalet"]
 		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
 
     [variables.gro_fravaer_timer]
         unit = "gro"
         dtype = "INTEGER"
         description_short = "Antall enkelttimer med fravær på vitnemålet. Fravær på kompetansebevis/vitnemål er kun utfylt hvis elevstatus <> V"
-        renamed_from = ["f_timer"]
+        renamed_from = ["f_timer", "antall_enkelttimer_fravaer_pa_vitnemalet"]
 		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
 
     [variables.gro_programomraade]
@@ -262,7 +262,7 @@ variables_sort_unit = [
 		dtype = "STRING"
 		description_short = "Programområdets alfanumeriske kode på 10 posisjoner. Koden er satt sammen av en grunnkode (de 6 første posisjonene) som er gitt av Utdanningsdirektoratet gjennom Grep-basen og kategorier/varianter (de 4 siste posisjonene) som er gitt av VIGO Kodeverksgruppe. De 4 siste posisjonene viser evt. kategorier/varianter til grunnkoden."
 		length = [4, 6, 10]
-		renamed_from = ["fkurskod", "vg_programomraade"]
+		renamed_from = ["fkurskod", "vg_programomraade", "programomradekode"]
 
 
 ################################
