@@ -104,7 +104,7 @@ variables_sort_unit = [
         unit = "tid"
         dtype = "DATETIME"
         description_short = "Innraportert aktivitetsstart (dato)"
-        renamed_from = ["estart", "kstart", "kurs_start_orig", "startdato"]
+        renamed_from = ["estart", "kstart", "kurs_start_orig"]
 		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
 
 
@@ -112,7 +112,7 @@ variables_sort_unit = [
         unit = "tid"
         dtype = "DATETIME"
         description_short = "Innraportert aktivitetssslutt (dato)"
-        renamed_from = ["eslutt", "eavsl", "kurs_slutt_orig", "avbruddsdato"]
+        renamed_from = ["eslutt", "eavsl", "kurs_slutt_orig"]
 		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
 
 
@@ -140,7 +140,7 @@ variables_sort_unit = [
 		dtype = "STRING"
 		description_short = "Underenhet / Bedriftens organisasjons-ID definert av Brønnøysundregistered og VoF/BoF."
 		length = [9]
-        renamed_from = ["bof_orgnrbed", "bof_orgnr_bed", "organisasjonsnummer"]
+        renamed_from = ["bof_orgnrbed", "bof_orgnr_bed"]
 		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
 
 
@@ -221,7 +221,7 @@ variables_sort_unit = [
         unit = "gr"
         dtype = "FLOAT"
         description_short = "\"Grunnskolepoeng er samlet antall karakterpoeng ved avsluttet grunnskole. Definisjon t.o.m. 2006: Summen av elevens fagkarakterer i 11 fag. Når eleven har både standpunktkarakter og eksamenskarakter, er fagkarakteren gjennomsnittet av disse karakterene. Hvis eleven mangler karakter i noen fag, blir det lagt til poeng for inntil to fag ut fra gjennomsnittskarakteren i de fagene eleven har karakter i."
-        renamed_from = ["grunnskolepoeng", "karakterpoeng"]
+        renamed_from = ["grunnskolepoeng"]
 		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
 
 ####################################
