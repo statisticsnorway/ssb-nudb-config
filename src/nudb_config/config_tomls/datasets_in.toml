@@ -237,7 +237,11 @@
             "pers_foedselsdato",
             "pers_kjoenn",
         ]
-
+        [datasets.avslutta_grunnskole.dataset_specific_renames]
+            karakterpoeng = "gr_grunnskolepoeng"
+            startdato = "utd_aktivitet_start_inn"
+            avbruddsdato = "utd_aktivitet_slutt_inn"
+            organisasjonsnummer = "orgnrbed"
         [datasets.avslutta_grunnskole.thresholds_empty]
             fnr = 0.0
 
