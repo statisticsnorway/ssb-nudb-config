@@ -1,5 +1,3 @@
-
-
 [variables.snr_mrk]
 	unit = "pers"
 	dtype = "BOOLEAN"
@@ -25,6 +23,13 @@
     dtype = "BOOLEAN"
     renamed_from = ["utland", "uh_utland", "uh_erutland"]
     derived_from = ["utd_skolekom"]  # skolekom = 2580/2599
+
+
+[variables.utd_hendelse_id]
+    unit = "enhet"
+    dtype = "STRING"  # for now we keep this as a string, but we should perhaps consider using a 256 integer (for performance in joins), that would require a new dtype though (INTEGER is 64bit)
+	klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
+	derived_from = ["nudb_dataset_id"]
 
 
 ####################################################
