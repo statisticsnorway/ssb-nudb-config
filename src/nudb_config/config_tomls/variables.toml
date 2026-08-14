@@ -716,19 +716,22 @@ variables_sort_unit = [
         unit = "karakter"
         dtype = "STRING"
         length = [1, 2]
-		renamed_from = ["stp"]
+        klass_codelist = 782
+		renamed_from = ["stp", "karakter_standpunkt"]
 
     [variables.gro_karakter_skriftlig]
         unit = "karakter"
         dtype = "STRING"
         length = [1, 2]
-		renamed_from = ["skr"]
+        klass_codelist = 782
+		renamed_from = ["skr", "karakter_skriftlig_eksamen"]
 
     [variables.gro_karakter_muntlig]
         unit = "karakter"
         dtype = "STRING"
         length = [1, 2]
-		renamed_from = ["mun"]
+        klass_codelist = 782
+		renamed_from = ["mun", "karakter_muntlig_eksamen"]
 
     [variables.annen]
         unit = "karakter"
@@ -741,20 +744,49 @@ variables_sort_unit = [
         unit = "karakter"
         dtype = "STRING"
         length = [1, 2]
-		renamed_from = ["termin1"]
+        klass_codelist = 782
+		renamed_from = ["termin1", "karakter_halvarsvurdering_1"]
 
     [variables.gro_karakter_termin2]
         unit = "karakter"
         dtype = "STRING"
         length = [1, 2]
-		renamed_from = ["termin2"]
+        klass_codelist = 782
+		renamed_from = ["termin2", "karakter_halvarsvurdering_2"]
 
     [variables.gro_karakter_praktisk_muntlig]
         unit = "karakter"
         dtype = "STRING"
         length = [1, 2]
-		renamed_from = ["kar_annen"]
+        klass_codelist = 782
+		renamed_from = ["kar_annen", "karakter_annen_eksamen"]
 
+    [variables.gro_fagstatus]
+        unit = "karakter"
+        dtype = "STRING"
+        length = [1]
+        klass_codelist = 766
+		renamed_from = ["fagstatus"]
+
+    [variables.gro_karakterstatus]
+        unit = "karakter"
+        dtype = "STRING"
+        length = [1]
+        klass_codelist = 783
+		renamed_from = ["karakterstatus"]
+    
+    [variables.gro_fagmerknad]
+        unit = "karakter"
+        dtype = "STRING"
+        length = [5]
+		renamed_from = ["fagmerknad_kode"]
+
+    [variables.gro_erfagikursprosent]
+        unit = "karakter"
+        dtype = "BOOLEAN"
+        length = [1]
+		renamed_from = ["er_linja_aktiv"]
+    
 
 ##############################
 # Populasjonsfiltervariabler #
