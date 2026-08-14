@@ -81,6 +81,49 @@
 	dtype = "STRING"
 	derived_from = ["gro_elevstatus"]
 
+
+[variables.gro_karakter_standpunkt_label]
+	unit = "gro"
+	dtype = "STRING"
+	derived_from = ["gro_karakter_standpunkt"]
+
+[variables.gro_karakter_skriftlig_label]
+	unit = "gro"
+	dtype = "STRING"
+	derived_from = ["gro_karakter_skriftlig"]
+
+[variables.gro_karakter_muntlig_label]
+	unit = "gro"
+	dtype = "STRING"
+	derived_from = ["gro_karakter_muntlig"]
+
+[variables.gro_karakter_termin1_label]
+	unit = "gro"
+	dtype = "STRING"
+	derived_from = ["gro_karakter_termin1"]
+
+[variables.gro_karakter_termin2_label]
+	unit = "gro"
+	dtype = "STRING"
+	derived_from = ["gro_karakter_termin2"]
+
+[variables.gro_karakter_praktisk_muntlig_label]
+	unit = "gro"
+	dtype = "STRING"
+	derived_from = ["gro_karakter_praktisk_muntlig"]
+
+
+[variables.gro_fagstatus_label]
+	unit = "gro"
+	dtype = "STRING"
+	derived_from = ["gro_fagstatus"]
+
+[variables.gro_karakterstatus_label]
+	unit = "gro"
+	dtype = "STRING"
+	derived_from = ["gro_karakterstatus"]
+
+
 ################################
 # "vg" - Videregåendeutdanning #
 ################################

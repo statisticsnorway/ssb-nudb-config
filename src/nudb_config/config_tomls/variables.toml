@@ -774,7 +774,7 @@ variables_sort_unit = [
         length = [1]
         klass_codelist = 783
 		renamed_from = ["karakterstatus"]
-    
+
     [variables.gro_fagmerknad]
         unit = "karakter"
         dtype = "STRING"
@@ -786,7 +786,7 @@ variables_sort_unit = [
         dtype = "BOOLEAN"
         length = [1]
 		renamed_from = ["er_linja_aktiv"]
-    
+
 
 ##############################
 # Populasjonsfiltervariabler #
