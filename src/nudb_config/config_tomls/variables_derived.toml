@@ -128,6 +128,8 @@
     dtype = "STRING"
     length = [2]
     derived_from = ["utd_klassetrinn_lav_hoey_nus"]
+
+
 [variables.utd_klassetrinn_hoey_nus]
     unit = "utd"
     dtype = "STRING"
@@ -156,6 +158,7 @@
     unit = "utd"
     dtype = "STRING"
     length = [1]
+    renamed_from = ["kodetype"]
     klass_codelist = 36
     klass_variant_search_term = "Kodetype"
     derived_from = ["nus2000"]
