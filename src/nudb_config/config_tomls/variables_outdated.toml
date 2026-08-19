@@ -123,6 +123,11 @@
 		dtype = "BOOLEAN"
 		outdated_comment = "Brukes kun for aldersavgrensning, alder bør regnes fra beviss refdato."
 
+	[variables.voksendato]
+        unit = "utdatert" # Microdata
+        dtype = "STRING"
+		outdated_comment = ""
+
 	[variables.sn72]
 		unit = "utdatert"
 		dtype = "STRING"
@@ -286,3 +291,97 @@
         unit = "utdatert"
         dtype = "STRING"
 		outdated_comment = "“Har fått endret utfallskode på avsluttadataene” - Tomt i alle årganger? Variabel benyttet under bygging av Avslutta? Bør ikke ligge i endelig fil"
+
+
+######### Microdata Variabler #########
+# Variabler som vi har levert til Microdata. 
+# 
+	[variables.regdato]
+        unit = "utdatert" # Microdata
+        dtype = "STRING"
+		outdated_comment = ""
+
+	[variables.tilgdato]
+        unit = "utdatert" # Microdata
+        dtype = "STRING"
+		outdated_comment = ""
+	
+	[variables.avgdato]
+        unit = "utdatert" # Microdata
+        dtype = "STRING"
+		outdated_comment = ""
+
+	[variables.tomdato]
+        unit = "utdatert" # Microdata
+        dtype = "STRING"
+		outdated_comment = ""
+
+	[variables.regtom]
+        unit = "utdatert" # Microdata
+        dtype = "STRING"
+		outdated_comment = ""
+
+	[variables.kode]
+        unit = "utdatert" # Microdata
+        dtype = "STRING"
+		outdated_comment = ""
+
+	[variables.hoved]
+        unit = "utdatert" # Microdata
+        dtype = "STRING"
+		outdated_comment = ""
+
+	[variables.kommnrdato]
+        unit = "utdatert" # Microdata
+        dtype = "STRING"
+		outdated_comment = ""
+
+	[variables.bu_kltrinn]
+        unit = "utdatert" # Microdata
+        dtype = "STRING"
+		outdated_comment = ""
+
+	[variables.bu_kltrinndato]
+        unit = "utdatert" # Microdata
+        dtype = "STRING"
+		outdated_comment = ""
+
+	[variables.bu_regdato]
+        unit = "utdatert" # Microdata
+        dtype = "STRING"
+		outdated_comment = ""
+
+	[variables.bu_loepenr_kurs]
+        unit = "utdatert" # Microdata
+        dtype = "STRING"
+		outdated_comment = ""
+
+	[variables.mrk_bu_grskole]
+        unit = "utdatert" # Microdata
+        dtype = "STRING"
+		outdated_comment = ""
+
+	[variables.gydlig_tv_fom]
+        unit = "utdatert" # Microdata
+        dtype = "STRING"
+		outdated_comment = ""
+
+	[variables.utd_dato]
+        unit = "utdatert" # Microdata
+        dtype = "STRING"
+		outdated_comment = ""
+
+	[variables.kltrinn2000dato]
+        unit = "utdatert" # Microdata
+        dtype = "STRING"
+		outdated_comment = ""
+
+	[variables.heldeldato]
+        unit = "utdatert" # Microdata
+        dtype = "STRING"
+		outdated_comment = ""
+
+	[variables.kildedato]
+        unit = "utdatert" # Microdata
+        dtype = "STRING"
+		outdated_comment = ""
