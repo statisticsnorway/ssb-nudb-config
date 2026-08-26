@@ -213,6 +213,12 @@ variables_sort_unit = [
 		klass_codelist = 791
 		renamed_from = ["utveks"]
 
+    [variables.utd_hendelse_id]
+        unit = "enhet"
+        dtype = "INTEGER"  # for now we keep this as a string, but we should perhaps consider using a 256 integer (for performance in joins), that would require a new dtype though (INTEGER is 64bit)
+    	klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
+        description_short = "En unik ID for hver rad (hendelse). IDen er unik på tvers av datasett og versjoner av datasett."
+
 #####################
 # "gr" - Grunnskole #
 #####################
