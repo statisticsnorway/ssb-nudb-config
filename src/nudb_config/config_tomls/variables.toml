@@ -215,7 +215,7 @@ variables_sort_unit = [
 
     [variables.utd_hendelse_id]
         unit = "enhet"
-        dtype = "UINTEGER"  # for now we keep this as a string, but we should perhaps consider using a 256 integer (for performance in joins), that would require a new dtype though (INTEGER is 64bit)
+        dtype = "UINTEGER"  # UInt64, atm it should be safe to convert the number to Int64 as well, but it's right on the edge of overflowing
     	klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
         description_short = "En unik ID for hver rad (hendelse). IDen er unik på tvers av datasett og versjoner av datasett."
 
