@@ -1,0 +1,151 @@
+[variables]
+
+###################
+# BASE RAW VARIABLES FOR NASJPROV
+###################
+
+	[variables.skalapoeng]
+		unit = "karakter"
+		dtype = "STRING"
+		description_short = "Base variable skalapoeng from NASJPROV"
+
+	[variables.provekode]
+		unit = "fag"
+		dtype = "STRING"
+		description_short = "Base variable provekode from NASJPROV"
+
+	[variables.mestringsnivaa]
+		unit = "karakter"
+		dtype = "STRING"
+		description_short = "Base variable mestringsnivaa from NASJPROV"
+
+	[variables.avgiverskole_orgnrbed]
+		unit = "skole"
+		dtype = "STRING"
+		description_short = "Base variable avgiverskole_orgnrbed from NASJPROV"
+
+	[variables.avgiverskole_orgnr_foretak]
+		unit = "skole"
+		dtype = "STRING"
+		description_short = "Base variable avgiverskole_orgnr_foretak from NASJPROV"
+
+	[variables.deltattstatus]
+		unit = "pers"
+		dtype = "STRING"
+		description_short = "Base variable deltattstatus from NASJPROV"
+
+
+###################
+# MICRODATA TEMPORAL FRAGMENTS
+###################
+
+	[variables.gyldig_fra_dato]
+		unit = "tid"
+		dtype = "DATETIME"
+		description_short = "Gyldig fra dato for microdata event"
+
+	[variables.gyltid_til_dato]
+		unit = "tid"
+		dtype = "DATETIME"
+		description_short = "Gyldig til dato for microdata event"
+
+
+###################
+# IGANG #
+###################
+
+	[variables.nudb_igang_utd_skolekom]
+		unit = "skole"
+		dtype = "STRING"
+		description_short = "utd_skolekom from IGANG. Also in AVSLUTTA and IGANG"
+		derived_from = ["utd_skolekom"]
+		derived_uses_datasets = ["igang"]
+
+###################
+# AVSLUTTA #
+###################
+
+	[variables.nudb_avslutta_utd_skolekom]
+		unit = "skole"
+		dtype = "STRING"
+		description_short = "utd_skolekom from AVSLUTTA. Also in IGANG and EKSAMEN"
+		derived_from = ["utd_skolekom"]
+		derived_uses_datasets = ["avslutta"]
+
+###################
+# EKSAMEN #
+###################		
+
+	[variables.nudb_eksamen_utd_skolekom]
+		unit = "skole"
+		dtype = "STRING"
+		description_short = "utd_skolekom from EKSAMEN. Also in IGANG and AVSLUTTA"
+		derived_from = ["utd_skolekom"]
+		derived_uses_datasets = ["eksamen"]
+
+###################
+# NASJONALE PROVER #
+###################
+
+	[variables.np_utd_skoleaar_start] 
+		unit = "tid"
+		dtype = "STRING"
+		description_short = "utd_skoleaar_start from NASJPROV"
+		derived_from = ["utd_skoleaar_start"]
+		derived_uses_datasets = ["nasjprov"]
+
+	[variables.np_utd_skolekom] 
+		unit = "skole"
+		dtype = "STRING"
+		description_short = "utd_skolekom from NASJPROV"
+		derived_from = ["utd_skolekom"]
+		derived_uses_datasets = ["nasjprov"]
+
+	[variables.np_orgnrbed] 
+		unit = "skole"
+		dtype = "STRING"
+		description_short = "orgnrbed from NASJPROV"
+		derived_from = ["orgnrbed"]
+		derived_uses_datasets = ["nasjprov"]
+
+	[variables.np_orgnr_foretak] 
+		unit = "skole"
+		dtype = "STRING"
+		description_short = "orgnr_foretak from NASJPROV"
+		derived_from = ["orgnr_foretak"]
+		derived_uses_datasets = ["nasjprov"]
+
+	[variables.np_avgiverskole_orgnrbed] 
+		unit = "skole"
+		dtype = "STRING"
+		description_short = "avgiverskole_orgnrbed from NASJPROV"
+		derived_from = ["avgiverskole_orgnrbed"]
+		derived_uses_datasets = ["nasjprov"]
+
+	[variables.np_avgiverskole_orgnr_foretak] 
+		unit = "skole"
+		dtype = "STRING"
+		description_short = "avgiverskole_orgnr_foretak from NASJPROV"
+		derived_from = ["avgiverskole_orgnr_foretak"]
+		derived_uses_datasets = ["nasjprov"]
+
+	[variables.np_deltattstatus] 
+		unit = "pers"
+		dtype = "STRING"
+		description_short = "deltattstatus from NASJPROV"
+		derived_from = ["deltattstatus"]
+		derived_uses_datasets = ["nasjprov"]
+
+	[variables.np_skalapoeng_npeng05]
+		unit = "karakter"
+		dtype = "STRING"
+		description_short = "skalapoeng for proven NPENG05"
+		derived_from = ["skalapoeng", "provekode"]
+		derived_uses_datasets = ["nasjprov"]
+
+	[variables.np_mestringsnivaa_npeng05]
+		unit = "karakter"
+		dtype = "STRING"
+		description_short = "mestringsnivaa for proven NPENG05"
+		derived_from = ["mestringsnivaa", "provekode"]
+		derived_uses_datasets = ["nasjprov"]
