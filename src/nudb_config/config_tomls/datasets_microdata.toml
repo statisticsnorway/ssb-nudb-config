@@ -1,5 +1,55 @@
 [datasets]
 
+    [datasets._microdata_personvariabler]
+    team = ""
+    bucket = ""
+    path_glob = ""
+    variables = [
+        "sosbak",
+        "nus2000_far_16",
+        "nus2000_mor_16",
+        "komm_16",
+        "aar_forste_fullf_gs",
+        "aar_forste_fullf_vs",
+        "aar_forste_fullf_vs_lov",
+        "aar_forste_fullf_vsa",
+        "aar_forste_fullf_vsa_lov",
+        "aar_forste_fullf_vsy",
+        "aar_forste_fullf_vsy_lov",
+        "aar_forste_fullf_hoy",
+        "aar_forste_fullf_cmg",
+        "aar_forste_fullf_bach",
+        "aar_forste_fullf_hov",
+        "aar_forste_fullf_dok",
+        "semester_fff_vs",
+        "semester_fff_vs_lov",
+        "semester_fff_vsa",
+        "semester_fff_vsa_lov",
+        "semester_fff_vsy",
+        "semester_fff_vsy_lov",
+        "semester_fff_hoy",
+        "semester_fff_bach",
+        "semester_fff_cmg",
+        "semester_fff_hov",
+        "semester_fff_dok",
+        "semester_tot_fff_vs",
+        "semester_tot_fff_vs_lov",
+        "semester_tot_fff_vsa",
+        "semester_tot_fff_vsa_lov",
+        "semester_tot_fff_vsy",
+        "semester_tot_fff_vsy_lov",
+        "semester_tot_fff_bach",
+        "semester_tot_fff_hoy",
+        "semester_tot_fff_cmg",
+        "semester_tot_fff_hov",
+        "semester_tot_fff_dok",
+        "aar_ny_i_vid_utd",
+        "aar_ny_i_vid_utd_lov",
+        "aar_forste_reg_uh",
+        "aar_forste_reg_hov",
+        "alder_forste_reg_uh",
+    ]
+
     [datasets._microdata_utd_hoeyeste_nus2000] # eksempel
     team = "utd-nudb"
     bucket = "utdanning"
@@ -43,16 +93,16 @@
 
     [datasets._microdata_grunnskole_karakterer]
     team = "utd-bhgskole"
-    bucket = "delt-kargrs"
-    path_glob = "/kargrs/klargjorte-data/klargjort_karakter_p[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]_v*[0-9].parquet"
+    bucket = "kargrs"
+    path_glob = "kargrs/klargjorte-data/klargjort_karakter_p[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]_v*[0-9].parquet"
     variables = [
     
     ]
 
     [datasets._microdata_nasjprov]
     team = "utd-bhgskole"
-    bucket = "delt-nasjprov"
-    path_glob = "/nasjprov/klargjorte-data/nasjonaleprover_p[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]_v*[0-9].parquet"
+    bucket = "nasjprov"
+    path_glob = "nasjprov/klargjorte-data/nasjonaleprover_*.parquet"
     variables = [
         "np_utd_skoleaar_start",
         "np_orgnrbed",
