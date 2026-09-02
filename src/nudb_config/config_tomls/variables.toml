@@ -213,6 +213,12 @@ variables_sort_unit = [
 		klass_codelist = 791
 		renamed_from = ["utveks"]
 
+    [variables.utd_hendelse_id]
+        unit = "enhet"
+        dtype = "UINTEGER"  # UInt64, atm it should be safe to convert the number to Int64 as well, but it's right on the edge of overflowing
+    	klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
+        description_short = "En unik ID for hver rad (hendelse). IDen er unik på tvers av datasett og versjoner av datasett."
+
 #####################
 # "gr" - Grunnskole #
 #####################
