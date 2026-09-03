@@ -1,14 +1,53 @@
 [datasets]
 
-    [datasets._microdata_utd_hoeyeste_nus2000] # eksempel
-    team = "utd-nudb"
-    bucket = "utdanning"
-    path_glob = "nudb-data/klargjorte-data/microdata/utd_hoeyeste_nus2000_p[0-9][0-9][0-9][0-9]_v*[0-9].parquet"
+    [datasets._microdata_personvariabler]
+    team = ""
+    bucket = ""
+    path_glob = ""
     variables = [
-        "snr",
-        "utd_hoeyeste_nus2000",
-        "gyldig_fra_dato",
-        "gyltid_til_dato",
+        "sosbak",
+        "nus2000_far_16",
+        "nus2000_mor_16",
+        "komm_16",
+        "aar_forste_fullf_gs",
+        "aar_forste_fullf_vs",
+        "aar_forste_fullf_vs_lov",
+        "aar_forste_fullf_vsa",
+        "aar_forste_fullf_vsa_lov",
+        "aar_forste_fullf_vsy",
+        "aar_forste_fullf_vsy_lov",
+        "aar_forste_fullf_hoy",
+        "aar_forste_fullf_cmg",
+        "aar_forste_fullf_bach",
+        "aar_forste_fullf_hov",
+        "aar_forste_fullf_dok",
+        "semester_fff_vs",
+        "semester_fff_vs_lov",
+        "semester_fff_vsa",
+        "semester_fff_vsa_lov",
+        "semester_fff_vsy",
+        "semester_fff_vsy_lov",
+        "semester_fff_hoy",
+        "semester_fff_bach",
+        "semester_fff_cmg",
+        "semester_fff_hov",
+        "semester_fff_dok",
+        "semester_tot_fff_vs",
+        "semester_tot_fff_vs_lov",
+        "semester_tot_fff_vsa",
+        "semester_tot_fff_vsa_lov",
+        "semester_tot_fff_vsy",
+        "semester_tot_fff_vsy_lov",
+        "semester_tot_fff_bach",
+        "semester_tot_fff_hoy",
+        "semester_tot_fff_cmg",
+        "semester_tot_fff_hov",
+        "semester_tot_fff_dok",
+        "aar_ny_i_vid_utd",
+        "aar_ny_i_vid_utd_lov",
+        "aar_forste_reg_uh",
+        "aar_forste_reg_hov",
+        "alder_forste_reg_uh",
     ]
 
     [datasets._microdata_igang]
@@ -18,7 +57,7 @@
     variables = [
         "snr",
         "fnr",
-        "nudb_igang_utd_skolekom",
+        "nudb_igang_utd_skolekom", # Er knyttet til der de var igang, men finnes det en bedre måte å knytte dette på?
     ]
 
     [datasets._microdata_avslutta]
@@ -28,7 +67,7 @@
     variables = [
         "snr",
         "fnr",
-        "nudb_avslutta_utd_skolekom",
+        "nudb_avslutta_utd_skolekom", # Er knyttet til der de avsluttet, men finnes det en bedre måte å knytte dette på?
     ]
 
     [datasets._microdata_eksamen]
@@ -38,21 +77,29 @@
     variables = [
         "snr",
         "fnr",
-        "nudb_eksamen_utd_skolekom",
+        "nudb_eksamen_utd_skolekom", # Er knyttet til der de de avla eksamen, men finnes det en bedre måte å knytte dette på?
     ]
 
     [datasets._microdata_grunnskole_karakterer]
     team = "utd-bhgskole"
-    bucket = "delt-kargrs"
-    path_glob = "/kargrs/klargjorte-data/klargjort_karakter_p[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]_v*[0-9].parquet"
+    bucket = "kargrs"
+    path_glob = "kargrs/klargjorte-data/klargjort_karakter_p[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]_v*[0-9].parquet"
     variables = [
+        "grsk_utd_skolekom",
+        "grsk_gro_fagkode_vigo",
+        "grsk_gro_karakter_termin1",
+        "grsk_gro_karakter_termin2",
+        "grsk_gro_karakter_standpunkt",     # På samme måte som for nasjonale prover, har disse tidligere blitt levert pr variabel. 
+        "grsk_gro_karakter_skriftlig",      # Dette er ikke ønskelig siden det blir så veldig mange variabler. 
+        "grsk_gro_karakter_muntlig",        # En ny statistisk enhet skal heller utvikles for dette. 
+        "grsk_utd_aktivitet_slutt" # ??? Se hva den heter i kargs
     
     ]
 
     [datasets._microdata_nasjprov]
     team = "utd-bhgskole"
-    bucket = "delt-nasjprov"
-    path_glob = "/nasjprov/klargjorte-data/nasjonaleprover_p[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]_v*[0-9].parquet"
+    bucket = "nasjprov"
+    path_glob = "nasjprov/klargjorte-data/nasjonaleprover_p[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]_v*[0-9].parquet"
     variables = [
         "np_utd_skoleaar_start",
         "np_orgnrbed",
@@ -61,8 +108,8 @@
         "np_avgiverskole_orgnr_foretak",
         "np_utd_skolekom",
         "np_deltattstatus",
-        "np_skalapoeng_npeng05",
-        "np_mestringsnivaa_npeng05",
+        "np_skalapoeng_npeng05", # Eksempel. I dette formatet blir det en variabel pr provekode.
+        "np_mestringsnivaa_npeng05", # For nasjprov blir det ikke SÅ mange variabler. Men bør egentlig følge samme struktur som vi gir til grunnskolekarakterer og vgu, så et ikke blir så mange variabler.
     ]
 
     [datasets._microdata_videregaaende_karakterer]

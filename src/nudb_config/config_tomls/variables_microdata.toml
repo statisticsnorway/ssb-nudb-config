@@ -1,3 +1,7 @@
+variables_sort_unit = [
+    "pers", # Personvariabler
+]
+
 [variables]
 
 ###################
@@ -149,3 +153,57 @@
 		description_short = "mestringsnivaa for proven NPENG05"
 		derived_from = ["mestringsnivaa", "provekode"]
 		derived_uses_datasets = ["nasjprov"]
+
+#########################
+# GRUNNSKOLE KARAKTERER #
+#########################
+
+	[variables.grsk_utd_skolekom]
+		unit = ""
+		dtype = ""
+		description_short = ""
+		derived_from = ""
+		derived_uses_datasets = ["kargrs"]
+
+	[variables.grsk_gro_fagkode_vigo]
+		unit = "gro"
+		dtype = "STRING"
+		description_short = "Vigo fagkode from kargrs"
+		derived_from = "gro_fagkode_vigo"
+		derived_uses_datasets = ["kargrs"]
+
+	
+	[variables.grsk_gro_karakter_termin1]
+		unit = "gro"
+		dtype = "STRING"
+		description_short = ""
+		derived_from = "gro_karakter_termin1"
+		derived_uses_datasets = ["kargrs"]
+	
+	[variables.grsk_gro_karakter_termin2]
+		unit = "gro"
+		dtype = "STRING"
+		description_short = ""
+		derived_from = "gro_karakter_termin2" 
+		derived_uses_datasets = ["kargrs"]
+
+	[variables.grsk_gro_karakter_standpunkt]
+		unit = "gro"
+		dtype = "STRING"
+		description_short = ""
+		derived_from = "gro_karakter_standpunkt" 
+		derived_uses_datasets = ["kargrs"]
+
+	[variables.grsk_gro_karakter_skriftlig]
+		unit = "gro"
+		dtype = "STRING"
+		description_short = ""
+		derived_from = "gro_karakter_skriftlig" 
+		derived_uses_datasets = ["kargrs"]
+
+	[variables.grsk_gro_karakter_muntlig]
+		unit = "gro"
+		dtype = "STRING"
+		description_short = ""
+		derived_from = "gro_karakter_muntlig" 
+		derived_uses_datasets = ["kargrs"]
