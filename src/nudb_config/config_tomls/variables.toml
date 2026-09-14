@@ -170,6 +170,7 @@ variables_sort_unit = [
         klass_codelist_from_date = "1960-01-01"
         renamed_from = ["skolekom"]
 
+
 ############################
 # "utd" - Alle utdanninger #
 ############################

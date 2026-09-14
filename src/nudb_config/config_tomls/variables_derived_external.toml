@@ -180,3 +180,13 @@
    renamed_from = ["eierf"]
    derived_uses_datasets = ["_bof_eierforhold"]
    description_short = "Utledet eierforhold for en organisasjon (statlig, kommunalt, privat etc.), basert på en mapping av sektorkoder fra BOF-uttak."
+
+[variables.bof_primaernaering_sn25]
+	unit = "bof"
+	dtype = "STRING"
+    derived_from = ["orgnrbed"]
+	description_short = "Primærnæringskode til virksomheten, sn25"
+	length = [6]
+    derived_uses_datasets = ["bof_situttak"]
+    renamed_from = ["sn2025_1"]
+    klass_codelist = 6
