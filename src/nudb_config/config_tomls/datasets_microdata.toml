@@ -83,14 +83,14 @@
     [datasets._microdata_grunnskole_karakterer]
     team = "utd-bhgskole"
     bucket = "kargrs"
-    path_glob = "kargrs/klargjorte-data/grunnskolekarakterer_p[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]_v*[0-9].parquet"
+    path_glob = "kargrs/klargjorte-data/grunnskolekarakterer_p[0-9][0-9][0-9][0-9]_p[0-9][0-9][0-9][0-9]_v*[0-9].parquet"
     variables = [
         "fnr",
         "snr",
         "utd_orgnr", # fagvurdering_gs_skole
         "gro_fagkode_vigo", # fagvurdering_gs_fagkode
-        "termin1", # grsk_gro_karakter_termin1
-        "termin2", # grsk_gro_karakter_termin2
+        "gro_karakter_termin1", # grsk_gro_karakter_termin1
+        "gro_karakter_termin2", # grsk_gro_karakter_termin2
         "gro_karakter_standpunkt", # grsk_gro_karakter_standpunkt
         "gro_karakter_skriftlig",  # grsk_gro_karakter_skriftlig
         "gro_karakter_muntlig",  # grsk_gro_karakter_muntlig

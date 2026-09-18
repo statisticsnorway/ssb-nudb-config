@@ -8,35 +8,35 @@ variables_sort_unit = [
 # BASE RAW VARIABLES FOR NASJPROV
 ###################
 
-	[variables.skalapoeng]
-		unit = "karakter"
-		dtype = "STRING"
-		description_short = "Base variable skalapoeng from NASJPROV"
-
-	[variables.provekode]
-		unit = "fag"
-		dtype = "STRING"
-		description_short = "Base variable provekode from NASJPROV"
-
-	[variables.mestringsnivaa]
-		unit = "karakter"
-		dtype = "STRING"
-		description_short = "Base variable mestringsnivaa from NASJPROV"
-
-	[variables.avgiverskole_orgnrbed]
-		unit = "skole"
-		dtype = "STRING"
-		description_short = "Base variable avgiverskole_orgnrbed from NASJPROV"
-
-	[variables.avgiverskole_orgnr_foretak]
-		unit = "skole"
-		dtype = "STRING"
-		description_short = "Base variable avgiverskole_orgnr_foretak from NASJPROV"
-
-	[variables.deltattstatus]
-		unit = "pers"
-		dtype = "STRING"
-		description_short = "Base variable deltattstatus from NASJPROV"
+#	[variables.skalapoeng]
+#		unit = "karakter"
+#		dtype = "STRING"
+#		description_short = "Base variable skalapoeng from NASJPROV"
+#
+#	[variables.provekode]
+#		unit = "fag"
+#		dtype = "STRING"
+#		description_short = "Base variable provekode from NASJPROV"
+#
+#	[variables.mestringsnivaa]
+#		unit = "karakter"
+#		dtype = "STRING"
+#		description_short = "Base variable mestringsnivaa from NASJPROV"
+#
+#	[variables.avgiverskole_orgnrbed]
+#		unit = "skole"
+#		dtype = "STRING"
+#		description_short = "Base variable avgiverskole_orgnrbed from NASJPROV"
+#
+#	[variables.avgiverskole_orgnr_foretak]
+#		unit = "skole"
+#		dtype = "STRING"
+#		description_short = "Base variable avgiverskole_orgnr_foretak from NASJPROV"
+#
+#	[variables.deltattstatus]
+#		unit = "pers"
+#		dtype = "STRING"
+#		description_short = "Base variable deltattstatus from NASJPROV"
 
 
 ###################
@@ -91,119 +91,119 @@ variables_sort_unit = [
 # NASJONALE PROVER #
 ###################
 
-	[variables.np_utd_skoleaar_start] 
-		unit = "tid"
-		dtype = "STRING"
-		description_short = "utd_skoleaar_start from NASJPROV"
-		derived_from = ["utd_skoleaar_start"]
-		derived_uses_datasets = ["nasjprov"]
-
-	[variables.np_utd_skolekom] 
-		unit = "skole"
-		dtype = "STRING"
-		description_short = "utd_skolekom from NASJPROV"
-		derived_from = ["utd_skolekom"]
-		derived_uses_datasets = ["nasjprov"]
-
-	[variables.np_orgnrbed] 
-		unit = "skole"
-		dtype = "STRING"
-		description_short = "orgnrbed from NASJPROV"
-		derived_from = ["orgnrbed"]
-		derived_uses_datasets = ["nasjprov"]
-
-	[variables.np_orgnr_foretak] 
-		unit = "skole"
-		dtype = "STRING"
-		description_short = "orgnr_foretak from NASJPROV"
-		derived_from = ["orgnr_foretak"]
-		derived_uses_datasets = ["nasjprov"]
-
-	[variables.np_avgiverskole_orgnrbed] 
-		unit = "skole"
-		dtype = "STRING"
-		description_short = "avgiverskole_orgnrbed from NASJPROV"
-		derived_from = ["avgiverskole_orgnrbed"]
-		derived_uses_datasets = ["nasjprov"]
-
-	[variables.np_avgiverskole_orgnr_foretak] 
-		unit = "skole"
-		dtype = "STRING"
-		description_short = "avgiverskole_orgnr_foretak from NASJPROV"
-		derived_from = ["avgiverskole_orgnr_foretak"]
-		derived_uses_datasets = ["nasjprov"]
-
-	[variables.np_deltattstatus] 
-		unit = "pers"
-		dtype = "STRING"
-		description_short = "deltattstatus from NASJPROV"
-		derived_from = ["deltattstatus"]
-		derived_uses_datasets = ["nasjprov"]
-
-	[variables.np_skalapoeng_npeng05]
-		unit = "karakter"
-		dtype = "STRING"
-		description_short = "skalapoeng for proven NPENG05"
-		derived_from = ["skalapoeng", "provekode"]
-		derived_uses_datasets = ["nasjprov"]
-
-	[variables.np_mestringsnivaa_npeng05]
-		unit = "karakter"
-		dtype = "STRING"
-		description_short = "mestringsnivaa for proven NPENG05"
-		derived_from = ["mestringsnivaa", "provekode"]
-		derived_uses_datasets = ["nasjprov"]
-
+#	[variables.np_utd_skoleaar_start] 
+#		unit = "tid"
+#		dtype = "STRING"
+#		description_short = "utd_skoleaar_start from NASJPROV"
+#		derived_from = ["utd_skoleaar_start"]
+#		derived_uses_datasets = ["nasjprov"]
+#
+#	[variables.np_utd_skolekom] 
+#		unit = "skole"
+#		dtype = "STRING"
+#		description_short = "utd_skolekom from NASJPROV"
+#		derived_from = ["utd_skolekom"]
+#		derived_uses_datasets = ["nasjprov"]
+#
+#	[variables.np_orgnrbed] 
+#		unit = "skole"
+#		dtype = "STRING"
+#		description_short = "orgnrbed from NASJPROV"
+#		derived_from = ["orgnrbed"]
+#		derived_uses_datasets = ["nasjprov"]
+#
+#	[variables.np_orgnr_foretak] 
+#		unit = "skole"
+#		dtype = "STRING"
+#		description_short = "orgnr_foretak from NASJPROV"
+#		derived_from = ["orgnr_foretak"]
+#		derived_uses_datasets = ["nasjprov"]
+#
+#	[variables.np_avgiverskole_orgnrbed] 
+#		unit = "skole"
+#		dtype = "STRING"
+#		description_short = "avgiverskole_orgnrbed from NASJPROV"
+#		derived_from = ["avgiverskole_orgnrbed"]
+#		derived_uses_datasets = ["nasjprov"]
+#
+#	[variables.np_avgiverskole_orgnr_foretak] 
+#		unit = "skole"
+#		dtype = "STRING"
+#		description_short = "avgiverskole_orgnr_foretak from NASJPROV"
+#		derived_from = ["avgiverskole_orgnr_foretak"]
+#		derived_uses_datasets = ["nasjprov"]
+#
+#	[variables.np_deltattstatus] 
+#		unit = "pers"
+#		dtype = "STRING"
+#		description_short = "deltattstatus from NASJPROV"
+#		derived_from = ["deltattstatus"]
+#		derived_uses_datasets = ["nasjprov"]
+#
+#	[variables.np_skalapoeng_npeng05]
+#		unit = "karakter"
+#		dtype = "STRING"
+#		description_short = "skalapoeng for proven NPENG05"
+#		derived_from = ["skalapoeng", "provekode"]
+#		derived_uses_datasets = ["nasjprov"]
+#
+#	[variables.np_mestringsnivaa_npeng05]
+#		unit = "karakter"
+#		dtype = "STRING"
+#		description_short = "mestringsnivaa for proven NPENG05"
+#		derived_from = ["mestringsnivaa", "provekode"]
+#		derived_uses_datasets = ["nasjprov"]
+#
 #########################
 # GRUNNSKOLE KARAKTERER #
 #########################
 
 	[variables.grsk_utd_skolekom]
-		unit = ""
-		dtype = ""
-		description_short = ""
-		derived_from = ""
+		unit = "gro"
+		dtype = "STRING"
+		description_short = "Skolekom from kargrs"
+		derived_from = ["utd_skolekom"]
 		derived_uses_datasets = ["kargrs"]
 
 	[variables.grsk_gro_fagkode_vigo]
 		unit = "gro"
 		dtype = "STRING"
 		description_short = "Vigo fagkode from kargrs"
-		derived_from = "gro_fagkode_vigo"
+		derived_from = ["gro_fagkode_vigo"]
 		derived_uses_datasets = ["kargrs"]
 
 	
 	[variables.grsk_gro_karakter_termin1]
 		unit = "gro"
 		dtype = "STRING"
-		description_short = ""
-		derived_from = "gro_karakter_termin1"
+		description_short = "karakter termi1 from kargrs"
+		derived_from = ["gro_karakter_termin1"]
 		derived_uses_datasets = ["kargrs"]
 	
 	[variables.grsk_gro_karakter_termin2]
 		unit = "gro"
 		dtype = "STRING"
-		description_short = ""
-		derived_from = "gro_karakter_termin2" 
+		description_short = "karakter termin2 from kargrs"
+		derived_from = ["gro_karakter_termin2"] 
 		derived_uses_datasets = ["kargrs"]
 
 	[variables.grsk_gro_karakter_standpunkt]
 		unit = "gro"
 		dtype = "STRING"
-		description_short = ""
-		derived_from = "gro_karakter_standpunkt" 
+		description_short = "karakter standpunkt from kargrs"
+		derived_from = ["gro_karakter_standpunkt"] 
 		derived_uses_datasets = ["kargrs"]
 
 	[variables.grsk_gro_karakter_skriftlig]
 		unit = "gro"
 		dtype = "STRING"
-		description_short = ""
-		derived_from = "gro_karakter_skriftlig" 
+		description_short = "karakter skriftlig from kargrs"
+		derived_from = ["gro_karakter_skriftlig"] 
 		derived_uses_datasets = ["kargrs"]
 
 	[variables.grsk_gro_karakter_muntlig]
 		unit = "gro"
 		dtype = "STRING"
-		description_short = ""
-		derived_from = "gro_karakter_muntlig" 
+		description_short = "karakter muntlig from kargrs"
+		derived_from = ["gro_karakter_muntlig"] 
 		derived_uses_datasets = ["kargrs"]
