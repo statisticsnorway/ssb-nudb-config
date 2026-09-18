@@ -207,3 +207,42 @@ variables_sort_unit = [
 		description_short = "karakter muntlig from kargrs"
 		derived_from = ["gro_karakter_muntlig"] 
 		derived_uses_datasets = ["kargrs"]
+
+#########################
+# VIDEREGAAENDE KARAKTERER #
+#########################
+
+	[variables.vg_fagkode]
+		unit = "vg"
+		dtype = "STRING"
+		description_short = "Fagkode from videregaaende karakterer"
+		derived_from = ["fagkode"]
+		derived_uses_datasets = ["produkt"]
+
+	[variables.vg_videregaaendepoeng]
+		unit = "vg"
+		dtype = "STRING"
+		description_short = "Videregaendepoeng from videregaaende karakterer"
+		derived_from = ["videregaendepoeng"]
+		derived_uses_datasets = ["produkt"]
+
+	[variables.vg_karakter_muntlig]
+		unit = "vg"
+		dtype = "STRING"
+		description_short = "Muntlig karakter from videregaaende karakterer"
+		derived_from = ["mun"]
+		derived_uses_datasets = ["produkt"]
+
+	[variables.vg_karakter_skriftlig]
+		unit = "vg"
+		dtype = "STRING"
+		description_short = "Skriftlig karakter from videregaaende karakterer"
+		derived_from = ["skr"]
+		derived_uses_datasets = ["produkt"]
+
+	[variables.vg_karakter_standpunkt]
+		unit = "vg"
+		dtype = "STRING"
+		description_short = "Standpunkt karakter from videregaaende karakterer"
+		derived_from = ["stp"]
+		derived_uses_datasets = ["produkt"]
