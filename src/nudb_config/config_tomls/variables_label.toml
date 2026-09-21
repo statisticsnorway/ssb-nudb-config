@@ -314,3 +314,8 @@
     unit = "bof"
     dtype = "STRING"
     derived_from = ["bof_eierforhold"]
+
+[variables.bof_primaernaering_sn25_label]
+    unit = "bof"
+    dtype = "STRING"
+    derived_from = ["bof_primaernaering_sn25"]
