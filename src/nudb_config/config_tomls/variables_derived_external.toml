@@ -1,7 +1,7 @@
 [variables.pers_kjoenn]
 	unit = "pers"
 	dtype = "STRING"
-	description_short = "kjønn"
+	description_short = "Personens kjønn, hentet fra FREGs situasjonsuttak."
 	length = [1]
 	klass_codelist = 2
 	renamed_from = ["kjoenn", "kjonn"]
@@ -13,7 +13,7 @@
 [variables.pers_foedselsdato]
 	unit = "tid"
 	dtype = "DATETIME"
-	description_short = "fødselsdato"
+	description_short = "Personens fødselsdato, hentet fra FREGs situasjonsuttak."
 	renamed_from = ["fodt_dato", "fodtdato", "fodselsdato", "foedselsdato"]
 	klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
     derived_from = ["snr"]
@@ -24,7 +24,7 @@
 [variables.pers_invkat]
     unit = "pers"
     dtype = "STRING"
-    description_short = "innvandringskategori"
+    description_short = "Personens innvandringskategori, hentet fra INNVBEF-datasettet."
     length = [1]
     renamed_from = ["invkat"]
     klass_codelist = 82
@@ -36,7 +36,7 @@
 [variables.pers_inngrunn1]
     unit = "pers"
     dtype = "STRING"
-    description_short = "innvandringsgrunn"
+    description_short = "Personens innvandringsgrunn, hentet fra INNVBEF-datasettet."
     length = [3]
     renamed_from = ["inngrunn1"]
     klass_codelist = 355
@@ -49,7 +49,7 @@
 [variables.pers_foerste_bosattdato]
 	unit = "tid"
 	dtype = "DATETIME"
-    description_short = "Første bosattdato."
+    description_short = "Dato for første bosetting i Norge, hentet fra INNVBEF-datasettet."
     renamed_from = ["foerste_bosattdato", "fodato"]
     derived_from = ["snr"]
     derived_join_keys = ["snr"]
@@ -58,7 +58,7 @@
 [variables.pers_innflyttingsdato]
 	unit = "tid"
 	dtype = "DATETIME"
-    description_short = "Innflyttingsdato"
+    description_short = "Dato for innflytting til Norge, hentet fra INNVBEF-datasettet."
     renamed_from = ["innflyttingsdato", "fraland_dato"]
     derived_from = ["snr"]
     derived_join_keys = ["snr"]
@@ -146,7 +146,7 @@
 [variables.pers_fra_land]
     unit = "pers"
     dtype = "STRING"
-    description_short = "Landet personen er fra? - 3 siffer landkode (SSB3)."
+    description_short = "Landet personen flyttet fra, 3-sifret landkode (SSB3), hentet fra INNVBEF-datasettet."
     length = [3]
     renamed_from = ["fraland", "fra_land"]
     klass_codelist = 91
@@ -179,3 +179,4 @@
    length = [1]
    renamed_from = ["eierf"]
    derived_uses_datasets = ["_bof_eierforhold"]
+   description_short = "Utledet eierforhold for en organisasjon (statlig, kommunalt, privat etc.), basert på en mapping av sektorkoder fra BOF-uttak."

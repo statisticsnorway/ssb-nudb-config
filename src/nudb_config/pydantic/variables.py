@@ -10,7 +10,9 @@ from pydantic import model_validator
 from .dotmap import DotMapBaseModel
 from .dotmap import DotMapDict
 
-DTYPE_FIELD_TYPE = Literal["INTEGER", "FLOAT", "STRING", "DATETIME", "BOOLEAN"]
+DTYPE_FIELD_TYPE = Literal[
+    "INTEGER", "FLOAT", "STRING", "DATETIME", "BOOLEAN", "UINTEGER"
+]
 
 
 class Variable(DotMapBaseModel):
