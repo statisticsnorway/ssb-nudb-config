@@ -190,3 +190,23 @@
     derived_uses_datasets = ["bof_situttak"]
     renamed_from = ["sn2025_1"]
     klass_codelist = 6
+
+[variables.bof_naering2_sn2025]
+	unit = "bof"
+	dtype = "STRING"
+    derived_from = ["orgnrbed"]
+	description_short = "Sekundærnæringskoden til virksomheten, sn25"
+	length = [6]
+    derived_uses_datasets = ["bof_situttak"]
+    renamed_from = ["sn2025_2"]
+    klass_codelist = 6
+
+[variables.bof_naering3_sn2025]
+	unit = "bof"
+	dtype = "STRING"
+    derived_from = ["orgnrbed"]
+	description_short = "Tertiærnæringskoden til virksomheten, sn25"
+	length = [6]
+    derived_uses_datasets = ["bof_situttak"]
+    renamed_from = ["sn2025_3"]
+    klass_codelist = 6
