@@ -346,6 +346,7 @@
 
             # skole
             "orgnr_foretak",  # old_name: orgnr
+            "orgnrbed",
             "utd_skolekom",  # old_name: skolekom
 
             # gr
@@ -353,6 +354,7 @@
 
             # gro
             "gro_skolenr_inn",
+            "gro_skolenavn_inn",
             "gro_fagkode_vigo",
 
             # karakter
