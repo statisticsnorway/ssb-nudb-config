@@ -1,7 +1,3 @@
-variables_sort_unit = [
-    "pers", # Personvariabler
-]
-
 [variables]
 
 ###################
@@ -58,7 +54,7 @@ variables_sort_unit = [
 # IGANG #
 ###################
 
-	[variables.nudb_igang_utd_skolekom]
+	[variables.IGANG_utd_skolekom]
 		unit = "skole"
 		dtype = "STRING"
 		description_short = "utd_skolekom from IGANG. Also in AVSLUTTA and IGANG"
@@ -69,7 +65,7 @@ variables_sort_unit = [
 # AVSLUTTA #
 ###################
 
-	[variables.nudb_avslutta_utd_skolekom]
+	[variables.AVSL_utd_skolekom]
 		unit = "skole"
 		dtype = "STRING"
 		description_short = "utd_skolekom from AVSLUTTA. Also in IGANG and EKSAMEN"
@@ -80,7 +76,7 @@ variables_sort_unit = [
 # EKSAMEN #
 ###################		
 
-	[variables.nudb_eksamen_utd_skolekom]
+	[variables.EKS_utd_skolekom]
 		unit = "skole"
 		dtype = "STRING"
 		description_short = "utd_skolekom from EKSAMEN. Also in IGANG and AVSLUTTA"
@@ -212,6 +208,13 @@ variables_sort_unit = [
 # VIDEREGAAENDE KARAKTERER #
 #########################
 
+<<<<<<< HEAD
+=======
+	#########################
+# VIDEREGAAENDE KARAKTERER #
+#########################
+
+>>>>>>> 51f4a57 (Cleanup to dataset and variable listings)
 	[variables.vg_fagkode]
 		unit = "vg"
 		dtype = "STRING"
@@ -245,4 +248,180 @@ variables_sort_unit = [
 		dtype = "STRING"
 		description_short = "Standpunkt karakter from videregaaende karakterer"
 		derived_from = ["stp"]
+<<<<<<< HEAD
 		derived_uses_datasets = ["produkt"]
+=======
+		derived_uses_datasets = ["produkt"]
+
+
+###################
+# PERSONVARIABLER & SEMESTERS #
+###################
+
+	[variables.sosbak]
+		unit = "pers"
+		dtype = "STRING"
+		description_short = "Foreldrenes høyeste utdanningsnivå ved personens alder 16"
+		derived_from = ["utd_foreldres_utdnivaa_16aar_nus2000"]
+
+	[variables.nus2000_far_16]
+		unit = "pers"
+		dtype = "STRING"
+		description_short = "Fars høyeste utdanningsnivå ved personens alder 16"
+		derived_from = ["utd_hoeyeste_nus2000"]
+
+	[variables.nus2000_mor_16]
+		unit = "pers"
+		dtype = "STRING"
+		description_short = "Mors høyeste utdanningsnivå ved personens alder 16"
+		derived_from = ["utd_hoeyeste_nus2000"]
+
+	[variables.komm_16]
+		unit = "kommune"
+		dtype = "STRING"
+		description_short = "Bokommune ved fylte 16 år"
+		derived_from = ["pers_bokommune_16aar"]
+
+	[variables.aar_forste_fullf_gs]
+		unit = "tid"
+		dtype = "STRING"
+		description_short = "År for første fullførte grunnskoleutdanning"
+		derived_from = ["gr_foerste_fullfoert_dato"]
+
+	[variables.aar_forste_fullf_vs]
+		unit = "tid"
+		dtype = "STRING"
+		description_short = "År for første fullførte videregående utdanning"
+		derived_from = ["vg_foerste_fullfoert_dato"]
+
+	[variables.aar_forste_fullf_vs_lov]
+		unit = "tid"
+		dtype = "STRING"
+		description_short = "År for første fullførte videregående utdanning (lovlig)"
+		derived_from = ["vg_foerste_fullfoert_dato"]
+
+	[variables.aar_forste_fullf_vsa]
+		unit = "tid"
+		dtype = "STRING"
+		description_short = "År for første fullførte videregående studiespesialiserende utdanning"
+		derived_from = ["vg_studiespess_foerste_fullfoert_dato"]
+
+	[variables.aar_forste_fullf_vsa_lov]
+		unit = "tid"
+		dtype = "STRING"
+		description_short = "År for første fullførte videregående studiespesialiserende utdanning (lovlig)"
+		derived_from = ["vg_studiespess_foerste_fullfoert_dato"]
+
+	[variables.aar_forste_fullf_vsy]
+		unit = "tid"
+		dtype = "STRING"
+		description_short = "År for første fullførte videregående yrkesfaglige utdanning"
+		derived_from = ["vg_yrkesfag_foerste_fullfoert_dato"]
+
+	[variables.aar_forste_fullf_vsy_lov]
+		unit = "tid"
+		dtype = "STRING"
+		description_short = "År for første fullførte videregående yrkesfaglige utdanning (lovlig)"
+		derived_from = ["vg_yrkesfag_foerste_fullfoert_dato"]
+
+	[variables.aar_forste_fullf_hoy]
+		unit = "tid"
+		dtype = "STRING"
+		description_short = "År for første fullførte høyskolekandidatutdanning"
+		derived_from = ["uh_hoeyskolekandidat_foerste_fullfoert_dato"]
+
+	[variables.aar_forste_fullf_bach]
+		unit = "tid"
+		dtype = "STRING"
+		description_short = "År for første fullførte bachelorutdanning"
+		derived_from = ["uh_bachelor_foerste_fullfoert_dato"]
+
+	[variables.aar_forste_fullf_hov]
+		unit = "tid"
+		dtype = "STRING"
+		description_short = "År for første fullførte hovedfag/masterutdanning"
+		derived_from = ["uh_master_foerste_fullfoert_dato"]
+
+	[variables.aar_forste_fullf_cmg]
+		unit = "tid"
+		dtype = "STRING"
+		description_short = "År for første fullførte profesjonsutdanning/masterutdanning"
+		derived_from = ["uh_master_foerste_fullfoert_dato"]
+
+	[variables.aar_forste_fullf_dok]
+		unit = "tid"
+		dtype = "STRING"
+		description_short = "År for første fullførte doktorgradutdanning"
+		derived_from = ["uh_doktorgrad_foerste_fullfoert_dato"]
+
+	[variables.semester_fff_vs]
+		unit = "tid"
+		dtype = "INTEGER"
+		description_short = "Kalendersemestre brukt på videregående"
+		derived_from = ["semester_fff_vs"]
+
+	[variables.semester_tot_fff_vs]
+		unit = "tid"
+		dtype = "INTEGER"
+		description_short = "Aktive registrerte semestre på videregående"
+		derived_from = ["semester_tot_fff_vs"]
+
+
+#########################
+# FAGVURDERING (LONG FORMAT) #
+#########################
+
+	[variables.fagvurdering_grsk_fagkode]
+		unit = "fag"
+		dtype = "STRING"
+		description_short = "Fagkode for grunnskolekarakter"
+		derived_from = ["gro_fagkode_vigo"]
+
+	[variables.fagvurdering_grsk_karakter_standpunkt]
+		unit = "karakter"
+		dtype = "STRING"
+		description_short = "Standpunktkarakter for grunnskole"
+		derived_from = ["gro_karakter_standpunkt"]
+
+	[variables.fagvurdering_grsk_karakter_skriftlig]
+		unit = "karakter"
+		dtype = "STRING"
+		description_short = "Skriftlig karakter for grunnskole"
+		derived_from = ["gro_karakter_skriftlig"]
+
+	[variables.fagvurdering_grsk_karakter_muntlig]
+		unit = "karakter"
+		dtype = "STRING"
+		description_short = "Muntlig karakter for grunnskole"
+		derived_from = ["gro_karakter_muntlig"]
+
+	[variables.fagvurdering_grsk_skole]
+		unit = "skole"
+		dtype = "STRING"
+		description_short = "Skole for grunnskolekarakter"
+		derived_from = ["utd_orgnr"]
+
+	[variables.fagvurdering_vgs_fagkode]
+		unit = "fag"
+		dtype = "STRING"
+		description_short = "Fagkode for videregående karakter"
+		derived_from = ["fagkode"]
+
+	[variables.fagvurdering_vgs_karakter]
+		unit = "karakter"
+		dtype = "STRING"
+		description_short = "Karakter for videregående skole (stp, skr, mun)"
+		derived_from = ["stp"]
+
+	[variables.fagvurdering_vgs_vurderingsform]
+		unit = "pers"
+		dtype = "STRING"
+		description_short = "Vurderingsform for videregående karakter"
+		derived_from = ["stp"]
+
+	[variables.fagvurdering_vgs_skole]
+		unit = "skole"
+		dtype = "STRING"
+		description_short = "Skole for videregående karakter"
+		derived_from = ["orgnrbed"]
+>>>>>>> 51f4a57 (Cleanup to dataset and variable listings)
