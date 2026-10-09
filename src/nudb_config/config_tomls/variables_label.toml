@@ -314,3 +314,18 @@
     unit = "bof"
     dtype = "STRING"
     derived_from = ["bof_eierforhold"]
+
+[variables.bof_naering1_sn2025_label]
+    unit = "bof"
+    dtype = "STRING"
+    derived_from = ["bof_naering1_sn2025"]
+
+[variables.bof_naering2_sn2025_label]
+    unit = "bof"
+    dtype = "STRING"
+    derived_from = ["bof_naering2_sn2025"]
+
+[variables.bof_naering3_sn2025_label]
+    unit = "bof"
+    dtype = "STRING"
+    derived_from = ["bof_naering3_sn2025"]
