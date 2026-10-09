@@ -1,0 +1,327 @@
+[datasets]
+
+    [datasets._microdata_personvariabler]
+    team = ""
+    bucket = ""
+    path_glob = ""
+    variables = [
+        "sosbak",
+        "nus2000_far_16",
+        "nus2000_mor_16",
+        "komm_16",
+        "aar_forste_fullf_gs",
+        "aar_forste_fullf_vs",
+        "aar_forste_fullf_vs_lov",
+        "aar_forste_fullf_vsa",
+        "aar_forste_fullf_vsa_lov",
+        "aar_forste_fullf_vsy",
+        "aar_forste_fullf_vsy_lov",
+        "aar_forste_fullf_hoy",
+        "aar_forste_fullf_cmg",
+        "aar_forste_fullf_bach",
+        "aar_forste_fullf_hov",
+        "aar_forste_fullf_dok",
+        "semester_fff_vs",
+        "semester_fff_vs_lov",
+        "semester_fff_vsa",
+        "semester_fff_vsa_lov",
+        "semester_fff_vsy",
+        "semester_fff_vsy_lov",
+        "semester_fff_hoy",
+        "semester_fff_bach",
+        "semester_fff_cmg",
+        "semester_fff_hov",
+        "semester_fff_dok",
+        "semester_tot_fff_vs",
+        "semester_tot_fff_vs_lov",
+        "semester_tot_fff_vsa",
+        "semester_tot_fff_vsa_lov",
+        "semester_tot_fff_vsy",
+        "semester_tot_fff_vsy_lov",
+        "semester_tot_fff_bach",
+        "semester_tot_fff_hoy",
+        "semester_tot_fff_cmg",
+        "semester_tot_fff_hov",
+        "semester_tot_fff_dok",
+        "aar_ny_i_vid_utd",
+        "aar_ny_i_vid_utd_lov",
+        "aar_forste_reg_uh",
+        "aar_forste_reg_hov",
+        "alder_forste_reg_uh",
+    ]
+
+    [datasets._microdata_igang]
+    team = "utd-nudb"
+    bucket = "utdanning"
+    path_glob = "nudb-data/klargjorte-data/igang/igang_p[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]_v*[0-9].parquet"
+    variables = [
+        "utd_hendelse_id",
+        "fnr",
+        "snr",
+        "nus2000",
+        "IGANG_utd_aktivitet_start",
+        "IGANG_utd_skoleaar_start",
+        "IGANG_utd_skolekom",
+        "IGANG_utd_utdanningstype",
+        "IGANG_utd_aktivitetsnivaa_heltid_deltid",
+        "IGANG_utd_klassetrinn",
+        "IGANG_utd_viderutd_nettbasert",
+        "IGANG_utd_utveksling",
+        "IGANG_gro_elevstatus",
+        "IGANG_gro_programomraade",
+        "IGANG_vg_rettstype_inntak",
+        "IGANG_vg_utdprogram",
+        "IGANG_vg_yrkes_og_studiekompetanse",
+        "IGANG_vg_antall_aarstimer_elevkurs",
+        "IGANG_vg_kursprosent",
+        "IGANG_vg_kontraktstype",
+        "IGANG_fuh_nett_eller_stedbasert",
+        "IGANG_fuh_opptaksgrunnlag",
+        "IGANG_fuh_utvekslingsland",
+        "IGANG_uh_studieprogram",
+        "IGANG_uh_studierett",
+        "IGANG_uh_utvekslingsavtale",
+        "IGANG_uh_studieprogresjon_hoest",
+        "IGANG_uh_studgrunnlagsland",
+    ]
+
+    [datasets._microdata_avslutta]
+    team = "utd-nudb"
+    bucket = "utdanning"
+    path_glob = "nudb-data/klargjorte-data/avslutta/avslutta_p[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]_v*[0-9].parquet"
+    variables = [
+        "utd_hendelse_id",
+        "fnr",
+        "snr",
+        "nus2000",
+        "AVSL_utd_aktivitet_start",
+        "AVSL_utd_aktivitet_slutt",
+        "AVSL_utd_skoleaar_start",
+        "AVSL_utd_skolekom",
+        "AVSL_utd_utdanningstype",
+        "AVSL_utd_fullfoertkode",
+        "AVSL_utd_aktivitetsnivaa_heltid_deltid",
+        "AVSL_utd_klassetrinn",
+        "AVSL_utd_viderutd_nettbasert",
+        "AVSL_gr_grunnskolepoeng",
+        "AVSL_gro_elevstatus",
+        "AVSL_gro_programomraade",
+        "AVSL_vg_proevekandtype",
+        "AVSL_vg_rettstype_inntak",
+        "AVSL_vg_utdprogram",
+        "AVSL_vg_fullfoertkode_detaljert",
+        "AVSL_vg_yrkes_og_studiekompetanse",
+        "AVSL_vg_kursprosent",
+        "AVSL_fuh_nett_eller_stedbasert",
+        "AVSL_uh_studieprogram",
+        "AVSL_uh_studiepoeng_grad",
+    ]
+
+    [datasets._microdata_eksamen]
+    team = "utd-nudb"
+    bucket = "utdanning"
+    path_glob = "nudb-data/klargjorte-data/eksamen/eksamen_p[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]_v*[0-9].parquet"
+    variables = [
+        "utd_hendelse_id",
+        "fnr",
+        "snr",
+        "nus2000",
+        "EKS_utd_skoleaar_start",
+        "EKS_utd_skolekom",
+        "EKS_utd_utdanningstype",
+        "EKS_utd_viderutd_nettbasert",
+        "EKS_uh_eksamen_studpoeng",
+        "EKS_uh_eksamen_ergjentak",
+        "EKS_uh_eksamen_dato",
+        "EKS_uh_ereksamenrett",
+        "EKS_uh_studieprogram",
+        "EKS_fuh_nett_eller_stedbasert",
+    ]
+
+    [datasets._microdata_grunnskole_karakterer]
+    team = "utd-bhgskole"
+    bucket = "kargrs"
+    path_glob = "kargrs/klargjorte-data/grunnskole-karakterer_p[0-9][0-9][0-9][0-9]_p[0-9][0-9][0-9][0-9]_v*[0-9].parquet"
+    variables = [
+        "fnr",
+        "snr",
+        "utd_orgnr", # fagvurdering_gs_skole
+        "gro_fagkode_vigo", # fagvurdering_gs_fagkode
+        "gro_karakter_termin1", # grsk_gro_karakter_termin1
+        "gro_karakter_termin2", # grsk_gro_karakter_termin2
+        "gro_karakter_termin1", # grsk_gro_karakter_termin1
+        "gro_karakter_termin2", # grsk_gro_karakter_termin2
+        "gro_karakter_standpunkt", # grsk_gro_karakter_standpunkt
+        "gro_karakter_skriftlig",  # grsk_gro_karakter_skriftlig
+        "gro_karakter_muntlig",  # grsk_gro_karakter_muntlig
+        "utd_skoleaar_start"
+
+    ]
+
+    [datasets._microdata_nasjprov]
+    team = "utd-bhgskole"
+    bucket = "nasjprov"
+    path_glob = "nasjprov/klargjorte-data/nasjonaleprover_p[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]_v*[0-9].parquet"
+    variables = [
+        "np_utd_skoleaar_start",
+        "np_orgnrbed",
+        "np_orgnr_foretak",
+        "np_avgiverskole_orgnrbed",
+        "np_avgiverskole_orgnr_foretak",
+        "np_utd_skolekom",
+        "np_deltattstatus",
+        "np_skalapoeng_npeng05", # Eksempel. I dette formatet blir det en variabel pr provekode.
+        "np_mestringsnivaa_npeng05", # For nasjprov blir det ikke SÅ mange variabler. Men bør egentlig følge samme struktur som vi gir til grunnskolekarakterer og vgu, så et ikke blir så mange variabler.
+    ]
+
+    [datasets._microdata_videregaaende_karakterer]
+    team = "utd-nudb" # Denne må endres til utd-vg når filene er flyttet over.
+    bucket = "produkt" # Igjen, byttes til VG.
+    path_glob = "nudb-data/klargjorte-data/videregaendekarakterer/videregaendekarakterer_p[0-9][0-9][0-9][0-9]_[0-9][0-9]-[0-9][0-9]_v*[0-9].parquet"
+    variables = [
+        "snr",
+        "fagkode",   # Disse variabelnavnene vil mest sannsynlig byttes ut.
+        "videregaendepoeng",
+        "mun",
+        "skr",
+        "stp",
+        "snr",
+        "fagkode",   # Disse variabelnavnene vil mest sannsynlig byttes ut.
+        "videregaendepoeng",
+        "mun",
+        "skr",
+        "stp",
+    ]
+
+    [datasets._microdata_videregaaende_vitnemaal]
+    team = "utd-vg"
+    bucket = ""
+    path_glob = "??/klargjorte-data/??/??_p[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]_v*[0-9].parquet"
+    variables = [
+
+    ]
+
+    [datasets._microdata_videregaaende_vitnemaal_fag]
+    team = "utd-vg"
+    bucket = ""
+    path_glob = "??/klargjorte-data/??/??_p[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]_v*[0-9].parquet"
+    variables = [
+
+    ]
+
+    [datasets._microdata_utvekslingsstudenter]
+    team = "utd-uhfagskole"
+    bucket = ""
+    path_glob = "??/klargjorte-data/??/??_p[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]_v*[0-9].parquet"
+    variables = [
+
+    ]
+
+    [datasets._microdata_gs_fagvurdering]
+    team = ""
+    bucket = ""
+    path_glob = ""
+    variables = [
+        "id",
+        "fnr",
+        "snr",
+        "fagvurdering_grsk_fagkode",
+        "fagvurdering_grsk_karakter_standpunkt",
+        "fagvurdering_grsk_karakter_skriftlig",
+        "fagvurdering_grsk_karakter_muntlig",
+        "fagvurdering_grsk_skole",
+        "start",
+        "stop",
+    ]
+
+    [datasets._microdata_vgs_fagvurdering]
+    team = ""
+    bucket = ""
+    path_glob = ""
+    variables = [
+        "id",
+        "fagvurdering_vgs_fagkode",
+        "fagvurdering_vgs_karakter",
+        "fagvurdering_vgs_vurderingsform",
+        "fagvurdering_vgs_skole",
+        "start",
+        "stop",
+    ]
+
+    [datasets._microdata_nasjprov_fagvurdering]
+    team = ""
+    bucket = ""
+    path_glob = ""
+    variables = [
+        "id",
+        "fagvurdering_nasjprov_fagkode",
+        "fagvurdering_nasjprov_karakter",
+        "fagvurdering_nasjprov_skole",
+        "fagvurdering_nasjprov_vurderingsform",
+        "start",
+        "stop",
+    ]
+
+    [datasets._microdata_pers_semester]
+    team = ""
+    bucket = ""
+    path_glob = ""
+    variables = [
+        "snr",
+        "semester_fff_vs",
+        "semester_fff_vs_lov",
+        "semester_fff_vsa",
+        "semester_fff_vsa_lov",
+        "semester_fff_vsy",
+        "semester_fff_vsy_lov",
+        "semester_fff_hoy",
+        "semester_fff_bach",
+        "semester_fff_cmg",
+        "semester_fff_hov",
+        "semester_fff_dok",
+        "semester_tot_fff_vs",
+        "semester_tot_fff_vs_lov",
+        "semester_tot_fff_vsa",
+        "semester_tot_fff_vsa_lov",
+        "semester_tot_fff_vsy",
+        "semester_tot_fff_vsy_lov",
+        "semester_tot_fff_hoy",
+        "semester_tot_fff_bach",
+        "semester_tot_fff_cmg",
+        "semester_tot_fff_hov",
+        "semester_tot_fff_dok",
+    ]
+
+    [datasets._microdata_pers_registrert_foerste]
+    team = ""
+    bucket = ""
+    path_glob = ""
+    variables = [
+        "snr",
+        "aar_foerste_reg_gr",
+        "aar_vg_foerste_registrert_dato",
+        "aar_vg_foerste_registrert_erutdprogram_dato",
+        "aar_uh_foerste_registrert_dato",
+        "aar_uh_bachelor_foerste_registrert_dato",
+        "aar_uh_master_foerste_registrert_dato",
+    ]
+
+    [datasets._microdata_pers_fullfoert_foerste]
+    team = ""
+    bucket = ""
+    path_glob = ""
+    variables = [
+        "snr",
+        "aar_forste_fullf_gs",
+        "aar_forste_fullf_vs",
+        "aar_forste_fullf_vs_lov",
+        "aar_forste_fullf_vsa",
+        "aar_forste_fullf_vsa_lov",
+        "aar_forste_fullf_vsy",
+        "aar_forste_fullf_vsy_lov",
+        "aar_forste_fullf_hoy",
+        "aar_forste_fullf_bach",
+        "aar_forste_fullf_hov",
+        "aar_forste_fullf_cmg",
+        "aar_forste_fullf_dok",
+    ]
