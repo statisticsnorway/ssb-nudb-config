@@ -141,7 +141,7 @@
     [datasets._microdata_grunnskole_karakterer]
     team = "utd-bhgskole"
     bucket = "kargrs"
-    path_glob = "kargrs/klargjorte-data/grunnskolekarakterer_p[0-9][0-9][0-9][0-9]_p[0-9][0-9][0-9][0-9]_v*[0-9].parquet"
+    path_glob = "kargrs/klargjorte-data/grunnskole-karakterer_p[0-9][0-9][0-9][0-9]_p[0-9][0-9][0-9][0-9]_v*[0-9].parquet"
     variables = [
         "fnr",
         "snr",
@@ -154,8 +154,8 @@
         "gro_karakter_standpunkt", # grsk_gro_karakter_standpunkt
         "gro_karakter_skriftlig",  # grsk_gro_karakter_skriftlig
         "gro_karakter_muntlig",  # grsk_gro_karakter_muntlig
-        "utd_skoleaar_start" 
-    
+        "utd_skoleaar_start"
+
     ]
 
     [datasets._microdata_nasjprov]
@@ -175,22 +175,22 @@
     ]
 
     [datasets._microdata_videregaaende_karakterer]
-    team = "utd-nudb" # Denne må endres til utd-vg når filene er flyttet over. 
-    bucket = "produkt" # Igjen, byttes til VG. 
-    path_glob = "nudb-data/klargjorte-data/videregaendekaraktererv/videregaendekarakterer_p[0-9][0-9][0-9][0-9]_[0-9][0-9]-[0-9][0-9]_v*[0-9].parquet"
+    team = "utd-nudb" # Denne må endres til utd-vg når filene er flyttet over.
+    bucket = "produkt" # Igjen, byttes til VG.
+    path_glob = "nudb-data/klargjorte-data/videregaendekarakterer/videregaendekarakterer_p[0-9][0-9][0-9][0-9]_[0-9][0-9]-[0-9][0-9]_v*[0-9].parquet"
     variables = [
         "snr",
-        "fagkode",   # Disse variabelnavnene vil mest sannsynlig byttes ut. 
+        "fagkode",   # Disse variabelnavnene vil mest sannsynlig byttes ut.
         "videregaendepoeng",
         "mun",
         "skr",
-        "stp",  
+        "stp",
         "snr",
-        "fagkode",   # Disse variabelnavnene vil mest sannsynlig byttes ut. 
+        "fagkode",   # Disse variabelnavnene vil mest sannsynlig byttes ut.
         "videregaendepoeng",
         "mun",
         "skr",
-        "stp",  
+        "stp",
     ]
 
     [datasets._microdata_videregaaende_vitnemaal]
@@ -198,7 +198,7 @@
     bucket = ""
     path_glob = "??/klargjorte-data/??/??_p[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]_v*[0-9].parquet"
     variables = [
-    
+
     ]
 
     [datasets._microdata_videregaaende_vitnemaal_fag]
@@ -206,7 +206,7 @@
     bucket = ""
     path_glob = "??/klargjorte-data/??/??_p[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]_v*[0-9].parquet"
     variables = [
-    
+
     ]
 
     [datasets._microdata_utvekslingsstudenter]
@@ -214,7 +214,7 @@
     bucket = ""
     path_glob = "??/klargjorte-data/??/??_p[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]_v*[0-9].parquet"
     variables = [
-    
+
     ]
 
     [datasets._microdata_gs_fagvurdering]
@@ -223,6 +223,7 @@
     path_glob = ""
     variables = [
         "id",
+        "fnr",
         "snr",
         "fagvurdering_grsk_fagkode",
         "fagvurdering_grsk_karakter_standpunkt",
