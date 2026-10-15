@@ -12,6 +12,7 @@
             # data
             "utd_datakilde",  # old_name: kilde
             "nudb_dataset_id",
+            "utd_hendelse_id",
 
             # tid
             "utd_aktivitet_start",  # old_name: startd
@@ -99,6 +100,7 @@
             utd_skoleaar_start = 0.0
             nus2000 = 0.0
             utd_skolekom = 0.0
+            utd_hendelse_id = 0.0
 
 
             # Measured from igang build and rounded up slightly
@@ -148,6 +150,7 @@
             # data
             "utd_datakilde",  # old_name: kilde
             "nudb_dataset_id",
+            "utd_hendelse_id",
 
             # tid
             "utd_skoleaar_start",  # old_name: skoleaar_start
@@ -196,7 +199,7 @@
         nus2000 = "799999"
 
     [datasets.eksamen.thresholds_empty]
-            #utd_hendelse_id = 0.0
+            utd_hendelse_id = 0.0
             fnr = 0.0  # Dette er ganske lavt ass...
             snr = 4.0
             pers_kjoenn = 2.6
@@ -243,6 +246,7 @@
             "utd_datakilde",  # old_name: kilde
             "nudb_dataset_id",
             "utd_fullfoertkode",  # old_name: utfall
+            "utd_hendelse_id",
 
             # tid
             "utd_aktivitet_start",  # old_name: kurs_start
@@ -329,6 +333,7 @@
             fnr = 0.0  # Vi vil ha fnr på alle takk
             snr = 4.0
             nus2000 = 0.0
+            utd_hendelse_id = 0.0
 
 
     [datasets.grunnskolekarakterer]
