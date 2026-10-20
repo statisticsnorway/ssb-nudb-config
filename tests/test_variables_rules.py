@@ -65,6 +65,29 @@ def test_derived_from_references_existing_variables() -> None:
     )
 
 
+def test_derived_relevant_datasets_reference_existing_datasets() -> None:
+    missing_datasets: dict[str, list[str]] = {}
+    # nudb-use creates this virtual dataset with one row per person;
+    # virtual datasets are not currently represented in settings.datasets.
+    virtual_datasets = {"utd_person"}
+    known_datasets = set(settings.datasets.keys()) | virtual_datasets
+
+    for name, var in settings.variables.items():
+        missing = [
+            dataset
+            for dataset in var.derived_relevant_datasets or []
+            if dataset not in known_datasets
+        ]
+        if missing:
+            missing_datasets[name] = missing
+
+    assert not missing_datasets, (
+        "derived_relevant_datasets references must point to datasets in "
+        "settings.datasets or explicitly allowed virtual datasets: "
+        f"{missing_datasets}"
+    )
+
+
 def test_variables_with_codelist_have_label_variant() -> None:
     offenders: list[str] = []
 
