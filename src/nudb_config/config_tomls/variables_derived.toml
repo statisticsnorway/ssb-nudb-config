@@ -24,6 +24,7 @@
     dtype = "BOOLEAN"
     renamed_from = ["utland", "uh_utland", "uh_erutland"]
     derived_from = ["utd_skolekom"]  # skolekom = 2580/2599
+    derived_relevant_datasets = ["igang", "avslutta", "eksamen"]
     description_short = "True hvis utd_skolekom indikerer en utenlandsk skole (verdi i ['0025', '1025', '2025', '2400', '2580'])."
 
 
@@ -39,6 +40,7 @@
     klass_codelist = 36
     klass_variant_search_term = "Kompetanse"
     derived_from = ["nus2000"]  # Kan vi utlede fra programomraadekode heller/ i tillegg?
+    derived_relevant_datasets = ["igang", "avslutta"]
     description_short = "Utledet fra nus2000 via Klass-varianten 'Kompetanse'."
 
 [variables.vg_kurstrinn_nus]
@@ -49,6 +51,7 @@
     klass_codelist = 36
     klass_variant_search_term = "Kurstrinn"
     derived_from = ["nus2000"]
+    derived_relevant_datasets = ["igang", "avslutta"]
     description_short = "Utledet fra nus2000 via Klass-varianten 'Kurstrinn'."
 
 
@@ -62,6 +65,7 @@
     klass_codelist = 36
     klass_variant_search_term = "Fagskoleutdanning"
     derived_from = ["nus2000"]
+    derived_relevant_datasets = ["igang", "avslutta"]
 
 
 [variables.fa_studiepoeng_nus]
@@ -72,6 +76,7 @@
     klass_variant_search_term = "Studiepoeng ved fagskole"
     derived_from = ["nus2000"]
     description_short = "Utledet fra nus2000 via Klass-varianten 'Studiepoeng ved fagskole'."
+    derived_relevant_datasets = ["avslutta"]
 
 
 [variables.uh_univ_eller_hoegskole]
@@ -81,8 +86,8 @@
     klass_codelist = 885
     renamed_from = ["univ", "uh_univ_eller_hogskole"]
     derived_from = ["utd_utdanningstype", "utd_datakilde"]
+    derived_relevant_datasets = ["igang", "avslutta"]
     description_short = "Klassifiserer en utdanning som universitet ('1') eller høgskole ('2') basert på utd_utdanningstype og utd_datakilde."
-    #outdated_comment = "Kan vi utlede denne istedenfor å ha den lagret på data?"
 
 [variables.uh_studiepoeng_nus]
     unit = "uh"
@@ -92,6 +97,7 @@
     klass_variant_search_term = "Studiepoeng 2"
     derived_from = ["nus2000"]
     description_short = "Utledet fra nus2000 via Klass-varianten 'Studiepoeng 2'."
+    derived_relevant_datasets = ["avslutta"]
 
 
 [variables.uh_gradmerke_nus]
@@ -102,6 +108,7 @@
     klass_variant_search_term = "Gradmerke"
     derived_from = ["nus2000"]
     description_short = "Utledet fra nus2000 via Klass-varianten 'Gradmerke'."
+    derived_relevant_datasets = ["igang", "avslutta"]
 
 
 [variables.uh_gruppering_nus]
@@ -112,6 +119,7 @@
     klass_codelist = 36
     klass_variant_search_term = "Universitets- og høgskolegruppering"
     derived_from = ["nus2000"]
+    derived_relevant_datasets = ["igang", "avslutta", "eksamen"]
     description_short = "Utledet fra nus2000 via Klass-varianten 'Universitets- og høgskolegruppering'."
 
 
@@ -168,6 +176,7 @@
     klass_codelist = 36
     klass_variant_search_term = "Kodetype"
     derived_from = ["nus2000"]
+    derived_relevant_datasets = ["igang", "avslutta", "eksamen"]
     description_short = "Utledet fra nus2000 via Klass-varianten 'Kodetype'."
 
 [variables.utd_varighet_antall_mnd_nus]
@@ -238,6 +247,7 @@
     renamed_from = ["bu"]
     derived_from = ["snr"]
     derived_join_keys = ["snr"]
+    derived_relevant_datasets = ["utd_person"]
 
 
 [variables.utd_foreldres_utdnivaa_16aar]
@@ -248,6 +258,7 @@
      klass_codelist = 227
      derived_from = ["snr", "utd_foreldres_utdnivaa_16aar_nus2000"]
      derived_join_keys = ["snr"]
+     derived_relevant_datasets = ["utd_person"]
      description_short = "SOSBAK-variabel. Utledet ved å mappe første siffer i utd_foreldres_utdnivaa_16aar_nus2000 til en ny kodeliste."
 
 [variables.utd_foreldres_utdnivaa_16aar_nus2000]
@@ -255,6 +266,7 @@
      dtype = "STRING"
      derived_from = ["snr"]
      derived_join_keys = ["snr"]
+     derived_relevant_datasets = ["utd_person"]
      description_short = "Høyeste utdanning blant foreldrene ved barnets 16-årsdag (NUS2000-kode)."
 
 [variables.utd_hoeyeste_mor_nus2000]
@@ -263,6 +275,7 @@
      renamed_from = ["nus2000_mor"]
      derived_from = ["snr"]
      derived_join_keys = ["snr"]
+     derived_relevant_datasets = ["utd_person"]
      description_short = "Mors høyeste utdanning (NUS2000-kode), hentet fra det forhåndsberegnede datasettet for foreldres utdanning."
 
 [variables.utd_hoeyeste_far_nus2000]
@@ -271,6 +284,7 @@
      renamed_from = ["nus2000_far"]
      derived_from = ["snr"]
      derived_join_keys = ["snr"]
+     derived_relevant_datasets = ["utd_person"]
      description_short = "Fars høyeste utdanning (NUS2000-kode), hentet fra det forhåndsberegnede datasettet for foreldres utdanning."
 
 
@@ -282,7 +296,7 @@
     klass_codelist = 36
     derived_from = ["snr", "nus2000", "utd_aktivitet_start", "utd_aktivitet_slutt", "uh_eksamen_dato"]
     derived_join_keys = ["snr"]
-    derived_uses_datasets = ["avslutta", "igang", "eksamen"]
+    derived_uses_datasets = ["utd_person"]
     description_short = "Den første NUS2000-koden en person er registrert med på UH-nivå, sortert på startdato."
 
 
@@ -295,30 +309,35 @@
     dtype = "BOOLEAN"
     description_short = "Markerer rader som tilsier en registering på grunnskolenivå."
     derived_from = ["nus2000", "utd_erutland"]
+    derived_relevant_datasets = ["igang", "avslutta"]
 
 [variables.vg_ervgo_registrering]
     unit = "vg"
     dtype = "BOOLEAN"
     description_short = "Markerer rader som tilsier en registering på videregåendenivå."
     derived_from = ["nus2000"]
+    derived_relevant_datasets = ["igang", "avslutta"]
 
 [variables.vg_ervgo_erutdprogram_registrering]
     unit = "vg"
     dtype = "BOOLEAN"
     description_short = "Markerer rader som tilsier en registering på videregåendenivå, inkludert utfylt studretn."
     derived_from = ["nus2000", "vg_utdprogram"]
+    derived_relevant_datasets = ["igang", "avslutta"]
 
 [variables.vg_erstudiespess_registrering]
     unit = "vg"
     dtype = "BOOLEAN"
     description_short = "Markerer rader som tilsier en registering på studiespess på videregående."
     derived_from = ["nus2000", "vg_utdprogram"]
+    derived_relevant_datasets = ["igang", "avslutta"]
 
 [variables.vg_eryrkesfag_registrering]
     unit = "vg"
     dtype = "BOOLEAN"
     description_short = "Markerer rader som tilsier en registering på yrkesfag på videregående."
     derived_from = ["nus2000", "vg_utdprogram"]
+    derived_relevant_datasets = ["igang", "avslutta"]
 
 
 
@@ -327,6 +346,7 @@
     dtype = "BOOLEAN"
     description_short = "Markerer rader som tilsier en registering på høyere utdanning."
     derived_from = ["nus2000"]
+    derived_relevant_datasets = ["igang", "avslutta"]
 
 
 [variables.uh_erbachelor_registrering]
@@ -334,12 +354,14 @@
     dtype = "BOOLEAN"
     description_short = "Markerer rader som tilsier en registering på en bachelorgrad."
     derived_from = ["nus2000", "uh_gradmerke_nus"]
+    derived_relevant_datasets = ["igang", "avslutta"]
 
 [variables.uh_ermaster_registrering]
     unit = "uh"
     dtype = "BOOLEAN"
     description_short = "Markerer rader som tilsier en registering på en mastergrad."
     derived_from = ["nus2000"]
+    derived_relevant_datasets = ["igang", "avslutta"]
 
 
 
@@ -354,7 +376,7 @@
     dtype = "BOOLEAN"
     description_short = "Markerer rader som tilsier en fullføring av grunnskolenivå."
     derived_from = ["utd_fullfoertkode", "nus2000", "utd_erutland"]
-
+    derived_relevant_datasets = ["avslutta"]
 
 
 [variables.vg_ervgo_fullfoert]
@@ -362,6 +384,7 @@
     dtype = "BOOLEAN"
     description_short = "Markerer rader som tilsier en fullføring av videregåendenivå."
     derived_from = ["utd_fullfoertkode", "nus2000", "vg_kompetanse_nus"]
+    derived_relevant_datasets = ["avslutta"]
 
 
 [variables.vg_erstudiespess_fullfoert]
@@ -369,12 +392,14 @@
     dtype = "BOOLEAN"
     description_short = "Markerer rader som tilsier en fullføring av videregåendenivå med studiekompetanse."
     derived_from = ["utd_fullfoertkode", "nus2000", "vg_utdprogram", "vg_kompetanse_nus", "utd_aktivitet_start"]
+    derived_relevant_datasets = ["avslutta"]
 
 [variables.vg_eryrkesfag_fullfoert]
     unit = "vg"
     dtype = "BOOLEAN"
     description_short = "Markerer rader som tilsier en fullføring av videregåendenivå med yrkesfaglig kompetanse."
     derived_from = ["utd_fullfoertkode", "nus2000", "vg_utdprogram", "vg_kompetanse_nus", "utd_aktivitet_start"]
+    derived_relevant_datasets = ["avslutta"]
 
 
 [variables.uh_erhoeyskolekandidat_fullfoert]
@@ -382,18 +407,21 @@
     dtype = "BOOLEAN"
     description_short = "Markerer rader som tilsier en fullføring av 2-årig høyskolekandidat-utdanning. Bør kun kjøres på avslutta-data?"
     derived_from = ["utd_fullfoertkode", "nus2000", "uh_gruppering_nus", "utd_klassetrinn"]
+    derived_relevant_datasets = ["avslutta"]
 
 [variables.uh_erbachelor_fullfoert]
     unit = "uh"
     dtype = "BOOLEAN"
     description_short = "Markerer rader som tilsier en fullføring av en bachelorgrad. Bør kun kjøres på avslutta-data?"
     derived_from = ["utd_fullfoertkode", "uh_gradmerke_nus"]
+    derived_relevant_datasets = ["avslutta"]
 
 [variables.uh_ermaster_fullfoert]
     unit = "uh"
     dtype = "BOOLEAN"
     description_short = "Markerer rader som tilsier en fullføring av en mastergrad. Bør kun kjøres på avslutta-data?"
     derived_from = ["utd_fullfoertkode", "nus2000"]
+    derived_relevant_datasets = ["avslutta"]
 
 
 [variables.uh_erdoktorgrad_fullfoert]
@@ -401,6 +429,7 @@
     dtype = "BOOLEAN"
     description_short = "Markerer rader som tilsier en fullføring av en doktorgrad. Bør kun kjøres på avslutta-data?"
     derived_from = ["utd_fullfoertkode", "nus2000"]
+    derived_relevant_datasets = ["avslutta"]
 
 
 #############################
@@ -422,6 +451,7 @@
     derived_from = ["snr", "gr_ergrunnskole_fullfoert", "utd_aktivitet_start", "utd_aktivitet_slutt"]
     derived_uses_datasets = ["avslutta"]
     derived_join_keys = ["snr"]
+    derived_relevant_datasets = ["utd_person"]
     description_short = "Første sluttdato for en persons fullføring av grunnskolenivå (der gr_ergrunnskole_fullfoert er sann)."
 
 
@@ -432,6 +462,7 @@
     derived_from = ["snr", "vg_ervgo_registrering", "utd_aktivitet_start", "utd_aktivitet_slutt"]
     derived_uses_datasets = ["igang", "avslutta"]
     derived_join_keys = ["snr"]
+    derived_relevant_datasets = ["utd_person"]
     description_short = "Første startdato for en persons registrering på videregåendenivå (der vg_ervgo_registrering er sann)."
 
 [variables.vg_foerste_registrert_erutdprogram_dato]
@@ -441,6 +472,7 @@
     derived_from = ["snr", "vg_ervgo_erutdprogram_registrering", "utd_aktivitet_start", "utd_aktivitet_slutt"]
     derived_uses_datasets = ["igang", "avslutta"]
     derived_join_keys = ["snr"]
+    derived_relevant_datasets = ["utd_person"]
     description_short = "Første startdato for registrering på et utdanningsprogram på videregåendenivå (der vg_ervgo_erutdprogram_registrering er sann)."
 
 [variables.vg_foerste_fullfoert_dato]
@@ -450,6 +482,7 @@
     derived_from = ["snr", "vg_ervgo_fullfoert", "utd_aktivitet_start", "utd_aktivitet_slutt"]
     derived_uses_datasets = ["avslutta"]
     derived_join_keys = ["snr"]
+    derived_relevant_datasets = ["utd_person"]
     description_short = "Første sluttdato for en persons fullføring av videregåendenivå (der vg_ervgo_fullfoert er sann)."
 
 [variables.vg_studiespess_foerste_fullfoert_dato]
@@ -459,6 +492,7 @@
     derived_from = ["snr", "vg_erstudiespess_fullfoert", "utd_aktivitet_start", "utd_aktivitet_slutt"]
     derived_uses_datasets = ["avslutta"]
     derived_join_keys = ["snr"]
+    derived_relevant_datasets = ["utd_person"]
     description_short = "Første sluttdato for fullføring av studiespesialisering (der vg_erstudiespess_fullfoert er sann)."
 
 [variables.vg_yrkesfag_foerste_fullfoert_dato]
@@ -468,6 +502,7 @@
     derived_from = ["snr", "vg_eryrkesfag_fullfoert", "utd_aktivitet_start", "utd_aktivitet_slutt"]
     derived_uses_datasets = ["avslutta"]
     derived_join_keys = ["snr"]
+    derived_relevant_datasets = ["utd_person"]
     description_short = "Første sluttdato for fullføring av yrkesfag (der vg_eryrkesfag_fullfoert er sann)."
 
 
@@ -479,6 +514,7 @@
     derived_from = ["snr", "uh_erhoeyereutd_registrering", "utd_aktivitet_start", "utd_aktivitet_slutt", "uh_eksamen_dato"]
     derived_uses_datasets = ["igang", "avslutta", "eksamen"] # skal eksamen være med hær
     derived_join_keys = ["snr"]
+    derived_relevant_datasets = ["utd_person"]
     description_short = "Første startdato for en persons registrering på høyere utdanning (der uh_erhoeyereutd_registrering er sann)."
 
 [variables.uh_hoeyskolekandidat_foerste_fullfoert_dato]
@@ -489,6 +525,7 @@
     derived_from = ["snr", "uh_erhoeyskolekandidat_fullfoert", "utd_aktivitet_start", "utd_aktivitet_slutt"]
     derived_uses_datasets = ["avslutta"]
     derived_join_keys = ["snr"]
+    derived_relevant_datasets = ["utd_person"]
 
 
 [variables.uh_bachelor_foerste_registrert_dato]
@@ -497,6 +534,7 @@
     derived_from = ["snr", "uh_erbachelor_registrering", "utd_aktivitet_start", "utd_aktivitet_slutt"]
     derived_uses_datasets = ["igang", "avslutta"]
     derived_join_keys = ["snr"]
+    derived_relevant_datasets = ["utd_person"]
     description_short = "Første startdato for registrering på en bachelorgrad (der uh_erbachelor_registrering er sann)."
 
 [variables.uh_bachelor_foerste_fullfoert_dato]
@@ -506,6 +544,7 @@
     derived_from = ["snr", "uh_erbachelor_fullfoert", "utd_aktivitet_start", "utd_aktivitet_slutt"]
     derived_uses_datasets = ["avslutta"]
     derived_join_keys = ["snr"]
+    derived_relevant_datasets = ["utd_person"]
     description_short = "Første sluttdato for fullføring av en bachelorgrad (der uh_erbachelor_fullfoert er sann)."
 
 [variables.uh_master_foerste_registrert_dato]
@@ -515,6 +554,7 @@
     derived_from = ["snr", "uh_ermaster_registrering", "utd_aktivitet_start", "utd_aktivitet_slutt"]
     derived_uses_datasets = ["igang", "avslutta"]
     derived_join_keys = ["snr"]
+    derived_relevant_datasets = ["utd_person"]
     description_short = "Første startdato for registrering på en mastergrad (der uh_ermaster_registrering er sann)."
 
 [variables.uh_master_foerste_fullfoert_dato]
@@ -524,6 +564,7 @@
     derived_from = ["snr", "uh_ermaster_fullfoert", "utd_aktivitet_start", "utd_aktivitet_slutt" ]
     derived_uses_datasets = ["avslutta"]
     derived_join_keys = ["snr"]
+    derived_relevant_datasets = ["utd_person"]
     description_short = "Første sluttdato for fullføring av en mastergrad (der uh_ermaster_fullfoert er sann)."
 
 
@@ -534,4 +575,5 @@
     derived_from = ["snr", "uh_erdoktorgrad_fullfoert", "utd_aktivitet_start", "utd_aktivitet_slutt"]
     derived_uses_datasets = ["avslutta"]
     derived_join_keys = ["snr"]
+    derived_relevant_datasets = ["utd_person"]
     description_short = "Første sluttdato for fullføring av en doktorgrad (der uh_erdoktorgrad_fullfoert er sann)."

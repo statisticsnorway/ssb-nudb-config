@@ -31,6 +31,7 @@
     derived_from = ["snr"]
     derived_join_keys = ["snr"]
     derived_uses_datasets = ["innvbef"]
+    derived_relevant_datasets = ["utd_person"]
 
 
 [variables.pers_inngrunn1]
@@ -43,6 +44,7 @@
     derived_from = ["snr"]
     derived_join_keys = ["snr"]
     derived_uses_datasets = ["innvbef"]
+    derived_relevant_datasets = ["utd_person"]
 
 
 
@@ -54,6 +56,7 @@
     derived_from = ["snr"]
     derived_join_keys = ["snr"]
     derived_uses_datasets = ["innvbef"]
+    derived_relevant_datasets = ["utd_person"]
 
 [variables.pers_innflyttingsdato]
 	unit = "tid"
@@ -63,6 +66,7 @@
     derived_from = ["snr"]
     derived_join_keys = ["snr"]
     derived_uses_datasets = ["innvbef"]
+    derived_relevant_datasets = ["utd_person"]
 
 
 
@@ -82,6 +86,7 @@
     derived_from = ["snr"]
     derived_join_keys = ["snr"]
     derived_uses_datasets = ["alle_pers"]
+    derived_relevant_datasets = ["utd_person"]
 
 
 [variables.pers_bokommune_nr]
@@ -94,6 +99,7 @@
     derived_from = ["snr"]
     derived_join_keys = ["snr"]
     derived_uses_datasets = ["bosatte"]
+    derived_relevant_datasets = ["utd_person"]
 
 
 [variables.pers_gkrets_nr]
@@ -106,6 +112,7 @@
     derived_from = ["snr"]
     derived_join_keys = ["snr"]
     derived_uses_datasets = ["bosatte"]
+    derived_relevant_datasets = ["utd_person"]
 
 [variables.pers_bydel_nr]
     unit = "pers"
@@ -117,6 +124,7 @@
     derived_from = ["snr"]
     derived_join_keys = ["snr"]
     derived_uses_datasets = ["bosatte"]
+    derived_relevant_datasets = ["utd_person"]
 
 
 [variables.pers_bokommune_16aar]
@@ -129,6 +137,7 @@
     derived_from = ["snr"]
     derived_join_keys = ["snr"]
     derived_uses_datasets = ["bokommune_16aar_snr"]
+    derived_relevant_datasets = ["utd_person"]
 
 
 [variables.pers_foedeland]
@@ -141,6 +150,7 @@
     derived_from = ["snr"]
     derived_join_keys = ["snr"]
     derived_uses_datasets = ["innvbef"]
+    derived_relevant_datasets = ["utd_person"]
 
 
 [variables.pers_fra_land]
@@ -153,6 +163,7 @@
     derived_from = ["snr"]
     derived_join_keys = ["snr"]
     derived_uses_datasets = ["innvbef"]
+    derived_relevant_datasets = ["utd_person"]
 
 
 
@@ -166,6 +177,7 @@
     derived_from = ["snr"]
     derived_join_keys = ["snr"]
     derived_uses_datasets = ["innvbef"]
+    derived_relevant_datasets = ["utd_person"]
 
 ##################
 # Organisasjoner #
@@ -175,6 +187,7 @@
    unit = "bof"
    dtype = "STRING"
    derived_from = ["orgnr_foretak"]
+   derived_relevant_datasets = ["igang", "avslutta", "eksamen"]
    klass_codelist = 793
    length = [1]
    renamed_from = ["eierf"]
@@ -188,6 +201,7 @@
 	description_short = "Primærnæringskode til virksomheten, sn25"
 	length = [6]
     derived_uses_datasets = ["bof_situttak"]
+    derived_relevant_datasets = ["igang", "avslutta", "eksamen"]
     renamed_from = ["sn2025_1"]
     klass_codelist = 6
 
@@ -198,6 +212,7 @@
 	description_short = "Sekundærnæringskoden til virksomheten, sn25"
 	length = [6]
     derived_uses_datasets = ["bof_situttak"]
+    derived_relevant_datasets = ["igang", "avslutta", "eksamen"]
     renamed_from = ["sn2025_2"]
     klass_codelist = 6
 
@@ -208,5 +223,6 @@
 	description_short = "Tertiærnæringskoden til virksomheten, sn25"
 	length = [6]
     derived_uses_datasets = ["bof_situttak"]
+    derived_relevant_datasets = ["igang", "avslutta", "eksamen"]
     renamed_from = ["sn2025_3"]
     klass_codelist = 6
