@@ -1,3 +1,4 @@
 [options]
 
     warn_unsafe_derive = true
+    folder_path_local_parquet = ""
