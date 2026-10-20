@@ -8,7 +8,7 @@ class Options(DotMapBaseModel):
 
     warn_unsafe_derive: bool = True
     folder_path_local_parquet: str = (
-        ""  # If not an empty string, will override where we look for the nudb-parquet files in nudb_use
+        ""  # If not an empty string at runtime, will override where we look for the nudb-parquet files in nudb_use
     )
 
 
