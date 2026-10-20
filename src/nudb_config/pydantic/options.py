@@ -4,9 +4,12 @@ from .dotmap import DotMapBaseModel
 
 
 class Options(DotMapBaseModel):
-    """Typed options configuration under ``[options]``."""
+    """Typed options configuration."""
 
     warn_unsafe_derive: bool = True
+    folder_path_local_parquet: str = (
+        ""  # If not an empty string, will override where we look for the nudb-parquet files in nudb_use
+    )
 
 
 class OptionsFile(DotMapBaseModel):
