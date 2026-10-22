@@ -88,6 +88,16 @@ def test_derived_relevant_datasets_reference_existing_datasets() -> None:
     )
 
 
+def test_uh_foerste_nus2000_sources_and_relevant_dataset() -> None:
+    variable = settings.variables["uh_foerste_nus2000"]
+
+    # Derive the person's first UH education from course records,
+    # then attach the result to the virtual dataset with one row per person.
+    assert variable.derived_uses_datasets is not None
+    assert set(variable.derived_uses_datasets) == {"avslutta", "igang", "eksamen"}
+    assert variable.derived_relevant_datasets == ["utd_person"]
+
+
 def test_variables_with_codelist_have_label_variant() -> None:
     offenders: list[str] = []
 
