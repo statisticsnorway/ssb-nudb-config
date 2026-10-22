@@ -296,7 +296,8 @@
     klass_codelist = 36
     derived_from = ["snr", "nus2000", "utd_aktivitet_start", "utd_aktivitet_slutt", "uh_eksamen_dato"]
     derived_join_keys = ["snr"]
-    derived_uses_datasets = ["utd_person"]
+    derived_uses_datasets = ["avslutta", "igang", "eksamen"]
+    derived_relevant_datasets = ["utd_person"]
     description_short = "Den første NUS2000-koden en person er registrert med på UH-nivå, sortert på startdato."
 
 
