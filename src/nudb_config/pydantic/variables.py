@@ -29,6 +29,7 @@ class Variable(DotMapBaseModel):
         klass_variant: KLASS variant identifier, if applicable.
         klass_variant_search_term: Search term used to find a variant.
         klass_correspondence_to: The Classification ID for what we are mapping from the klass_codelist to.
+        klass_use_relative_time: If True the klass-codelist should be fetched relative to time in the dataset. False gets the newest available codelist.
         klass_codelist_metadata: Metadata fetched from KLASS for the codelist.
         klass_variant_metadata: Metadata fetched from KLASS for the variant.
         renamed_from: Previous column name(s) that map to this variable.
@@ -53,6 +54,8 @@ class Variable(DotMapBaseModel):
     klass_variant: int | None = None
     klass_variant_search_term: str | None = None
     klass_correspondence_to: int | None = None
+    # Kommuner og fylker bruker relativ tid, ellers vil vi stort sett bruke "siste" kodelister?
+    klass_use_relative_time: bool = False
     # Populated by find_var or similar functions that actually fetch from klass
     klass_codelist_metadata: klass.KlassClassification | None = None
     klass_variant_metadata: klass.KlassVariant | None = None
