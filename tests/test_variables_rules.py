@@ -1,6 +1,19 @@
 from nudb_config import settings
 
 
+def test_klass_codelist_131_requires_relative_time() -> None:
+    offenders = [
+        name
+        for name, var in settings.variables.items()
+        if var.klass_codelist == 131 and var.klass_use_relative_time is not True
+    ]
+
+    assert not offenders, (
+        "When defined as kommuner, klass_use_relative_time should be True: "
+        f"{sorted(offenders)}"
+    )
+
+
 def test_klass_codelist_present_when_variant_metadata_present() -> None:
     offenders: list[str] = []
 

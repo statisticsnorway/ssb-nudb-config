@@ -96,6 +96,7 @@
     length = [4]
     renamed_from = ["komm_nr", "komm", "kommnr"]
     klass_codelist = 131
+    klass_use_relative_time = true
     derived_from = ["snr"]
     derived_join_keys = ["snr"]
     derived_uses_datasets = ["bosatte"]
@@ -134,6 +135,7 @@
     length = [4]
     renamed_from = ["komm16", "komm_16"]
     klass_codelist = 131
+    klass_use_relative_time = true
     derived_from = ["snr"]
     derived_join_keys = ["snr"]
     derived_uses_datasets = ["bokommune_16aar_snr"]

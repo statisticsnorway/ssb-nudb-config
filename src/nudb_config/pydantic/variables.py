@@ -53,9 +53,12 @@ class Variable(DotMapBaseModel):
     klass_variant: int | None = None
     klass_variant_search_term: str | None = None
     klass_correspondence_to: int | None = None
+    # Kommuner og fylker bruker relativ tid, ellers vil vi stort sett bruke "siste" kodelister?
+    klass_use_relative_time: bool = False
     # Populated by find_var or similar functions that actually fetch from klass
     klass_codelist_metadata: klass.KlassClassification | None = None
     klass_variant_metadata: klass.KlassVariant | None = None
+    
 
     renamed_from: list[str] | None = None
 
