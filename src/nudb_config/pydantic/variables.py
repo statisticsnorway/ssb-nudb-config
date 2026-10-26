@@ -58,7 +58,6 @@ class Variable(DotMapBaseModel):
     # Populated by find_var or similar functions that actually fetch from klass
     klass_codelist_metadata: klass.KlassClassification | None = None
     klass_variant_metadata: klass.KlassVariant | None = None
-    
 
     renamed_from: list[str] | None = None
 
