@@ -7,6 +7,8 @@ from .dotmap import DotMapDict
 class Constants(DotMapBaseModel):
     """Typed options configuration under ``[constants]``."""
 
+    delivering_teams: list[str]
+
     snr_allnumeric_7digit_threshold_percent: float
     fullfoertkode: str
     venstresensur: str
