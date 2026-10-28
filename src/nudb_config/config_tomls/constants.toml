@@ -1,6 +1,8 @@
 
 [constants]
 
+# The teams that deliver data to nudb, helps with filtering the datasets we want to do certain quality checks for
+delivering_teams = ["utd-vg", "utd-uhfagskole", "utd-bhgskole"]
 
 snr_allnumeric_7digit_threshold_percent = 5.0
 fullfoertkode = "8"
