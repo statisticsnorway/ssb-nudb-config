@@ -92,6 +92,7 @@
     [datasets.igang.dataset_specific_renames]
             ftype = "vg_kontraktstype"
             ftypef = "vg_kontraktstype"
+            studrett = "uh_studierett"
 
     [datasets.igang.thresholds_empty]
             fnr = 0.0  # Vi vil ha fnr på alle takk.
@@ -328,6 +329,7 @@
         [datasets.avslutta.dataset_specific_renames]
             ftype = "vg_proevekandtype"
             ftypef = "vg_proevekandtype"
+
 
         [datasets.avslutta.thresholds_empty]
             fnr = 0.0  # Vi vil ha fnr på alle takk
