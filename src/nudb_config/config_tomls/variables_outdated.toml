@@ -18,12 +18,6 @@
 		dtype = "BOOLEAN"
 		outdated_comment = "Bør holde med mangel på utfylt snr, kan bli nødvendig senere om vi fyller falsk snr"
 
-	[variables.komp]
-		unit = "utdatert"
-		dtype = "STRING"
-		length = [1]
-		outdated_comment = "Bør utledes fra nus+klass istedenfor å ligge på filene?"
-
 	[variables.foedselsaar]
 		unit = "utdatert"
 		dtype = "STRING"
@@ -80,20 +74,6 @@
 		unit = "utdatert"
         dtype = "STRING"
 		outdated_comment = "Bør erstattes av utd_aktivitet_slutt"
-
-	[variables.ftype]
-		unit = "utdatert"
-		dtype = "STRING"
-		length = [1]
-		klass_variant = 2942
-		outdated_comment = "Splittes i kontraktstype og proevekandtype avhengig av innfil den ligger på. En datasett-avhengig rename i datasets.toml bør konfigureres isteden."
-
-    [variables.ftypef] # Samme som `ftype`?
-        unit = "utdatert"
-        dtype = "STRING"
-        length = [1]
-        klass_variant = 2942
-		outdated_comment = "Splittes i kontraktstype og proevekandtype avhengig av innfil den ligger på. En datasett-avhengig rename i datasets.toml bør konfigureres isteden."
 
 	[variables.ktrinn]
 		unit = "utdatert"
@@ -206,50 +186,30 @@
 		length = [6]
 		outdated_comment = "Utdatert standard, korresponderer til nu standard?"
 
-    [variables.fagkode]
-		unit = "utdatert"
-		dtype = "STRING"
-		length = [3, 6, 7]
-		outdated_comment = "Tilhører uavhengig tabell grunnskolekarakterer. Ikke nødvendig i NUDB?"
-
 	[variables.i97isced]
 		unit = "utdatert"
 		dtype = "STRING"
-		outdated_comment = "Kan kobles på NUS, ellers utdatert standard."
+		outdated_comment = "Kan kobles på NUS, ellers er '97 en utdatert standard."
 
 	[variables.i97destn]
 		unit = "utdatert"
 		dtype = "STRING"
-		outdated_comment = "Kan kobles på NUS, ellers utdatert standard."
+		outdated_comment = "Kan kobles på NUS, ellers er '97 en utdatert standard."
 
 	[variables.i97orien]
 		unit = "utdatert"
 		dtype = "STRING"
-		outdated_comment = "Kan kobles på NUS, ellers utdatert standard."
+		outdated_comment = "Kan kobles på NUS, ellers er '97 en utdatert standard."
 
 	[variables.i97grads]
 		unit = "utdatert"
 		dtype = "STRING"
-		outdated_comment = "Kan kobles på NUS, ellers utdatert standard."
+		outdated_comment = "Kan kobles på NUS, ellers er '97 en utdatert standard."
 
 	[variables.i97varig]
 		unit = "utdatert"
 		dtype = "STRING"
-		outdated_comment = "Kan kobles på NUS, ellers utdatert standard."
-
-	[variables.kodetype]
-		unit = "utdatert"
-		dtype = "STRING"
-		length = [1]
-		outdated_comment = "Kan kobler på NUS"
-
-	# Mangler omdøping, skal flyttes til "utdatert"?
-	[variables.eierf]
-		unit = "utdatert"
-		dtype = "STRING"
-		length = [1]
-		klass_codelist = 793
-		outdated_comment = "Bør kobles på fra BOF"
+		outdated_comment = "Kan kobles på NUS, ellers er '97 en utdatert standard."
 
 	[variables.sslag]
 		unit = "utdatert"

@@ -38,6 +38,27 @@ def test_renamed_from_entries_are_unique_across_variables() -> None:
     )
 
 
+def test_outdated_variables_are_not_rename_sources() -> None:
+    outdated_names = {
+        name
+        for name, variable in settings.variables.items()
+        if variable.outdated_comment and variable.outdated_comment.strip()
+    }
+    conflicts: list[str] = []
+
+    for name, variable in settings.variables.items():
+        for old_name in variable.renamed_from or []:
+            if old_name != name and old_name in outdated_names:
+                conflicts.append(f"{old_name} -> {name}")
+
+    assert not conflicts, (
+        "Variables with a non-empty outdated_comment must not also appear in "
+        "another variable's renamed_from. You probably want to remove the outdated "
+        "variable entry containing outdated_comment: the new name means the variable "
+        "is not technically outdated. Conflicts: " + "; ".join(sorted(conflicts))
+    )
+
+
 def test_all_variable_units_are_in_sort_unit_list() -> None:
     assert settings.variables_sort_unit is not None
     allowed_units = set(settings.variables_sort_unit)
