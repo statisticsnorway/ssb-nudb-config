@@ -55,8 +55,7 @@ def test_outdated_variables_are_not_rename_sources() -> None:
         "Variables with a non-empty outdated_comment must not also appear in "
         "another variable's renamed_from. You probably want to remove the outdated "
         "variable entry containing outdated_comment: the new name means the variable "
-        "is not technically outdated. Conflicts: "
-        + "; ".join(sorted(conflicts))
+        "is not technically outdated. Conflicts: " + "; ".join(sorted(conflicts))
     )
 
 
