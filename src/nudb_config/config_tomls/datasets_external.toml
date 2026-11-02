@@ -29,10 +29,7 @@
         bucket = "folketall"
         path_glob = "bosatte/[0-9][0-9][0-9][0-9]/bosatte_p[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]_v*[0-9].parquet"
 
-    [datasets.innvbef]
-        team = "bef-statistikk"
-        bucket = "folketall"
-        path_glob = "innvbef/[0-9][0-9][0-9][0-9]/innvbef_p[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]_v*[0-9].parquet"
+    
 
     [datasets.slekt]
         team = "bef-statistikk"
@@ -44,6 +41,15 @@
         bucket = "folketall"
         path_glob = "tverrfaglig/360/komm-nr-ved-16_p[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]_v*[0-9].parquet"
 
+    [datasets.innvbef]
+        team = "bef-statistikk"
+        bucket = "folketall"
+        path_glob = "innvbef/[0-9][0-9][0-9][0-9]/innvbef_p[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]_v*[0-9].parquet"
+
+    [datasets.innvgrunn]
+        team = "bef-analyse"
+        bucket = "innvgrunn"
+        path_glob = "innvgrunn/klargjorte-data/innvgrunn_p[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]_p[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]_v*[0-9].parquet"
 
 #######
 # BOF #
