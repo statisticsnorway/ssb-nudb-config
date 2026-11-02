@@ -29,7 +29,7 @@
         bucket = "folketall"
         path_glob = "bosatte/[0-9][0-9][0-9][0-9]/bosatte_p[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]_v*[0-9].parquet"
 
-    
+
 
     [datasets.slekt]
         team = "bef-statistikk"
