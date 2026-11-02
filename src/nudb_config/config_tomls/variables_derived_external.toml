@@ -34,19 +34,6 @@
     derived_relevant_datasets = ["utd_person"]
 
 
-[variables.pers_inngrunn1]
-    unit = "pers"
-    dtype = "STRING"
-    description_short = "Personens innvandringsgrunn, hentet fra INNVBEF-datasettet."
-    length = [3]
-    renamed_from = ["inngrunn1"]
-    klass_codelist = 355
-    derived_from = ["snr"]
-    derived_join_keys = ["snr"]
-    derived_uses_datasets = ["innvbef"]
-    derived_relevant_datasets = ["utd_person"]
-
-
 
 [variables.pers_foerste_bosattdato]
 	unit = "tid"
@@ -69,6 +56,17 @@
     derived_relevant_datasets = ["utd_person"]
 
 
+[variables.pers_inngrunn1]
+    unit = "pers"
+    dtype = "STRING"
+    description_short = "Personens innvandringsgrunn, hentet fra INNVGRUNN-datasettet."
+    length = [3]
+    renamed_from = ["inngrunn1"]
+    klass_codelist = 355
+    derived_from = ["snr"]
+    derived_join_keys = ["snr"]
+    derived_uses_datasets = ["innvgrunn"]
+    derived_relevant_datasets = ["utd_person"]
 
 
 
