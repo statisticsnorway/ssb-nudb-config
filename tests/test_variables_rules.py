@@ -116,7 +116,14 @@ def test_variables_with_codelist_have_label_variant() -> None:
 
     for name, var in settings.variables.items():
         klass_codelist = getattr(var, "klass_codelist", None)
-        if not (isinstance(klass_codelist, int) and klass_codelist > 0):
+        klass_variant = var.klass_variant
+        has_codelist = isinstance(klass_codelist, int) and klass_codelist > 0
+        has_variant = isinstance(klass_variant, int) and klass_variant > 0
+        if (
+            name.endswith("_label")
+            or klass_codelist == 0
+            or not (has_codelist or has_variant)
+        ):
             continue
 
         dtype = str(getattr(var, "dtype", "") or "").upper()
@@ -124,13 +131,21 @@ def test_variables_with_codelist_have_label_variant() -> None:
         outdated_filled = bool(outdated_comment) and str(outdated_comment).strip() != ""
 
         # Boolean or explicitly outdated variables should not require a label variant
-        if dtype == "BOOLEAN" or outdated_filled:
+        if dtype == "BOOLEAN" or var.unit == "utdatert" or outdated_filled:
             continue
 
-        if f"{name}_label" not in settings.variables:
+        label_name = f"{name}_label"
+        if label_name not in settings.variables:
             offenders.append(name)
+            continue
+
+        label = settings.variables[label_name]
+        assert label.name == label_name
+        assert label.unit == var.unit
+        assert label.dtype == "STRING"
+        assert label.derived_from == [name]
 
     assert offenders == [], (
-        "Variables with 'klass_codelist' > 0 must have a corresponding "
+        "Eligible variables with a positive KLASS codelist or variant must have a corresponding "
         f"`*_label` entry: {sorted(offenders)}"
     )

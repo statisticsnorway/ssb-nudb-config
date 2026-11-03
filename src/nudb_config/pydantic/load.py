@@ -72,7 +72,17 @@ class NudbConfig(DotMapBaseModel):
         for path in sorted(cfg_dir.glob("*.toml")):
             toml_data = _load_toml(path)
             _merge_into(self, toml_data)
+        self._add_label_variables()
         return self
+
+    def _add_label_variables(self) -> None:
+        """Add label variables for eligible parents in the loaded configuration.
+
+        Each label inherits its parent's unit, has STRING dtype, and declares
+        the parent as its derivation source.
+        """
+        for name, variable in _expand_label_variables(self.variables).items():
+            self.variables[name] = variable
 
     def _deep_copy(self) -> NudbConfig:
         try:
@@ -220,28 +230,18 @@ def _maybe_inject_variable_name(
 
 
 def _iter_variable_paths(cfg_dir: Path) -> list[Path]:
-    """Return variable TOML paths excluding derived label entries, sorted by shortest length first."""
-    return sorted(
-        [
-            path
-            for path in cfg_dir.glob("variables*.toml")
-            if path.name != "variables_derived_label.toml"
-        ],
-        key=lambda x: len(str(x)),
-    )
+    """Return variable TOML paths sorted by shortest length first."""
+    return sorted(cfg_dir.glob("variables*.toml"), key=lambda x: len(str(x)))
 
 
 def _load_variables(cfg_dir: Path) -> VariablesFile:
-    """Load and merge variables, generating derived label entries."""
+    """Load and merge variable definitions before label generation."""
     merged_variables: DotMapDict[Variable] = DotMapDict(value_type=Variable)
     variables_sort_unit_list: list[str] | None = None
-    derived_file: VariablesFile | None = None
 
     for path in _iter_variable_paths(cfg_dir):
         var_toml = _load_toml(path)
         var_file: VariablesFile = VariablesFile.model_validate(var_toml)
-        if path.name == "variables_derived.toml":
-            derived_file = var_file
         for key, variable in var_file.variables.items():
             merged_variables[key] = variable
         if getattr(var_file, "variables_sort_unit", None) is not None:
@@ -251,11 +251,6 @@ def _load_variables(cfg_dir: Path) -> VariablesFile:
         variables=merged_variables,
         variables_sort_unit=variables_sort_unit_list,
     )
-    if derived_file is not None:
-        label_variables = _expand_derived_label_variables(derived_file)
-        for key, variable in label_variables.items():
-            if key not in variables_file.variables:
-                variables_file.variables[key] = variable
     return _expand_codelist_extras(variables_file)
 
 
@@ -311,7 +306,7 @@ def load_pydantic_settings() -> NudbConfig:
     variables_file = _load_variables(cfg_dir)
     dataset_file = _load_datasets(cfg_dir)
 
-    return NudbConfig(
+    settings = NudbConfig(
         dapla_team=settings_file.dapla_team,
         short_name=settings_file.short_name,
         variables_sort_unit=variables_file.variables_sort_unit,
@@ -321,21 +316,34 @@ def load_pydantic_settings() -> NudbConfig:
         options=options_file.options,
         constants=constants_file.constants,
     )
+    settings._add_label_variables()
+    return settings
 
 
-def _expand_derived_label_variables(
-    variables_file: VariablesFile,
+def _expand_label_variables(
+    variables: DotMapDict[Variable],
 ) -> DotMapDict[Variable]:
-    """Create label variables for derived entries with klass codelists.
+    """Create labels for active, non-boolean variables with KLASS code labels.
 
-    Mirrors the contents of the old ``variables_derived_label.toml`` by generating
-    ``{name}_label`` variables for derived entries whose ``klass_codelist`` is
-    a positive integer.
+    A positive codelist or direct variant ID supplies labels. Codelist zero
+    explicitly disables KLASS labels. Version, variant-search and correspondence
+    settings remain on the parent for consumers to resolve when filling labels.
     """
     label_variables: DotMapDict[Variable] = DotMapDict(value_type=Variable)
-    for name, variable in variables_file.variables.items():
-        klass_codelist = getattr(variable, "klass_codelist", None)
-        if not isinstance(klass_codelist, int) or klass_codelist <= 0:
+    for name, variable in variables.items():
+        if (
+            name.endswith("_label")  # Dont make *_label_label-variables...
+            or variable.dtype == "BOOLEAN"
+            or variable.unit == "utdatert"
+            or (variable.outdated_comment and variable.outdated_comment.strip())
+            or variable.klass_codelist == 0
+        ):
+            continue
+        has_codelist = (
+            variable.klass_codelist is not None and variable.klass_codelist > 0
+        )
+        has_variant = variable.klass_variant is not None and variable.klass_variant > 0
+        if not (has_codelist or has_variant):
             continue
         label_name = f"{name}_label"
         label_variables[label_name] = Variable(
