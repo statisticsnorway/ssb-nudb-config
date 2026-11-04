@@ -41,6 +41,15 @@ variables_sort_unit = [
 		length = [11]
 		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
 
+	[variables.pers_kjoenn]
+		unit = "pers"
+		dtype = "STRING"
+		description_short = "SSBs offisielle koder for kjønn"
+		length = [1]
+    	klass_codelist = 2
+		klass_use_relative_time = true
+        klass_codelist_from_date = "1960-01-01" 
+
 #############################
 # Fagvariabler / nuskatalog #
 #############################
@@ -170,6 +179,37 @@ variables_sort_unit = [
 		klass_use_relative_time = true
         klass_codelist_from_date = "1960-01-01"
         renamed_from = ["skolekom"]
+
+    [variables.avgiverskole_orgnrbed]
+		unit = "skole"
+		dtype = "STRING"
+		description_short = "Underenhet / Bedriftens organisasjons-ID definert av Brønnøysundregistered og VoF/BoF til barneskolen som eleven gikk på"
+		length = [9]
+        renamed_from = []
+		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
+
+    [variables.avgiverskole_orgnr_foretak]
+		unit = "skole"
+		dtype = "STRING"
+		description_short = "Organisasjonsnummeret til Overenhet / Foretak / Juridisk Enhet. ID definert av Brønnøysundregistered og VoF/BoF til barneskolen som eleven gikk på."
+		length = [9]
+        renamed_from = []
+		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
+
+    [variables.avgiverskole_navn]
+        unit = "skole"
+        dtype = "STRING"
+        description_short = "Innrapportert skolenavn til barneskolen som eleven gikk på."
+        renamed_from = []
+		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
+
+   [variables.skoletype_pas]
+        unit = "skole"
+        dtype = "STRING"
+        description_short = "Skoletype angitt av utdanningsdirektoratets PAS."
+        length = [9]
+        renamed_from = []
+		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
 
 
 ############################
