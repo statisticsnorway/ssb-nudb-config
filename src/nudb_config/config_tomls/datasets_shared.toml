@@ -387,3 +387,53 @@
             gro_karakter_termin1 = 15.0
             gro_karakter_termin2 = 99.93
             gro_karakter_praktisk_muntlig = 99.99
+
+
+[datasets.nasjprov]
+        team = "utd-nudb"
+        bucket = "delt-nasjprov"
+        path_glob = "nasjprov/klargjorte-data/nasjonaleprover_p2007_p[0-9][0-9][0-9][0-9]_v*[0-9].parquet"
+        #/buckets/delt-nasjprov/nasjprov/klargjorte-data/nasjonaleprover_p2007_p2025_v1.parquet
+
+        variables = [
+            # pers
+            "snr",  
+            "fnr",          
+
+            # tid
+            "utd_skoleaar_start", 
+
+            # skole
+            "orgnr_foretak",  
+            "orgnrbed",
+            "utd_skolekom",
+            "skoletype_pas",
+
+            # gro
+            "gro_skolenavn_inn",
+
+            # avgiverskole
+            "avgiverskole_orgnrbed",
+            "avgiverskole_orgnr_foretak",
+            "avgiverskole_navn",
+
+            # nasjprov
+            'deltattstatus',
+            'mestringsnivaa',
+            'poeng',
+            'skalapoeng',
+            'provekode',
+            'oppgavesettnr',
+            'gruppenr',
+            'skalapoeng_old'
+            'mestringsnivaa_old'
+
+            # derived
+            "pers_kjoenn",
+#            "snr_mrk",  # See Jira NUD-482 for decision to include
+        ]
+
+        [datasets.nasjprov.thresholds_empty]
+            snr = 0.1 #som grunnskolekarakterer
+            orgnr_foretak = 0.1 #som grunnskolekarakterer
+            utd_skolekom = 0.05 #som grunnskolekarakterer
