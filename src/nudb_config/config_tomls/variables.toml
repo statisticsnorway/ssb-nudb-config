@@ -17,6 +17,7 @@ variables_sort_unit = [
     "land",      # Variabler som sier noe om landtilhørighet
     "utdatert",  # Variabler vi ønsker at skal vekk
 	"ukjent",    # Variabler som enda ikke er plassert
+    "nasj",      # Nasjonale prøver
 ]
 
 [variables]
@@ -271,6 +272,7 @@ variables_sort_unit = [
         description_short = "\"Grunnskolepoeng er samlet antall karakterpoeng ved avsluttet grunnskole. Definisjon t.o.m. 2006: Summen av elevens fagkarakterer i 11 fag. Når eleven har både standpunktkarakter og eksamenskarakter, er fagkarakteren gjennomsnittet av disse karakterene. Hvis eleven mangler karakter i noen fag, blir det lagt til poeng for inntil to fag ut fra gjennomsnittskarakteren i de fagene eleven har karakter i."
         renamed_from = ["grunnskolepoeng"]
 		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
+
 
 ####################################
 # "gro" - Grunnopplæring (gr + vg) #
@@ -846,3 +848,70 @@ variables_sort_unit = [
 		dtype = "BOOLEAN"
 		renamed_from = ["med_pub_kar"]
 		description_short = "If the row was part of publising in the product KARGRS in population KAR."
+
+
+####################
+# Nasjonale prøver #
+####################
+
+	[variables.deltattstatus]
+		unit = "nasj"
+		dtype = "STRING"
+        length = [1]
+		renamed_from = []
+		description_short = "Participated in a national test."
+
+    [variables.mestringsnivaa]
+		unit = "nasj"
+		dtype = "STRING"
+        length = [1, 3]
+		renamed_from = []
+		description_short = "Indicates placement in distribution of test scores (T-scores) given by skalapoeng. Re-estimated for years 2014-2021. Original values found in mestringsnivaa_old. Usually given as int, length 1, but for some scores in years 2014-2021 variable has format decimal number with 1dp."
+    [variables.poeng]
+		unit = "nasj"
+		dtype = "INTEGER"
+		renamed_from = []
+		description_short = "Rawscore from national test."
+
+    [variables.skalapoeng]
+		unit = "nasj"
+		dtype = "FLOAT"
+		renamed_from = []
+		description_short = "T-score for national test. Linear transformation of z-score output from IRT analysis. Re-estimated for years 2014-2021. Original values found in skalapoeng_old."
+
+    [variables.provekode]
+		unit = "nasj"
+		dtype = "STRING"
+        length = [7]
+		renamed_from = []
+		description_short = "Info which test: subject and school-year."
+
+    [variables.oppgavesettnr]
+		unit = "nasj"
+		dtype = "STRING"
+        length = [1]
+		renamed_from = []
+		description_short = "Group of items on test. Filled out 2010-2016."
+
+    [variables.gruppenr]
+		unit = "nasj"
+		dtype = "STRING"
+        length = [5, 6]
+		renamed_from = []
+		description_short = ""
+
+    [variables.skalapoeng_old]
+		unit = "nasj"
+		dtype = "FLOAT"
+		renamed_from = []
+		description_short = "Original T-score for national test. Linear transformation of z-score output from IRT analysis of rawscore (poeng). Re-estimated for years 2014-2021. Re-estimated values found in skalapoeng."
+
+    [variables.mestringsnivaa_old]
+		unit = "nasj"
+		dtype = "STRING"
+        length = [1]
+		renamed_from = []
+		description_short = "Indicates placement in distribution of test scores (T-scores) given by skalapoeng. Re-estimated for years 2014-2021. Re-estimated values found in mestringsnivaa."
+
+
+   
