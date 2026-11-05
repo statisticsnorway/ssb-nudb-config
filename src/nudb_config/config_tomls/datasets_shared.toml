@@ -425,8 +425,8 @@
             'provekode',
             'oppgavesettnr',
             'gruppenr',
-            'skalapoeng_old'
-            'mestringsnivaa_old'
+            'skalapoeng_old',
+            'mestringsnivaa_old',
 
             # derived
             "pers_kjoenn",
