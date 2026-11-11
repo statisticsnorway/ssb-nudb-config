@@ -1,0 +1,82 @@
+# Variables retrieved from baked datasets with one value per person.
+
+[variables.utd_foerste_aar]
+    unit = "tid"
+    dtype = "STRING"
+    length = [4]
+    description_short = "Første år personen er registrert med utdanning."
+    derived_from = ["snr"]
+    derived_join_keys = ["snr"]
+    derived_uses_datasets = ["utd_hoeyeste"]
+
+[variables.utd_hoeyeste_dato]
+    unit = "tid"
+    dtype = "DATETIME"
+    description_short = "Dato knyttet til personens høyeste utdanning."
+    derived_from = ["snr"]
+    derived_join_keys = ["snr"]
+    derived_uses_datasets = ["utd_hoeyeste"]
+
+[variables.utd_hoeyeste_aar]
+    unit = "tid"
+    dtype = "STRING"
+    length = [4]
+    description_short = "År knyttet til personens høyeste utdanning."
+    derived_from = ["snr"]
+    derived_join_keys = ["snr"]
+    derived_uses_datasets = ["utd_hoeyeste"]
+
+[variables.utd_hoeyeste_nus2000_ujustert]
+    unit = "utd"
+    dtype = "STRING"
+    length = [6]
+    klass_codelist = 36
+    description_short = "NUS2000-kode for personens høyeste utdanning før justering."
+    derived_from = ["snr"]
+    derived_join_keys = ["snr"]
+    derived_uses_datasets = ["utd_hoeyeste"]
+
+[variables.pers_aar_16]
+    unit = "tid"
+    dtype = "STRING"
+    length = [4]
+    description_short = "Kalenderåret personen fyller 16 år."
+    derived_from = ["snr"]
+    derived_join_keys = ["snr"]
+    derived_uses_datasets = ["utd_foreldres_utdnivaa"]
+
+[variables.far_snr]
+    unit = "pers"
+    dtype = "STRING"
+    length = [7, 36]
+    klass_codelist = 0
+    description_short = "SSBs personidentifikator (snr) for personens far."
+    derived_from = ["snr"]
+    derived_join_keys = ["snr"]
+    derived_uses_datasets = ["utd_foreldres_utdnivaa"]
+
+[variables.mor_snr]
+    unit = "pers"
+    dtype = "STRING"
+    length = [7, 36]
+    klass_codelist = 0
+    description_short = "SSBs personidentifikator (snr) for personens mor."
+    derived_from = ["snr"]
+    derived_join_keys = ["snr"]
+    derived_uses_datasets = ["utd_foreldres_utdnivaa"]
+
+[variables.far_utd_hoeyeste_rangering]
+    unit = "utd"
+    dtype = "STRING"
+    description_short = "Rangering av fars høyeste utdanning; høyere verdi angir høyere rangert utdanning."
+    derived_from = ["snr"]
+    derived_join_keys = ["snr"]
+    derived_uses_datasets = ["utd_foreldres_utdnivaa"]
+
+[variables.mor_utd_hoeyeste_rangering]
+    unit = "utd"
+    dtype = "STRING"
+    description_short = "Rangering av mors høyeste utdanning; høyere verdi angir høyere rangert utdanning."
+    derived_from = ["snr"]
+    derived_join_keys = ["snr"]
+    derived_uses_datasets = ["utd_foreldres_utdnivaa"]
