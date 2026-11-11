@@ -2,3 +2,6 @@
 
     warn_unsafe_derive = true
     folder_path_local_parquet = ""
+
+    baked_data_use = true
+    baked_data_use_v0 = false

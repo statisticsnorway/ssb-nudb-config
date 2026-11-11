@@ -1,0 +1,44 @@
+# This file contains nudbs "baked" datasets that are then shared.
+# "Baked" means a virtual/derivable dataset in nudb-use NudbData-database which has been stored for stability and processing speed.
+# Which means it can be reacreated with current data, or used from stable storage on disk.
+
+[datasets]
+
+    [datasets.utd_hoeyeste]
+
+        team = "utd-nudb"
+        bucket = "utdanning"
+        path_glob = "nudb-data/klargjorte-data/bakt/utd-hoeyeste_p[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]_v*[0-9].parquet"
+
+        variables = [
+            'snr',
+            'utd_datakilde',
+            'utd_klassetrinn',
+            'utd_studieland',
+            'utd_foerste_aar',
+            'utd_hoeyeste_dato',
+            'utd_hoeyeste_aar',
+            'utd_hoeyeste_rangering',
+            'utd_hoeyeste_nus2000_ujustert',
+            'utd_hoeyeste_nus2000'
+            ]
+
+
+    [datasets.utd_foreldres_utdnivaa]
+
+        team = "utd-nudb"
+        bucket = "utdanning"
+        path_glob = "nudb-data/klargjorte-data/bakt/utd-foreldres-utdnivaa_p[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]_v*[0-9].parquet"
+
+        variables = [
+            'snr',
+            'pers_foedselsdato',
+            'pers_aar_16',
+            'far_snr',
+            'mor_snr',
+            'utd_hoeyeste_far_nus2000',
+            'far_utd_hoeyeste_rangering',
+            'utd_hoeyeste_mor_nus2000',
+            'mor_utd_hoeyeste_rangering',
+            'utd_foreldres_utdnivaa_16aar_nus2000'
+        ]
