@@ -4,7 +4,7 @@
 #################################################
 
 	[variables.gro_fagkode_vigo]
-		unit = "gro"
+		unit = "karakter"
 		length = [3, 6, 7]
 		dtype = "STRING"
         klass_codelist = 0 # Bruker vigo sine koder rett i dataen, så ikke bruk for kodeliste.
