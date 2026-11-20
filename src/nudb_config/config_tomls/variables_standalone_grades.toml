@@ -8,28 +8,28 @@
 		length = [3, 6, 7]
 		dtype = "STRING"
         klass_codelist = 0 # Bruker vigo sine koder rett i dataen, så ikke bruk for kodeliste.
-		renamed_from = ["fagkode"]
+		renamed_from = ["fagkode", "vg_fagkode"]
 
     [variables.gro_karakter_standpunkt]
         unit = "karakter"
         dtype = "STRING"
         length = [1, 2]
         klass_codelist = 782
-		renamed_from = ["stp", "karakter_standpunkt"]
+		renamed_from = ["stp", "karakter_standpunkt", "vg_karakter_standpunkt"]
 
     [variables.gro_karakter_skriftlig]
         unit = "karakter"
         dtype = "STRING"
         length = [1, 2]
         klass_codelist = 782
-		renamed_from = ["skr", "karakter_skriftlig_eksamen"]
+		renamed_from = ["skr", "karakter_skriftlig_eksamen", "vg_karakter_skriftlig_eksamen"]
 
     [variables.gro_karakter_muntlig]
         unit = "karakter"
         dtype = "STRING"
         length = [1, 2]
         klass_codelist = 782
-		renamed_from = ["mun", "karakter_muntlig_eksamen"]
+		renamed_from = ["mun", "karakter_muntlig_eksamen", "vg_karakter_muntlig_eksamen"]
 
     [variables.annen]
         unit = "karakter"
@@ -43,28 +43,28 @@
         dtype = "STRING"
         length = [1, 2]
         klass_codelist = 782
-		renamed_from = ["termin1", "karakter_halvarsvurdering_1"]
+		renamed_from = ["termin1", "karakter_halvarsvurdering_1", "vg_karakter_halvaar_1"]
 
     [variables.gro_karakter_termin2]
         unit = "karakter"
         dtype = "STRING"
         length = [1, 2]
         klass_codelist = 782
-		renamed_from = ["termin2", "karakter_halvarsvurdering_2"]
+		renamed_from = ["termin2", "karakter_halvarsvurdering_2", "vg_karakter_halvaar_2"]
 
     [variables.gro_karakter_praktisk_muntlig]
         unit = "karakter"
         dtype = "STRING"
         length = [1, 2]
         klass_codelist = 782
-		renamed_from = ["kar_annen", "karakter_annen_eksamen"]
+		renamed_from = ["kar_annen", "karakter_annen_eksamen", "vg_karakter_annen"]
 
     [variables.gro_fagstatus]
         unit = "karakter"
         dtype = "STRING"
         length = [1]
         klass_codelist = 766
-		renamed_from = ["fagstatus"]
+		renamed_from = ["fagstatus", "vg_fagstatus"]
 
     [variables.gro_karakterstatus]
         unit = "karakter"
