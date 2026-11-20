@@ -15,6 +15,34 @@
         team = "utd-vg"
         bucket = "vgu"
         path_glob = "vgu/klargjorte-data/videregaaende-karakterer_p[0-9][0-9][0-9][0-9]_p[0-9][0-9][0-9][0-9]_v*[0-9].parquet"
+        variables = [
+            # pers
+            "snr",
+            "fnr",
+            
+            # tid
+            "utd_skoleaar_start",
+            
+            # skole
+            "orgnrbed",
+            "orgnr_foretak",
+            "gro_skolenr_inn",
+
+            # karaktervar
+            "gro_fagkode_vigo",
+            "gro_fagkode_vigo",
+            "gro_karakter_skriftlig",
+            "gro_karakter_muntlig",
+            "gro_karakter_termin1",
+            "gro_karakter_termin2",
+            "gro_karakter_praktisk_muntlig",
+            "gro_fagstatus",
+            "gro_karakterstatus",
+            "gro_fagmerknad",
+        ]
+            
+
+
 
     [datasets.vg_vitnemaal]
         team = "utd-vg"
