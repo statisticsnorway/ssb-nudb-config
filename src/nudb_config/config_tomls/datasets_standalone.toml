@@ -13,8 +13,8 @@
 
     [datasets.vgkarakterer]
         team = "utd-vg"
-        bucket = ""
-        path_glob = 
+        bucket = "vgu"
+        path_glob = "vgu/klargjorte-data/videregaaende-karakterer_p[0-9][0-9][0-9][0-9]_p[0-9][0-9][0-9][0-9]_v*[0-9].parquet"
 
     [datasets.vg_vitnemaal]
         team = "utd-vg"
