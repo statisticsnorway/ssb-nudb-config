@@ -1,0 +1,92 @@
+
+
+######################
+# Nasjprov-variabler #
+######################
+
+  [variables.skalapoeng]
+	unit = ""
+	dtype = "FLOAT"
+	renamed_from = "skalapoeng"
+	description_short = "Poengskala for Nasjonale Proever, fom. 2014. "
+
+  [variables.skalapoeng_old]
+	unit = ""
+	dtype = "FLOAT"
+	renamed_from = "skalapoeng_old"
+	description_short = "Skalapoeng verdier for 2014-2021 perioden pre re-estimering"
+
+  [variables.mestringsnivaa]
+	unit = ""
+	dtype = "STRING"
+	length = [1]
+	renamed_from = "mestringsnivaa"
+	description_short = "Skalaen med ulike mestringsnivå har tre nivåer for 5.trinn og fem nivåer for 8.trinn og 9. trinn."
+
+  [variables.mestringsnivaa_old]
+	unit = ""
+	dtype = "STRING"
+	length = [1]
+	renamed_from = "mestringsnivaa_old"
+	description_short = "Mestringsnivaa verdier for 2014-2021 perioden pre re-estimering"
+
+  [variables.poeng]
+	unit = ""
+	dtype = "INTEGER"
+	renamed_from = "poeng"
+	description_short = "Earlier version of skalapoeng, tom. 2013"
+
+  [variables.deltattstatus]
+	unit = ""
+	dtype = "STRING"
+	length = [1]
+	renamed_from = "deltattstatus"
+	description_short = ""
+
+  [variables.provekode]
+	unit = ""
+	dtype = "STRING"
+	length = [7]
+	renamed_from = "provekode"
+	description_short = ""
+
+  [variables.oppgavesettnr]
+	unit = ""
+	dtype = "STRING"
+	length = [1]
+	renamed_from = "oppgavesettnr"
+	description_short = ""
+
+  [variables.gruppenr]
+	unit = ""
+	dtype = "STRING"
+	length = [6]
+	renamed_from = "gruppenr"
+	description_short = ""
+
+  [variables.skoletype_pas]
+	unit = ""
+	dtype = "STRING"
+	length = [1]
+	renamed_from = "skoletype_pas"
+	description_short = ""
+
+  [variables.avgiverskole_orgnrbed]
+	unit = ""
+	dtype = "STRING"
+	length = [9]
+	renamed_from = "avgiverskole_orgnrbed"
+	description_short = "Hvis en elev har byttet skole, er avgiverskolen den forrige skolen de gikk paa"
+
+  [variables.avgiverskole_orgnr_foretak]
+	unit = ""
+	dtype = "STRING"
+	length = [9]
+	renamed_from = "avgiverskole_orgnr_foretak"
+	description_short = "Hvis en elev har byttet skole, er avgiverskolen den forrige skolen de gikk paa"
+
+  [variables.avgiverskole_navn]
+	unit = ""
+	dtype = "STRING"
+	renamed_from = "avgiverskole_navn"
+	description_short = "Hvis en elev har byttet skole, er avgiverskolen den forrige skolen de gikk paa"
