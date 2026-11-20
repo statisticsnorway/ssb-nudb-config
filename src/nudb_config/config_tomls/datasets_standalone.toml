@@ -63,6 +63,7 @@
             "gro_fagstatus",
             "gro_karakterstatus",
             "gro_fagmerknad",
+            "vg_karakterpoeng"
         ]
             
     [datasets.vg_vitnemaal]
