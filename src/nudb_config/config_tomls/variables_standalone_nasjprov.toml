@@ -1,0 +1,100 @@
+
+####################
+# Nasjonale prøver #
+####################
+
+	[variables.nasjprov_deltattstatus]
+		unit = "nasjprov"
+		dtype = "STRING"
+        length = [1]
+		renamed_from = ["deltattstatus"]
+		description_short = "Participated in a national test."
+
+    [variables.nasjprov_mestringsnivaa]
+		unit = "nasjprov"
+		dtype = "STRING"
+        length = [1, 3]
+		renamed_from = ["mestringsnivaa"]
+		description_short = "Indicates placement in distribution of test scores (T-scores) given by skalapoeng. Re-estimated for years 2014-2021. Original values found in mestringsnivaa_old. Usually given as int, length 1, but for some scores in years 2014-2021 variable has format decimal number with 1dp."
+    
+    [variables.nasjprov_poeng]
+		unit = "nasjprov"
+		dtype = "INTEGER"
+		renamed_from = ["poeng"]
+		description_short = "Rawscore from national test."
+
+    [variables.nasjprov_skalapoeng]
+		unit = "nasjprov"
+		dtype = "FLOAT"
+		renamed_from = ["skalapoeng"]
+		description_short = "T-score for national test. Linear transformation of z-score output from IRT analysis. Re-estimated for years 2014-2021. Original values found in skalapoeng_old."
+
+    [variables.nasjprov_provekode]
+		unit = "nasjprov"
+		dtype = "STRING"
+        length = [7]
+		renamed_from = ["provekode"]
+		description_short = "Info which test: subject and school-year."
+
+    [variables.nasjprov_oppgavesettnr]
+		unit = "nasjprov"
+		dtype = "STRING"
+        length = [1]
+		renamed_from = ["oppgavesettnr"]
+		description_short = "Group of items on test. Filled out 2010-2016."
+
+    [variables.nasjprov_gruppenr]
+		unit = "nasjprov"
+		dtype = "STRING"
+        length = [5, 6]
+		renamed_from = ["gruppenr"]
+		description_short = ""
+
+    [variables.nasjprov_skalapoeng_old]
+		unit = "nasjprov"
+		dtype = "FLOAT"
+		renamed_from = ["skalapoeng_old"]
+		description_short = "Original T-score for national test. Linear transformation of z-score output from IRT analysis of rawscore (poeng). Re-estimated for years 2014-2021. Re-estimated values found in skalapoeng. This variable only exists for years that were reestimated."
+
+    [variables.nasjprov_mestringsnivaa_old]
+		unit = "nasjprov"
+		dtype = "STRING"
+        length = [1]
+		renamed_from = ["mestringsnivaa_old"]
+		description_short = "Indicates placement in distribution of test scores (T-scores) given by skalapoeng. Re-estimated for years 2014-2021. Re-estimated values found in mestringsnivaa. This variable only exists for years that were reestimated."
+
+###############################################################
+### Skolevariabler som foreløpig kun finnes i nasjprov fila ###
+###############################################################
+
+    [variables.gro_avgiverskole_orgnrbed]
+		unit = "skole"
+		dtype = "STRING"
+		description_short = "Underenhet / Bedriftens organisasjons-ID definert av Brønnøysundregistered og VoF/BoF til barneskolen som eleven gikk på"
+		length = [9]
+        renamed_from = ["avgiverskole_orgnrbed"]
+		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
+
+    [variables.gro_avgiverskole_orgnr_foretak]
+		unit = "skole"
+		dtype = "STRING"
+		description_short = "Organisasjonsnummeret til Overenhet / Foretak / Juridisk Enhet. ID definert av Brønnøysundregistered og VoF/BoF til barneskolen som eleven gikk på."
+		length = [9]
+        renamed_from = ["avgiverskole_orgnr_foretak"]
+		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
+
+    [variables.gro_avgiverskole_navn]
+        unit = "skole"
+        dtype = "STRING"
+        description_short = "Innrapportert skolenavn til barneskolen som eleven gikk på."
+        renamed_from = ["avgiverskole_navn"]
+		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
+
+   [variables.gro_skoletype_pas]
+        unit = "skole"
+        dtype = "STRING"
+        description_short = "Skoletype angitt av utdanningsdirektoratets PAS."
+        length = [9]
+        renamed_from = ["skoletype_pas"]
+		klass_codelist = 0  # This means that the variable is never supposed to have a klass_codelist or klass_variant or similar.
+
