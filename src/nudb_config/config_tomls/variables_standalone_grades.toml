@@ -1,9 +1,8 @@
+###########################################
+# Karakterer i grunnskole og videregående #
+###########################################
 
-#################################################
-# Karakterer kodelister ligger i vigo-kodeverk? #
-#################################################
-
-	[variables.gro_fagkode_vigo]
+    [variables.gro_fagkode_vigo]
 		unit = "karakter"
 		length = [3, 6, 7]
 		dtype = "STRING"
@@ -65,6 +64,7 @@
         length = [1]
         klass_codelist = 766
 		renamed_from = ["fagstatus", "vg_fagstatus"]
+        description_short = "Elevens, privatistens eller kandidatens status på et gitt fag."
 
     [variables.gro_karakterstatus]
         unit = "karakter"
@@ -72,6 +72,7 @@
         length = [1]
         klass_codelist = 783
 		renamed_from = ["karakterstatus"]
+        description_short = "Kode for karakterer som blir endret."
 
     [variables.gro_fagmerknad]
         unit = "karakter"
