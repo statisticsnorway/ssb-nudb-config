@@ -36,7 +36,7 @@
 		renamed_from = ["provekode"]
 		description_short = "Info which test: subject and school-year."
 
-    [variables.nasjprov_oppgavesettnr]
+    [variables.gr_nasjprov_oppgavesettnr]
 		unit = "gr"
 		dtype = "STRING"
         length = [1]
