@@ -9,6 +9,7 @@
         team = "utd-nudb"
         bucket = "utdanning"
         path_glob = "nudb-data/klargjorte-data/bakt/utd-hoeyeste_p[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]_v*[0-9].parquet"
+        baked = true
 
         variables = [
             'snr',
@@ -29,6 +30,7 @@
         team = "utd-nudb"
         bucket = "utdanning"
         path_glob = "nudb-data/klargjorte-data/bakt/utd-foreldres-utdnivaa_p[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]_v*[0-9].parquet"
+        baked = true
 
         variables = [
             'snr',

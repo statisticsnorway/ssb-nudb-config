@@ -11,6 +11,7 @@ class Dataset(DotMapBaseModel):
         team: The name of the dapla-team who owns the dataset.
         bucket: The bucket name, under the dapla-team, where the dataset is located.
         path_glob: A glob that can be used in the bucket to pinpoint all available periods and versions of the dataset.
+        baked: If the dataset is also a virtual table in nudb-use, but can and will be baked as a physical dataset to a given path. This is set to True, otherwise defaults to False.
         variables: Ordered list of variable names included in the dataset.
         thresholds_empty: Allowable proportions of emptiness per variable.
         min_values: Minimum inclusive filter values per variable.
@@ -21,6 +22,7 @@ class Dataset(DotMapBaseModel):
     team: str
     bucket: str
     path_glob: str
+    baked: bool = False
     variables: list[str] | None = None
     thresholds_empty: DotMapDict[float] | None = None
     min_values: DotMapDict[str] | None = None
@@ -34,6 +36,7 @@ class DatasetOverride(DotMapBaseModel):
     team: str | None = None
     bucket: str | None = None
     path_glob: str | None = None
+    baked: bool | None = None
     variables: list[str] | None = None
     thresholds_empty: DotMapDict[float] | None = None
     min_values: DotMapDict[str] | None = None
