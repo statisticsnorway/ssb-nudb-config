@@ -3,33 +3,33 @@
 # Nasjonale prøver #
 ####################
 
-	[variables.nasjprov_deltattstatus]
+	[variables.gr_nasjprov_deltattstatus]
 		unit = "gr"
 		dtype = "STRING"
         length = [1]
-		renamed_from = ["deltattstatus"]
+		renamed_from = ["deltattstatus", "nasjprov_deltattstatus"]
 		description_short = "Participated in a national test."
 
-    [variables.nasjprov_mestringsnivaa]
+    [variables.gr_nasjprov_mestringsnivaa]
 		unit = "gr"
 		dtype = "STRING"
         length = [1, 3]
-		renamed_from = ["mestringsnivaa"]
+		renamed_from = ["mestringsnivaa", "nasjprov_mestringsnivaa"]
 		description_short = "Indicates placement in distribution of test scores (T-scores) given by skalapoeng. Re-estimated for years 2014-2021. Original values found in mestringsnivaa_old. Usually given as int, length 1, but for some scores in years 2014-2021 variable has format decimal number with 1dp."
 
-    [variables.nasjprov_poeng]
+    [variables.gr_nasjprov_poeng]
 		unit = "gr"
 		dtype = "INTEGER"
-		renamed_from = ["poeng"]
+		renamed_from = ["poeng", "nasjprov_poeng"]
 		description_short = "Rawscore from national test."
 
-    [variables.nasjprov_skalapoeng]
+    [variables.gr_nasjprov_skalapoeng]
 		unit = "gr"
 		dtype = "FLOAT"
-		renamed_from = ["skalapoeng"]
+		renamed_from = ["skalapoeng", "nasjprov_skalapoeng"]
 		description_short = "T-score for national test. Linear transformation of z-score output from IRT analysis. Re-estimated for years 2014-2021. Original values found in skalapoeng_old."
 
-    [variables.nasjprov_provekode]
+    [variables.gr_nasjprov_provekode]
 		unit = "gr"
 		dtype = "STRING"
         length = [7]
@@ -40,27 +40,27 @@
 		unit = "gr"
 		dtype = "STRING"
         length = [1]
-		renamed_from = ["oppgavesettnr"]
+		renamed_from = ["oppgavesettnr", "nasjprov_oppgavesettnr"]
 		description_short = "Group of items on test. Filled out 2010-2016."
 
-    [variables.nasjprov_gruppenr]
+    [variables.gr_nasjprov_gruppenr]
 		unit = "gr"
 		dtype = "STRING"
         length = [5, 6]
-		renamed_from = ["gruppenr"]
+		renamed_from = ["gruppenr", "nasjprov_gruppenr"]
 		description_short = ""
 
-    [variables.nasjprov_skalapoeng_old]
+    [variables.gr_nasjprov_skalapoeng_old]
 		unit = "gr"
 		dtype = "FLOAT"
-		renamed_from = ["skalapoeng_old"]
+		renamed_from = ["skalapoeng_old", "nasjprov_skalapoeng_old"]
 		description_short = "Original T-score for national test. Linear transformation of z-score output from IRT analysis of rawscore (poeng). Re-estimated for years 2014-2021. Re-estimated values found in skalapoeng. This variable only exists for years that were reestimated."
 
-    [variables.nasjprov_mestringsnivaa_old]
+    [variables.gr_nasjprov_mestringsnivaa_old]
 		unit = "gr"
 		dtype = "STRING"
         length = [1]
-		renamed_from = ["mestringsnivaa_old"]
+		renamed_from = ["mestringsnivaa_old", "nasjprov_mestringsnivaa_old"]
 		description_short = "Indicates placement in distribution of test scores (T-scores) given by skalapoeng. Re-estimated for years 2014-2021. Re-estimated values found in mestringsnivaa. This variable only exists for years that were reestimated."
 
 ###############################################################

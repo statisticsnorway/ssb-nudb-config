@@ -1,6 +1,6 @@
 [datasets]
 
-    [datasets.nasjprov]
+    [datasets.gr_nasjprov]
         team = "utd-bhgskole"
         bucket = "nasjprov"
         path_glob = "nasjprov/klargjorte-data/nasjonaleprover_p[0-9][0-9][0-9][0-9]_p[0-9][0-9][0-9][0-9]_v*[0-9].parquet"
@@ -26,15 +26,15 @@
             "gro_avgiverskole_navn",
 
             # nasjprov
-            'nasjprov_deltattstatus',
-            'nasjprov_mestringsnivaa',
-            'nasjprov_poeng',
-            'nasjprov_skalapoeng',
-            'nasjprov_provekode',
-            'nasjprov_oppgavesettnr',
-            'nasjprov_gruppenr',
-            'nasjprov_skalapoeng_old',
-            'nasjprov_mestringsnivaa_old',
+            'gr_nasjprov_deltattstatus',
+            'gr_nasjprov_mestringsnivaa',
+            'gr_nasjprov_poeng',
+            'gr_nasjprov_skalapoeng',
+            'gr_nasjprov_provekode',
+            'gr_nasjprov_oppgavesettnr',
+            'gr_nasjprov_gruppenr',
+            'gr_nasjprov_skalapoeng_old',
+            'gr_nasjprov_mestringsnivaa_old',
 
             # derived
             "pers_kjoenn",
