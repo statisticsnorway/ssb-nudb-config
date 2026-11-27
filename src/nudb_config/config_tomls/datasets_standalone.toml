@@ -1,0 +1,128 @@
+[datasets]
+
+    [datasets.gr_nasjprov]
+        team = "utd-bhgskole"
+        bucket = "nasjprov"
+        path_glob = "nasjprov/klargjorte-data/nasjonaleprover_p[0-9][0-9][0-9][0-9]_p[0-9][0-9][0-9][0-9]_v*[0-9].parquet"
+
+        variables = [
+            # pers
+            "snr",
+            "fnr",
+
+            # tid
+            "utd_skoleaar_start",
+
+            # skole
+            "orgnr_foretak",
+            "orgnrbed",
+            "utd_skolekom",
+            "skoletype_pas",
+
+            # gro
+            "gro_skolenavn_inn",
+            "gro_avgiverskole_orgnrbed",
+            "gro_avgiverskole_orgnr_foretak",
+            "gro_avgiverskole_navn",
+
+            # nasjprov
+            'gr_nasjprov_deltattstatus',
+            'gr_nasjprov_mestringsnivaa',
+            'gr_nasjprov_poeng',
+            'gr_nasjprov_skalapoeng',
+            'gr_nasjprov_provekode',
+            'gr_nasjprov_oppgavesettnr',
+            'gr_nasjprov_gruppenr',
+            'gr_nasjprov_skalapoeng_old',
+            'gr_nasjprov_mestringsnivaa_old',
+
+            # derived
+            "pers_kjoenn",
+        ]
+
+
+    [datasets.gr_karakterer]
+        team = "utd-bhgskole"
+        bucket = "kargrs"
+        path_glob = "kargrs/klargjorte-data/grunnskole-karakterer_p[0-9][0-9][0-9][0-9]_p[0-9][0-9][0-9][0-9]_v*[0-9].parquet"
+        variables = [
+            # pers
+            "snr",
+            "fnr",
+
+            # tid
+            "utd_skoleaar_start",
+
+            # skole
+            "orgnrbed",
+            "orgnr_foretak",
+            "gro_skolenr_inn",
+
+            # karaktervar
+            "gro_fagkode_vigo",
+            "gro_karakter_standpunkt",
+            "gro_karakter_skriftlig",
+            "gro_karakter_muntlig",
+            "gro_karakter_termin1",
+            "gro_karakter_termin2",
+            "gro_karakter_praktisk_muntlig",
+            "gro_fagstatus",
+            "gro_karakterstatus",
+            "gro_fagmerknad", # ligger ikke på filen ennå, men ønsket i fremtiden
+        ]
+
+
+    [datasets.gr_karakterer.thresholds_empty]
+        snr = 0.1
+        orgnr_foretak = 0.1
+        gro_fagkode_vigo = 0.0
+        gro_karakter_standpunkt = 4.0
+        gro_karakter_skriftlig = 93.0
+        gro_karakter_muntlig = 96.0
+        gro_karakter_termin1 = 15.0
+        gro_karakter_termin2 = 99.93
+        gro_karakter_praktisk_muntlig = 99.99
+
+
+    [datasets.vg_karakterer]
+        team = "utd-vg"
+        bucket = "vgu"
+        path_glob = "vgu/klargjorte-data/videregaaende-karakterer_p[0-9][0-9][0-9][0-9]_p[0-9][0-9][0-9][0-9]_v*[0-9].parquet"
+        variables = [
+            # pers
+            "snr",
+            "fnr",
+
+            # tid
+            "utd_skoleaar_start",
+
+            # skole
+            "orgnrbed",
+            "orgnr_foretak",
+            "gro_skolenr_inn",
+
+            # karaktervar
+            "gro_fagkode_vigo",
+            "gro_karakter_standpunkt",
+            "gro_karakter_skriftlig",
+            "gro_karakter_muntlig",
+            "gro_karakter_termin1",
+            "gro_karakter_termin2",
+            "gro_karakter_praktisk_muntlig",
+            "gro_fagstatus",
+            "gro_karakterstatus",
+            "gro_fagmerknad", # ligger ikke på filen ennå, men ønsket i fremtiden
+            "vg_karakterpoeng"
+        ]
+
+
+    [datasets.vg_vitnemaal]
+        team = "utd-vg"
+        bucket = "vgu"
+        path_glob = "vgu/klargjorte-data/videregaaende-vitnemaal_p[0-9][0-9][0-9][0-9]_p[0-9][0-9][0-9][0-9]_v*[0-9].parquet"
+
+
+    [datasets.vg_vitnemaal_karakterer]
+        team = "utd-vg"
+        bucket = "vgu"
+        path_glob = "vgu/klargjorte-data/videregaaende-vitnemaal-karakterer_p[0-9][0-9][0-9][0-9]_p[0-9][0-9][0-9][0-9]_v*[0-9].parquet"
